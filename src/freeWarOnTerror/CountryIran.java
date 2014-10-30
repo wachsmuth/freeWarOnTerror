@@ -16,5 +16,15 @@ public class CountryIran extends Country {
         super(name);
         noLongerNeedsTesting();
     }
+     
+    @Override
+     public void testCountry(){
+         
+     }   
+        
+    @Override
+      public int getGovernance(){
+          return 2;
+      }
     
 }
