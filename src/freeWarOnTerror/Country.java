@@ -40,6 +40,10 @@ public abstract class Country {
     public void removeAdjacentCountry(Country c) {
         adjacentCountries.remove(c);
     }
+    
+    public ArrayList<Country> getAdjacentCountries(){
+        return adjacentCountries;
+    }
 
     public Boolean isCountryAdjacent(Country country) {
         for (Country c : adjacentCountries) {
@@ -54,7 +58,7 @@ public abstract class Country {
         needsTesting = false;
     }
 
-    public void killCell() {
+    public void killCell() { //this method not finished
         Boolean activeCells = false;
         Cell anActiveCell = null;
         for (Cell c : cells) {
@@ -65,12 +69,24 @@ public abstract class Country {
             }
         }
         if (activeCells) {
-
+            
         }
     }
 
     public Boolean canDeploy() {
         return false;
+    }
+    
+    public Boolean canRecruit(){
+        return cadre || cells.size() > 0;
+    }
+    
+    public void setCadre(Boolean cadre){
+        this.cadre = cadre;
+    }
+    
+    public Boolean getCadre(){
+        return cadre;
     }
     
 }
