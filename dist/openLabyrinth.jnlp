@@ -11,11 +11,11 @@
   </resources>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="openLabyrinth.jar" size="6650" download="eager" />
+    <jar href="openLabyrinth.jar" size="10339" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="openLabyrinth" >
     <param name="requiredFXVersion" value="8.0+"/>
   </applet-desc>
-  <jfx:javafx-desc  width="800" height="600" main-class="openlabyrinth.OpenLabyrinth"  name="openLabyrinth" />
+  <jfx:javafx-desc  width="800" height="600" main-class="freeWarOnTerror.OpenLabyrinth"  name="openLabyrinth" />
   <update check="always"/>
 </jnlp>

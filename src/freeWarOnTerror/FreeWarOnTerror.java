@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package openlabyrinth;
+package freeWarOnTerror;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -17,7 +17,7 @@ import javafx.stage.Stage;
  *
  * @author Emil
  */
-public class OpenLabyrinth extends Application {
+public class FreeWarOnTerror extends Application {
     
     @Override
     public void start(Stage primaryStage) {

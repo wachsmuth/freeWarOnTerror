@@ -3,20 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package openlabyrinth;
+package freeWarOnTerror;
 
 /**
  *
  * @author Emil
  */
-public class Cell {
-    private Boolean active = false;
-
-    public void setActive(Boolean active){
-        this.active = active;
-    }
+public class Die {
     
-    public Boolean getActive(){
-        return active;
+    
+    static public int rollDie(){
+        return (int) Math.floor(Math.random()*6+1);
     }
 }

@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package openlabyrinth.cards;
+package freeWarOnTerror.cards;
 
-import openlabyrinth.Card;
-import openlabyrinth.Game;
+import freeWarOnTerror.Card;
+import freeWarOnTerror.Game;
 
 /**
  *
