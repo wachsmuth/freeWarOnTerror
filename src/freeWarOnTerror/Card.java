@@ -4,7 +4,7 @@ package freeWarOnTerror;
  *
  * @author Emil
  */
-public class Card {
+public abstract class Card {
 
     private final int ops;
     private final int alignment; //0 is Automatic Event, 1 is Neutral, 2 is US, 3 is Jihadist

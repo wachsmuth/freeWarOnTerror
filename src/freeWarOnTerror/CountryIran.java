@@ -24,7 +24,12 @@ public class CountryIran extends Country {
         
     @Override
       public int getGovernance(){
-          return 2;
+          return governance;
+      }
+      
+    @Override
+      public Boolean canWarOfIdeas(int ops){
+          return false;
       }
     
 }

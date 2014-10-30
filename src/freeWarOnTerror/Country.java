@@ -11,7 +11,7 @@ import java.util.*;
  *
  * @author Emil
  */
-public class Country {
+public abstract class Country {
 
     private final ArrayList<Country> adjacentCountries = new ArrayList<>();
     private final ArrayList<Cell> cells = new ArrayList<>();
@@ -26,6 +26,8 @@ public class Country {
     public abstract void testCountry();
 
     public abstract int getGovernance();
+    
+    public abstract Boolean canWarOfIdeas(int ops);
 
     public Boolean needsTesting() {
         return needsTesting;
@@ -70,8 +72,5 @@ public class Country {
     public Boolean canDeploy() {
         return false;
     }
-
-    public Boolean getRegimeChange() {
-        return false;
-    }
+    
 }

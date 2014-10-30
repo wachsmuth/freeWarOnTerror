@@ -17,7 +17,7 @@ public class MuslimCountry extends Country {
     private final Boolean oilCountry;
     private final Boolean shiaMix;
     private Boolean besiegedRegime = false;
-    private Boolean regimeChange = false;
+    private int regimeChange = 0;
     private int aid = 0;
     private int governance = 0; //1 = Good, 2 = Fair, 3 = Poor, 4 = Islamist Rule
     private int alignment = 0; //1 = Ally, 2 = Neutral, 3 = Adversary
@@ -69,8 +69,20 @@ public class MuslimCountry extends Country {
         return shiaMix;
     }
     
-    @Override
-    public Boolean getRegimeChange(){
+    public Boolean getBesiegedRegime(){
+        return besiegedRegime;
+    }
+    
+    public void setBesiegedRegime(Boolean bool){
+        besiegedRegime = bool;
+    }
+    
+    public int getRegimeChange(){
         return regimeChange;
+    }
+    
+    @Override
+    public Boolean canWarOfIdeas(int ops){
+        return ops >= governance && alignment < 3;
     }
 }

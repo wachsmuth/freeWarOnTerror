@@ -16,12 +16,22 @@
  */
 package freeWarOnTerror;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Emil
  */
 public class Scenario {
     
+    private final ArrayList<Country> countries;
     
+    public Scenario(ArrayList<Country> countries){
+        this.countries = countries;
+        createWorld();
+    }
     
+    private void createWorld(){ //sample code, WIP
+        countries.add(new MuslimCountry("Somalia", 1, false, false));
+    }
 }

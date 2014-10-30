@@ -12,16 +12,9 @@ package freeWarOnTerror;
 public class CountryIsrael extends NonMuslimCountry {
 
     public CountryIsrael(String name, int governance) {
-        super(name, governance, governance);
+        super(name, governance, governance, false);
         noLongerNeedsTesting();
     }
-    
-    @Override
-    public int getGovernance(){
-        return 1;
-    }
-    
-    public void setGovernance(){
-        
-    }
+   
+  
 }
