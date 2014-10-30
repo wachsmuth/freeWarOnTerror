@@ -23,13 +23,9 @@ public class Country {
         this.name = name;
     }
 
-    public void testCountry() { //override this
+    public abstract void testCountry();
 
-    }
-
-    public int getGovernance() { //override this
-        return 0;
-    }
+    public abstract int getGovernance();
 
     public Boolean needsTesting() {
         return needsTesting;
