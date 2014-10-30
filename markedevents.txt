@@ -1,0 +1,22 @@
+0: FATA
+1: Pirates
+2: Bhutto Shot
+3: Abu Sayyaf
+4: Al-Anbar
+5: Vieria de Mello Slain
+6: Moqtada al-Sadr
+7: Enhanced Measures
+8: Renditions
+9: Wiretapping
+10: Patriot Act
+11: Abbas
+12: NEST
+13: Anbar Awakening
+14: Benazir Bhutto
+15: Saddam Captured
+16: Iraqi WMD
+17: Libyan WMD
+18: Libyan Deal
+19: Moro Talks
+20: Indo-Pakistani Talks
+21: NATO

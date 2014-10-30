@@ -1,0 +1,38 @@
+0: United States
+1: Canada
+2: United Kingdom
+3: Scandinavia
+4: Benelux
+5: Germany
+6: Eastern Europe
+7: France
+8: Italy
+9: Spain
+10: Serbia
+11: Russia
+12: Caucasus
+13: Israel
+14: India
+15: China
+16: Thailand
+17: Philippines
+18: Kenya/Tanzania
+19: Morocco
+20: Algeria/Tunisia
+21: Libya
+22: Egypt
+23: Sudan
+24: Somalia
+25: Yemen
+26: Saudi Arabia
+27: Jordan
+28: Syria
+29: Lebanon
+30: Turkey
+31: Iraq
+32: Gulf States
+33: Pakistan
+34: Afghanistan
+35: Central Asia
+36: Indonesia/Malaysia
+37: Iran
