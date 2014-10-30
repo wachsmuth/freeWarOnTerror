@@ -17,7 +17,7 @@ public class Sanctions extends Card {
     Game game;
 
     public Sanctions(Game game) {
-        super(1, 1);
+        super(1, 1, true);
         this.game = game;
     }
     

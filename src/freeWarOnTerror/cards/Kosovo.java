@@ -16,7 +16,7 @@ public class Kosovo extends Card {
         
         Game game;
         public Kosovo(Game game) {
-        super(1,1); 
+        super(1,1, false); 
         this.game = game;
     }
         
