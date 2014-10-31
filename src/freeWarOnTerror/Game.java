@@ -75,6 +75,15 @@ public class Game {
     public static int getPrestige(){
         return prestige;
     }
+    
+    public Country getCountry(int id){
+        for (Country c : countries){
+            if (c.getID() == id){
+                return c;
+            }
+        }
+        return null;
+    }
 
     public static void modifyPrestige(int change) {
         prestige = prestige + change;

@@ -92,4 +92,8 @@ public abstract class Country {
         return cadre;
     }
     
+    public int getID(){
+        return id;
+    }
+    
 }
