@@ -12,7 +12,15 @@ package freeWarOnTerror;
 public class Die {
     
     
-    static public int rollDie(){
+    public static int rollDie(){
         return (int) Math.floor(Math.random()*6+1);
     }
-}
+    
+    public static int rollD6(int amount){
+        long reVal = 0;
+        for (int i = 0; i < amount; i++){
+            reVal += Math.floor(Math.random()*6+1);
+        }
+        return (int) reVal;
+        }
+    }

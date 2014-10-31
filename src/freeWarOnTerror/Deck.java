@@ -18,7 +18,7 @@ public class Deck {
     private final ArrayList<Card> cards = new ArrayList<>();
 
     public Deck() {
-
+        //Empty constructor, remove DEBUG
     }
 
     public void addCard(Card c) {
