@@ -16,8 +16,8 @@ public class NonMuslimCountry extends Country {
     private final int recruit;
     private final Boolean schengen;
 
-    public NonMuslimCountry(String name, int governance, int recruit, Boolean schengen) {
-        super(name);
+    public NonMuslimCountry(String name, int id, int governance, int recruit, Boolean schengen) {
+        super(name, id);
         this.governance = governance;
         this.recruit = recruit;
         this.schengen = schengen;

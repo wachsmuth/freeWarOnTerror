@@ -24,8 +24,8 @@ public class CountryIran extends Country {
 
     int governance = 2;
 
-    public CountryIran(String name) {
-        super(name);
+    public CountryIran(String name, int id) {
+        super(name, id);
         noLongerNeedsTesting();
     }
 

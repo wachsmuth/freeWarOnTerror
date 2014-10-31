@@ -36,7 +36,8 @@ public class Scenario {
     }
     
     private void createWorld(){ //sample code, WIP
-        countries.add(new MuslimCountry("Somalia", 1, false, false));
+        //countries.add(new MuslimCountry("Somalia", 1, false, false));
+        //countries.add(new MuslimCountry("Yemen"))
     }
     
     public void createDeck(){ //sample code, WIP

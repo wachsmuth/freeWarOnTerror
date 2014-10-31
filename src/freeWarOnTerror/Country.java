@@ -18,9 +18,11 @@ public abstract class Country {
     private final String name;
     private Boolean needsTesting = true;
     private Boolean cadre = false;
+    private final int id;
 
-    public Country(String name) {
+    public Country(String name, int id) {
         this.name = name;
+        this.id = id;
     }
 
     public abstract void testCountry();

@@ -22,8 +22,8 @@ public class MuslimCountry extends Country {
     private int governance = 0; //1 = Good, 2 = Fair, 3 = Poor, 4 = Islamist Rule
     private int alignment = 0; //1 = Ally, 2 = Neutral, 3 = Adversary
 
-    public MuslimCountry(String name, int resources, Boolean oilCountry, Boolean shiaMix) {
-        super(name);
+    public MuslimCountry(String name, int id, int resources, Boolean oilCountry, Boolean shiaMix) {
+        super(name, id);
         this.resources = resources;
         this.oilCountry = oilCountry;
         this.shiaMix = shiaMix;
