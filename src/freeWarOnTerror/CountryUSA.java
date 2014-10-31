@@ -24,6 +24,7 @@ public class CountryUSA extends NonMuslimCountry {
     
     public CountryUSA(String name, int id, int governance){
         super(name, id, governance, governance, false);
+        noLongerNeedsTesting();
     }
     
 }
