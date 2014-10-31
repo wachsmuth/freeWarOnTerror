@@ -79,7 +79,7 @@ public class Scenario {
         countries.add(new CountryIran("Iran", CONSTANTS.IRAN));
         countries.add(new CountryIsrael("Israel", CONSTANTS.ISRAEL, 1));
         countries.add(new CountryPhilippines("Philippines", CONSTANTS.PHILIPPINES,2,3));
-        
+        countries.add(new CountryUSA("United States", CONSTANTS.UNITEDSTATES, 1));
 //countries.add(new MuslimCountry("Yemen"))
     }
     
