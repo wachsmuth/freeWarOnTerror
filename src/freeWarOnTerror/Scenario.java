@@ -42,6 +42,6 @@ public class Scenario {
     }
     
     public void createDeck(){ //sample code, WIP
-        deck.addCard(new freeWarOnTerror.cards.Sanctions(game));
+        deck.addCard(new freeWarOnTerror.cards.Sanctions());
     }
 }
