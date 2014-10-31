@@ -1,4 +1,4 @@
-package freeWarOnTerror;
+package freeWarOnTerror.abClasses;
 
 /*
  * Copyright (C) 2014 Emil

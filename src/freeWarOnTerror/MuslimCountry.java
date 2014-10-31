@@ -5,6 +5,7 @@
  */
 package freeWarOnTerror;
 
+import freeWarOnTerror.helpers.Die;
 import freeWarOnTerror.abClasses.Country;
 
 /**
