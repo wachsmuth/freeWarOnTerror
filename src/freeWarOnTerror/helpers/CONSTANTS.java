@@ -51,7 +51,7 @@ public class CONSTANTS {
     public final static int INDIA = 14;
     public final static int CHINA = 15;
     public final static int THAILAND = 16;
-    public final static int PHILLIPINES = 17;
+    public final static int PHILIPPINES = 17;
     public final static int KENYA = 18;
     public final static int MOROCCO = 19;
     public final static int ALGERIA = 20;
