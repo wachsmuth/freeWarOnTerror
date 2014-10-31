@@ -24,8 +24,8 @@ public class CountryPhilippines extends NonMuslimCountry {
 
     private Boolean abuSayyaf = false;
 
-    public CountryPhilippines(String name, int governance, int recruit) {
-        super(name, governance, recruit, false);
+    public CountryPhilippines(String name, int id, int governance, int recruit) {
+        super(name, id, governance, recruit, false);
 
     }
 
