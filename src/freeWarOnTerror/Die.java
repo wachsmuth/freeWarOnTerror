@@ -30,7 +30,7 @@ public class Die {
         if (newDie > smallestDie) {
             smallestDie = newDie;
         }
-        return smallestDie();
+        return smallestDie;
     }
 
 }
