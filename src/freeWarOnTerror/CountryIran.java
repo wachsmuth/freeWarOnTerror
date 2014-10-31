@@ -16,6 +16,8 @@
  */
 package freeWarOnTerror;
 
+import freeWarOnTerror.abClasses.Country;
+
 /**
  *
  * @author Emil

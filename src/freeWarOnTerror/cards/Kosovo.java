@@ -5,7 +5,7 @@
  */
 package freeWarOnTerror.cards;
 
-import freeWarOnTerror.Card;
+import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.Game;
 
 /**
