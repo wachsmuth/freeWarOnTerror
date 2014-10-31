@@ -25,20 +25,17 @@ import freeWarOnTerror.Game;
  */
 public class Sanctions extends Card {
 
-    Game game;
-
-    public Sanctions(Game game) {
+    public Sanctions() {
         super(1, 2, true);
-        this.game = game;
     }
     
     @Override
     public Boolean getPlayable(){
-        return game.ifCardActive(10);
+        return Game.ifCardActive(10);
     }
 
     @Override
     public void play() {
-        game.modifyFunding(-2);
+        Game.modifyFunding(-2);
     }
 }

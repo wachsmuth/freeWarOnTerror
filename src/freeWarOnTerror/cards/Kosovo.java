@@ -13,15 +13,12 @@ import freeWarOnTerror.Game;
  * @author Emil
  */
 public class Kosovo extends Card {
-        
-        Game game;
         public Kosovo(Game game) {
         super(1,1, false); 
-        this.game = game;
     }
         
         @Override
         public void play(){
-            game.modifyPrestige(1);
+            Game.modifyPrestige(1);
         }
 }

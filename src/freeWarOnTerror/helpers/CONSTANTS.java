@@ -20,8 +20,20 @@ package freeWarOnTerror.helpers;
  *
  * @author Gustav Wengel
  */
-public class CountryList {
-
+public class CONSTANTS {
+    //Alignment
+    public final static int AUTO = 0;
+    public final static int NEUTRAL = 1;
+    public final static int USA = 2;
+    public final static int JIHAD = 3;
+    
+    //Governance
+    public final static int ISLAMRULE = 4;
+    public final static int POOR = 3;
+    public final static int FAIR = 2;
+    public final static int GOOD = 1;
+    
+    //Countries
     public final static int UNITEDSTATES = 0;
     public final static int CANADA = 1;
     public final static int UNITEDKINGDOM = 2;
