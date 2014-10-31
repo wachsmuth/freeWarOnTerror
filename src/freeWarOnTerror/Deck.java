@@ -5,6 +5,7 @@
  */
 package freeWarOnTerror;
 
+import freeWarOnTerror.abClasses.Card;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -18,14 +19,12 @@ public class Deck {
     private final ArrayList<Card> cards = new ArrayList<>();
 
     public Deck() {
-
+        //Empty constructor, remove DEBUG
     }
 
     public void addCard(Card c) {
-
         cards.add( c);
     }
-
 
     public void shuffle() {
         Collections.shuffle(cards);

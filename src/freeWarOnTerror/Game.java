@@ -16,6 +16,7 @@
  */
 package freeWarOnTerror;
 
+import freeWarOnTerror.abClasses.Country;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -23,57 +24,59 @@ import java.util.Arrays;
  *
  * @author Emil
  */
+
+//Static Class
 public class Game {
 
-    private int prestige = 7;
-    private int funding = 9;
-    private final Boolean[] markedCards = new Boolean[22];
-    private final ArrayList<Country> countries = new ArrayList<>();
-    private Deck drawPile = new Deck();
-    private Deck discardPile = new Deck();
+    private static int prestige = 7;
+    private static int funding = 9;
+    private static final Boolean[] markedCards = new Boolean[22];
+    private static final ArrayList<Country> countries = new ArrayList<>();
+    private static Deck drawPile = new Deck();
+    private static Deck discardPile = new Deck();
 
     public Game() {
-        Arrays.fill(markedCards, false);
+        Arrays.fill(markedCards, false); //Delete?? DEBUG
     }
 
-    public Boolean ifCardActive(int n) {
+    public static Boolean ifCardActive(int n) {
         return markedCards[n];
     }
 
-    public void setCardInPlay(int n, Boolean bool) {
+    public static void setCardInPlay(int n, Boolean bool) {
         markedCards[n] = bool;
     }
 
-    public void connectCountries(Country c1, Country c2) {
+    public static void connectCountries(Country c1, Country c2) {
         c1.addAdjacentCountry(c2);
         c2.addAdjacentCountry(c1);
     }
 
-    public ArrayList<Country> getAllCountries() {
+    public static ArrayList<Country> getAllCountries() {
         return countries;
     }
 
-    public Deck getDrawPile() {
+    public static Deck getDrawPile() {
         return drawPile;
     }
 
-    public void setFunding(int funding) {
-        this.funding = funding;
+    public static void setFunding(int f) {
+        funding = f;
     }
 
-    public void setPrestige(int prestige) {
-        this.prestige = prestige;
+    public static void setPrestige(int p) {
+        prestige = prestige;
     }
     
-    public int getFunding(){
+    public static int getFunding(){
         return funding;
     }
     
-    public int getPrestige(){
+    public static int getPrestige(){
         return prestige;
     }
 
-    public void modifyPrestige(int change) {
+    public static void modifyPrestige(int change) {
         prestige = prestige + change;
         if (prestige < 1) {
             prestige = 1;
@@ -82,7 +85,7 @@ public class Game {
         }
     }
 
-    public void modifyFunding(int change) {
+    public static void modifyFunding(int change) {
         funding = funding + change;
         if (funding < 1) {
             funding = 1;
