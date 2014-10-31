@@ -25,13 +25,21 @@ import java.util.ArrayList;
 public class Scenario {
     
     private final ArrayList<Country> countries;
+    private final Deck deck;
+    private final Game game;
     
-    public Scenario(ArrayList<Country> countries){
-        this.countries = countries;
+    public Scenario(Game game){
+        countries = game.getAllCountries();
+        deck = game.getDrawPile();
+        this.game = game;
         createWorld();
     }
     
     private void createWorld(){ //sample code, WIP
         countries.add(new MuslimCountry("Somalia", 1, false, false));
+    }
+    
+    public void createDeck(){ //sample code, WIP
+        deck.addCard(new freeWarOnTerror.cards.Sanctions(game));
     }
 }
