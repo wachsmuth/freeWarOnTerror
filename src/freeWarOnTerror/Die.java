@@ -10,17 +10,27 @@ package freeWarOnTerror;
  * @author Emil
  */
 public class Die {
-    
-    
-    public static int rollDie(){
-        return (int) Math.floor(Math.random()*6+1);
+
+    public static int rollDie() {
+        return (int) Math.floor(Math.random() * 6 + 1);
     }
-    
-    public static int rollD6(int amount){
-        long reVal = 0;
-        for (int i = 0; i < amount; i++){
-            reVal += Math.floor(Math.random()*6+1);
+
+    public static int prestigeRoll() {
+        int smallestDie = smallestDie();
+        if (Math.floor(Math.random() * 6 + 1) >= 5) {
+            return smallestDie;
         }
-        return (int) reVal;
-        }
+        return -smallestDie;
     }
+
+    //Smallest die of 2
+    public static int smallestDie() {
+        int smallestDie = (int) Math.floor(Math.random() * 6 + 1);
+        int newDie = (int) Math.floor(Math.random() * 6 + 1);
+        if (newDie > smallestDie) {
+            smallestDie = newDie;
+        }
+        return smallestDie();
+    }
+
+}
