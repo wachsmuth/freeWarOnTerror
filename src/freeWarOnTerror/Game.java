@@ -18,6 +18,8 @@ public class Game {
     private int funding = 9;
     private final Boolean[] markedCards = new Boolean[22];
     private final ArrayList<Country> countries = new ArrayList<>();
+    private Deck drawPile = new Deck();
+    private Deck discardPile = new Deck();
     
     public Game(){
         Arrays.fill(markedCards, false);
@@ -35,6 +37,15 @@ public class Game {
         c1.addAdjacentCountry(c2);
         c2.addAdjacentCountry(c1);
     }
+    
+    public ArrayList<Country> getAllCountries(){
+        return countries;
+    }
+    
+    public Deck getDrawPile(){
+        return drawPile;
+    }
+   
     
     private void createWorld(){
         
