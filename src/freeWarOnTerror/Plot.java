@@ -22,12 +22,11 @@ package freeWarOnTerror;
  */
 public class Plot {
     
-    private final int type; //Type 1, 2, 3 = strength; type 4: WMD
+    private final int type; //Type 1, 2, 3 = strength; Variable WMD is 4
     
     public Plot (int type){
         this.type = type;
     }
-    
     
     public int getType(){
         return type;

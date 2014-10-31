@@ -33,6 +33,9 @@ public class CONSTANTS {
     public final static int FAIR = 2;
     public final static int GOOD = 1;
     
+    //For plot
+    public final static int WMD = 4;
+    
     //Countries
     public final static int UNITEDSTATES = 0;
     public final static int CANADA = 1;

@@ -29,12 +29,10 @@ public class Scenario {
     
     private final ArrayList<Country> countries;
     private final Deck deck;
-    private final Game game;
     
     public Scenario(Game game){
-        countries = game.getAllCountries();
-        deck = game.getDrawPile();
-        this.game = game;
+        countries = Game.getAllCountries();
+        deck = Game.getDrawPile();
         createWorld();
     }
     
