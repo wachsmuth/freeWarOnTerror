@@ -57,4 +57,8 @@ public class NonMuslimCountry extends Country {
         return ops >= governance;
     }
     
+    public Boolean getSchengen(){
+        return schengen;
+    }
+    
 }
