@@ -34,7 +34,7 @@ public class Game {
     private static int prestige = 7;
     private static int funding = 9;
     private static final boolean postureHard = true;
-    private static final int globalPosture = 0;
+    private static int globalPosture = 0;
     private static final Boolean[] markedCards = new Boolean[22];
     private static final ArrayList<Country> allCountries = new ArrayList<>();
     private static final ArrayList<MuslimCountry> muslimCountries = new ArrayList<>();
@@ -86,7 +86,7 @@ public class Game {
     }
     
     public Country getCountry(int id){
-        for (Country c : countries){
+        for (Country c : allCountries){
             if (c.getID() == id){
                 return c;
             }
@@ -112,17 +112,13 @@ public class Game {
         }
     }
     
-    public static List<Player> getPlayerList(){
-        return playerList;
-    }
-    
     public static void calculateGlobalPosture(){
         int calcValue = 0 ;
         for (NonMuslimCountry c : nonMuslimCountries){
             if (c instanceof CountryUSA){continue;}
             calcValue += c.getPosture();
         }
-        this.globalPosture = calcValue;
+        globalPosture = calcValue;
     }
     
     public static List<Player> getPlayers(){
