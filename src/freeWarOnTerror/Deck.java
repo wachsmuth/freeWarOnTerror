@@ -30,7 +30,7 @@ public class Deck {
         Collections.shuffle(cards);
     }
 
-    public Card takeTopCard() {
+    public Card draw() {
         if (cards.size() > 0) {
             Card c = (Card) cards.get(0);
             cards.remove(c);

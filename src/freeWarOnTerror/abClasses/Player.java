@@ -16,7 +16,7 @@ package freeWarOnTerror.abClasses;
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import freeWarOnTerror.abClasses.Card;
+import freeWarOnTerror.Game;
 import java.util.ArrayList;
 /**
  *
@@ -26,6 +26,7 @@ public abstract class Player {
     
     private final String name;
     private final ArrayList<Card> hand = new ArrayList<>();
+    private final int reserves = 0;
     
     public Player(String name){
         this.name = name;
@@ -34,4 +35,16 @@ public abstract class Player {
     public void addCard(Card card){
         hand.add(card);
     }
+    
+    public void draw(){
+        addCard(Game.draw());
+    }
+    
+    public void draw(int amount){
+        for (int i = 0; i < amount; i++){
+            addCard(Game.draw());
+        }
+    }
+    
+    
 }

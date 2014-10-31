@@ -16,9 +16,12 @@
  */
 package freeWarOnTerror;
 
+import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
+import freeWarOnTerror.abClasses.Player;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -30,10 +33,16 @@ public class Game {
 
     private static int prestige = 7;
     private static int funding = 9;
+    private static final boolean postureHard = true;
+    private static final int globalPosture = 0;
     private static final Boolean[] markedCards = new Boolean[22];
-    private static final ArrayList<Country> countries = new ArrayList<>();
+    private static final ArrayList<Country> allCountries = new ArrayList<>();
+    private static final ArrayList<MuslimCountry> muslimCountries = new ArrayList<>();
+    private static final ArrayList<NonMuslimCountry> schengenCountries = new ArrayList<>();
+    private static final ArrayList<NonMuslimCountry> nonMuslimCountries = new ArrayList<>();
     private static Deck drawPile = new Deck();
     private static Deck discardPile = new Deck();
+    private static final List<Player> players = new ArrayList<>();
 
     public Game() {
         Arrays.fill(markedCards, false); //Delete?? DEBUG
@@ -53,7 +62,7 @@ public class Game {
     }
 
     public static ArrayList<Country> getAllCountries() {
-        return countries;
+        return allCountries;
     }
 
     public static Deck getDrawPile() {
@@ -101,5 +110,26 @@ public class Game {
         } else if (funding > 9) {
             funding = 9;
         }
+    }
+    
+    public static List<Player> getPlayerList(){
+        return playerList;
+    }
+    
+    public static void calculateGlobalPosture(){
+        int calcValue = 0 ;
+        for (NonMuslimCountry c : nonMuslimCountries){
+            if (c instanceof CountryUSA){continue;}
+            calcValue += c.getPosture();
+        }
+        this.globalPosture = calcValue;
+    }
+    
+    public static List<Player> getPlayers(){
+        return players;
+    }
+    
+    public static Card draw(){
+        return drawPile.draw();
     }
 }
