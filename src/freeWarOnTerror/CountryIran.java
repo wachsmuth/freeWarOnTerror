@@ -20,7 +20,7 @@ package freeWarOnTerror;
  *
  * @author Emil
  */
-public class CountryIran extends Country {
+public class CountryIran extends freeWarOnTerror.abClasses.Country {
 
     int governance = 2;
 

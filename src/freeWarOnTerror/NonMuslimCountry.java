@@ -9,7 +9,7 @@ package freeWarOnTerror;
  *
  * @author Emil
  */
-public class NonMuslimCountry extends Country {
+public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
 
     private final int governance;
     private int posture = 0; //soft = 1, hard = 2
@@ -43,7 +43,7 @@ public class NonMuslimCountry extends Country {
     
     @Override
     public void testCountry(){
-        if (4 >= Die.rollDie()){
+        if (4 >= freeWarOnTerror.helpers.Die.rollDie()){
             posture = 1;
         }
         else {
