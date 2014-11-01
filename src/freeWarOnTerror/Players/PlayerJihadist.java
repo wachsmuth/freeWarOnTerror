@@ -51,9 +51,9 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
     @Override
     public void drawPhase() {
         //IslamDraw
-        if (Game.getFunding() > 7) {
+        if (Game.getFunding() > 6) {
             draw(9);
-        } else if (Game.getFunding() > 4) {
+        } else if (Game.getFunding() > 3) {
             draw(8);
         } else {
             draw(7);
