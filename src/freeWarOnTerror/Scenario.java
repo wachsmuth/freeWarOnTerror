@@ -20,7 +20,9 @@ import freeWarOnTerror.Countries.CountryIsrael;
 import freeWarOnTerror.Countries.CountryUSA;
 import freeWarOnTerror.Countries.CountryIran;
 import freeWarOnTerror.Countries.CountryPhilippines;
+import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getCountry;
+import static freeWarOnTerror.Game.getDrawPile;
 import freeWarOnTerror.abClasses.Country;
 import java.util.ArrayList;
 import freeWarOnTerror.cards.*;
@@ -68,9 +70,9 @@ public class Scenario {
     private final ArrayList<Country> schengenCountries;
     private final ArrayList<Country> schengenBorderCountries;
 
-    public Scenario(Game game) {
-        countries = Game.getAllCountries();
-        deck = Game.getDrawPile();
+    public Scenario() {
+        countries = getAllCountries();
+        deck = getDrawPile();
         schengenCountries = new ArrayList<>();
         schengenBorderCountries = new ArrayList<>();
         createWorld();
