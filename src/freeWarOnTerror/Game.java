@@ -74,6 +74,18 @@ public class Game {
         return allCountries;
     }
 
+    public static ArrayList<MuslimCountry> getMuslimCountries() {
+        return muslimCountries;
+    }
+
+    public static ArrayList<NonMuslimCountry> getSchengenCountries() {
+        return schengenCountries;
+    }
+
+    public static ArrayList<NonMuslimCountry> getNonMuslimCountries() {
+        return nonMuslimCountries;
+    }
+
     public static Deck getDrawPile() {
         return drawPile;
     }
@@ -97,9 +109,9 @@ public class Game {
     public static boolean isPostureHard() {
         return postureHard;
     }
-    
-    public static void setPostureHard(boolean posture){
-       postureHard = posture;
+
+    public static void setPostureHard(boolean posture) {
+        postureHard = posture;
     }
 
     public static Country getCountry(int id) {
@@ -143,19 +155,19 @@ public class Game {
     public static List<Player> getPlayers() {
         return players;
     }
-    
+
     public static boolean anyIslamistRule() {
-        for (MuslimCountry c : muslimCountries){
-            if (c.getGovernance() == 4){
+        for (MuslimCountry c : muslimCountries) {
+            if (c.getGovernance() == 4) {
                 return true;
             }
         }
         return false;
     }
-    
-     public static boolean anyRegimeChange() {
-        for (MuslimCountry c : muslimCountries){
-            if (c.getRegimeChange() > 0){
+
+    public static boolean anyRegimeChange() {
+        for (MuslimCountry c : muslimCountries) {
+            if (c.getRegimeChange() > 0) {
                 return true;
             }
         }
