@@ -182,7 +182,7 @@ public class Game {
     public static void playCard(Card card){
         if (card.getPlayable()){
             card.play();
-            
+            removedCards.addCard(card);
         }
     }
     
