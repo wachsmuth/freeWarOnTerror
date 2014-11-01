@@ -143,6 +143,15 @@ public class Game {
     public static List<Player> getPlayers() {
         return players;
     }
+    
+    public static boolean anyIslamistRuleCountries() {
+        for (MuslimCountry c : muslimCountries){
+            if (c.getGovernance() == 4){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static Player getJihadist() {
         return playerJihadist;
