@@ -44,6 +44,10 @@ public abstract class Player {
         addCard(Game.draw());
     }
     
+    public ArrayList<Card> getHand(){
+        return hand;
+    }
+    
     public int cardsLeft(){
         return hand.size();
     }
