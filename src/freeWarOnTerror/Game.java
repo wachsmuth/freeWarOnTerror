@@ -37,7 +37,7 @@ public class Game {
     private static int funding = 9;
     private static boolean postureHard = true;
     private static int globalPosture = 0;
-    private static final Boolean[] markedCards = new Boolean[22];
+    private static final ArrayList<String> persistentEffects = new ArrayList<>();
     private static final ArrayList<Country> allCountries = new ArrayList<>();
     private static final ArrayList<MuslimCountry> muslimCountries = new ArrayList<>();
     private static final ArrayList<NonMuslimCountry> schengenCountries = new ArrayList<>();
@@ -184,5 +184,26 @@ public class Game {
 
     public static Card draw() {
         return drawPile.draw();
+    }
+    
+    public static Boolean isCardInPlay(String card){
+        for (String s : persistentEffects){
+            if (s.equals(card)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public static void removeCardFromPlay(String card){
+        for (String s : persistentEffects){
+            if (s.equals(card)){
+                persistentEffects.remove(s);
+            }
+        }
+    }
+    
+    public static void addCardToPlay(String card){
+        persistentEffects.add(card);
     }
 }
