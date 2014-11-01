@@ -44,6 +44,7 @@ public class Game {
     private static final ArrayList<NonMuslimCountry> nonMuslimCountries = new ArrayList<>();
     private static Deck drawPile = new Deck();
     private static Deck discardPile = new Deck();
+    private static final Deck removedCards = new Deck();
     private static PlayerJihadist playerJihadist = new PlayerJihadist("JihadPlayer");
     private static PlayerUS playerUS = new PlayerUS("USPlayer");
     private static final List<Player> players = new ArrayList<Player>() {
@@ -176,6 +177,13 @@ public class Game {
 
     public static Card draw() {
         return drawPile.draw();
+    }
+    
+    public static void playCard(Card card){
+        if (card.getPlayable()){
+            card.play();
+            
+        }
     }
     
     public static Boolean isCardInPlay(String card){

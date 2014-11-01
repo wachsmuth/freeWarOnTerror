@@ -50,6 +50,15 @@ public abstract class Player {
         }
     }
     
+    public Card getRandomCard(){
+        Card c = null;
+        if (hand.size() > 0){
+            c = hand.get((int) (Math.floor(Math.random()*hand.size())));
+            hand.remove(c);
+        }
+        return c;
+    }
+    
     public abstract void drawPhase();
     
 }
