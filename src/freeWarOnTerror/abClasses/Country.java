@@ -6,6 +6,7 @@
 package freeWarOnTerror.abClasses;
 
 import freeWarOnTerror.Cell;
+import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.Plot;
 import freeWarOnTerror.Troop;
 import java.util.ArrayList;
@@ -30,25 +31,25 @@ public abstract class Country {
         this.name = name;
         this.id = id;
     }
-    
-    public List<Plot> getPlots(){
+
+    public List<Plot> getPlots() {
         return plots;
     }
-    
-    public List<Troop> getTroops(){
+
+    public List<Troop> getTroops() {
         return troops;
     }
-    
-    public int troopAmount(){
+
+    public int troopAmount() {
         return troops.size();
     }
-    
+
     public abstract void resolvePlots();
 
     public abstract void testCountry();
 
     public abstract int getGovernance();
-    
+
     public abstract Boolean canWarOfIdeas(int ops);
 
     public Boolean needsTesting() {
@@ -59,11 +60,19 @@ public abstract class Country {
         adjacentCountries.add(c);
     }
 
+    public void addAdjacentCountries(ArrayList<Country> countries) {
+        for (Country c : countries) {
+            if (c != this) {
+                adjacentCountries.add(c);
+            }
+        }
+    }
+
     public void removeAdjacentCountry(Country c) {
         adjacentCountries.remove(c);
     }
-    
-    public ArrayList<Country> getAdjacentCountries(){
+
+    public ArrayList<Country> getAdjacentCountries() {
         return adjacentCountries;
     }
 
@@ -91,28 +100,28 @@ public abstract class Country {
             }
         }
         if (activeCells) {
-            
+
         }
     }
 
     public Boolean canDeploy() {
         return false;
     }
-    
-    public Boolean canRecruit(){
+
+    public Boolean canRecruit() {
         return cadre || cells.size() > 0;
     }
-    
-    public void setCadre(Boolean cadre){
+
+    public void setCadre(Boolean cadre) {
         this.cadre = cadre;
     }
-    
-    public Boolean getCadre(){
+
+    public Boolean getCadre() {
         return cadre;
     }
-    
-    public int getID(){
+
+    public int getID() {
         return id;
     }
-    
+
 }
