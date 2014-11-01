@@ -26,7 +26,7 @@ public abstract class Player {
     
     private final String name;
     private final ArrayList<Card> hand = new ArrayList<>();
-    private final int reserves = 0;
+    private int reserves = 0;
     
     public Player(String name){
         this.name = name;
@@ -60,5 +60,23 @@ public abstract class Player {
     }
     
     public abstract void drawPhase();
+
+    public int getReserves() {
+        return reserves;
+    }
+
+    public void setReserves(int reserves) {
+        this.reserves = reserves;
+    }
     
+    public boolean canUseReserves(int ops){
+        return ops < 3 && reserves > 0;
+    }
+    
+    public void modifyReserves(int change){
+        reserves += change;
+        if (reserves > 2){
+            reserves = 2;
+        }
+    }
 }
