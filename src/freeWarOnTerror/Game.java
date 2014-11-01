@@ -94,7 +94,7 @@ public class Game {
         return prestige;
     }
 
-    public Country getCountry(int id) {
+    public static Country getCountry(int id) {
         for (Country c : allCountries) {
             if (c.getID() == id) {
                 return c;
