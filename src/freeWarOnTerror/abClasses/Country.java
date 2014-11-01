@@ -35,6 +35,10 @@ public abstract class Country {
     public List<Plot> getPlots() {
         return plots;
     }
+    
+    public boolean hasPlots(){
+        return plots.size() > 0;
+    }
 
     public List<Troop> getTroops() {
         return troops;
