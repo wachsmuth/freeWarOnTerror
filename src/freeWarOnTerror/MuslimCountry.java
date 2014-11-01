@@ -86,6 +86,10 @@ public class MuslimCountry extends Country {
         return regimeChange;
     }
 
+    public void setRegimeChange(int regimeChange) {
+        this.regimeChange = regimeChange;
+    }
+
     @Override
     public Boolean canWarOfIdeas(int ops) {
         return ops >= governance && alignment < 3;
