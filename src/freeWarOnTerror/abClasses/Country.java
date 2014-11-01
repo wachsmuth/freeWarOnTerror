@@ -6,7 +6,6 @@
 package freeWarOnTerror.abClasses;
 
 import freeWarOnTerror.Cell;
-import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.Plot;
 import freeWarOnTerror.Troop;
 import java.util.ArrayList;
@@ -132,5 +131,15 @@ public abstract class Country {
     public int getID() {
         return id;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public Boolean getNeedsTesting() {
+        return needsTesting;
+    }
+    
+    
 
 }
