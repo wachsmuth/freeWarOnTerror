@@ -156,7 +156,11 @@ public class MuslimCountry extends Country {
         aid++;
     }
     
-    public Boolean isAid(){
+    public Boolean hasAid(){
         return aid > 0;
+    }
+    
+    public boolean canMajorJihad(){
+        return governance < 4 && troopAmount() + 5 < cellAmount();
     }
 }

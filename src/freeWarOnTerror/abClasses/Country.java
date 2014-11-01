@@ -48,6 +48,10 @@ public abstract class Country {
         return troops.size() > 0;
     }
     
+    public int cellAmount(){
+        return cells.size();
+    }
+    
     public Boolean hasCells(){
         return cells.size() > 0;
     }
