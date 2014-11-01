@@ -14,17 +14,34 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package freeWarOnTerror;
+package freeWarOnTerror.Countries;
 
 /**
  *
  * @author Emil
  */
-public class CountryUSA extends NonMuslimCountry {
-    
-    public CountryUSA(String name, int id, int governance){
-        super(name, id, governance, governance, false);
+public class CountryIran extends freeWarOnTerror.abClasses.Country {
+
+    int governance = 2;
+
+    public CountryIran(String name, int id) {
+        super(name, id);
         noLongerNeedsTesting();
     }
-    
+
+    @Override
+    public void testCountry() {
+
+    }
+
+    @Override
+    public int getGovernance() {
+        return governance;
+    }
+
+    @Override
+    public Boolean canWarOfIdeas(int ops) {
+        return false;
+    }
+
 }

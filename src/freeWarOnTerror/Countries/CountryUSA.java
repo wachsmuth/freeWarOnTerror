@@ -14,51 +14,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package freeWarOnTerror;
+package freeWarOnTerror.Countries;
+
+import freeWarOnTerror.NonMuslimCountry;
 
 /**
  *
  * @author Emil
  */
-public class PlayerUS extends freeWarOnTerror.abClasses.Player {
-
-    public PlayerUS(String name) {
-        super(name);
+public class CountryUSA extends NonMuslimCountry {
+    
+    public CountryUSA(String name, int id, int governance){
+        super(name, id, governance, governance, false);
+        noLongerNeedsTesting();
     }
-
-    public void disrupt() {
-
-    }
-
-    public void warOfIdeas() {
-
-    }
-
-    public void reassessment() {
-
-    }
-
-    public void regimeChange() {
-
-    }
-
-    public void withdraw() {
-
-    }
-
-    public void deploy() {
-
-    }
-
-    @Override
-    public void drawPhase() {
-        //IslamDraw
-        if (Game.getPrestige() > 7) {
-            draw(9); //DEBUG - right numbers?
-        } else if (Game.getPrestige() > 4) {
-            draw(8);
-        } else {
-            draw(7);
-        }
-    }
+    
 }

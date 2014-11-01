@@ -2,7 +2,6 @@ package freeWarOnTerror;
 
 import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
 import static freeWarOnTerror.helpers.CONSTANTS.WMD;
-import static freeWarOnTerror.helpers.Die.rollPosture;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -47,12 +46,16 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
 
     @Override
     public void testCountry() {
+        rollPosture();
+        noLongerNeedsTesting();
+    }
+
+    public void rollPosture() {
         if (4 >= freeWarOnTerror.helpers.Die.rollDie()) {
             posture = 1;
         } else {
             posture = 2;
         }
-        noLongerNeedsTesting();
     }
 
     @Override
@@ -68,7 +71,7 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
     public void resolvePlots() {
         for (Plot p : getPlots()) {
             //Posture
-            setPosture(rollPosture());
+            rollPosture();
             if (schengen == true) {
                 //DEBUG, jihadist can select two schengen countries and change posture
             }
@@ -85,9 +88,10 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
 
             //PRESTIGE
             if (troopAmount() > 0) {
-                Game.modifyPrestige(-1);
                 if (p.getType() == WMD) {
                     Game.setPrestige(1);
+                } else {
+                    Game.modifyPrestige(-1);
                 }
             }
         }

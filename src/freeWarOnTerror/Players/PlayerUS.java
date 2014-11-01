@@ -14,34 +14,53 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package freeWarOnTerror;
+package freeWarOnTerror.Players;
+
+import freeWarOnTerror.Game;
 
 /**
  *
  * @author Emil
  */
-public class CountryIran extends freeWarOnTerror.abClasses.Country {
+public class PlayerUS extends freeWarOnTerror.abClasses.Player {
 
-    int governance = 2;
+    public PlayerUS(String name) {
+        super(name);
+    }
 
-    public CountryIran(String name, int id) {
-        super(name, id);
-        noLongerNeedsTesting();
+    public void disrupt() {
+
+    }
+
+    public void warOfIdeas() {
+
+    }
+
+    public void reassessment() {
+
+    }
+
+    public void regimeChange() {
+
+    }
+
+    public void withdraw() {
+
+    }
+
+    public void deploy() {
+
     }
 
     @Override
-    public void testCountry() {
-
+    public void drawPhase() {
+        //IslamDraw
+        if (Game.getPrestige() > 7) {
+            draw(9); //DEBUG - right numbers?
+        } else if (Game.getPrestige() > 4) {
+            draw(8);
+        } else {
+            draw(7);
+        }
     }
-
-    @Override
-    public int getGovernance() {
-        return governance;
-    }
-
-    @Override
-    public Boolean canWarOfIdeas(int ops) {
-        return false;
-    }
-
 }

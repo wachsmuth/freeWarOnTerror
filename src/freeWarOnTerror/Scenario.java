@@ -16,6 +16,10 @@
  */
 package freeWarOnTerror;
 
+import freeWarOnTerror.Countries.CountryIsrael;
+import freeWarOnTerror.Countries.CountryUSA;
+import freeWarOnTerror.Countries.CountryIran;
+import freeWarOnTerror.Countries.CountryPhilippines;
 import freeWarOnTerror.abClasses.Country;
 import java.util.ArrayList;
 import freeWarOnTerror.helpers.*;
