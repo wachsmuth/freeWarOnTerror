@@ -155,4 +155,8 @@ public class MuslimCountry extends Country {
     public void addAid() {
         aid++;
     }
+    
+    public Boolean isAid(){
+        return aid > 0;
+    }
 }
