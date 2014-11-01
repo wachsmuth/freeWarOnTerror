@@ -47,6 +47,10 @@ public abstract class Country {
     public Boolean hasTroops(){
         return troops.size() > 0;
     }
+    
+    public Boolean hasCells(){
+        return cells.size() > 0;
+    }
 
     public abstract void resolvePlots();
 
