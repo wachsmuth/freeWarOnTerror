@@ -17,14 +17,20 @@
 package freeWarOnTerror.cards;
 
 import static freeWarOnTerror.Game.getCountry;
+import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.CENTRALASIA;
 
 /**
  *
  * @author Emil
  */
-public class FormerSovietUnion {
+public class FormerSovietUnion extends Card{
     
+    public FormerSovietUnion(){
+        super("Former Soviet Union", 2, 1, false);
+    }
+    
+    @Override
     public void play(){
         getCountry(CENTRALASIA).testCountry();
     }
