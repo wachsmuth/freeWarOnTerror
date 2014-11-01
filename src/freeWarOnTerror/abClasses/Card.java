@@ -1,5 +1,7 @@
 package freeWarOnTerror.abClasses;
 
+import static freeWarOnTerror.Game.addCardToPlay;
+
 /**
  *
  * @author Emil
@@ -38,5 +40,29 @@ public abstract class Card {
     
     public void setRemoved(Boolean removed){
         removedAfterPlay = removed;
+    }
+    
+    @Override
+    public String toString(){
+        String string = name;
+        string = string + " (";
+        if (alignment == 1){
+            string = string + "Neutral";
+        }
+        else if (alignment == 2){
+            string = string + "US";
+        }
+        else if (alignment == 3){
+            string = string + "Jihadist";
+        }
+        else if (alignment == 0){
+            string = string + "Automatic Event";
+        }
+        string = string + ", " + ops + "ops )";
+        return string;
+    }
+    
+    public void addToPlay(){
+        addCardToPlay(name);
     }
 }
