@@ -36,7 +36,6 @@ public class Game {
     private static int prestige = 7;
     private static int funding = 9;
     private static boolean postureHard = true;
-
     private static int globalPosture = 0;
     private static final Boolean[] markedCards = new Boolean[22];
     private static final ArrayList<Country> allCountries = new ArrayList<>();
@@ -84,7 +83,7 @@ public class Game {
     }
 
     public static void setPrestige(int p) {
-        prestige = prestige;
+        prestige = p;
     }
 
     public static int getFunding() {
@@ -97,6 +96,10 @@ public class Game {
 
     public static boolean isPostureHard() {
         return postureHard;
+    }
+    
+    public static void setPostureHard(boolean posture){
+       postureHard = posture;
     }
 
     public static Country getCountry(int id) {
