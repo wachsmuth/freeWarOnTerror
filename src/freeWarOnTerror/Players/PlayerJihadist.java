@@ -23,6 +23,8 @@ import freeWarOnTerror.Game;
  * @author Emil
  */
 public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
+    
+    private boolean firstPlot = false;
 
     public PlayerJihadist(String name) {
         super(name);
@@ -46,6 +48,14 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
 
     public void plot() {
 
+    }
+
+    public boolean hasUsedFirstPlot() {
+        return firstPlot;
+    }
+
+    public void setFirstPlot(boolean firstPlot) {
+        this.firstPlot = firstPlot;
     }
 
     @Override
