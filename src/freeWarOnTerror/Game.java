@@ -35,7 +35,8 @@ public class Game {
 
     private static int prestige = 7;
     private static int funding = 9;
-    private static final boolean postureHard = true;
+    private static boolean postureHard = true;
+
     private static int globalPosture = 0;
     private static final Boolean[] markedCards = new Boolean[22];
     private static final ArrayList<Country> allCountries = new ArrayList<>();
@@ -94,6 +95,10 @@ public class Game {
         return prestige;
     }
 
+    public static boolean isPostureHard() {
+        return postureHard;
+    }
+
     public static Country getCountry(int id) {
         for (Country c : allCountries) {
             if (c.getID() == id) {
@@ -135,12 +140,12 @@ public class Game {
     public static List<Player> getPlayers() {
         return players;
     }
-    
-    public static Player getJihadist(){
+
+    public static Player getJihadist() {
         return playerJihadist;
     }
-    
-    public static Player getUS(){
+
+    public static Player getUS() {
         return playerUS;
     }
 
