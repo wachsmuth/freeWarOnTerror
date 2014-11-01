@@ -28,7 +28,7 @@ public class CONSTANTS {
     public final static int JIHAD = 3;
     
     //Governance
-    public final static int ISLAMRULE = 4;
+    public final static int ISLAMISTRULE = 4;
     public final static int POOR = 3;
     public final static int FAIR = 2;
     public final static int GOOD = 1;
