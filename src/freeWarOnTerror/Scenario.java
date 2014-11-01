@@ -69,8 +69,10 @@ public class Scenario {
     private final Deck deck;
     private final ArrayList<Country> schengenCountries;
     private final ArrayList<Country> schengenBorderCountries;
+    private final String name;
 
-    public Scenario() {
+    public Scenario(String name) {
+        this.name = name;
         countries = getAllCountries();
         deck = getDrawPile();
         schengenCountries = new ArrayList<>();
@@ -78,6 +80,10 @@ public class Scenario {
         createWorld();
         createLists();
         createConnections();
+    }
+    
+      public String getName() {
+        return name;
     }
 
     private void createWorld() { //sample code, WIP

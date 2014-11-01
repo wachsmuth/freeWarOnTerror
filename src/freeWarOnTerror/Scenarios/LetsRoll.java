@@ -38,7 +38,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.SYRIA;
 public class LetsRoll extends Scenario {
     
     public LetsRoll(){
-        super();
+        super("Let's Roll!");
         setup();
     }
     
