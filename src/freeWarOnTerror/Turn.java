@@ -16,6 +16,8 @@
  */
 package freeWarOnTerror;
 
+import freeWarOnTerror.abClasses.Country;
+
 /**
  *
  * @author Gustav Wengel
@@ -26,6 +28,12 @@ public class Turn {
     public void drawPhase() {
         Game.getJihadist().drawPhase();
         Game.getUS().drawPhase();
+    }
+    
+    public void resolvePlots(){
+        for (Country c : Game.getAllCountries()){
+            c.resolvePlots();
+        }
     }
 
 }
