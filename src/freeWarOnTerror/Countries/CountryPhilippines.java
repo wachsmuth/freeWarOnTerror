@@ -16,6 +16,7 @@
  */
 package freeWarOnTerror.Countries;
 
+import static freeWarOnTerror.Game.isCardInPlay;
 import freeWarOnTerror.NonMuslimCountry;
 
 /**
@@ -24,8 +25,6 @@ import freeWarOnTerror.NonMuslimCountry;
  */
 public class CountryPhilippines extends NonMuslimCountry {
 
-    private Boolean abuSayyaf = false;
-
     public CountryPhilippines(String name, int id, int governance, int recruit) {
         super(name, id, governance, recruit, false);
 
@@ -33,10 +32,6 @@ public class CountryPhilippines extends NonMuslimCountry {
 
     @Override
     public Boolean canDeploy() {
-        return abuSayyaf;
-    }
-
-    public void setAbuSayyaf(Boolean abuSayyaf) {
-        this.abuSayyaf = abuSayyaf;
+        return isCardInPlay("Abu Sayyaf");
     }
 }
