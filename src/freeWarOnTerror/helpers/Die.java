@@ -32,5 +32,10 @@ public class Die {
         }
         return smallestDie;
     }
+    
+    public static int rollPosture(){
+        //DEBUG add it
+        return 0;
+    }
 
 }

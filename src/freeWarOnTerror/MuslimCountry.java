@@ -5,8 +5,10 @@
  */
 package freeWarOnTerror;
 
-import freeWarOnTerror.helpers.Die;
 import freeWarOnTerror.abClasses.Country;
+import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
+import static freeWarOnTerror.helpers.CONSTANTS.WMD;
+import freeWarOnTerror.helpers.Die;
 
 /**
  *
@@ -53,39 +55,64 @@ public class MuslimCountry extends Country {
         this.alignment = alignment;
         noLongerNeedsTesting();
     }
-    
+
     @Override
-    public int getGovernance(){
+    public int getGovernance() {
         return governance;
     }
-    
+
     @Override
-    public Boolean canDeploy(){
+    public Boolean canDeploy() {
         return alignment == 1 && governance < 4;
     }
-    
-    public int getAlignment(){
+
+    public int getAlignment() {
         return alignment;
     }
 
-    public Boolean getShiaMix(){
+    public Boolean getShiaMix() {
         return shiaMix;
     }
-    
-    public Boolean getBesiegedRegime(){
+
+    public Boolean getBesiegedRegime() {
         return besiegedRegime;
     }
-    
-    public void setBesiegedRegime(Boolean bool){
+
+    public void setBesiegedRegime(Boolean bool) {
         besiegedRegime = bool;
     }
-    
-    public int getRegimeChange(){
+
+    public int getRegimeChange() {
         return regimeChange;
     }
-    
+
     @Override
-    public Boolean canWarOfIdeas(int ops){
+    public Boolean canWarOfIdeas(int ops) {
         return ops >= governance && alignment < 3;
+    }
+
+    @Override
+    public void resolvePlots() {
+        for (Plot p : getPlots()) {
+            
+            //Funding
+            if (governance == GOOD) {
+                Game.modifyFunding(2);
+            } else {
+                Game.modifyFunding(1);
+            }
+
+            //prestige
+            if (troopAmount() > 0) {
+                if (p.getType() == WMD) {
+                    Game.setPrestige(1);
+                } else {
+                    Game.modifyPrestige(-1);
+                }
+            }
+            
+            //Governance and Aid
+            //DEBUG
+        }
     }
 }
