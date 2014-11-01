@@ -144,9 +144,18 @@ public class Game {
         return players;
     }
     
-    public static boolean anyIslamistRuleCountries() {
+    public static boolean anyIslamistRule() {
         for (MuslimCountry c : muslimCountries){
             if (c.getGovernance() == 4){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+     public static boolean anyRegimeChange() {
+        for (MuslimCountry c : muslimCountries){
+            if (c.getRegimeChange() > 0){
                 return true;
             }
         }
