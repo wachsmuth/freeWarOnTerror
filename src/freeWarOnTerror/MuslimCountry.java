@@ -55,6 +55,16 @@ public class MuslimCountry extends Country {
         this.alignment = alignment;
         noLongerNeedsTesting();
     }
+    
+    public void shiftAlignment(int change) {
+        alignment = alignment + change;
+        if (alignment < 1){
+            alignment = 0;
+        }
+        else if (alignment > 3){
+            alignment = 3;
+        }
+    }
 
     @Override
     public int getGovernance() {
