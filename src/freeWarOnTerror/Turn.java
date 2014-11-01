@@ -16,9 +16,19 @@
  */
 package freeWarOnTerror;
 
+import static freeWarOnTerror.Game.anyIslamistRule;
 import static freeWarOnTerror.Game.getCountry;
+import static freeWarOnTerror.Game.getGlobalPosture;
+import static freeWarOnTerror.Game.getJihadist;
+import static freeWarOnTerror.Game.getMuslimCountries;
+import static freeWarOnTerror.Game.getPlayers;
 import static freeWarOnTerror.Game.isCardInPlay;
+import static freeWarOnTerror.Game.isPostureHard;
+import static freeWarOnTerror.Game.modifyFunding;
+import static freeWarOnTerror.Game.modifyPrestige;
+import freeWarOnTerror.Players.PlayerJihadist;
 import freeWarOnTerror.abClasses.Country;
+import freeWarOnTerror.abClasses.Player;
 import static freeWarOnTerror.helpers.CONSTANTS.SOMALIA;
 import static freeWarOnTerror.helpers.CONSTANTS.YEMEN;
 
@@ -27,8 +37,6 @@ import static freeWarOnTerror.helpers.CONSTANTS.YEMEN;
  * @author Gustav Wengel
  */
 public class Turn {
-
-    private boolean firstPlot = true;
 
     public void drawPhase() {
         Game.getJihadist().drawPhase();
@@ -42,17 +50,34 @@ public class Turn {
     }
 
     public void turnEnd() {
+        //Drop funding
         if (!isCardInPlay("Pirates") && (getCountry(SOMALIA).getGovernance() == 4 || getCountry(YEMEN).getGovernance() == 4)) {
-            Game.modifyFunding(-1);
+            modifyFunding(-1);
         }
-        for (MuslimCountry c : Game.getMuslimCountries()) {
+        //Flip regime change markers.
+        for (MuslimCountry c : getMuslimCountries()) {
             if (c.getRegimeChange() == 2) {
                 c.setRegimeChange(1);
             }
         }
-        if (Game.anyIslamistRule()) {
-            Game.modifyPrestige(-1);
+        //Modify prestige
+        if (anyIslamistRule()) {
+            modifyPrestige(-1);
         }
+        if (getGlobalPosture() > 2 && isPostureHard()){
+            modifyPrestige(1);
+        }
+        else if (getGlobalPosture() < -2 && !isPostureHard()){
+            modifyPrestige(1);
+        }
+        //Reset reserves.
+        for (Player p : getPlayers()){
+           p.setReserves(0);
+        }
+        //Reset first plot
+        PlayerJihadist jihadist = (PlayerJihadist) getJihadist();
+        jihadist.setFirstPlot(false);
+        drawPhase();
     }
 
 }
