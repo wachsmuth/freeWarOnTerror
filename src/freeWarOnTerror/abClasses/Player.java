@@ -73,6 +73,10 @@ public abstract class Player {
         return ops < 3 && reserves > 0;
     }
     
+    public boolean canIncreaseReserves(int ops){
+        return ops < 3 && reserves < 2;
+    }
+    
     public void modifyReserves(int change){
         reserves += change;
         if (reserves > 2){
