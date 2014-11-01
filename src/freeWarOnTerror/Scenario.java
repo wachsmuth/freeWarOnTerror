@@ -20,27 +20,64 @@ import freeWarOnTerror.Countries.CountryIsrael;
 import freeWarOnTerror.Countries.CountryUSA;
 import freeWarOnTerror.Countries.CountryIran;
 import freeWarOnTerror.Countries.CountryPhilippines;
+import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.abClasses.Country;
 import java.util.ArrayList;
 import freeWarOnTerror.helpers.*;
+import static freeWarOnTerror.helpers.CONSTANTS.AFGHANISTAN;
+import static freeWarOnTerror.helpers.CONSTANTS.ALGERIA;
+import static freeWarOnTerror.helpers.CONSTANTS.CANADA;
+import static freeWarOnTerror.helpers.CONSTANTS.CAUCASUS;
+import static freeWarOnTerror.helpers.CONSTANTS.CENTRALASIA;
+import static freeWarOnTerror.helpers.CONSTANTS.CHINA;
+import static freeWarOnTerror.helpers.CONSTANTS.EGYPT;
+import static freeWarOnTerror.helpers.CONSTANTS.GULFSTATES;
+import static freeWarOnTerror.helpers.CONSTANTS.INDIA;
+import static freeWarOnTerror.helpers.CONSTANTS.INDONESIA;
+import static freeWarOnTerror.helpers.CONSTANTS.IRAN;
+import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
+import static freeWarOnTerror.helpers.CONSTANTS.ISRAEL;
+import static freeWarOnTerror.helpers.CONSTANTS.JORDAN;
+import static freeWarOnTerror.helpers.CONSTANTS.KENYA;
+import static freeWarOnTerror.helpers.CONSTANTS.LEBANON;
+import static freeWarOnTerror.helpers.CONSTANTS.LIBYA;
+import static freeWarOnTerror.helpers.CONSTANTS.MOROCCO;
+import static freeWarOnTerror.helpers.CONSTANTS.PAKISTAN;
+import static freeWarOnTerror.helpers.CONSTANTS.PHILIPPINES;
+import static freeWarOnTerror.helpers.CONSTANTS.RUSSIA;
+import static freeWarOnTerror.helpers.CONSTANTS.SAUDIARABIA;
+import static freeWarOnTerror.helpers.CONSTANTS.SERBIA;
+import static freeWarOnTerror.helpers.CONSTANTS.SOMALIA;
+import static freeWarOnTerror.helpers.CONSTANTS.SUDAN;
+import static freeWarOnTerror.helpers.CONSTANTS.SYRIA;
+import static freeWarOnTerror.helpers.CONSTANTS.THAILAND;
+import static freeWarOnTerror.helpers.CONSTANTS.TURKEY;
+import static freeWarOnTerror.helpers.CONSTANTS.UNITEDKINGDOM;
 import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
+import static freeWarOnTerror.helpers.CONSTANTS.YEMEN;
 
 /**
  *
  * @author Emil
  */
 public class Scenario {
-    
+
     private final ArrayList<Country> countries;
     private final Deck deck;
-    
-    public Scenario(Game game){
+    private final ArrayList<Country> schengenCountries;
+    private final ArrayList<Country> schengenBorderCountries;
+
+    public Scenario(Game game) {
         countries = Game.getAllCountries();
         deck = Game.getDrawPile();
+        schengenCountries = new ArrayList<>();
+        schengenBorderCountries = new ArrayList<>();
         createWorld();
+        createLists();
+        createConnections();
     }
-    
-    private void createWorld(){ //sample code, WIP
+
+    private void createWorld() { //sample code, WIP
         //Muslim countries
         countries.add(new MuslimCountry("Somalia", CONSTANTS.SOMALIA, 1, false, false));
         countries.add(new MuslimCountry("Sudan", CONSTANTS.SUDAN, 1, true, false));
@@ -81,12 +118,189 @@ public class Scenario {
         //Other
         countries.add(new CountryIran("Iran", CONSTANTS.IRAN));
         countries.add(new CountryIsrael("Israel", CONSTANTS.ISRAEL, 1));
-        countries.add(new CountryPhilippines("Philippines", CONSTANTS.PHILIPPINES,2,3));
+        countries.add(new CountryPhilippines("Philippines", CONSTANTS.PHILIPPINES, 2, 3));
         countries.add(new CountryUSA("United States", UNITEDSTATES, 1));
-//countries.add(new MuslimCountry("Yemen"))
+
     }
-    
-    public void createDeck(){ //sample code, WIP
+
+    private void createLists() {
+        for (Country c : countries) {
+            if (c instanceof NonMuslimCountry) {
+                NonMuslimCountry x = (NonMuslimCountry) c;
+                if (x.getSchengen()) {
+                    schengenCountries.add(x);
+                }
+            }
+        }
+
+        for (Country c : schengenCountries) {
+            Game.getSchengenCountries().add((NonMuslimCountry) c);
+        }
+        schengenBorderCountries.add(getCountry(CANADA));
+        schengenBorderCountries.add(getCountry(UNITEDKINGDOM));
+        schengenBorderCountries.add(getCountry(UNITEDSTATES));
+        schengenBorderCountries.add(getCountry(SERBIA));
+        schengenBorderCountries.add(getCountry(RUSSIA));
+        schengenBorderCountries.add(getCountry(TURKEY));
+        schengenBorderCountries.add(getCountry(LEBANON));
+        schengenBorderCountries.add(getCountry(LIBYA));
+        schengenBorderCountries.add(getCountry(ALGERIA));
+        schengenBorderCountries.add(getCountry(MOROCCO));
+
+    }
+
+    private void createConnections() {
+        //United States
+        getCountry(UNITEDSTATES).addAdjacentCountry(getCountry(CANADA));
+        getCountry(UNITEDSTATES).addAdjacentCountry(getCountry(PHILIPPINES));
+        getCountry(UNITEDSTATES).addAdjacentCountry(getCountry(UNITEDKINGDOM));
+        getCountry(UNITEDSTATES).addAdjacentCountries(schengenCountries);
+        //Canada
+        getCountry(CANADA).addAdjacentCountries(schengenCountries);
+        getCountry(CANADA).addAdjacentCountry(getCountry(UNITEDKINGDOM));
+        getCountry(CANADA).addAdjacentCountry(getCountry(UNITEDSTATES));
+        //United Kingdom
+        getCountry(UNITEDKINGDOM).addAdjacentCountry(getCountry(UNITEDSTATES));
+        getCountry(UNITEDKINGDOM).addAdjacentCountry(getCountry(CANADA));
+        getCountry(UNITEDKINGDOM).addAdjacentCountries(schengenCountries);
+        //All Schengen countries
+        for (Country c : schengenCountries) {
+            c.addAdjacentCountries(schengenCountries);
+            c.addAdjacentCountries(schengenBorderCountries);
+        }
+        //Russia
+        getCountry(RUSSIA).addAdjacentCountries(schengenCountries);
+        getCountry(RUSSIA).addAdjacentCountry(getCountry(TURKEY));
+        getCountry(RUSSIA).addAdjacentCountry(getCountry(SERBIA));
+        getCountry(RUSSIA).addAdjacentCountry(getCountry(CAUCASUS));
+        getCountry(RUSSIA).addAdjacentCountry(getCountry(CENTRALASIA));
+        //Serbia
+        getCountry(SERBIA).addAdjacentCountry(getCountry(TURKEY));
+        getCountry(SERBIA).addAdjacentCountry(getCountry(RUSSIA));
+        getCountry(SERBIA).addAdjacentCountries(schengenCountries);
+        //Turkey
+        getCountry(TURKEY).addAdjacentCountry(getCountry(SERBIA));
+        getCountry(TURKEY).addAdjacentCountry(getCountry(RUSSIA));
+        getCountry(TURKEY).addAdjacentCountries(schengenCountries);
+        getCountry(TURKEY).addAdjacentCountry(getCountry(IRAN));
+        getCountry(TURKEY).addAdjacentCountry(getCountry(SYRIA));
+        getCountry(TURKEY).addAdjacentCountry(getCountry(CAUCASUS));
+        //Caucasus
+        getCountry(CAUCASUS).addAdjacentCountry(getCountry(RUSSIA));
+        getCountry(CAUCASUS).addAdjacentCountry(getCountry(TURKEY));
+        getCountry(CAUCASUS).addAdjacentCountry(getCountry(CENTRALASIA));
+        getCountry(CAUCASUS).addAdjacentCountry(getCountry(IRAN));
+        //Central Asia
+        getCountry(CENTRALASIA).addAdjacentCountry(getCountry(RUSSIA));
+        getCountry(CENTRALASIA).addAdjacentCountry(getCountry(CAUCASUS));
+        getCountry(CENTRALASIA).addAdjacentCountry(getCountry(IRAN));
+        getCountry(CENTRALASIA).addAdjacentCountry(getCountry(AFGHANISTAN));
+        //Syria
+        getCountry(SYRIA).addAdjacentCountry(getCountry(TURKEY));
+        getCountry(SYRIA).addAdjacentCountry(getCountry(LEBANON));
+        getCountry(SYRIA).addAdjacentCountry(getCountry(IRAQ));
+        getCountry(SYRIA).addAdjacentCountry(getCountry(JORDAN));
+        //Lebanon
+        getCountry(LEBANON).addAdjacentCountry(getCountry(ISRAEL));
+        getCountry(SYRIA).addAdjacentCountry(getCountry(SYRIA));
+        getCountry(LEBANON).addAdjacentCountries(schengenCountries);
+        //Iran
+        getCountry(IRAN).addAdjacentCountry(getCountry(TURKEY));
+        getCountry(IRAN).addAdjacentCountry(getCountry(CAUCASUS));
+        getCountry(IRAN).addAdjacentCountry(getCountry(CENTRALASIA));
+        getCountry(IRAN).addAdjacentCountry(getCountry(AFGHANISTAN));
+        getCountry(IRAN).addAdjacentCountry(getCountry(PAKISTAN));
+        getCountry(IRAN).addAdjacentCountry(getCountry(GULFSTATES));
+        getCountry(IRAN).addAdjacentCountry(getCountry(IRAQ));
+        //Afghanistan
+        getCountry(AFGHANISTAN).addAdjacentCountry(getCountry(IRAN));
+        getCountry(AFGHANISTAN).addAdjacentCountry(getCountry(PAKISTAN));
+        getCountry(AFGHANISTAN).addAdjacentCountry(getCountry(CENTRALASIA));
+        //Iraq
+        getCountry(IRAQ).addAdjacentCountry(getCountry(IRAN));
+        getCountry(IRAQ).addAdjacentCountry(getCountry(GULFSTATES));
+        getCountry(IRAQ).addAdjacentCountry(getCountry(SAUDIARABIA));
+        getCountry(IRAQ).addAdjacentCountry(getCountry(JORDAN));
+        getCountry(IRAQ).addAdjacentCountry(getCountry(SYRIA));
+        getCountry(IRAQ).addAdjacentCountry(getCountry(TURKEY));
+        //Jordan
+        getCountry(JORDAN).addAdjacentCountry(getCountry(SYRIA));
+        getCountry(JORDAN).addAdjacentCountry(getCountry(IRAQ));
+        getCountry(JORDAN).addAdjacentCountry(getCountry(ISRAEL));
+        getCountry(JORDAN).addAdjacentCountry(getCountry(SAUDIARABIA));
+        //Israel
+        getCountry(ISRAEL).addAdjacentCountry(getCountry(JORDAN));
+        getCountry(ISRAEL).addAdjacentCountry(getCountry(LIBYA));
+        getCountry(ISRAEL).addAdjacentCountry(getCountry(EGYPT));
+        //Saudi Arabia
+        getCountry(SAUDIARABIA).addAdjacentCountry(getCountry(JORDAN));
+        getCountry(SAUDIARABIA).addAdjacentCountry(getCountry(IRAQ));
+        getCountry(SAUDIARABIA).addAdjacentCountry(getCountry(GULFSTATES));
+        getCountry(SAUDIARABIA).addAdjacentCountry(getCountry(YEMEN));
+        //Yemen
+        getCountry(YEMEN).addAdjacentCountry(getCountry(SAUDIARABIA));
+        getCountry(YEMEN).addAdjacentCountry(getCountry(SOMALIA));
+        //Gulf States
+        getCountry(GULFSTATES).addAdjacentCountry(getCountry(SAUDIARABIA));
+        getCountry(GULFSTATES).addAdjacentCountry(getCountry(IRAQ));
+        getCountry(GULFSTATES).addAdjacentCountry(getCountry(IRAN));
+        getCountry(GULFSTATES).addAdjacentCountry(getCountry(PAKISTAN));
+        //Pakistan
+        getCountry(PAKISTAN).addAdjacentCountry(getCountry(GULFSTATES));
+        getCountry(PAKISTAN).addAdjacentCountry(getCountry(IRAN));
+        getCountry(PAKISTAN).addAdjacentCountry(getCountry(AFGHANISTAN));
+        getCountry(PAKISTAN).addAdjacentCountry(getCountry(INDIA));
+        getCountry(PAKISTAN).addAdjacentCountry(getCountry(INDONESIA));
+        //China
+        getCountry(CHINA).addAdjacentCountry(getCountry(CENTRALASIA));
+        getCountry(CHINA).addAdjacentCountry(getCountry(THAILAND));
+        //India
+        getCountry(INDIA).addAdjacentCountry(getCountry(PAKISTAN));
+        getCountry(INDIA).addAdjacentCountry(getCountry(INDONESIA));
+        //Thailand
+        getCountry(THAILAND).addAdjacentCountry(getCountry(CHINA));
+        getCountry(THAILAND).addAdjacentCountry(getCountry(INDONESIA));
+        getCountry(THAILAND).addAdjacentCountry(getCountry(PHILIPPINES));
+        //Indonesia/Malaysia
+        getCountry(INDONESIA).addAdjacentCountry(getCountry(THAILAND));
+        getCountry(INDONESIA).addAdjacentCountry(getCountry(INDIA));
+        getCountry(INDONESIA).addAdjacentCountry(getCountry(PAKISTAN));
+        getCountry(INDONESIA).addAdjacentCountry(getCountry(PHILIPPINES));
+        //Philippines
+        getCountry(PHILIPPINES).addAdjacentCountry(getCountry(THAILAND));
+        getCountry(PHILIPPINES).addAdjacentCountry(getCountry(INDONESIA));
+        getCountry(PHILIPPINES).addAdjacentCountry(getCountry(UNITEDSTATES));
+        //Somalia
+        getCountry(SOMALIA).addAdjacentCountry(getCountry(YEMEN));
+        getCountry(SOMALIA).addAdjacentCountry(getCountry(KENYA));
+        getCountry(SOMALIA).addAdjacentCountry(getCountry(SUDAN));
+        //Kenya/Tanzania
+        getCountry(KENYA).addAdjacentCountry(getCountry(SUDAN));
+        getCountry(KENYA).addAdjacentCountry(getCountry(SOMALIA));
+        //Sudan
+        getCountry(SUDAN).addAdjacentCountry(getCountry(EGYPT));
+        getCountry(SUDAN).addAdjacentCountry(getCountry(SOMALIA));
+        getCountry(SUDAN).addAdjacentCountry(getCountry(KENYA));
+        getCountry(SUDAN).addAdjacentCountry(getCountry(LIBYA));
+        //Egypt
+        getCountry(EGYPT).addAdjacentCountry(getCountry(LIBYA));
+        getCountry(EGYPT).addAdjacentCountry(getCountry(SUDAN));
+        getCountry(EGYPT).addAdjacentCountry(getCountry(ISRAEL));
+        //Libya
+        getCountry(LIBYA).addAdjacentCountry(getCountry(EGYPT));
+        getCountry(LIBYA).addAdjacentCountry(getCountry(SUDAN));
+        getCountry(LIBYA).addAdjacentCountry(getCountry(ALGERIA));
+        getCountry(LIBYA).addAdjacentCountries(schengenCountries);
+        //Algeria/Tunisia
+        getCountry(ALGERIA).addAdjacentCountry(getCountry(LIBYA));
+        getCountry(ALGERIA).addAdjacentCountry(getCountry(MOROCCO));
+        getCountry(ALGERIA).addAdjacentCountries(schengenCountries);
+        //Morocco
+        getCountry(MOROCCO).addAdjacentCountry(getCountry(ALGERIA));
+        getCountry(MOROCCO).addAdjacentCountries(schengenCountries);
+    }
+
+    public void createDeck() { //sample code, WIP
         deck.addCard(new freeWarOnTerror.cards.Sanctions());
     }
 }
