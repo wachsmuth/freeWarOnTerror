@@ -36,6 +36,12 @@ public class MuslimCountry extends Country {
 
     @Override
     public void testCountry() {
+        if (getNeedsTesting()) {
+            rollGovernance();
+        }
+    }
+    
+    public void rollGovernance(){
         alignment = 2;
         int die = Die.rollDie();
         if (die >= 5) {
