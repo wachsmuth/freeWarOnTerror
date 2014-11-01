@@ -61,6 +61,8 @@ public abstract class Country {
     public void setGovernance(){}
     
     public void setAlignment(){}
+    
+    public void setGovernanceAndAlignment(int governance, int alignment){}
 
     public abstract Boolean canWarOfIdeas(int ops);
 

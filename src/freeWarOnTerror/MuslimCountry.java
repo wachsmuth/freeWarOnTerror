@@ -81,6 +81,12 @@ public class MuslimCountry extends Country {
             }
         }
     }
+    
+    @Override
+    public void setGovernanceAndAlignment(int governance, int alignment){
+        this.governance = governance;
+        this.alignment = alignment;
+    }
 
     @Override
     public int getGovernance() {
