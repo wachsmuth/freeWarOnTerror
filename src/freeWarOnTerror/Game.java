@@ -180,9 +180,17 @@ public class Game {
     }
     
     public static void playCard(Card card){
+      boolean remove = false;  
         if (card.getPlayable()){
             card.play();
+            
+            if (card.getRemoved()){
             removedCards.addCard(card);
+            remove = true;
+            }
+        }
+        if (!remove){
+            discardPile.addCard(card);
         }
     }
     
@@ -205,5 +213,10 @@ public class Game {
     
     public static void addCardToPlay(String card){
         persistentEffects.add(card);
+    }
+
+    public static int getGlobalPosture() {
+        calculateGlobalPosture();
+        return globalPosture;
     }
 }
