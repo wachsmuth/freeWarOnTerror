@@ -16,35 +16,41 @@
  */
 package freeWarOnTerror;
 
+import static freeWarOnTerror.Game.getCountry;
+import static freeWarOnTerror.Game.isCardInPlay;
 import freeWarOnTerror.abClasses.Country;
+import static freeWarOnTerror.helpers.CONSTANTS.SOMALIA;
+import static freeWarOnTerror.helpers.CONSTANTS.YEMEN;
 
 /**
  *
  * @author Gustav Wengel
  */
 public class Turn {
+
     private boolean firstPlot = true;
 
     public void drawPhase() {
         Game.getJihadist().drawPhase();
         Game.getUS().drawPhase();
     }
-    
-    public void resolvePlots(){
-        for (Country c : Game.getAllCountries()){
+
+    public void resolvePlots() {
+        for (Country c : Game.getAllCountries()) {
             c.resolvePlots();
         }
     }
-    
-    public void turnEnd(){
-        //debug if Pirates active, jihadist does not lose funding
-        Game.modifyFunding(-1);
-        for (MuslimCountry c : Game.getMuslimCountries()){
-            if (c.getRegimeChange() == 2){
+
+    public void turnEnd() {
+        if (!isCardInPlay("Pirates") && (getCountry(SOMALIA).getGovernance() == 4 || getCountry(YEMEN).getGovernance() == 4)) {
+            Game.modifyFunding(-1);
+        }
+        for (MuslimCountry c : Game.getMuslimCountries()) {
+            if (c.getRegimeChange() == 2) {
                 c.setRegimeChange(1);
             }
         }
-        if (Game.anyIslamistRule()){
+        if (Game.anyIslamistRule()) {
             Game.modifyPrestige(-1);
         }
     }
