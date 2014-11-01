@@ -5,6 +5,7 @@
  */
 package freeWarOnTerror;
 
+import freeWarOnTerror.helpers.InputLoop;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -45,7 +46,10 @@ public class FreeWarOnTerror extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(args);
+        System.out.println("Hej");
+        int in = InputLoop.inputLoop(1,2,3);
+        System.out.println("Hej2 " + in);
+        //launch(args);
     }
     
 }

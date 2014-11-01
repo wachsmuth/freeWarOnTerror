@@ -43,5 +43,10 @@ public class CountryIran extends freeWarOnTerror.abClasses.Country {
     public Boolean canWarOfIdeas(int ops) {
         return false;
     }
+    
+    @Override
+    public void resolvePlots(){
+        //DEBUG
+    }
 
 }
