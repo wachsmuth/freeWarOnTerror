@@ -57,6 +57,10 @@ public abstract class Country {
     public abstract void testCountry();
 
     public abstract int getGovernance();
+    
+    public void setGovernance(){}
+    
+    public void setAlignment(){}
 
     public abstract Boolean canWarOfIdeas(int ops);
 
