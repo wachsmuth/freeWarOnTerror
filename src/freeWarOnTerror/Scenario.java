@@ -23,6 +23,7 @@ import freeWarOnTerror.Countries.CountryPhilippines;
 import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.abClasses.Country;
 import java.util.ArrayList;
+import freeWarOnTerror.cards.*;
 import freeWarOnTerror.helpers.*;
 import static freeWarOnTerror.helpers.CONSTANTS.AFGHANISTAN;
 import static freeWarOnTerror.helpers.CONSTANTS.ALGERIA;
@@ -301,6 +302,25 @@ public class Scenario {
     }
 
     public void createDeck() { //sample code, WIP
-        deck.addCard(new freeWarOnTerror.cards.Sanctions());
+        deck.addCard(new AnbarAwakening());
+        deck.addCard(new BhuttoShot());
+        deck.addCard(new CTR());
+        deck.addCard(new Darfur());
+        deck.addCard(new FormerSovietUnion());
+        deck.addCard(new HaririKilled());
+        deck.addCard(new KemalistRepublic());
+        deck.addCard(new KingAbdullah());
+        deck.addCard(new Kosovo());
+        deck.addCard(new MoroTalks());
+        deck.addCard(new NEST());
+        deck.addCard(new PakistaniOffensive());
+        deck.addCard(new PatriotAct());
+        deck.addCard(new Pirates());
+        deck.addCard(new Saddam());
+        deck.addCard(new SaddamCaptured());
+        deck.addCard(new Sanctions());
+        deck.addCard(new Sanctions());
+        deck.addCard(new SchroederAndChirac());
+        deck.addCard(new Wahhabism());
     }
 }

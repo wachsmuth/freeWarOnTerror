@@ -18,6 +18,8 @@ package freeWarOnTerror.cards;
 
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.Game;
+import static freeWarOnTerror.Game.isPostureHard;
+import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.helpers.CONSTANTS;
 import freeWarOnTerror.NonMuslimCountry;
 
@@ -27,15 +29,15 @@ import freeWarOnTerror.NonMuslimCountry;
  */
 public class Kosovo extends Card {
 
-    public Kosovo(Game game) {
+    public Kosovo() {
         super("Kosovo", 1, 1, false);
     }
 
     @Override
     public void play() {
-        Game.modifyPrestige(1);
+        modifyPrestige(1);
         NonMuslimCountry serbia = (NonMuslimCountry) Game.getCountry(CONSTANTS.SERBIA);
-        if (Game.isPostureHard()) {
+        if (isPostureHard()) {
             serbia.setPosture(-1);
         }
         else {
