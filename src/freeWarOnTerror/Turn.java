@@ -35,5 +35,18 @@ public class Turn {
             c.resolvePlots();
         }
     }
+    
+    public void turnEnd(){
+        //debug if Pirates active, jihadist does not lose funding
+        Game.modifyFunding(-1);
+        for (MuslimCountry c : Game.getMuslimCountries()){
+            if (c.getRegimeChange() == 2){
+                c.setRegimeChange(1);
+            }
+        }
+        if (Game.anyIslamistRule()){
+            Game.modifyPrestige(-1);
+        }
+    }
 
 }
