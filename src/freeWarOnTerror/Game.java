@@ -54,15 +54,7 @@ public class Game {
     };
 
     public Game() {
-        Arrays.fill(markedCards, false); //Delete?? DEBUG
-    }
-
-    public static Boolean ifCardActive(int n) {
-        return markedCards[n];
-    }
-
-    public static void setCardInPlay(int n, Boolean bool) {
-        markedCards[n] = bool;
+        
     }
 
     public static void connectCountries(Country c1, Country c2) {
