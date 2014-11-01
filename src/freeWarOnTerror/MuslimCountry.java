@@ -40,8 +40,8 @@ public class MuslimCountry extends Country {
             rollGovernance();
         }
     }
-    
-    public void rollGovernance(){
+
+    public void rollGovernance() {
         alignment = 2;
         int die = Die.rollDie();
         if (die >= 5) {
@@ -61,14 +61,24 @@ public class MuslimCountry extends Country {
         this.alignment = alignment;
         noLongerNeedsTesting();
     }
-    
+
     public void shiftAlignment(int change) {
         alignment = alignment + change;
-        if (alignment < 1){
+        if (alignment < 1) {
             alignment = 0;
-        }
-        else if (alignment > 3){
+        } else if (alignment > 3) {
             alignment = 3;
+        }
+    }
+
+    public void shiftGovernance(int change) {
+        if (governance != 4) {
+            governance = governance + change;
+            if (governance < 1) {
+                governance = 1;
+            } else if (governance > 3) {
+                governance = 3;
+            }
         }
     }
 
@@ -114,7 +124,7 @@ public class MuslimCountry extends Country {
     @Override
     public void resolvePlots() {
         for (Plot p : getPlots()) {
-            
+
             //Funding
             if (governance == GOOD) {
                 Game.modifyFunding(2);
@@ -130,13 +140,13 @@ public class MuslimCountry extends Country {
                     Game.modifyPrestige(-1);
                 }
             }
-            
+
             //Governance and Aid
             //DEBUG
         }
     }
-    
-    public void addAid(){
+
+    public void addAid() {
         aid++;
     }
 }
