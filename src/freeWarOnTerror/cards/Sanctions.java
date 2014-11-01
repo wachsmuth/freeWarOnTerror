@@ -26,7 +26,7 @@ import freeWarOnTerror.Game;
 public class Sanctions extends Card {
 
     public Sanctions() {
-        super(1, 2, true);
+        super("Sanctions", 1, 2, true);
     }
     
     @Override

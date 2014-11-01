@@ -9,8 +9,10 @@ public abstract class Card {
     private final int ops;
     private final int alignment; //0 is Automatic Event, 1 is Neutral, 2 is US, 3 is Jihadist
     private Boolean removedAfterPlay;
+    private final String name;
 
-    public Card(int ops, int alignment, Boolean removedAfterPlay) {
+    public Card(String name, int ops, int alignment, Boolean removedAfterPlay) {
+        this.name = name;
         this.ops = ops;
         this.alignment = alignment;
         this.removedAfterPlay = removedAfterPlay;

@@ -14,7 +14,7 @@ import freeWarOnTerror.Game;
  */
 public class Kosovo extends Card {
         public Kosovo(Game game) {
-        super(1,1, false); 
+        super("Kosovo", 1,1, false); 
     }
         
         @Override
