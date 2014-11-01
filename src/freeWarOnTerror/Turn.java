@@ -16,21 +16,16 @@
  */
 package freeWarOnTerror;
 
-import freeWarOnTerror.abClasses.Player;
-
 /**
  *
  * @author Gustav Wengel
  */
 public class Turn {
-    
-    
-    
-    
-    public void draw(){
-        for (Player p : Game.getPlayers()){
-            
-        }
-    }
-}
+    private boolean firstPlot = true;
 
+    public void drawPhase() {
+        Game.getJihadist().drawPhase();
+        Game.getUS().drawPhase();
+    }
+
+}

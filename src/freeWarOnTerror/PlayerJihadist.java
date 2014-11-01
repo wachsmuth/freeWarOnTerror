@@ -21,28 +21,40 @@ package freeWarOnTerror;
  * @author Emil
  */
 public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
-    
-    public PlayerJihadist(String name){
+
+    public PlayerJihadist(String name) {
         super(name);
     }
-    
-    public void recruit(){
-        
+
+    public void recruit() {
+
     }
-    
-    public void travel(){
-        
+
+    public void travel() {
+
     }
-    
-    public void minorJihad(){
-        
+
+    public void minorJihad() {
+
     }
-    
-    public void majorJihad(){
-        
+
+    public void majorJihad() {
+
     }
-    
-    public void plot(){
-        
+
+    public void plot() {
+
+    }
+
+    @Override
+    public void drawPhase() {
+        //IslamDraw
+        if (Game.getFunding() > 7) {
+            draw(9);
+        } else if (Game.getFunding() > 4) {
+            draw(8);
+        } else {
+            draw(7);
+        }
     }
 }

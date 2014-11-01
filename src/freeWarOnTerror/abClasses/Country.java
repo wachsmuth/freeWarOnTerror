@@ -6,7 +6,9 @@
 package freeWarOnTerror.abClasses;
 
 import freeWarOnTerror.Cell;
-import java.util.*;
+import freeWarOnTerror.Plot;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,6 +18,7 @@ public abstract class Country {
 
     private final ArrayList<Country> adjacentCountries = new ArrayList<>();
     private final ArrayList<Cell> cells = new ArrayList<>();
+    private final List<Plot> plots = new ArrayList<>();
     private final String name;
     private Boolean needsTesting = true;
     private Boolean cadre = false;
@@ -25,6 +28,12 @@ public abstract class Country {
         this.name = name;
         this.id = id;
     }
+    
+    public List<Plot> getPlots(){
+        return plots;
+    }
+    
+    public abstract void resolvePlots();
 
     public abstract void testCountry();
 

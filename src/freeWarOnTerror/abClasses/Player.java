@@ -40,11 +40,16 @@ public abstract class Player {
         addCard(Game.draw());
     }
     
+    public int cardsLeft(){
+        return hand.size();
+    }
+    
     public void draw(int amount){
         for (int i = 0; i < amount; i++){
             addCard(Game.draw());
         }
     }
     
+    public abstract void drawPhase();
     
 }

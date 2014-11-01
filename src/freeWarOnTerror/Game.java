@@ -27,7 +27,6 @@ import java.util.List;
  *
  * @author Emil
  */
-
 //Static Class
 public class Game {
 
@@ -42,7 +41,14 @@ public class Game {
     private static final ArrayList<NonMuslimCountry> nonMuslimCountries = new ArrayList<>();
     private static Deck drawPile = new Deck();
     private static Deck discardPile = new Deck();
-    private static final List<Player> players = new ArrayList<>();
+    private static PlayerJihadist playerJihadist = new PlayerJihadist("JihadPlayer");
+    private static PlayerUS playerUS = new PlayerUS("USPlayer");
+    private static final List<Player> players = new ArrayList<Player>() {
+        {
+            players.add(playerJihadist);
+            players.add(playerUS);
+        }
+    };
 
     public Game() {
         Arrays.fill(markedCards, false); //Delete?? DEBUG
@@ -76,18 +82,18 @@ public class Game {
     public static void setPrestige(int p) {
         prestige = prestige;
     }
-    
-    public static int getFunding(){
+
+    public static int getFunding() {
         return funding;
     }
-    
-    public static int getPrestige(){
+
+    public static int getPrestige() {
         return prestige;
     }
-    
-    public Country getCountry(int id){
-        for (Country c : allCountries){
-            if (c.getID() == id){
+
+    public Country getCountry(int id) {
+        for (Country c : allCountries) {
+            if (c.getID() == id) {
                 return c;
             }
         }
@@ -111,21 +117,31 @@ public class Game {
             funding = 9;
         }
     }
-    
-    public static void calculateGlobalPosture(){
-        int calcValue = 0 ;
-        for (NonMuslimCountry c : nonMuslimCountries){
-            if (c instanceof CountryUSA){continue;}
+
+    public static void calculateGlobalPosture() {
+        int calcValue = 0;
+        for (NonMuslimCountry c : nonMuslimCountries) {
+            if (c instanceof CountryUSA) {
+                continue;
+            }
             calcValue += c.getPosture();
         }
         globalPosture = calcValue;
     }
-    
-    public static List<Player> getPlayers(){
+
+    public static List<Player> getPlayers() {
         return players;
     }
     
-    public static Card draw(){
+    public static Player getJihadist(){
+        return playerJihadist;
+    }
+    
+    public static Player getUS(){
+        return playerUS;
+    }
+
+    public static Card draw() {
         return drawPile.draw();
     }
 }

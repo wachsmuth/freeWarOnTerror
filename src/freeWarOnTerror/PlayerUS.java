@@ -21,33 +21,44 @@ package freeWarOnTerror;
  * @author Emil
  */
 public class PlayerUS extends freeWarOnTerror.abClasses.Player {
-   
-    
-    public PlayerUS(String name){
+
+    public PlayerUS(String name) {
         super(name);
     }
-    
-    public void disrupt(){
-        
+
+    public void disrupt() {
+
     }
-    
-    public void warOfIdeas(){
-        
+
+    public void warOfIdeas() {
+
     }
-    
-    public void reassessment(){
-        
+
+    public void reassessment() {
+
     }
-    
-    public void regimeChange(){
-        
+
+    public void regimeChange() {
+
     }
-    
-    public void withdraw(){
-        
+
+    public void withdraw() {
+
     }
-    
-    public void deploy(){
-        
+
+    public void deploy() {
+
+    }
+
+    @Override
+    public void drawPhase() {
+        //IslamDraw
+        if (Game.getPrestige() > 7) {
+            draw(9); //DEBUG - right numbers?
+        } else if (Game.getPrestige() > 4) {
+            draw(8);
+        } else {
+            draw(7);
+        }
     }
 }
