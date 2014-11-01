@@ -17,6 +17,9 @@
 package freeWarOnTerror.Players;
 
 import freeWarOnTerror.Game;
+import static freeWarOnTerror.Game.getAllCountries;
+import freeWarOnTerror.abClasses.Card;
+import freeWarOnTerror.abClasses.Country;
 
 /**
  *
@@ -51,10 +54,36 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
     public void deploy() {
 
     }
+    
+    public boolean canAlert(int ops){
+        if (ops < 3){
+            return false;
+        }
+        for (Country c : getAllCountries()){
+            if (c.hasPlots()){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean canReassess(int ops){
+        if (ops < 3){
+            return false;
+        }
+        int noOf3Ops = 0;
+        for (Card c : getHand()){
+            if (c.getOps() > 2){
+                noOf3Ops++;
+            }
+        }
+        //DEBUG make it illegal to use reserves here.
+        return noOf3Ops > 2;
+    }
 
     @Override
     public void drawPhase() {
-        //IslamDraw
+        //US draw
         if (Game.getPrestige() > 7) {
             draw(9); //DEBUG - right numbers?
         } else if (Game.getPrestige() > 4) {
