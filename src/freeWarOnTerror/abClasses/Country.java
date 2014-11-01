@@ -25,6 +25,7 @@ public abstract class Country {
     private final String name;
     private Boolean needsTesting = true;
     private Boolean cadre = false;
+    private Boolean ctr = false;
     private final int id;
 
     public Country(String name, int id) {
@@ -118,6 +119,14 @@ public abstract class Country {
 
     public Boolean getCadre() {
         return cadre;
+    }
+
+    public Boolean getCTR() {
+        return ctr;
+    }
+
+    public void setCTR(Boolean ctr) {
+        this.ctr = ctr;
     }
 
     public int getID() {
