@@ -36,10 +36,10 @@ public class Kosovo extends Card {
         Game.modifyPrestige(1);
         NonMuslimCountry serbia = (NonMuslimCountry) Game.getCountry(CONSTANTS.SERBIA);
         if (Game.isPostureHard()) {
-            serbia.setPosture(1);
+            serbia.setPosture(-1);
         }
         else {
-            serbia.setPosture(2);
+            serbia.setPosture(1);
         }
     }
 }

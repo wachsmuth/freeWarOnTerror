@@ -15,7 +15,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.WMD;
 public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
 
     private final int governance;
-    private int posture = 0; //soft = 1, hard = 2
+    private int posture = 0; //soft = -1, hard = 1
     private final int recruit;
     private final Boolean schengen;
 
@@ -52,9 +52,9 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
 
     public void rollPosture() {
         if (4 >= freeWarOnTerror.helpers.Die.rollDie()) {
-            posture = 1;
+            posture = -1;
         } else {
-            posture = 2;
+            posture = 1;
         }
     }
 
