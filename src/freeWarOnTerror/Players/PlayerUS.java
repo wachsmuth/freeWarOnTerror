@@ -16,6 +16,7 @@
  */
 package freeWarOnTerror.Players;
 
+import freeWarOnTerror.Game;
 import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getTroops;
 import freeWarOnTerror.abClasses.Card;
@@ -116,7 +117,7 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
             if (userInput == 1) {
                 playForOps(c.getOps());
             } else {
-                c.playEvent();
+                Game.playCard(c);
             }
 
         } else if (c.getAlignment() == USA || c.getAlignment() == NEUTRAL) {
@@ -129,11 +130,11 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
             System.out.println("2: To play the ops first");
             int userInput = inputLoop(1, 2);
             if (userInput == 1) {
-                c.playEvent();
+                Game.playCard(c);
                 playForOps(c.getOps());
             } else {
                 playForOps(c.getOps());
-                c.playEvent();
+                Game.playCard(c);
             }
         }
     }

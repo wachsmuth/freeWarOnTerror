@@ -49,7 +49,10 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
 
     @Override
     public void testCountry() {
+        if (getNeedsTesting()){
         rollPosture();
+        noLongerNeedsTesting();
+        }
     }
 
     public void rollPosture() {
