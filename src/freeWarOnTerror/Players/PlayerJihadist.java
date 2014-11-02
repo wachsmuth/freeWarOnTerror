@@ -17,7 +17,10 @@
 package freeWarOnTerror.Players;
 
 import freeWarOnTerror.Game;
+import static freeWarOnTerror.Game.getMuslimCountries;
+import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
+import freeWarOnTerror.abClasses.Country;
 
 /**
  *
@@ -51,6 +54,16 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
 
     }
     
+    public boolean canMajorJihad(int ops){
+        for (Country c : getMuslimCountries()){
+            MuslimCountry x = (MuslimCountry) c;
+            if (x.canMajorJihad(ops)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
     @Override
     public boolean canPlayAsEvent(Card c){
         return (c.getAlignment() == 1 || c.getAlignment() == 3) && c.getPlayable();
@@ -66,7 +79,7 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
 
     @Override
     public void drawPhase() {
-        //IslamDraw
+        //Islamist Draw
         if (Game.getFunding() > 6) {
             draw(9);
         } else if (Game.getFunding() > 3) {
