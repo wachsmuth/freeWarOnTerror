@@ -29,4 +29,9 @@ public class CountryUSA extends NonMuslimCountry {
         noLongerNeedsTesting();
     }
     
+    @Override
+    public Boolean canWarOfIdeas(int ops){
+        return false;
+    }
+    
 }
