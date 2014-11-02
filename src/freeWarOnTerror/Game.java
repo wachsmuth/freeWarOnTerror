@@ -41,6 +41,7 @@ public class Game {
     private static int islamistResources = 0;
     private static int goodFairCountries = 0;
     private static int poorIslamistCountries = 0;
+    private static int oilPriceSpike = 0;
     private static final ArrayList<String> persistentEffects = new ArrayList<>();
     private static final ArrayList<Country> allCountries = new ArrayList<>();
     private static final ArrayList<MuslimCountry> muslimCountries = new ArrayList<>();
@@ -51,7 +52,8 @@ public class Game {
     private static final Deck removedCards = new Deck();
     private static PlayerJihadist playerJihadist = new PlayerJihadist("JihadPlayer");
     private static PlayerUS playerUS = new PlayerUS("USPlayer");
-    private static final List<Player> players = new ArrayList<Player>() {
+    private static final List<Player> players = new ArrayList<Player>()
+    {
         {
             players.add(playerJihadist);
             players.add(playerUS);
@@ -248,6 +250,10 @@ public class Game {
     
     public static int getPrestigeModifier(){
         return (int) (Math.floor(prestige/3) - 1);
+    }
+    
+    public static int getOilPriceSpike(){
+        return oilPriceSpike;
     }
     
     public static void updateScoreboard(){
