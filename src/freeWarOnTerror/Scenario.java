@@ -19,6 +19,7 @@ package freeWarOnTerror;
 import freeWarOnTerror.Countries.CountryIsrael;
 import freeWarOnTerror.Countries.CountryUSA;
 import freeWarOnTerror.Countries.CountryIran;
+import freeWarOnTerror.Countries.CountryPakistan;
 import freeWarOnTerror.Countries.CountryPhilippines;
 import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getCountry;
@@ -95,7 +96,7 @@ public class Scenario {
         countries.add(new MuslimCountry("Jordan", CONSTANTS.JORDAN, 1, false, false));
         countries.add(new MuslimCountry("Iraq", CONSTANTS.IRAQ, 3, true, true));
         countries.add(new MuslimCountry("Gulf States", CONSTANTS.GULFSTATES, 3, true, true));
-        countries.add(new MuslimCountry("Pakistan", CONSTANTS.PAKISTAN, 2, false, true));
+        countries.add(new CountryPakistan("Pakistan", CONSTANTS.PAKISTAN, 2, false, true));
         countries.add(new MuslimCountry("Afghanistan", CONSTANTS.AFGHANISTAN, 1, false, true));
         countries.add(new MuslimCountry("Central Asia", CONSTANTS.CENTRALASIA, 2, false, false));
         countries.add(new MuslimCountry("Lebanon", CONSTANTS.LEBANON, 1, false, true));

@@ -23,15 +23,15 @@ import static freeWarOnTerror.helpers.Die.rollDie;
 public class MuslimCountry extends Country {
 
     private final int resources;
-    private final Boolean oilCountry;
+    private final boolean oilCountry;
     private final Boolean shiaMix;
-    private Boolean besiegedRegime = false;
+    private boolean besiegedRegime = false;
     private int regimeChange = 0;
     private int aid = 0;
     private int governance = 0; //1 = Good, 2 = Fair, 3 = Poor, 4 = Islamist Rule
     private int alignment = 0; //1 = Ally, 2 = Neutral, 3 = Adversary
 
-    public MuslimCountry(String name, int id, int resources, Boolean oilCountry, Boolean shiaMix) {
+    public MuslimCountry(String name, int id, int resources, boolean oilCountry, boolean shiaMix) {
         super(name, id);
         this.resources = resources;
         this.oilCountry = oilCountry;
