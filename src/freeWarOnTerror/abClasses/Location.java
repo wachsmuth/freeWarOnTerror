@@ -82,5 +82,9 @@ public abstract class Location {
     public Boolean hasPlots() {
         return plots.size() > 0;
     }
+    
+    public int plotAmount(){
+        return plots.size();
+    }
 
 }
