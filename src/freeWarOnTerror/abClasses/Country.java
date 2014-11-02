@@ -142,6 +142,9 @@ public abstract class Country {
         return cadre || cells.size() > 0;
     }
 
+    public boolean canPlot() { //NOTE: This method works for both minor jihad and plotting.
+        return getGovernance() < 4 && hasCells();
+    }
     public void setCadre(Boolean cadre) {
         this.cadre = cadre;
     }
@@ -169,7 +172,6 @@ public abstract class Country {
     public Boolean getNeedsTesting() {
         return needsTesting;
     }
-    
     
 
 }
