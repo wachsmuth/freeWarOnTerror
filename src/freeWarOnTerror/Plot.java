@@ -23,6 +23,7 @@ package freeWarOnTerror;
 public class Plot {
     
     private final int type; //Type 1, 2, 3 = strength; Variable WMD is 4
+    private boolean faceUp;
     
     public Plot (int type){
         this.type = type;
@@ -30,5 +31,13 @@ public class Plot {
     
     public int getType(){
         return type;
+    }
+
+    public boolean isFaceUp() {
+        return faceUp;
+    }
+
+    public void setFaceUp(boolean faceUp) {
+        this.faceUp = faceUp;
     }
 }
