@@ -332,6 +332,7 @@ public class Scenario {
         deck.addCard(new Sanctions());
         deck.addCard(new Sanctions());
         deck.addCard(new SchroederAndChirac());
+        deck.addCard(new VieiradeMelloSlain());
         deck.addCard(new Wahhabism());
     }
 }
