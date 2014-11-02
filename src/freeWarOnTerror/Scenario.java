@@ -341,5 +341,7 @@ public class Scenario {
         deck.addCard(new UyghurJihad());
         deck.addCard(new VieiradeMelloSlain());
         deck.addCard(new Wahhabism());
+        
+        deck.shuffle();
     }
 }
