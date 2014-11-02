@@ -130,7 +130,11 @@ public abstract class Country {
         }
     }
 
-    public Boolean canDeploy() {
+    public Boolean canDeployTo() {
+        return false;
+    }
+    
+    public boolean canDeployFrom() {
         return false;
     }
 

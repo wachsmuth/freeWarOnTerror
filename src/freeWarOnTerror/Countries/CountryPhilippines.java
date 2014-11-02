@@ -31,7 +31,12 @@ public class CountryPhilippines extends NonMuslimCountry {
     }
 
     @Override
-    public Boolean canDeploy() {
+    public Boolean canDeployTo() {
         return isCardInPlay("Abu Sayyaf");
+    }
+    
+    @Override
+    public boolean canDeployFrom(){
+        return hasTroops();
     }
 }

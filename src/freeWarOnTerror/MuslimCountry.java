@@ -97,8 +97,19 @@ public class MuslimCountry extends Country {
     }
 
     @Override
-    public Boolean canDeploy() {
+    public Boolean canDeployTo() {
         return alignment == 1 && governance < 4;
+    }
+    
+    @Override
+    public boolean canDeployFrom() {
+        if (!hasTroops()){
+            return false;
+        }
+        else if (regimeChange > 0 && troopAmount() <= cellAmount() + 5){
+            return false;
+        }
+        return true;
     }
 
     public int getAlignment() {
