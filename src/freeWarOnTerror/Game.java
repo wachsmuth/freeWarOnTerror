@@ -22,8 +22,8 @@ import freeWarOnTerror.Countries.CountryUSA;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import freeWarOnTerror.abClasses.Player;
+import static freeWarOnTerror.helpers.Die.prestigeRoll;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -114,6 +114,10 @@ public class Game {
             }
         }
         return null;
+    }
+    
+    public static void rollPrestige(){
+        modifyPrestige(prestigeRoll());
     }
 
     public static void modifyPrestige(int change) {
