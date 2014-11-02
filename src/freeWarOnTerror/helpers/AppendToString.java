@@ -24,7 +24,7 @@ public class AppendToString {
 
     public static String appendString(String string) {
         String appendSpaces = "";
-        for (int i = 0; i < 20 - string.length(); i++) {
+        for (int i = 0; i < 20 - (string.length() % 20); i++) {
             appendSpaces = appendSpaces + (" ");
         }
         return string + appendSpaces;
