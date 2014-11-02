@@ -36,7 +36,7 @@ public class Sanctions extends Card {
     }
 
     @Override
-    public void play() {
+    public void playEvent() {
         Game.modifyFunding(-2);
     }
 }

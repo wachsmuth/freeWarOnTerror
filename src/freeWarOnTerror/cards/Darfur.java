@@ -33,7 +33,7 @@ public class Darfur extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         MuslimCountry sudan = (MuslimCountry) getCountry(SUDAN);
         sudan.testCountry();
         if (getPrestige() > 6){

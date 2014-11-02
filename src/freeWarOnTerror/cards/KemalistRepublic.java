@@ -32,7 +32,7 @@ public class KemalistRepublic extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         MuslimCountry turkey = (MuslimCountry) getCountry(TURKEY);
         turkey.setAlignment(1);
         turkey.setGovernance(2);

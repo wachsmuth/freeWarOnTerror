@@ -40,7 +40,7 @@ public class PakistaniOffensive extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         removeCardFromPlay("FATA");
     }
 }

@@ -43,7 +43,7 @@ public class IEDs extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         discard(getUS().getRandomCard());
     }
 }

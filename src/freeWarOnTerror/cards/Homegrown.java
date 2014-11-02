@@ -32,7 +32,7 @@ public class Homegrown extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         placeCell(getCountry(UNITEDKINGDOM));
     }
     

@@ -40,7 +40,7 @@ public class Saddam extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         setFunding(9);
     }
 }

@@ -34,7 +34,7 @@ public class Kosovo extends Card {
     }
 
     @Override
-    public void play() {
+    public void playEvent() {
         modifyPrestige(1);
         NonMuslimCountry serbia = (NonMuslimCountry) Game.getCountry(CONSTANTS.SERBIA);
         if (isPostureHard()) {

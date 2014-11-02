@@ -32,7 +32,7 @@ public class JemaahIslamiya extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         for(int i = 0; i < 2;i++){
             placeCell(getCountry(INDONESIA));
         }

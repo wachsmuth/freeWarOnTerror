@@ -32,7 +32,7 @@ public class FormerSovietUnion extends Card{
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         MuslimCountry centralAsia = (MuslimCountry) getCountry(CENTRALASIA);
         centralAsia.rollGovernance();
     }

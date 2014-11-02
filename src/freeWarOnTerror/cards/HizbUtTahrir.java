@@ -31,7 +31,7 @@ public class HizbUtTahrir extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         if (getTroops() > 10){
             modifyFunding(-2);
         }

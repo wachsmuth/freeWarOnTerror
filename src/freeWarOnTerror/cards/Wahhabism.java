@@ -33,7 +33,7 @@ public class Wahhabism extends Card{
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         if (getCountry(SAUDIARABIA).getGovernance() == 4){
             setFunding(9);
         }

@@ -33,7 +33,7 @@ public class MoroTalks extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         getCountry(PHILIPPINES).testCountry();
         modifyFunding(-1);
         addCardToPlay("Moro Talks");

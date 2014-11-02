@@ -33,7 +33,7 @@ public class HaririKilled extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         getCountry(LEBANON).testCountry();
         MuslimCountry syria = (MuslimCountry) getCountry(SYRIA);
         syria.setAlignment(3);

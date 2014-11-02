@@ -34,7 +34,7 @@ public class UyghurJihad extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         NonMuslimCountry china = (NonMuslimCountry) getCountry(CHINA);
         china.testCountry();
         if (china.getPosture() == 1){

@@ -42,7 +42,7 @@ public class VieiradeMelloSlain extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         modifyPrestige(-1);
         addToPlay();
     }

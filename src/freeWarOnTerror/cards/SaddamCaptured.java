@@ -38,7 +38,7 @@ public class SaddamCaptured extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
       MuslimCountry iraq = (MuslimCountry) getCountry(IRAQ);
       iraq.addAid();
       modifyPrestige(1);

@@ -35,7 +35,7 @@ public class SchroederAndChirac extends Card {
     }
 
     @Override
-    public void play() {
+    public void playEvent() {
         NonMuslimCountry france = (NonMuslimCountry) getCountry(FRANCE);
         NonMuslimCountry germany = (NonMuslimCountry) getCountry(GERMANY);
         france.setPosture(-1);

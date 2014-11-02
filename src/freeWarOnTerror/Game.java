@@ -16,9 +16,9 @@
  */
 package freeWarOnTerror;
 
+import freeWarOnTerror.Countries.CountryUSA;
 import freeWarOnTerror.Players.PlayerJihadist;
 import freeWarOnTerror.Players.PlayerUS;
-import freeWarOnTerror.Countries.CountryUSA;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import freeWarOnTerror.abClasses.Player;
@@ -59,9 +59,26 @@ public class Game {
             players.add(playerUS);
         }
     };
+    private static Player currentPlayer = playerJihadist;
 
     public Game() {
 
+    }
+
+    public static Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public static void switchCurrentPlayer() {
+        if (currentPlayer == playerJihadist) {
+            currentPlayer = playerUS;
+        } else {
+            currentPlayer = playerJihadist;
+        }
+    }
+    
+    public static void switchCurrentPlayer(Player p){
+        currentPlayer = p;
     }
 
     public static void connectCountries(Country c1, Country c2) {
@@ -177,11 +194,11 @@ public class Game {
         return false;
     }
 
-    public static Player getJihadist() {
+    public static PlayerJihadist getJihadist() {
         return playerJihadist;
     }
 
-    public static Player getUS() {
+    public static PlayerUS getUS() {
         return playerUS;
     }
 
@@ -222,7 +239,7 @@ public class Game {
     public static void playCard(Card card) {
         boolean remove = false;
         if (card.getPlayable()) {
-            card.play();
+            card.playEvent();
 
             if (card.getRemoved()) {
                 removedCards.addCard(card);

@@ -27,10 +27,13 @@ import static freeWarOnTerror.Game.isPostureHard;
 import static freeWarOnTerror.Game.modifyFunding;
 import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.Players.PlayerJihadist;
+import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import freeWarOnTerror.abClasses.Player;
 import static freeWarOnTerror.helpers.CONSTANTS.SOMALIA;
 import static freeWarOnTerror.helpers.CONSTANTS.YEMEN;
+import static freeWarOnTerror.helpers.InputLoop.inputLoop;
+import java.util.ArrayList;
 
 /**
  *
@@ -77,9 +80,29 @@ public class Turn {
             p.setReserves(0);
         }
         //Reset first plot
-        PlayerJihadist jihadist = (PlayerJihadist) getJihadist();
+        PlayerJihadist jihadist = getJihadist();
         jihadist.setFirstPlot(false);
         drawPhase();
     }
-
+    
+    public void playCardPhase(){
+        Player cPlayer = Game.getCurrentPlayer();
+        ArrayList<Card> hand = cPlayer.getHand();
+        //Prints hand
+        int count = 0;
+        for (Card c : hand){
+            System.out.println(count + ": " + c);
+        }
+        
+        //Starts inputLoop with correct input
+        int[] okInput = new int[hand.size()];
+        for (int i = 0; i < hand.size(); i++){
+            okInput[i] = i;
+        }
+        
+        int userInput = inputLoop(okInput);
+        
+        //Plays the card
+        hand.get(userInput).playEvent();
+    }
 }

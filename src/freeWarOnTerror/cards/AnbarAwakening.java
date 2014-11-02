@@ -37,7 +37,7 @@ public class AnbarAwakening extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         //DEBUG TBD
     }
 }

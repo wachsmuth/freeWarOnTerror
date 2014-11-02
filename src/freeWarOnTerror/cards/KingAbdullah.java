@@ -34,7 +34,7 @@ public class KingAbdullah extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         MuslimCountry jordan = (MuslimCountry) getCountry(JORDAN);
         jordan.setGovernance(2);
         jordan.setAlignment(1);

@@ -33,7 +33,7 @@ public class GazaWar extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         discard(getUS().getRandomCard());
         modifyFunding(1);
         modifyPrestige(-1);

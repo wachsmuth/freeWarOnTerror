@@ -20,7 +20,7 @@ public abstract class Card {
         this.removedAfterPlay = removedAfterPlay;
     }
 
-    public abstract void play();
+    public abstract void playEvent();
 
     public Boolean getPlayable() {
         return true;

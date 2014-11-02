@@ -29,7 +29,7 @@ public class NEST extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         addToPlay(); //note: the functionality of the card not implemented yet.
     }
 }

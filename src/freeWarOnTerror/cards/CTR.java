@@ -39,7 +39,7 @@ public class CTR extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         getCountry(RUSSIA).setCTR(true);
         MuslimCountry centralAsia = (MuslimCountry) getCountry(CENTRALASIA);
         if (centralAsia.getAlignment() < 3){

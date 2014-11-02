@@ -93,4 +93,6 @@ public abstract class Player {
             reserves = 2;
         }
     }
+    
+    public abstract void playCard(Card c);
 }

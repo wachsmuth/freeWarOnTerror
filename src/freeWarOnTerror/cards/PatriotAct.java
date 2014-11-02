@@ -35,7 +35,7 @@ public class PatriotAct extends Card {
     }
 
     @Override
-    public void play() {
+    public void playEvent() {
         getCountry(UNITEDSTATES).removeAdjacentCountry(getCountry(PHILIPPINES));
         getCountry(PHILIPPINES).removeAdjacentCountry(getCountry(UNITEDSTATES));
         getCountry(UNITEDSTATES).removeAdjacentCountry(getCountry(UNITEDKINGDOM));

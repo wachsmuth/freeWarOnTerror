@@ -22,6 +22,7 @@ import static freeWarOnTerror.Game.getMuslimCountries;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
+import static freeWarOnTerror.helpers.CONSTANTS.JIHAD;
 
 /**
  *
@@ -101,6 +102,13 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
             draw(8);
         } else {
             draw(7);
+        }
+    }
+    
+    @Override
+    public void playCard(Card c){
+        if (c.getAlignment() == JIHAD){
+            
         }
     }
 }

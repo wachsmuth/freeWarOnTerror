@@ -33,7 +33,7 @@ public class AlAzhar extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         getCountry(EGYPT).testCountry();
         if (anyIslamistRule()){
             modifyFunding(-2);

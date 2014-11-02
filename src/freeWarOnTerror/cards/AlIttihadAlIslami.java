@@ -32,7 +32,7 @@ public class AlIttihadAlIslami extends Card {
     }
     
     @Override
-    public void play(){
+    public void playEvent(){
         placeCell(getCountry(SOMALIA));
     }
 }
