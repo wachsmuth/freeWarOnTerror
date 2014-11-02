@@ -230,7 +230,10 @@ public class MuslimCountry extends Country {
     @Override
     public String toString(){
         String string = super.toString();
-        if (!needsTesting()){
+        if (needsTesting()){
+            string = string + appendString("Untested");
+        }
+        else {
             String gov = "";
             if (governance == 1){
                 gov += "Good";
@@ -256,6 +259,6 @@ public class MuslimCountry extends Country {
             }
             string = string + appendString(gov);
         }
-        return string;
+        return string + moveablesString();
     }
 }

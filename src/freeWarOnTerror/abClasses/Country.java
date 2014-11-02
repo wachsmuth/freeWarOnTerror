@@ -147,16 +147,21 @@ public abstract class Country extends Location {
     @Override
     public String toString() {
         String string = appendString(name);
-        if (needsTesting) {
-            string = appendString(string) + appendString("Untested");
-        }
-        if (cadre) {
-            string = (string + "\n" + "Has cadre");
-        }
-        if (ctr) {
-            string = (string + "\n" + "Has CTR");
-        }
         return string;
+    }
+    
+    public String moveablesString(){
+        String string = "";
+        if (hasTroops()){
+            string += troopAmount() + " troops ";
+        }
+        if (hasCells()){
+            string += cellAmount() + " cells ";
+        }
+        if (hasPlots()){
+            string += plotAmount() + " plots ";
+        }
+        return appendString(string);
     }
 
 }

@@ -137,6 +137,6 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
             }
             appendString(string);
         
-        return string;
+        return string + moveablesString();
     }
 }
