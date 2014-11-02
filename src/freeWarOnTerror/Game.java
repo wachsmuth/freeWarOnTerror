@@ -53,8 +53,7 @@ public class Game {
     private static final Deck removedCards = new Deck();
     private static PlayerJihadist playerJihadist = new PlayerJihadist("JihadPlayer");
     private static PlayerUS playerUS = new PlayerUS("USPlayer");
-    private static final List<Player> players = new ArrayList<Player>()
-    {
+    private static final List<Player> players = new ArrayList<Player>() {
         {
             players.add(playerJihadist);
             players.add(playerUS);
@@ -62,7 +61,7 @@ public class Game {
     };
 
     public Game() {
-        
+
     }
 
     public static void connectCountries(Country c1, Country c2) {
@@ -122,8 +121,8 @@ public class Game {
         }
         return null;
     }
-    
-    public static void rollPrestige(){
+
+    public static void rollPrestige() {
         modifyPrestige(prestigeRoll());
     }
 
@@ -185,56 +184,78 @@ public class Game {
     public static Player getUS() {
         return playerUS;
     }
-    
-    public static Track getTrack(){
+
+    public static Track getTrack() {
         return track;
     }
-    
-    public static int getTroops(){
+
+    public static int getTroops() {
         return getTrack().troopAmount();
+    }
+
+    public static void placeCell(Country country) {
+        if (canPlaceCell()) {
+            track.getCells().get(0).move(country);
+        }
+    }
+
+    public static boolean canPlaceCell() {
+        return track.hasCells();
+    }
+
+    public static boolean canRecruit() {
+        if (!track.hasCells()) {
+            return false;
+        } else if (funding > 6) {
+            return true;
+        } else if (funding > 3 && track.cellAmount() < 6) {
+            return false;
+        } else {
+            return !(funding < 4 && track.cellAmount() < 11);
+        }
     }
 
     public static Card draw() {
         return drawPile.draw();
     }
-    
-    public static void playCard(Card card){
-      boolean remove = false;  
-        if (card.getPlayable()){
+
+    public static void playCard(Card card) {
+        boolean remove = false;
+        if (card.getPlayable()) {
             card.play();
-            
-            if (card.getRemoved()){
-            removedCards.addCard(card);
-            remove = true;
+
+            if (card.getRemoved()) {
+                removedCards.addCard(card);
+                remove = true;
             }
         }
-        if (!remove){
+        if (!remove) {
             discardPile.addCard(card);
         }
     }
-    
-    public static void discard(Card card){
+
+    public static void discard(Card card) {
         discardPile.addCard(card);
     }
-    
-    public static Boolean isCardInPlay(String card){
-        for (String s : persistentEffects){
-            if (s.equals(card)){
+
+    public static Boolean isCardInPlay(String card) {
+        for (String s : persistentEffects) {
+            if (s.equals(card)) {
                 return true;
             }
         }
         return false;
     }
-    
-    public static void removeCardFromPlay(String card){
-        for (String s : persistentEffects){
-            if (s.equals(card)){
+
+    public static void removeCardFromPlay(String card) {
+        for (String s : persistentEffects) {
+            if (s.equals(card)) {
                 persistentEffects.remove(s);
             }
         }
     }
-    
-    public static void addCardToPlay(String card){
+
+    public static void addCardToPlay(String card) {
         persistentEffects.add(card);
     }
 
@@ -242,55 +263,50 @@ public class Game {
         calculateGlobalPosture();
         return globalPosture;
     }
-    
-    public static int getPosturePenalty(){
+
+    public static int getPosturePenalty() {
         //Get penalty from GWOT relations
         int penalty = 0;
-        if (isPostureHard()){
+        if (isPostureHard()) {
             penalty = penalty + getGlobalPosture();
-        }
-        else {
+        } else {
             penalty = penalty - getGlobalPosture();
         }
-        if (penalty > 0){
+        if (penalty > 0) {
             penalty = 0;
-        }
-        else if(penalty < -3){
+        } else if (penalty < -3) {
             penalty = -3;
         }
         return penalty;
     }
-    
-    public static int getPrestigeModifier(){
-        return (int) (Math.floor(prestige/3) - 1);
+
+    public static int getPrestigeModifier() {
+        return (int) (Math.floor(prestige / 3) - 1);
     }
-    
-    public static int getOilPriceSpike(){
+
+    public static int getOilPriceSpike() {
         return oilPriceSpike;
     }
-    
-    public static void updateScoreboard(){
+
+    public static void updateScoreboard() {
         goodResources = 0;
         islamistResources = 0;
         goodFairCountries = 0;
         poorIslamistCountries = 0;
-        for (MuslimCountry c : muslimCountries){
-            if (c.getGovernance() == 1){
+        for (MuslimCountry c : muslimCountries) {
+            if (c.getGovernance() == 1) {
                 goodResources = goodResources + c.getResources();
                 goodFairCountries++;
-            }
-            else if (c.getGovernance() == 2){
+            } else if (c.getGovernance() == 2) {
                 goodFairCountries++;
-            }
-            else if (c.getGovernance() == 3){
+            } else if (c.getGovernance() == 3) {
                 poorIslamistCountries++;
-            }
-            else if (c.getGovernance() == 4){
+            } else if (c.getGovernance() == 4) {
                 poorIslamistCountries++;
                 islamistResources = islamistResources + c.getResources();
             }
-            
+
         }
-        
+
     }
 }
