@@ -74,7 +74,7 @@ public abstract class Card {
         else if (alignment == 0){
             string = string + "Automatic Event";
         }
-        string = string + ", " + ops + "ops )";
+        string = string + ", " + ops + " ops)";
         return string;
     }
     
