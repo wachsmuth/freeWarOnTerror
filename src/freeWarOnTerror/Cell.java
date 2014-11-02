@@ -5,14 +5,21 @@
  */
 package freeWarOnTerror;
 
+import freeWarOnTerror.abClasses.Location;
+import freeWarOnTerror.abClasses.Moveable;
+
 /**
  *
  * @author Emil
  */
-public class Cell {
+public class Cell extends Moveable{
     private Boolean active = false;
     private boolean idle = true;
     private boolean backlash = false;
+    
+    public Cell(Location l){
+        super(l);
+    }
 
     public boolean isIdle() {
         return idle;

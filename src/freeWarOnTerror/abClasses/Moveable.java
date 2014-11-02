@@ -20,11 +20,11 @@ package freeWarOnTerror.abClasses;
  *
  * @author Emil
  */
-public abstract class Movable {
+public abstract class Moveable {
     
     Location myLocation;
     
-    public Movable(Location myLocation){
+    public Moveable(Location myLocation){
         this.myLocation = myLocation;
     }
     

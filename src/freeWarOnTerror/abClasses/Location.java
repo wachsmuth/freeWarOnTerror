@@ -32,31 +32,24 @@ public abstract class Location {
     private final List<Plot> plots = new ArrayList<>();
     private final List<Troop> troops = new ArrayList<>();
 
-    public void add(Movable m) {
+    public void add(Moveable m) {
+        if (m instanceof Cell) {
+            cells.add((Cell) m);
+        } else if (m instanceof Plot) {
+            plots.add((Plot) m);
+        } else if (m instanceof Troop) {
+            troops.add((Troop) m);
+        }
     }
 
-    public void add(Plot p) {
-
+    public void remove(Moveable m) {
+        if (m instanceof Cell) {
+            cells.remove((Cell) m);
+        } else if (m instanceof Plot) {
+            plots.remove((Plot) m);
+        } else if (m instanceof Troop) {
+            troops.remove((Troop) m);
+        }
     }
 
-    public void remove(Plot p) {
-    }
-
-    public void remove(Movable m) {
-
-    }
-
-    public void add(Cell c) {
-
-    }
-
-    public void remove(Cell c) {
-    }
-
-    public void add(Troop t) {
-
-    }
-
-    public void remove(Troop t) {
-    }
 }

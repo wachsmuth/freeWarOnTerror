@@ -16,16 +16,20 @@
  */
 package freeWarOnTerror;
 
+import freeWarOnTerror.abClasses.Location;
+import freeWarOnTerror.abClasses.Moveable;
+
 /**
  *
  * @author Emil
  */
-public class Plot {
+public class Plot extends Moveable{
     
     private final int type; //Type 1, 2, 3 = strength; Variable WMD is 4
     private boolean faceUp;
     
-    public Plot (int type){
+    public Plot (Location l, int type){
+        super(l);
         this.type = type;
     }
     
