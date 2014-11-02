@@ -164,14 +164,23 @@ public abstract class Country extends Location {
     
     public String moveablesString(){
         String string = "";
-        if (hasTroops()){
+        if (troopAmount() > 1){
             string += troopAmount() + " troops ";
         }
-        if (hasCells()){
+        else if(troopAmount() == 1){
+            string += troopAmount() + " troop ";
+        }
+        if (cellAmount() > 1){
             string += cellAmount() + " cells ";
         }
-        if (hasPlots()){
+        else if (cellAmount() == 1){
+            string += cellAmount() + " cell ";
+        }
+        if (plotAmount() > 1){
             string += plotAmount() + " plots ";
+        }
+        if (plotAmount() == 1){
+            string += plotAmount() + " plot ";
         }
         return appendString(string);
     }
