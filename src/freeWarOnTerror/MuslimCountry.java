@@ -146,6 +146,9 @@ public class MuslimCountry extends Country {
 
     @Override
     public Boolean canWarOfIdeas(int ops) {
+        if (governance == 1 && alignment == 1){
+            return false;
+        }
         return ops >= governance && alignment < 3;
     }
 
