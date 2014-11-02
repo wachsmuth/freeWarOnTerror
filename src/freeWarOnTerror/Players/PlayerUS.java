@@ -108,7 +108,7 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
 
     @Override
     public void playCard(Card c) {
-        if (c.getAlignment() == USA || c.getAlignment() == NEUTRAL) {
+        if (c.getAlignment() == USA || c.getAlignment() == NEUTRAL && c.getPlayable()) {
             System.out.println("Do you want to:");
             System.out.println("1: Play for ops");
             System.out.println("2: Play for event");
@@ -119,6 +119,9 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
                 c.playEvent();
             }
 
+        } else if (c.getAlignment() == USA || c.getAlignment() == NEUTRAL) {
+            System.out.println("Event unplayable, playing for ops.");
+            playForOps(c.getOps());
         } else {
             //Event and ops both happen - but which first?
             System.out.println("Do you want:");
