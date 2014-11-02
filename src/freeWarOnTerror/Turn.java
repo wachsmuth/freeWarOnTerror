@@ -41,23 +41,55 @@ import java.util.ArrayList;
  */
 public class Turn {
 
-    public void drawPhase() {
+    private boolean firstPlot;
+    private boolean jihadistDone;
+    private boolean USADone;
+
+    public void Turn() {
+        Game.incrementTurnNumber();
+        jihadistDone = false;
+        USADone = false;
+        firstPlot = true;
+    }
+
+    public void startTurn() {
+        drawPhase();
+        while (USADone == false && jihadistDone == false) {
+            Game.switchCurrentPlayer(Game.getJihadist());
+            playCardPhase();
+            playCardPhase();
+            Game.switchCurrentPlayer();
+            playCardPhase();
+            playCardPhase();
+            resolvePlots();
+        }
+        turnEnd();
+    }
+
+    public boolean isFirstPlot() {
+        return firstPlot;
+    }
+
+    public void setFirstPlot(boolean firstPlot) {
+        this.firstPlot = firstPlot;
+    }
+
+    private void drawPhase() {
         Game.getJihadist().drawPhase();
         Game.getUS().drawPhase();
     }
 
-    public void resolvePlots() {
+    private void resolvePlots() {
         for (Country c : Game.getAllCountries()) {
             c.resolvePlots();
         }
     }
 
-    public void turnEnd() {
+    private void turnEnd() {
         //Drop funding
         if (isCardInPlay("Pirates") && (getCountry(SOMALIA).getGovernance() == 4 || getCountry(YEMEN).getGovernance() == 4)) {
-            
-        }
-        else {
+
+        } else {
             modifyFunding(-1);
         }
         //Flip regime change markers.
@@ -84,35 +116,46 @@ public class Turn {
         jihadist.setFirstPlot(false);
         drawPhase();
     }
-    
-    public void playCardPhase(){
+
+    private void playCardPhase() {
         Player cPlayer = Game.getCurrentPlayer();
         ArrayList<Card> hand = cPlayer.getHand();
-        //If last card and US
-        if (hand.size() == 1 && cPlayer == Game.getUS()){
-            throwAwayOrKeep();
+
+        //If no cards
+        if (hand.isEmpty()) {
+            if (cPlayer == Game.getUS()) {
+                USADone = true;
+            } else {
+                jihadistDone = true;
+            }
             return;
         }
-        
+        //If last card and US
+        if (hand.size() == 1 && cPlayer == Game.getUS()) {
+            throwAwayOrKeep();
+            USADone = true;
+            return;
+        }
+
         //Prints hand
         int count = 0;
-        for (Card c : hand){
+        for (Card c : hand) {
             System.out.println(count + ": " + c);
         }
-        
+
         //Starts inputLoop with correct input
         int[] okInput = new int[hand.size()];
-        for (int i = 0; i < hand.size(); i++){
+        for (int i = 0; i < hand.size(); i++) {
             okInput[i] = i;
         }
-        
+
         int userInput = inputLoop(okInput);
-        
+
         //Plays the card
         cPlayer.playCard(hand.get(userInput));
     }
-    
-    public void throwAwayOrKeep(){
-        
+
+    private void throwAwayOrKeep() {
+        //Debug, still need to do that
     }
 }

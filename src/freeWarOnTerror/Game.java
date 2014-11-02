@@ -33,6 +33,7 @@ import java.util.List;
 //Static Class
 public class Game {
 
+    private static int turnNumber = 0;
     private static int prestige = 7;
     private static int funding = 9;
     private static boolean postureHard = true;
@@ -325,5 +326,13 @@ public class Game {
 
         }
 
+    }
+
+    public static int getTurnNumber() {
+        return turnNumber;
+    }
+
+    public static void incrementTurnNumber() {
+        Game.turnNumber++;
     }
 }
