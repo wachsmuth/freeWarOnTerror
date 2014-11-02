@@ -5,8 +5,7 @@
  */
 package freeWarOnTerror;
 
-import freeWarOnTerror.helpers.InputLoop;
-import java.util.ArrayList;
+import static freeWarOnTerror.Menu.mainMenu;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -47,6 +46,9 @@ public class FreeWarOnTerror extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        mainMenu();
+        /*
         System.out.println("Hej");
         ArrayList<String> strings = new ArrayList<>();
         strings.add("Blue");
@@ -55,6 +57,7 @@ public class FreeWarOnTerror extends Application {
         String in = InputLoop.inputLoop("What is your favorite colour?", strings);
         System.out.println("Hej2 " + in);
         //launch(args);
+                */
     }
     
 }

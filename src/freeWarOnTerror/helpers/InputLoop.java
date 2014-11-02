@@ -50,7 +50,7 @@ public class InputLoop {
         return userInput;
     }
 
-    public static String inputLoop(String question, ArrayList<String> options) {
+    public static int inputLoop(String question, ArrayList<String> options) {
         String answerString; 
         Scanner inputScanner = new Scanner(System.in);
         System.out.println(question);
@@ -70,7 +70,7 @@ public class InputLoop {
                 userInput = Integer.parseInt(inputScanner.nextLine());
                 for (int i : noOfOptions) {
                     if (userInput == i) {
-                        answerString = options.get(i);
+                       // answerString = options.get(i);
                         break inputloop;
                     }
                 }
@@ -80,7 +80,7 @@ public class InputLoop {
                 //Do nothing. We keep trying.
             }
         }
-        return answerString;
+        return userInput;
     }
     
 }
