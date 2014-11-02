@@ -6,6 +6,7 @@
 package freeWarOnTerror.abClasses;
 
 import freeWarOnTerror.Cell;
+import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.Plot;
 import freeWarOnTerror.Troop;
 import java.util.ArrayList;
@@ -137,12 +138,16 @@ public abstract class Country {
     public boolean canDeployFrom() {
         return false;
     }
+    
+    public boolean canDisrupt(int ops) {
+        return (hasTroops() || getAlignment() == 1 || this instanceof NonMuslimCountry) && hasCells() && ops >= getGovernance();
+    }
 
     public Boolean canRecruit() {
         return cadre || cells.size() > 0;
     }
 
-    public boolean canPlot() { //NOTE: This method works for both minor jihad and plotting.
+    public boolean canPlot() { //NOTE: This method works for both minor jihad (if used on only Muslim countries) and plotting.
         return getGovernance() < 4 && hasCells();
     }
     public void setCadre(Boolean cadre) {
