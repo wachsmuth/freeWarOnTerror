@@ -37,35 +37,34 @@ import static freeWarOnTerror.helpers.CONSTANTS.SYRIA;
  * @author Emil
  */
 public class LetsRoll extends Scenario {
-    
-    public LetsRoll(){
+
+    public LetsRoll() {
         super("Let's Roll!");
         setup();
     }
-    
-    private void setup(){
+
+    private void setup() {
         //Markers
-        
+
         setPrestige(7);
         setPostureHard(true);
         //DEBUG set troops
         setFunding(9);
-        
+
         //Countries
-        getCountry(LIBYA).setGovernanceAndAlignment(3,3);
-        getCountry(SYRIA).setGovernanceAndAlignment(2,3);
-        getCountry(IRAQ).setGovernanceAndAlignment(3,3);
-        getCountry(SAUDIARABIA).setGovernanceAndAlignment(3,1);
-        getCountry(GULFSTATES).setGovernanceAndAlignment(2,1);
-        getCountry(PAKISTAN).setGovernanceAndAlignment(2,2);
-        getCountry(AFGHANISTAN).setGovernanceAndAlignment(4,3);
+        getCountry(LIBYA).setGovernanceAndAlignment(3, 3);
+        getCountry(SYRIA).setGovernanceAndAlignment(2, 3);
+        getCountry(IRAQ).setGovernanceAndAlignment(3, 3);
+        getCountry(SAUDIARABIA).setGovernanceAndAlignment(3, 1);
+        getCountry(GULFSTATES).setGovernanceAndAlignment(2, 1);
+        getCountry(PAKISTAN).setGovernanceAndAlignment(2, 2);
+        getCountry(AFGHANISTAN).setGovernanceAndAlignment(4, 3);
         MuslimCountry somalia = (MuslimCountry) getCountry(SOMALIA);
         somalia.setBesiegedRegime(true);
-        for (int i = 0;i < 4;i++){
-        placeCell(getCountry(AFGHANISTAN));
+        for (int i = 0; i < 4; i++) {
+            placeCell(getCountry(AFGHANISTAN));
         }
         //TODO: Cells and troops
     }
-    
-    
+
 }

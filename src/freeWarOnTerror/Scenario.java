@@ -34,6 +34,7 @@ import freeWarOnTerror.cards.Darfur;
 import freeWarOnTerror.cards.FormerSovietUnion;
 import freeWarOnTerror.cards.GazaWar;
 import freeWarOnTerror.cards.HaririKilled;
+import freeWarOnTerror.cards.Hijab;
 import freeWarOnTerror.cards.HizbUtTahrir;
 import freeWarOnTerror.cards.Homegrown;
 import freeWarOnTerror.cards.IEDs;
@@ -348,6 +349,7 @@ public class Scenario {
         deck.addCard(new FormerSovietUnion());
         deck.addCard(new GazaWar());
         deck.addCard(new HaririKilled());
+        deck.addCard(new Hijab());
         deck.addCard(new HizbUtTahrir());
         deck.addCard(new Homegrown());
         deck.addCard(new IEDs());
