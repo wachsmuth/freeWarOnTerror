@@ -236,4 +236,8 @@ public class Game {
         }
         return penalty;
     }
+    
+    public static int getPrestigeModifier(){
+        return (int) (Math.floor(prestige/3) - 1);
+    }
 }
