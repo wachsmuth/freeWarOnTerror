@@ -11,6 +11,15 @@ package freeWarOnTerror;
  */
 public class Cell {
     private Boolean active = false;
+    private boolean idle = true;
+
+    public boolean isIdle() {
+        return idle;
+    }
+
+    public void setIdle(boolean idle) {
+        this.idle = idle;
+    }
 
     public void setActive(Boolean active){
         this.active = active;
@@ -19,4 +28,6 @@ public class Cell {
     public Boolean getActive(){
         return active;
     }
+    
+    
 }
