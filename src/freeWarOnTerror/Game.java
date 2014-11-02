@@ -204,6 +204,10 @@ public class Game {
         }
     }
     
+    public static void discard(Card card){
+        discardPile.addCard(card);
+    }
+    
     public static Boolean isCardInPlay(String card){
         for (String s : persistentEffects){
             if (s.equals(card)){
