@@ -16,12 +16,9 @@ import java.util.List;
  *
  * @author Emil
  */
-public abstract class Country {
+public abstract class Country extends Location {
 
     private final ArrayList<Country> adjacentCountries = new ArrayList<>();
-    private final ArrayList<Cell> cells = new ArrayList<>();
-    private final List<Plot> plots = new ArrayList<>();
-    private final List<Troop> troops = new ArrayList<>();
     private final String name;
     private Boolean needsTesting = true;
     private Boolean cadre = false;
@@ -31,34 +28,6 @@ public abstract class Country {
     public Country(String name, int id) {
         this.name = name;
         this.id = id;
-    }
-
-    public List<Plot> getPlots() {
-        return plots;
-    }
-    
-    public boolean hasPlots(){
-        return plots.size() > 0;
-    }
-
-    public List<Troop> getTroops() {
-        return troops;
-    }
-
-    public int troopAmount() {
-        return troops.size();
-    }
-    
-    public Boolean hasTroops(){
-        return troops.size() > 0;
-    }
-    
-    public int cellAmount(){
-        return cells.size();
-    }
-    
-    public Boolean hasCells(){
-        return cells.size() > 0;
     }
 
     public abstract void resolvePlots();
@@ -119,13 +88,6 @@ public abstract class Country {
     public void killCell() { //this method not finished
         Boolean activeCells = false;
         Cell anActiveCell = null;
-        for (Cell c : cells) {
-            if (c.getActive()) {
-                activeCells = true;
-                anActiveCell = c;
-                break;
-            }
-        }
         if (activeCells) {
 
         }
@@ -144,7 +106,7 @@ public abstract class Country {
     }
 
     public Boolean canRecruit() {
-        return cadre || cells.size() > 0;
+        return cadre || hasCells();
     }
 
     public boolean canPlot() { //NOTE: This method works for both minor jihad (if used on only Muslim countries) and plotting.

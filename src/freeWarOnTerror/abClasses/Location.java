@@ -20,7 +20,6 @@ import freeWarOnTerror.Cell;
 import freeWarOnTerror.Plot;
 import freeWarOnTerror.Troop;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -29,8 +28,8 @@ import java.util.List;
 public abstract class Location {
 
     private final ArrayList<Cell> cells = new ArrayList<>();
-    private final List<Plot> plots = new ArrayList<>();
-    private final List<Troop> troops = new ArrayList<>();
+    private final ArrayList<Plot> plots = new ArrayList<>();
+    private final ArrayList<Troop> troops = new ArrayList<>();
 
     public void add(Moveable m) {
         if (m instanceof Cell) {
@@ -50,6 +49,38 @@ public abstract class Location {
         } else if (m instanceof Troop) {
             troops.remove((Troop) m);
         }
+    }
+
+    public ArrayList<Plot> getPlots() {
+        return plots;
+    }
+
+    public ArrayList<Cell> getCells() {
+        return cells;
+    }
+
+    public ArrayList<Troop> getTroops() {
+        return troops;
+    }
+
+    public int troopAmount() {
+        return troops.size();
+    }
+
+    public Boolean hasTroops() {
+        return troops.size() > 0;
+    }
+
+    public int cellAmount() {
+        return cells.size();
+    }
+
+    public Boolean hasCells() {
+        return cells.size() > 0;
+    }
+
+    public Boolean hasPlots() {
+        return plots.size() > 0;
     }
 
 }
