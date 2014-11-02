@@ -150,6 +150,7 @@ public abstract class Country {
     public boolean canPlot() { //NOTE: This method works for both minor jihad (if used on only Muslim countries) and plotting.
         return getGovernance() < 4 && hasCells();
     }
+    
     public void setCadre(Boolean cadre) {
         this.cadre = cadre;
     }

@@ -85,9 +85,9 @@ public class MuslimCountry extends Country {
             }
         }
     }
-    
+
     @Override
-    public void setGovernanceAndAlignment(int governance, int alignment){
+    public void setGovernanceAndAlignment(int governance, int alignment) {
         this.governance = governance;
         this.alignment = alignment;
     }
@@ -101,13 +101,12 @@ public class MuslimCountry extends Country {
     public Boolean canDeployTo() {
         return alignment == 1 && governance < 4;
     }
-    
+
     @Override
     public boolean canDeployFrom() {
-        if (!hasTroops()){
+        if (!hasTroops()) {
             return false;
-        }
-        else if (regimeChange > 0 && troopAmount() <= cellAmount() + 5){
+        } else if (regimeChange > 0 && troopAmount() <= cellAmount() + 5) {
             return false;
         }
         return true;
@@ -119,7 +118,7 @@ public class MuslimCountry extends Country {
     }
 
     public int getResources() {
-        if (oilCountry){
+        if (oilCountry) {
             return resources + getOilPriceSpike();
         }
         return resources;
@@ -149,34 +148,32 @@ public class MuslimCountry extends Country {
     public Boolean canWarOfIdeas(int ops) {
         return ops >= governance && alignment < 3;
     }
-    
+
     @Override
-    public void warOfIdeas(){
+    public void warOfIdeas() {
         testCountry();
         //Add and subtract modifiers.
         int dieRoll = rollDie();
         dieRoll += aid;
-        for (Country c : getAdjacentCountries()){
-            if (c.getAlignment() == 1 && c.getGovernance() == 1){
+        for (Country c : getAdjacentCountries()) {
+            if (c.getAlignment() == 1 && c.getGovernance() == 1) {
                 dieRoll++;
                 break;
             }
         }
-        if (alignment == 1 && governance == 2){
+        if (alignment == 1 && governance == 2) {
             dieRoll--;
         }
         dieRoll += getPrestigeModifier();
         dieRoll += getPosturePenalty();
-        if (dieRoll == 4 && aid == 0){
+        if (dieRoll == 4 && aid == 0) {
             aid++;
-        }
-        else if(dieRoll > 4){
-            if (alignment == 2){
+        } else if (dieRoll > 4) {
+            if (alignment == 2) {
                 setAlignment(1);
-            }
-            else if(alignment == 1){
+            } else if (alignment == 1) {
                 shiftGovernance(-1);
-                if (governance == 1){
+                if (governance == 1) {
                     regimeChange = 0;
                     aid = 0;
                     besiegedRegime = false;
@@ -213,16 +210,19 @@ public class MuslimCountry extends Country {
     public void addAid() {
         aid++;
     }
-    
-    public Boolean hasAid(){
+
+    public Boolean hasAid() {
         return aid > 0;
     }
-    
-    public boolean canMajorJihad(int ops){
-        if (besiegedRegime){
+
+    public boolean canMinorJihad() {
+        return getGovernance() < 4 && hasCells();
+    }
+
+    public boolean canMajorJihad(int ops) {
+        if (besiegedRegime) {
             return governance < 4 && troopAmount() + 5 <= cellAmount();
-        }
-        else if (ops > 1){
+        } else if (ops > 1) {
             return governance < 4 && troopAmount() + 5 <= cellAmount();
         }
         return false;
