@@ -347,6 +347,7 @@ public Game() {
     }
 
     public static void printStatus(){
+        System.out.println("Prestige: " + prestige + "Funding: " + funding);
         int count = 0;
         for (Country c : allCountries){
             String counter = "";
