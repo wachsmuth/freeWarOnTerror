@@ -54,26 +54,31 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
     public void deploy() {
 
     }
-    
-    public boolean canAlert(int ops){
-        if (ops < 3){
+
+    @Override
+    public boolean canPlayAsEvent(Card c) {
+        return (c.getAlignment() == 2 || c.getAlignment() == 1) && c.getPlayable();
+    }
+
+    public boolean canAlert(int ops) {
+        if (ops < 3) {
             return false;
         }
-        for (Country c : getAllCountries()){
-            if (c.hasPlots()){
+        for (Country c : getAllCountries()) {
+            if (c.hasPlots()) {
                 return true;
             }
         }
         return false;
     }
-    
-    public boolean canReassess(int ops){
-        if (ops < 3){
+
+    public boolean canReassess(int ops) {
+        if (ops < 3) {
             return false;
         }
         int noOf3Ops = 0;
-        for (Card c : getHand()){
-            if (c.getOps() > 2){
+        for (Card c : getHand()) {
+            if (c.getOps() > 2) {
                 noOf3Ops++;
             }
         }

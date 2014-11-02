@@ -17,6 +17,7 @@
 package freeWarOnTerror.Players;
 
 import freeWarOnTerror.Game;
+import freeWarOnTerror.abClasses.Card;
 
 /**
  *
@@ -48,6 +49,11 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
 
     public void plot() {
 
+    }
+    
+    @Override
+    public boolean canPlayAsEvent(Card c){
+        return (c.getAlignment() == 1 || c.getAlignment() == 3) && c.getPlayable();
     }
 
     public boolean hasUsedFirstPlot() {

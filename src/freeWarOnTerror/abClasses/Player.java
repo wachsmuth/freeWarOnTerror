@@ -68,6 +68,8 @@ public abstract class Player {
     }
     
     public abstract void drawPhase();
+    
+    public abstract boolean canPlayAsEvent(Card c);
 
     public int getReserves() {
         return reserves;
