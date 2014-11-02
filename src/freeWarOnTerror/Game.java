@@ -189,6 +189,10 @@ public class Game {
     public static Track getTrack(){
         return track;
     }
+    
+    public static int getTroops(){
+        return getTrack().troopAmount();
+    }
 
     public static Card draw() {
         return drawPile.draw();

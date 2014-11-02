@@ -16,8 +16,8 @@
  */
 package freeWarOnTerror.Players;
 
-import freeWarOnTerror.Game;
 import static freeWarOnTerror.Game.getAllCountries;
+import static freeWarOnTerror.Game.getTroops;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 
@@ -89,9 +89,9 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
     @Override
     public void drawPhase() {
         //US draw
-        if (Game.getPrestige() > 7) {
-            draw(9); //DEBUG - right numbers?
-        } else if (Game.getPrestige() > 4) {
+        if (getTroops() > 10) {
+            draw(9); 
+        } else if (getTroops() > 5) {
             draw(8);
         } else {
             draw(7);
