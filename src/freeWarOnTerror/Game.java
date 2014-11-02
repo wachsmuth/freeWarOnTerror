@@ -54,17 +54,16 @@ public class Game {
     private static Deck discardPile = new Deck();
     private static final Track track = new Track();
     private static final Deck removedCards = new Deck();
-    private static PlayerJihadist playerJihadist = new PlayerJihadist("JihadPlayer");
-    private static PlayerUS playerUS = new PlayerUS("USPlayer");
-    private static final List<Player> players = new ArrayList<Player>() {
-        {
-            players.add(playerJihadist);
-            players.add(playerUS);
-        }
-    };
+    private static final PlayerJihadist playerJihadist = new PlayerJihadist("JihadPlayer");
+    private static final PlayerUS playerUS = new PlayerUS("USPlayer");
+    private static final List<Player> players = new ArrayList<Player>();
     private static Player currentPlayer = playerJihadist;
+    static{
+        players.add(playerJihadist);
+        players.add(playerUS);
+    }
 
-    public Game() {
+public Game() {
 
     }
 
