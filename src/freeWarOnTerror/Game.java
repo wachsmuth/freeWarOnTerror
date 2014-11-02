@@ -23,6 +23,7 @@ import freeWarOnTerror.Scenarios.LetsRoll;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import freeWarOnTerror.abClasses.Player;
+import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
 import static freeWarOnTerror.helpers.Die.prestigeRoll;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +38,6 @@ public class Game {
     private static int turnNumber = 0;
     private static int prestige = 7;
     private static int funding = 9;
-    private static boolean postureHard = true;
     private static int globalPosture = 0;
     private static int goodResources = 0;
     private static int islamistResources = 0;
@@ -56,7 +56,7 @@ public class Game {
     private static final Deck removedCards = new Deck();
     private static final PlayerJihadist playerJihadist = new PlayerJihadist("JihadPlayer");
     private static final PlayerUS playerUS = new PlayerUS("USPlayer");
-    private static final List<Player> players = new ArrayList<Player>();
+    private static final List<Player> players = new ArrayList<>();
     private static Player currentPlayer = playerJihadist;
     static{
         players.add(playerJihadist);
@@ -125,11 +125,20 @@ public Game() {
     }
 
     public static boolean isPostureHard() {
-        return postureHard;
+       NonMuslimCountry usa = (NonMuslimCountry) getCountry(UNITEDSTATES);
+       
+        
+       return usa.getPosture() == 1;
     }
 
     public static void setPostureHard(boolean posture) {
-        postureHard = posture;
+        NonMuslimCountry usa = (NonMuslimCountry) getCountry(UNITEDSTATES);
+        if (posture){
+            usa.setPosture(1);
+        }
+        else {
+            usa.setPosture(-1);
+        }
     }
 
     public static Country getCountry(int id) {
