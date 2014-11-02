@@ -316,6 +316,7 @@ public class Scenario {
         deck.addCard(new CTR());
         deck.addCard(new Darfur());
         deck.addCard(new FormerSovietUnion());
+        deck.addCard(new GazaWar());
         deck.addCard(new HaririKilled());
         deck.addCard(new KemalistRepublic());
         deck.addCard(new KingAbdullah());
