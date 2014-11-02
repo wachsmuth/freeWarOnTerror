@@ -81,6 +81,7 @@ public class Scenario {
         createWorld();
         createLists();
         createConnections();
+        createDeck();
     }
     
       public String getName() {

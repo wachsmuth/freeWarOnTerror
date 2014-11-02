@@ -56,7 +56,7 @@ public class FreeWarOnTerror extends Application {
         strings.add("Green");
         String in = InputLoop.inputLoop("What is your favorite colour?", strings);
         System.out.println("Hej2 " + in);
-        //launch(args);
+        //launch(args);1
                 */
     }
     

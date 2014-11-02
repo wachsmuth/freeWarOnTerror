@@ -41,7 +41,7 @@ public abstract class Card {
     public void setRemoved(Boolean removed){
         removedAfterPlay = removed;
     }
-    
+
     @Override
     public String toString(){
         String string = name;
