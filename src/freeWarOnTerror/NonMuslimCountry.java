@@ -1,7 +1,10 @@
 package freeWarOnTerror;
 
+import static freeWarOnTerror.Game.isPostureHard;
+import static freeWarOnTerror.Game.modifyPrestige;
 import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
 import static freeWarOnTerror.helpers.CONSTANTS.WMD;
+import freeWarOnTerror.helpers.Die;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -47,20 +50,32 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
     @Override
     public void testCountry() {
         rollPosture();
-        noLongerNeedsTesting();
     }
 
     public void rollPosture() {
-        if (4 >= freeWarOnTerror.helpers.Die.rollDie()) {
+        if (4 >= Die.rollDie()) {
             posture = -1;
         } else {
             posture = 1;
         }
+        noLongerNeedsTesting();
     }
 
     @Override
     public Boolean canWarOfIdeas(int ops) {
         return ops >= governance;
+    }
+
+    @Override
+    public void warOfIdeas() {
+        rollPosture();
+        if (isPostureHard() && posture == 1) {
+            modifyPrestige(1);
+        }
+        else if (posture == -1){
+            modifyPrestige(1);
+        }
+        
     }
 
     public Boolean getSchengen() {

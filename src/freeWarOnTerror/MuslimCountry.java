@@ -126,6 +126,11 @@ public class MuslimCountry extends Country {
     public Boolean canWarOfIdeas(int ops) {
         return ops >= governance && alignment < 3;
     }
+    
+    @Override
+    public void warOfIdeas(){
+        
+    }
 
     @Override
     public void resolvePlots() {

@@ -30,9 +30,7 @@ public class CountryIran extends freeWarOnTerror.abClasses.Country {
     }
 
     @Override
-    public void testCountry() {
-
-    }
+    public void testCountry() {}
 
     @Override
     public int getGovernance() {
@@ -48,5 +46,8 @@ public class CountryIran extends freeWarOnTerror.abClasses.Country {
     public void resolvePlots(){
         //DEBUG
     }
+    
+    @Override
+    public void warOfIdeas(){}
 
 }
