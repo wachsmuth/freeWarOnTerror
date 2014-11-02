@@ -16,10 +16,8 @@
  */
 package freeWarOnTerror.helpers;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
-import static sun.plugin2.os.windows.FLASHWINFO.size;
 
 /**
  *
@@ -50,13 +48,13 @@ public class InputLoop {
         return userInput;
     }
 
-    public static int inputLoop(String question, ArrayList<String> options) {
+    public static int inputLoop(String question, String... options) {
         String answerString; 
         Scanner inputScanner = new Scanner(System.in);
         System.out.println(question);
         System.out.println("Valid input is: ");
         int j = 0;
-        int[] noOfOptions = new int[options.size()];
+        int[] noOfOptions = new int[options.length];
         for (String s : options){
             noOfOptions[j] = j+1;
             j++;

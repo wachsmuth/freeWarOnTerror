@@ -18,7 +18,6 @@ package freeWarOnTerror;
 
 import static freeWarOnTerror.Game.startGame;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
-import java.util.ArrayList;
 
 /**
  *
@@ -27,10 +26,7 @@ import java.util.ArrayList;
 public class Menu {
     
     public static void mainMenu(){
-        ArrayList<String> strings = new ArrayList<>();
-        strings.add("New game");
-        strings.add("Exit");
-        int i = inputLoop("free War on Terror", strings);
+        int i = inputLoop("free War on Terror", "New game", "Exit");
         if (i == 1){
             chooseScenario();
         }
@@ -40,10 +36,7 @@ public class Menu {
     }
     
     public static void chooseScenario(){
-        ArrayList<String> strings = new ArrayList<>();
-        strings.add("Let's Roll!");
-        strings.add("Exit");
-        int i = inputLoop("Choose a scenario", strings);
+        int i = inputLoop("Choose a scenario", "Let's Roll!", "Exit");
         if (i == 1){
             startGame(1);
         }

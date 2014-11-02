@@ -53,6 +53,8 @@ public class Turn {
     }
 
     public void startTurn() {
+        System.out.println("Turn: " + Game.getTurnNumber());
+        System.out.println("Draw Phase");
         drawPhase();
         //Flip regime change markers.
         for (MuslimCountry c : getMuslimCountries()) {
@@ -141,7 +143,7 @@ public class Turn {
         //Prints hand
         int count = 0;
         for (Card c : hand) {
-            System.out.println(count + ": " + c);
+            System.out.println(count++ + ": " + c);
         }
 
         //Starts inputLoop with correct input

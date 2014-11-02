@@ -16,18 +16,44 @@
  */
 package freeWarOnTerror;
 
-import freeWarOnTerror.Countries.CountryIsrael;
-import freeWarOnTerror.Countries.CountryUSA;
 import freeWarOnTerror.Countries.CountryIran;
+import freeWarOnTerror.Countries.CountryIsrael;
 import freeWarOnTerror.Countries.CountryPakistan;
 import freeWarOnTerror.Countries.CountryPhilippines;
+import freeWarOnTerror.Countries.CountryUSA;
 import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.getDrawPile;
 import freeWarOnTerror.abClasses.Country;
-import java.util.ArrayList;
-import freeWarOnTerror.cards.*;
-import freeWarOnTerror.helpers.*;
+import freeWarOnTerror.cards.AlAzhar;
+import freeWarOnTerror.cards.AlIttihadAlIslami;
+import freeWarOnTerror.cards.AnbarAwakening;
+import freeWarOnTerror.cards.BhuttoShot;
+import freeWarOnTerror.cards.CTR;
+import freeWarOnTerror.cards.Darfur;
+import freeWarOnTerror.cards.FormerSovietUnion;
+import freeWarOnTerror.cards.GazaWar;
+import freeWarOnTerror.cards.HaririKilled;
+import freeWarOnTerror.cards.HizbUtTahrir;
+import freeWarOnTerror.cards.Homegrown;
+import freeWarOnTerror.cards.IEDs;
+import freeWarOnTerror.cards.JemaahIslamiya;
+import freeWarOnTerror.cards.KemalistRepublic;
+import freeWarOnTerror.cards.KingAbdullah;
+import freeWarOnTerror.cards.Kosovo;
+import freeWarOnTerror.cards.MoroTalks;
+import freeWarOnTerror.cards.NEST;
+import freeWarOnTerror.cards.PakistaniOffensive;
+import freeWarOnTerror.cards.PatriotAct;
+import freeWarOnTerror.cards.Pirates;
+import freeWarOnTerror.cards.Saddam;
+import freeWarOnTerror.cards.SaddamCaptured;
+import freeWarOnTerror.cards.Sanctions;
+import freeWarOnTerror.cards.SchroederAndChirac;
+import freeWarOnTerror.cards.UyghurJihad;
+import freeWarOnTerror.cards.VieiradeMelloSlain;
+import freeWarOnTerror.cards.Wahhabism;
+import freeWarOnTerror.helpers.CONSTANTS;
 import static freeWarOnTerror.helpers.CONSTANTS.AFGHANISTAN;
 import static freeWarOnTerror.helpers.CONSTANTS.ALGERIA;
 import static freeWarOnTerror.helpers.CONSTANTS.CANADA;
@@ -59,6 +85,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.TURKEY;
 import static freeWarOnTerror.helpers.CONSTANTS.UNITEDKINGDOM;
 import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
 import static freeWarOnTerror.helpers.CONSTANTS.YEMEN;
+import java.util.ArrayList;
 
 /**
  *
