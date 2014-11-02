@@ -54,6 +54,12 @@ public class Turn {
 
     public void startTurn() {
         drawPhase();
+        //Flip regime change markers.
+        for (MuslimCountry c : getMuslimCountries()) {
+            if (c.getRegimeChange() == 2) {
+                c.setRegimeChange(1);
+            }
+        }
         while (USADone == false && jihadistDone == false) {
             Game.switchCurrentPlayer(Game.getJihadist());
             playCardPhase();
@@ -92,12 +98,7 @@ public class Turn {
         } else {
             modifyFunding(-1);
         }
-        //Flip regime change markers.
-        for (MuslimCountry c : getMuslimCountries()) {
-            if (c.getRegimeChange() == 2) {
-                c.setRegimeChange(1);
-            }
-        }
+
         //Modify prestige
         if (anyIslamistRule()) {
             modifyPrestige(-1);
@@ -114,7 +115,7 @@ public class Turn {
         //Reset first plot
         PlayerJihadist jihadist = getJihadist();
         jihadist.setFirstPlot(false);
-        drawPhase();
+        startTurn();
     }
 
     private void playCardPhase() {
