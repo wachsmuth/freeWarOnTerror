@@ -5,10 +5,13 @@
  */
 package freeWarOnTerror;
 
+import static freeWarOnTerror.Game.getPosturePenalty;
+import static freeWarOnTerror.Game.getPrestigeModifier;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
 import static freeWarOnTerror.helpers.CONSTANTS.WMD;
 import freeWarOnTerror.helpers.Die;
+import static freeWarOnTerror.helpers.Die.rollDie;
 
 /**
  *
@@ -129,7 +132,37 @@ public class MuslimCountry extends Country {
     
     @Override
     public void warOfIdeas(){
-        
+        testCountry();
+        //Add and subtract modifiers.
+        int dieRoll = rollDie();
+        dieRoll += aid;
+        for (Country c : getAdjacentCountries()){
+            if (c.getAlignment() == 1 && c.getGovernance() == 1){
+                dieRoll++;
+                break;
+            }
+        }
+        if (alignment == 1 && governance == 2){
+            dieRoll--;
+        }
+        dieRoll += getPrestigeModifier();
+        dieRoll += getPosturePenalty();
+        if (dieRoll == 4 && aid == 0){
+            aid++;
+        }
+        else if(dieRoll > 4){
+            if (alignment == 2){
+                setAlignment(1);
+            }
+            else if(alignment == 1){
+                shiftGovernance(-1);
+                if (governance == 1){
+                    regimeChange = 0;
+                    aid = 0;
+                    besiegedRegime = false;
+                }
+            }
+        }
     }
 
     @Override

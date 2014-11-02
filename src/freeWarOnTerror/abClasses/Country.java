@@ -66,6 +66,8 @@ public abstract class Country {
 
     public abstract int getGovernance();
     
+    public int getAlignment(){ return 0; }
+    
     public void setGovernance(){}
     
     public void setAlignment(){}
