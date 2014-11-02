@@ -5,6 +5,7 @@
  */
 package freeWarOnTerror;
 
+import static freeWarOnTerror.Game.getTrack;
 import freeWarOnTerror.abClasses.Location;
 import freeWarOnTerror.abClasses.Moveable;
 
@@ -26,6 +27,10 @@ public class Cell extends Moveable {
     public void move(Location l) {
         setActive(false);
         super.move(l);
+    }
+    
+    public void kill(){
+        move(getTrack());
     }
     
     public boolean isIdle() {

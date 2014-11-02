@@ -49,6 +49,7 @@ public class Game {
     private static final ArrayList<NonMuslimCountry> nonMuslimCountries = new ArrayList<>();
     private static Deck drawPile = new Deck();
     private static Deck discardPile = new Deck();
+    private static final Track track = new Track();
     private static final Deck removedCards = new Deck();
     private static PlayerJihadist playerJihadist = new PlayerJihadist("JihadPlayer");
     private static PlayerUS playerUS = new PlayerUS("USPlayer");
@@ -183,6 +184,10 @@ public class Game {
 
     public static Player getUS() {
         return playerUS;
+    }
+    
+    public static Track getTrack(){
+        return track;
     }
 
     public static Card draw() {
