@@ -114,7 +114,7 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
 
     @Override
     public void playCard(Card c) {
-        if (c.getAlignment() == JIHAD || c.getAlignment() == NEUTRAL) {
+        if ((c.getAlignment() == JIHAD || c.getAlignment() == NEUTRAL) && c.getPlayable()) {
             System.out.println("Do you want to:");
             System.out.println("1: Play for ops");
             System.out.println("2: Play for event");
@@ -122,21 +122,28 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
             if (userInput == 1) {
                 playForOps(c.getOps());
             } else {
-                c.playEvent();
+                Game.playCard(c);
             }
+            
 
-        } else {
+        } 
+        
+        else if (c.getAlignment() == JIHAD || c.getAlignment() == NEUTRAL){
+            System.out.println("Event unplayable, playing for ops.");
+            playForOps(c.getOps());
+        }
+                else {
             //Event and ops both happen - but which first?
             System.out.println("Do you want:");
             System.out.println("1: The event to happen first");
             System.out.println("2: To play the ops first");
             int userInput = inputLoop(1, 2);
             if (userInput == 1) {
-                c.playEvent();
+                Game.playCard(c);
                 playForOps(c.getOps());
             } else {
                 playForOps(c.getOps());
-                c.playEvent();
+                Game.playCard(c);
             }
         }
     }
