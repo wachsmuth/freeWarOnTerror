@@ -95,4 +95,6 @@ public abstract class Player {
     }
     
     public abstract void playCard(Card c);
+    
+    public abstract void playForOps(int ops);
 }

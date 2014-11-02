@@ -20,6 +20,9 @@ import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getTroops;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
+import static freeWarOnTerror.helpers.CONSTANTS.NEUTRAL;
+import static freeWarOnTerror.helpers.CONSTANTS.USA;
+import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 
 /**
  *
@@ -90,11 +93,45 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
     public void drawPhase() {
         //US draw
         if (getTroops() > 10) {
-            draw(9); 
+            draw(9);
         } else if (getTroops() > 5) {
             draw(8);
         } else {
             draw(7);
+        }
+    }
+
+    @Override
+    public void playForOps(int ops) {
+        //DEBUG - doesn't do jack yet
+    }
+
+    @Override
+    public void playCard(Card c) {
+        if (c.getAlignment() == USA || c.getAlignment() == NEUTRAL) {
+            System.out.println("Do you want to:");
+            System.out.println("1: Play for ops");
+            System.out.println("2: Play for event");
+            int userInput = inputLoop(1, 2);
+            if (userInput == 1) {
+                playForOps(c.getOps());
+            } else {
+                c.playEvent();
+            }
+
+        } else {
+            //Event and ops both happen - but which first?
+            System.out.println("Do you want:");
+            System.out.println("1: The event to happen first");
+            System.out.println("2: To play the ops first");
+            int userInput = inputLoop(1, 2);
+            if (userInput == 1) {
+                c.playEvent();
+                playForOps(c.getOps());
+            } else {
+                playForOps(c.getOps());
+                c.playEvent();
+            }
         }
     }
 }

@@ -88,6 +88,12 @@ public class Turn {
     public void playCardPhase(){
         Player cPlayer = Game.getCurrentPlayer();
         ArrayList<Card> hand = cPlayer.getHand();
+        //If last card and US
+        if (hand.size() == 1 && cPlayer == Game.getUS()){
+            throwAwayOrKeep();
+            return;
+        }
+        
         //Prints hand
         int count = 0;
         for (Card c : hand){
@@ -103,6 +109,10 @@ public class Turn {
         int userInput = inputLoop(okInput);
         
         //Plays the card
-        hand.get(userInput).playEvent();
+        cPlayer.playCard(hand.get(userInput));
+    }
+    
+    public void throwAwayOrKeep(){
+        
     }
 }

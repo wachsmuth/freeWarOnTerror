@@ -23,13 +23,15 @@ import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.JIHAD;
+import static freeWarOnTerror.helpers.CONSTANTS.NEUTRAL;
+import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 
 /**
  *
  * @author Emil
  */
 public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
-    
+
     private boolean firstPlot = false;
 
     public PlayerJihadist(String name) {
@@ -51,10 +53,10 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
     public void majorJihad() {
 
     }
-    
-    public boolean canMinorJihad(){
-        for (Country c : getMuslimCountries()){
-            if (c.canPlot()){
+
+    public boolean canMinorJihad() {
+        for (Country c : getMuslimCountries()) {
+            if (c.canPlot()) {
                 return true;
             }
         }
@@ -62,26 +64,26 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
     }
 
     public boolean canPlot() {
-        for (Country c : getAllCountries()){
-            if (c.canPlot()){
+        for (Country c : getAllCountries()) {
+            if (c.canPlot()) {
                 return true;
             }
         }
         return false;
     }
-    
-    public boolean canMajorJihad(int ops){
-        for (Country c : getMuslimCountries()){
+
+    public boolean canMajorJihad(int ops) {
+        for (Country c : getMuslimCountries()) {
             MuslimCountry x = (MuslimCountry) c;
-            if (x.canMajorJihad(ops)){
+            if (x.canMajorJihad(ops)) {
                 return true;
             }
         }
         return false;
     }
-    
+
     @Override
-    public boolean canPlayAsEvent(Card c){
+    public boolean canPlayAsEvent(Card c) {
         return (c.getAlignment() == 1 || c.getAlignment() == 3) && c.getPlayable();
     }
 
@@ -91,6 +93,11 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
 
     public void setFirstPlot(boolean firstPlot) {
         this.firstPlot = firstPlot;
+    }
+
+    @Override
+    public void playForOps(int ops) {
+        //DEBUG - doesn't do jack yet
     }
 
     @Override
@@ -104,11 +111,33 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
             draw(7);
         }
     }
-    
+
     @Override
-    public void playCard(Card c){
-        if (c.getAlignment() == JIHAD){
-            
+    public void playCard(Card c) {
+        if (c.getAlignment() == JIHAD || c.getAlignment() == NEUTRAL) {
+            System.out.println("Do you want to:");
+            System.out.println("1: Play for ops");
+            System.out.println("2: Play for event");
+            int userInput = inputLoop(1, 2);
+            if (userInput == 1) {
+                playForOps(c.getOps());
+            } else {
+                c.playEvent();
+            }
+
+        } else {
+            //Event and ops both happen - but which first?
+            System.out.println("Do you want:");
+            System.out.println("1: The event to happen first");
+            System.out.println("2: To play the ops first");
+            int userInput = inputLoop(1, 2);
+            if (userInput == 1) {
+                c.playEvent();
+                playForOps(c.getOps());
+            } else {
+                playForOps(c.getOps());
+                c.playEvent();
+            }
         }
     }
 }
