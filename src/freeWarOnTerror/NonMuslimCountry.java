@@ -2,6 +2,7 @@ package freeWarOnTerror;
 
 import static freeWarOnTerror.Game.isPostureHard;
 import static freeWarOnTerror.Game.modifyPrestige;
+import static freeWarOnTerror.helpers.AppendToString.appendString;
 import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
 import static freeWarOnTerror.helpers.CONSTANTS.WMD;
 import freeWarOnTerror.helpers.Die;
@@ -116,6 +117,26 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
 
     @Override
     public String toString() {
-        return getName();
+        String string = super.toString();
+        
+            if (governance == 1){
+                string += "Good";
+            }
+            else {
+                string += "Fair";
+            }
+            string += " ";
+            if (needsTesting()){
+                string += "Untested";
+            }
+            else if (posture == 1){
+                string += "Hard";
+            }
+            else {
+                string += "Soft";
+            }
+            appendString(string);
+        
+        return string;
     }
 }
