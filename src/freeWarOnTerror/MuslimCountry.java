@@ -42,6 +42,7 @@ public class MuslimCountry extends Country {
     public void testCountry() {
         if (getNeedsTesting()) {
             rollGovernance();
+            noLongerNeedsTesting();
         }
     }
 
