@@ -40,6 +40,10 @@ public abstract class Player {
         hand.add(card);
     }
     
+    public void removeCard(Card card){
+        hand.remove(card);
+    }
+    
     public void draw(){
         addCard(Game.draw());
     }

@@ -58,12 +58,13 @@ public class Game {
     private static final PlayerUS playerUS = new PlayerUS("USPlayer");
     private static final List<Player> players = new ArrayList<>();
     private static Player currentPlayer = playerJihadist;
-    static{
+
+    static {
         players.add(playerJihadist);
         players.add(playerUS);
     }
 
-public Game() {
+    public Game() {
 
     }
 
@@ -125,18 +126,16 @@ public Game() {
     }
 
     public static boolean isPostureHard() {
-       NonMuslimCountry usa = (NonMuslimCountry) getCountry(UNITEDSTATES);
-       
-        
-       return usa.getPosture() == 1;
+        NonMuslimCountry usa = (NonMuslimCountry) getCountry(UNITEDSTATES);
+
+        return usa.getPosture() == 1;
     }
 
     public static void setPostureHard(boolean posture) {
         NonMuslimCountry usa = (NonMuslimCountry) getCountry(UNITEDSTATES);
-        if (posture){
+        if (posture) {
             usa.setPosture(1);
-        }
-        else {
+        } else {
             usa.setPosture(-1);
         }
     }
@@ -248,6 +247,9 @@ public Game() {
     }
 
     public static void playCard(Card card) {
+        for (Player p : players) {
+            p.removeCard(card);
+        }
         boolean remove = false;
         if (card.getPlayable()) {
             card.playEvent();
@@ -263,6 +265,9 @@ public Game() {
     }
 
     public static void discard(Card card) {
+        for (Player p : players) {
+            p.removeCard(card);
+        }
         discardPile.addCard(card);
     }
 
@@ -355,12 +360,12 @@ public Game() {
         turn.startTurn();
     }
 
-    public static void printStatus(){
+    public static void printStatus() {
         System.out.println("Prestige: " + prestige + " Funding: " + funding);
         int count = 0;
-        for (Country c : allCountries){
+        for (Country c : allCountries) {
             String counter = "";
-            if (count < 10){
+            if (count < 10) {
                 counter = " ";
             }
             counter = counter + count++;
