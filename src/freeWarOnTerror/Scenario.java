@@ -318,6 +318,7 @@ public class Scenario {
         deck.addCard(new FormerSovietUnion());
         deck.addCard(new GazaWar());
         deck.addCard(new HaririKilled());
+        deck.addCard(new IEDs());
         deck.addCard(new KemalistRepublic());
         deck.addCard(new KingAbdullah());
         deck.addCard(new Kosovo());
