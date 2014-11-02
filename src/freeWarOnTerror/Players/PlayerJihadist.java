@@ -55,8 +55,8 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
     }
 
     public boolean canMinorJihad() {
-        for (Country c : getMuslimCountries()) {
-            if (c.canPlot()) {
+        for (MuslimCountry c : getMuslimCountries()) {
+            if (c.canMinorJihad()) {
                 return true;
             }
         }
