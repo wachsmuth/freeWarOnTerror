@@ -9,6 +9,7 @@ import static freeWarOnTerror.Game.getOilPriceSpike;
 import static freeWarOnTerror.Game.getPosturePenalty;
 import static freeWarOnTerror.Game.getPrestigeModifier;
 import freeWarOnTerror.abClasses.Country;
+import static freeWarOnTerror.helpers.AppendToString.appendString;
 import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
 import static freeWarOnTerror.helpers.CONSTANTS.WMD;
 import freeWarOnTerror.helpers.Die;
@@ -225,10 +226,36 @@ public class MuslimCountry extends Country {
         }
         return false;
     }
-    /*
+
     @Override
     public String toString(){
-        return getName();
+        String string = super.toString();
+        if (!needsTesting()){
+            String gov = "";
+            if (governance == 1){
+                gov += "Good";
+            }
+            else if (governance == 2){
+                gov += "Fair";
+            }
+            else if (governance == 3){
+                gov += "Poor";
+            }
+            else if (governance == 4){
+                gov += "Islamist Rule";
+            }
+            gov += " ";
+            if (alignment == 1){
+                gov += "Ally";
+            }
+            else if (alignment == 2){
+                gov += "Neutral";
+            }
+            else if (alignment == 3){
+                gov += "Adversary";
+            }
+            string = string + appendString(gov);
+        }
+        return string;
     }
-    */
 }

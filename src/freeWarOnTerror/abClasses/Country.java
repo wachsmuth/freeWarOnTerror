@@ -7,6 +7,7 @@ package freeWarOnTerror.abClasses;
 
 import freeWarOnTerror.Cell;
 import freeWarOnTerror.NonMuslimCountry;
+import static freeWarOnTerror.helpers.AppendToString.appendString;
 import java.util.ArrayList;
 
 /**
@@ -145,13 +146,9 @@ public abstract class Country extends Location {
 
     @Override
     public String toString() {
-        String string = name;
-        String appendSpaces = "";
-        for (int i = 0; i < 20 - name.length(); i++) {
-            appendSpaces = appendSpaces + (" ");
-        }
+        String string = appendString(name);
         if (needsTesting) {
-            string = (string + appendSpaces + "Untested");
+            string = appendString(string) + appendString("Untested");
         }
         if (cadre) {
             string = (string + "\n" + "Has cadre");

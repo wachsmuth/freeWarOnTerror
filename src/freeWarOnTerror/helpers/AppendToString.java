@@ -27,7 +27,7 @@ public class AppendToString {
         for (int i = 0; i < 20 - string.length(); i++) {
             appendSpaces = appendSpaces + (" ");
         }
-        return string;
+        return string + appendSpaces;
     }
 
 }
