@@ -112,6 +112,7 @@ public class MuslimCountry extends Country {
         return true;
     }
 
+    @Override
     public int getAlignment() {
         return alignment;
     }
