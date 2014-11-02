@@ -65,7 +65,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.EGYPT;
 import static freeWarOnTerror.helpers.CONSTANTS.GULFSTATES;
 import static freeWarOnTerror.helpers.CONSTANTS.INDIA;
 import static freeWarOnTerror.helpers.CONSTANTS.INDONESIA;
-import static freeWarOnTerror.helpers.CONSTANTS.IRAN;
+import static freeWarOnTerror.helpers.CONSTANTS.IRANCOUNTRY;
 import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
 import static freeWarOnTerror.helpers.CONSTANTS.ISRAEL;
 import static freeWarOnTerror.helpers.CONSTANTS.JORDAN;
@@ -155,7 +155,7 @@ public class Scenario {
         countries.add(new NonMuslimCountry("France", CONSTANTS.FRANCE, 1, 2, true));
         countries.add(new NonMuslimCountry("Spain", CONSTANTS.SPAIN, 1, 2, true));
         //Other
-        countries.add(new CountryIran("Iran", CONSTANTS.IRAN));
+        countries.add(new CountryIran("Iran", CONSTANTS.IRANCOUNTRY));
         countries.add(new CountryIsrael("Israel", CONSTANTS.ISRAEL, 1));
         countries.add(new CountryPhilippines("Philippines", CONSTANTS.PHILIPPINES, 2, 3));
         countries.add(new CountryUSA("United States", UNITEDSTATES, 1));
@@ -221,18 +221,18 @@ public class Scenario {
         getCountry(TURKEY).addAdjacentCountry(getCountry(SERBIA));
         getCountry(TURKEY).addAdjacentCountry(getCountry(RUSSIA));
         getCountry(TURKEY).addAdjacentCountries(schengenCountries);
-        getCountry(TURKEY).addAdjacentCountry(getCountry(IRAN));
+        getCountry(TURKEY).addAdjacentCountry(getCountry(IRANCOUNTRY));
         getCountry(TURKEY).addAdjacentCountry(getCountry(SYRIA));
         getCountry(TURKEY).addAdjacentCountry(getCountry(CAUCASUS));
         //Caucasus
         getCountry(CAUCASUS).addAdjacentCountry(getCountry(RUSSIA));
         getCountry(CAUCASUS).addAdjacentCountry(getCountry(TURKEY));
         getCountry(CAUCASUS).addAdjacentCountry(getCountry(CENTRALASIA));
-        getCountry(CAUCASUS).addAdjacentCountry(getCountry(IRAN));
+        getCountry(CAUCASUS).addAdjacentCountry(getCountry(IRANCOUNTRY));
         //Central Asia
         getCountry(CENTRALASIA).addAdjacentCountry(getCountry(RUSSIA));
         getCountry(CENTRALASIA).addAdjacentCountry(getCountry(CAUCASUS));
-        getCountry(CENTRALASIA).addAdjacentCountry(getCountry(IRAN));
+        getCountry(CENTRALASIA).addAdjacentCountry(getCountry(IRANCOUNTRY));
         getCountry(CENTRALASIA).addAdjacentCountry(getCountry(AFGHANISTAN));
         //Syria
         getCountry(SYRIA).addAdjacentCountry(getCountry(TURKEY));
@@ -244,19 +244,19 @@ public class Scenario {
         getCountry(SYRIA).addAdjacentCountry(getCountry(SYRIA));
         getCountry(LEBANON).addAdjacentCountries(schengenCountries);
         //Iran
-        getCountry(IRAN).addAdjacentCountry(getCountry(TURKEY));
-        getCountry(IRAN).addAdjacentCountry(getCountry(CAUCASUS));
-        getCountry(IRAN).addAdjacentCountry(getCountry(CENTRALASIA));
-        getCountry(IRAN).addAdjacentCountry(getCountry(AFGHANISTAN));
-        getCountry(IRAN).addAdjacentCountry(getCountry(PAKISTAN));
-        getCountry(IRAN).addAdjacentCountry(getCountry(GULFSTATES));
-        getCountry(IRAN).addAdjacentCountry(getCountry(IRAQ));
+        getCountry(IRANCOUNTRY).addAdjacentCountry(getCountry(TURKEY));
+        getCountry(IRANCOUNTRY).addAdjacentCountry(getCountry(CAUCASUS));
+        getCountry(IRANCOUNTRY).addAdjacentCountry(getCountry(CENTRALASIA));
+        getCountry(IRANCOUNTRY).addAdjacentCountry(getCountry(AFGHANISTAN));
+        getCountry(IRANCOUNTRY).addAdjacentCountry(getCountry(PAKISTAN));
+        getCountry(IRANCOUNTRY).addAdjacentCountry(getCountry(GULFSTATES));
+        getCountry(IRANCOUNTRY).addAdjacentCountry(getCountry(IRAQ));
         //Afghanistan
-        getCountry(AFGHANISTAN).addAdjacentCountry(getCountry(IRAN));
+        getCountry(AFGHANISTAN).addAdjacentCountry(getCountry(IRANCOUNTRY));
         getCountry(AFGHANISTAN).addAdjacentCountry(getCountry(PAKISTAN));
         getCountry(AFGHANISTAN).addAdjacentCountry(getCountry(CENTRALASIA));
         //Iraq
-        getCountry(IRAQ).addAdjacentCountry(getCountry(IRAN));
+        getCountry(IRAQ).addAdjacentCountry(getCountry(IRANCOUNTRY));
         getCountry(IRAQ).addAdjacentCountry(getCountry(GULFSTATES));
         getCountry(IRAQ).addAdjacentCountry(getCountry(SAUDIARABIA));
         getCountry(IRAQ).addAdjacentCountry(getCountry(JORDAN));
@@ -282,11 +282,11 @@ public class Scenario {
         //Gulf States
         getCountry(GULFSTATES).addAdjacentCountry(getCountry(SAUDIARABIA));
         getCountry(GULFSTATES).addAdjacentCountry(getCountry(IRAQ));
-        getCountry(GULFSTATES).addAdjacentCountry(getCountry(IRAN));
+        getCountry(GULFSTATES).addAdjacentCountry(getCountry(IRANCOUNTRY));
         getCountry(GULFSTATES).addAdjacentCountry(getCountry(PAKISTAN));
         //Pakistan
         getCountry(PAKISTAN).addAdjacentCountry(getCountry(GULFSTATES));
-        getCountry(PAKISTAN).addAdjacentCountry(getCountry(IRAN));
+        getCountry(PAKISTAN).addAdjacentCountry(getCountry(IRANCOUNTRY));
         getCountry(PAKISTAN).addAdjacentCountry(getCountry(AFGHANISTAN));
         getCountry(PAKISTAN).addAdjacentCountry(getCountry(INDIA));
         getCountry(PAKISTAN).addAdjacentCountry(getCountry(INDONESIA));
