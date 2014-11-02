@@ -51,7 +51,10 @@ public class Turn {
 
     public void turnEnd() {
         //Drop funding
-        if (!isCardInPlay("Pirates") && (getCountry(SOMALIA).getGovernance() == 4 || getCountry(YEMEN).getGovernance() == 4)) {
+        if (isCardInPlay("Pirates") && (getCountry(SOMALIA).getGovernance() == 4 || getCountry(YEMEN).getGovernance() == 4)) {
+            
+        }
+        else {
             modifyFunding(-1);
         }
         //Flip regime change markers.
@@ -64,15 +67,14 @@ public class Turn {
         if (anyIslamistRule()) {
             modifyPrestige(-1);
         }
-        if (getGlobalPosture() > 2 && isPostureHard()){
+        if (getGlobalPosture() > 2 && isPostureHard()) {
             modifyPrestige(1);
-        }
-        else if (getGlobalPosture() < -2 && !isPostureHard()){
+        } else if (getGlobalPosture() < -2 && !isPostureHard()) {
             modifyPrestige(1);
         }
         //Reset reserves.
-        for (Player p : getPlayers()){
-           p.setReserves(0);
+        for (Player p : getPlayers()) {
+            p.setReserves(0);
         }
         //Reset first plot
         PlayerJihadist jihadist = (PlayerJihadist) getJihadist();
