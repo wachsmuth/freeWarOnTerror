@@ -37,6 +37,10 @@ public class Game {
     private static int funding = 9;
     private static boolean postureHard = true;
     private static int globalPosture = 0;
+    private static int goodResources = 0;
+    private static int islamistResources = 0;
+    private static int goodFairCountries = 0;
+    private static int poorIslamistCountries = 0;
     private static final ArrayList<String> persistentEffects = new ArrayList<>();
     private static final ArrayList<Country> allCountries = new ArrayList<>();
     private static final ArrayList<MuslimCountry> muslimCountries = new ArrayList<>();
@@ -225,6 +229,7 @@ public class Game {
     }
     
     public static int getPosturePenalty(){
+        //Get penalty from GWOT relations
         int penalty = 0;
         if (isPostureHard()){
             penalty = penalty + getGlobalPosture();
@@ -243,5 +248,30 @@ public class Game {
     
     public static int getPrestigeModifier(){
         return (int) (Math.floor(prestige/3) - 1);
+    }
+    
+    public static void updateScoreboard(){
+        goodResources = 0;
+        islamistResources = 0;
+        goodFairCountries = 0;
+        poorIslamistCountries = 0;
+        for (MuslimCountry c : muslimCountries){
+            if (c.getGovernance() == 1){
+                goodResources = goodResources + c.getResources();
+                goodFairCountries++;
+            }
+            else if (c.getGovernance() == 2){
+                goodFairCountries++;
+            }
+            else if (c.getGovernance() == 3){
+                poorIslamistCountries++;
+            }
+            else if (c.getGovernance() == 4){
+                poorIslamistCountries++;
+                islamistResources = islamistResources + c.getResources();
+            }
+            
+        }
+        
     }
 }
