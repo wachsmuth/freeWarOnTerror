@@ -117,6 +117,10 @@ public class MuslimCountry extends Country {
         return alignment;
     }
 
+    public int getResources() {
+        return resources;
+    }
+
     public Boolean getShiaMix() {
         return shiaMix;
     }
