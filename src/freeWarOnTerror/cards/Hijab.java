@@ -20,7 +20,9 @@ import static freeWarOnTerror.Game.anyIslamistRule;
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.modifyFunding;
 import freeWarOnTerror.MuslimCountry;
+import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CONSTANTS.FRANCE;
 import static freeWarOnTerror.helpers.CONSTANTS.HIJAB;
 import static freeWarOnTerror.helpers.CONSTANTS.TURKEY;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
@@ -45,7 +47,14 @@ public class Hijab extends Card {
         MuslimCountry turkey = (MuslimCountry) getCountry(TURKEY);
         turkey.testCountry();
         turkey.shiftGovernance(1);
-        inputLoop("Select France's posture", "hard", "soft");
+        int input = inputLoop("Select France's posture", "hard", "soft");
+        NonMuslimCountry france = (NonMuslimCountry) getCountry(FRANCE);
+        if (input == 1){
+            france.setPosture(1);
+        }
+        else {
+            france.setPosture(2);
+        }
         modifyFunding(-2);
     }
 }
