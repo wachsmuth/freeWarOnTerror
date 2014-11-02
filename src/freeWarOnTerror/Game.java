@@ -219,4 +219,21 @@ public class Game {
         calculateGlobalPosture();
         return globalPosture;
     }
+    
+    public static int getPosturePenalty(){
+        int penalty = 0;
+        if (isPostureHard()){
+            penalty = penalty + getGlobalPosture();
+        }
+        else {
+            penalty = penalty - getGlobalPosture();
+        }
+        if (penalty > 0){
+            penalty = 0;
+        }
+        else if(penalty < -3){
+            penalty = -3;
+        }
+        return penalty;
+    }
 }
