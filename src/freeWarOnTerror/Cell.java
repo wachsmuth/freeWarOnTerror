@@ -12,6 +12,7 @@ package freeWarOnTerror;
 public class Cell {
     private Boolean active = false;
     private boolean idle = true;
+    private boolean backlash = false;
 
     public boolean isIdle() {
         return idle;
@@ -28,6 +29,12 @@ public class Cell {
     public Boolean getActive(){
         return active;
     }
-    
-    
+
+    public boolean isBacklash() {
+        return backlash;
+    }
+
+    public void setBacklash(boolean backlash) {
+        this.backlash = backlash;
+    }
 }
