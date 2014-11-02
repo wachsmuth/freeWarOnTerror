@@ -24,5 +24,16 @@ import freeWarOnTerror.abClasses.Location;
  */
 public class Track extends Location {
     
-    
+    public Track(){
+        for (int i = 0;i < 15;i++){
+            add(new Cell(this));
+            add(new Troop(this));
+        }
+        add(new Plot(this, 3));
+        add(new Plot(this, 2));
+        add(new Plot(this, 2));
+        add(new Plot(this, 1));
+        add(new Plot(this, 1));
+        add(new Plot(this, 1));
+    }
 }
