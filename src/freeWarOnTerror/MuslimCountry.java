@@ -91,6 +91,7 @@ public class MuslimCountry extends Country {
     public void setGovernanceAndAlignment(int governance, int alignment) {
         this.governance = governance;
         this.alignment = alignment;
+        noLongerNeedsTesting();
     }
 
     @Override
@@ -224,9 +225,10 @@ public class MuslimCountry extends Country {
         }
         return false;
     }
-    
+    /*
     @Override
     public String toString(){
         return getName();
     }
+    */
 }

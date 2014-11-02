@@ -32,17 +32,22 @@ public abstract class Country extends Location {
     public abstract void testCountry();
 
     public abstract int getGovernance();
-    
-    public int getAlignment(){ return 0; }
-    
-    public void setGovernance(){}
-    
-    public void setAlignment(){}
-    
-    public void setGovernanceAndAlignment(int governance, int alignment){}
+
+    public int getAlignment() {
+        return 0;
+    }
+
+    public void setGovernance() {
+    }
+
+    public void setAlignment() {
+    }
+
+    public void setGovernanceAndAlignment(int governance, int alignment) {
+    }
 
     public abstract Boolean canWarOfIdeas(int ops);
-    
+
     public abstract void warOfIdeas();
 
     public Boolean needsTesting() {
@@ -93,11 +98,11 @@ public abstract class Country extends Location {
     public Boolean canDeployTo() {
         return false;
     }
-    
+
     public boolean canDeployFrom() {
         return false;
     }
-    
+
     public boolean canDisrupt(int ops) {
         return (hasTroops() || getAlignment() == 1 || this instanceof NonMuslimCountry) && hasCells() && ops >= getGovernance();
     }
@@ -109,7 +114,7 @@ public abstract class Country extends Location {
     public boolean canPlot() { //NOTE: This method works for both minor jihad (if used on only Muslim countries) and plotting.
         return getGovernance() < 4 && hasCells();
     }
-    
+
     public void setCadre(Boolean cadre) {
         this.cadre = cadre;
     }
@@ -137,7 +142,24 @@ public abstract class Country extends Location {
     public Boolean getNeedsTesting() {
         return needsTesting;
     }
-    
-    public abstract String toString();
+
+    @Override
+    public String toString() {
+        String string = name;
+        String appendSpaces = "";
+        for (int i = 0; i < 20 - name.length(); i++) {
+            appendSpaces = appendSpaces + (" ");
+        }
+        if (needsTesting) {
+            string = (string + appendSpaces + "Untested");
+        }
+        if (cadre) {
+            string = (string + "\n" + "Has cadre");
+        }
+        if (ctr) {
+            string = (string + "\n" + "Has CTR");
+        }
+        return string;
+    }
 
 }
