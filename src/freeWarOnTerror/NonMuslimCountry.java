@@ -84,7 +84,7 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
 
     @Override
     public void resolvePlots() {
-        for (Plot p : getPlots()) {
+        for (Plot p : super.getPlots()) {
             //Posture
             rollPosture();
             if (schengen == true) {

@@ -13,6 +13,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
 import static freeWarOnTerror.helpers.CONSTANTS.WMD;
 import freeWarOnTerror.helpers.Die;
 import static freeWarOnTerror.helpers.Die.rollDie;
+import java.util.Iterator;
 
 /**
  *
@@ -187,16 +188,12 @@ public class MuslimCountry extends Country {
 
     @Override
     public void resolvePlots() {
-        for (Plot p : getPlots()) {
-
-            //Funding
+        for (Plot p : super.getPlots()) {
             if (governance == GOOD) {
                 Game.modifyFunding(2);
             } else {
                 Game.modifyFunding(1);
             }
-
-            //prestige
             if (troopAmount() > 0) {
                 if (p.getType() == WMD) {
                     Game.setPrestige(1);
@@ -204,9 +201,6 @@ public class MuslimCountry extends Country {
                     Game.modifyPrestige(-1);
                 }
             }
-
-            //Governance and Aid
-            //DEBUG
         }
     }
 
