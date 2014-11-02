@@ -16,6 +16,8 @@
  */
 package freeWarOnTerror.Countries;
 
+import static freeWarOnTerror.helpers.AppendToString.appendString;
+
 /**
  *
  * @author Emil
@@ -30,7 +32,7 @@ public class CountryIran extends freeWarOnTerror.abClasses.Country {
     }
     @Override
     public String toString() {
-        return getName() + ", Governance: " + governance;
+        return appendString(getName()) + appendString("Fair") + moveablesString();
     }
     @Override
     public void testCountry() {}

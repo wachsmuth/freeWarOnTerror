@@ -231,7 +231,7 @@ public class MuslimCountry extends Country {
     public String toString(){
         String string = super.toString();
         if (needsTesting()){
-            string = string + appendString("Untested");
+            string = string + "Untested";
         }
         else {
             String gov = "";
@@ -245,7 +245,7 @@ public class MuslimCountry extends Country {
                 gov += "Poor";
             }
             else if (governance == 4){
-                gov += "Islamist Rule";
+                gov += "Islamist";
             }
             gov += " ";
             if (alignment == 1){
@@ -257,8 +257,8 @@ public class MuslimCountry extends Country {
             else if (alignment == 3){
                 gov += "Adversary";
             }
-            string = string + appendString(gov);
+            string = string + gov;
         }
-        return string + moveablesString();
+        return appendString(string) + moveablesString();
     }
 }
