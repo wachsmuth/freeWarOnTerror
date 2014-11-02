@@ -311,6 +311,8 @@ public class Scenario {
     }
 
     public void createDeck() { //sample code, WIP
+        deck.addCard(new AlAzhar());
+        deck.addCard(new AlIttihadAlIslami());
         deck.addCard(new AnbarAwakening());
         deck.addCard(new BhuttoShot());
         deck.addCard(new CTR());
