@@ -22,6 +22,7 @@ import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.CENTRALASIA;
 import static freeWarOnTerror.helpers.CONSTANTS.CHINA;
+import static freeWarOnTerror.helpers.CONSTANTS.UYGHURJIHAD;
 
 /**
  *
@@ -30,7 +31,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.CHINA;
 public class UyghurJihad extends Card {
     
     public UyghurJihad(){
-        super("Uyghur Jihad", 1, 3, true);
+        super("Uyghur Jihad", 1, 3, true, false, UYGHURJIHAD);
     }
     
     @Override

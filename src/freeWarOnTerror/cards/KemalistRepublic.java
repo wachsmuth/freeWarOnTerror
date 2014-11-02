@@ -19,6 +19,7 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CONSTANTS.KEMALISTREPUBLIC;
 import static freeWarOnTerror.helpers.CONSTANTS.TURKEY;
 
 /**
@@ -28,7 +29,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.TURKEY;
 public class KemalistRepublic extends Card {
     
     public KemalistRepublic(){
-        super("Kemalist Republic", 2, 2, false);
+        super("Kemalist Republic", 2, 2, false, false, KEMALISTREPUBLIC);
     }
     
     @Override

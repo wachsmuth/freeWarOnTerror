@@ -18,6 +18,7 @@ package freeWarOnTerror.cards;
 
 import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CONSTANTS.ANBARAWAKENING;
 import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
 import static freeWarOnTerror.helpers.CONSTANTS.SYRIA;
 
@@ -28,7 +29,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.SYRIA;
 public class AnbarAwakening extends Card {
     
     public AnbarAwakening(){
-        super("Anbar Awakening", 2, 2, false);
+        super("Anbar Awakening", 2, 2, false, true, ANBARAWAKENING, IRAQ, SYRIA);
     }
     
     @Override

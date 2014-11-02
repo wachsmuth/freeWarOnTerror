@@ -21,6 +21,7 @@ import static freeWarOnTerror.Game.modifyFunding;
 import static freeWarOnTerror.Game.setFunding;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.SAUDIARABIA;
+import static freeWarOnTerror.helpers.CONSTANTS.WAHHABISM;
 
 /**
  *
@@ -29,7 +30,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.SAUDIARABIA;
 public class Wahhabism extends Card{
    
     public Wahhabism(){
-        super("Wahhabism", 3, 3, false);
+        super("Wahhabism", 3, 3, false, false, WAHHABISM);
     }
     
     @Override

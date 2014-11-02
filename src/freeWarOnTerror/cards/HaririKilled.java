@@ -19,6 +19,7 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CONSTANTS.HARIRIKILLED;
 import static freeWarOnTerror.helpers.CONSTANTS.LEBANON;
 import static freeWarOnTerror.helpers.CONSTANTS.SYRIA;
 
@@ -29,7 +30,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.SYRIA;
 public class HaririKilled extends Card {
     
     public HaririKilled(){
-        super("Hariri Killed", 2, 3, true);
+        super("Hariri Killed", 2, 3, true, false, HARIRIKILLED);
     }
     
     @Override

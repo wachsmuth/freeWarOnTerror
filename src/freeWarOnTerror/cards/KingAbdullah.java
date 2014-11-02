@@ -22,6 +22,7 @@ import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.JORDAN;
+import static freeWarOnTerror.helpers.CONSTANTS.KINGABDULLAH;
 
 /**
  *
@@ -30,7 +31,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.JORDAN;
 public class KingAbdullah extends Card {
     
     public KingAbdullah(){
-        super("King Abdullah", 2, 2, true);
+        super("King Abdullah", 2, 2, true, false, KINGABDULLAH);
     }
     
     @Override

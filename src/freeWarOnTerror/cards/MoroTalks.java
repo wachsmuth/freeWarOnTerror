@@ -20,6 +20,7 @@ import static freeWarOnTerror.Game.addCardToPlay;
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.modifyFunding;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CONSTANTS.MOROTALKS;
 import static freeWarOnTerror.helpers.CONSTANTS.PHILIPPINES;
 
 /**
@@ -29,7 +30,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.PHILIPPINES;
 public class MoroTalks extends Card {
     
     public MoroTalks(){
-        super("Moro Talks", 1, 2, true);
+        super("Moro Talks", 1, 2, true, true, MOROTALKS, PHILIPPINES);
     }
     
     @Override

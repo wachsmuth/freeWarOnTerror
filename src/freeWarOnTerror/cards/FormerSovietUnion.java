@@ -20,6 +20,7 @@ import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.CENTRALASIA;
+import static freeWarOnTerror.helpers.CONSTANTS.FORMERSOVIETUNION;
 
 /**
  *
@@ -28,7 +29,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.CENTRALASIA;
 public class FormerSovietUnion extends Card{
     
     public FormerSovietUnion(){
-        super("Former Soviet Union", 2, 1, false);
+        super("Former Soviet Union", 2, 1, false, false, FORMERSOVIETUNION);
     }
     
     @Override

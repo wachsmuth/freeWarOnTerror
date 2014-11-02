@@ -22,6 +22,7 @@ import static freeWarOnTerror.Game.setFunding;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
+import static freeWarOnTerror.helpers.CONSTANTS.SADDAM;
 
 /**
  *
@@ -30,7 +31,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
 public class Saddam extends Card {
     
     public Saddam(){
-        super("Saddam", 3, 3, false);
+        super("Saddam", 3, 3, false, false, SADDAM);
     }
     
     @Override

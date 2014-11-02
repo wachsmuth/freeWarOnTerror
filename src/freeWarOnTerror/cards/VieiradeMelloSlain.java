@@ -20,6 +20,7 @@ import static freeWarOnTerror.Game.getMuslimCountries;
 import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CONSTANTS.VIEIRADEMELLOSLAIN;
 
 /**
  *
@@ -28,7 +29,7 @@ import freeWarOnTerror.abClasses.Card;
 public class VieiradeMelloSlain extends Card {
 
     public VieiradeMelloSlain() {
-        super("Vieira de Mello Slain", 1, 3, true);
+        super("Vieira de Mello Slain", 1, 3, true, true, VIEIRADEMELLOSLAIN);
     }           
 
     @Override

@@ -12,12 +12,22 @@ public abstract class Card {
     private final int alignment; //0 is Automatic Event, 1 is Neutral, 2 is US, 3 is Jihadist
     private Boolean removedAfterPlay;
     private final String name;
+    private final int id;
 
-    public Card(String name, int ops, int alignment, Boolean removedAfterPlay) {
+    public Card(String name, int ops, int alignment, Boolean removedAfterPlay, boolean mark, int id) {
         this.name = name;
         this.ops = ops;
         this.alignment = alignment;
         this.removedAfterPlay = removedAfterPlay;
+        this.id = id;
+    }
+    
+    public Card(String name, int ops, int alignment, Boolean removedAfterPlay, boolean mark, int id, int ... countries) {
+        this.name = name;
+        this.ops = ops;
+        this.alignment = alignment;
+        this.removedAfterPlay = removedAfterPlay;
+        this.id = id;
     }
 
     public abstract void playEvent();
@@ -64,5 +74,9 @@ public abstract class Card {
     
     public void addToPlay(){
         addCardToPlay(name);
+    }
+
+    public int getId() {
+        return id;
     }
 }

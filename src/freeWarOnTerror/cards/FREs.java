@@ -20,6 +20,7 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.isCardInPlay;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CONSTANTS.FRES;
 import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
 
 /**
@@ -29,7 +30,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
 public class FREs extends Card {
     
     public FREs(){
-        super("FREs", 1, 3, false);
+        super("FREs", 1, 3, false, false, FRES);
     }
     
     @Override

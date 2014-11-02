@@ -21,6 +21,7 @@ import static freeWarOnTerror.Game.isPostureHard;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.CENTRALASIA;
+import static freeWarOnTerror.helpers.CONSTANTS.CTR;
 import static freeWarOnTerror.helpers.CONSTANTS.RUSSIA;
 
 /**
@@ -30,7 +31,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.RUSSIA;
 public class CTR extends Card {
     
     public CTR(){
-        super("CTR", 1, 2, false);
+        super("CTR", 1, 2, false, false, CTR);
     }
     
     @Override

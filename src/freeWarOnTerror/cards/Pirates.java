@@ -18,6 +18,7 @@ package freeWarOnTerror.cards;
 
 import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CONSTANTS.PIRATES;
 import static freeWarOnTerror.helpers.CONSTANTS.SOMALIA;
 import static freeWarOnTerror.helpers.CONSTANTS.YEMEN;
 
@@ -28,7 +29,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.YEMEN;
 public class Pirates extends Card {
     
     public Pirates(){
-        super("Pirates", 2, 3, true);
+        super("Pirates", 2, 3, true, true, PIRATES, YEMEN, SOMALIA);
     }
     
     @Override

@@ -20,6 +20,7 @@ import static freeWarOnTerror.Game.anyIslamistRule;
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.modifyFunding;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CONSTANTS.ALAZHAR;
 import static freeWarOnTerror.helpers.CONSTANTS.EGYPT;
 
 /**
@@ -29,7 +30,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.EGYPT;
 public class AlAzhar extends Card {
     
     public AlAzhar(){
-        super("Al-Azhar", 2, 2, false);
+        super("Al-Azhar", 2, 2, false, false, ALAZHAR);
     }
     
     @Override

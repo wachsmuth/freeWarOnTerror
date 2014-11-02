@@ -19,6 +19,7 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CONSTANTS.ALITTIHADALISLAMI;
 import static freeWarOnTerror.helpers.CONSTANTS.SOMALIA;
 
 /**
@@ -28,7 +29,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.SOMALIA;
 public class AlIttihadAlIslami extends Card {
     
     public AlIttihadAlIslami(){
-        super("Al-Ittihad al-Islami", 1, 3, true);
+        super("Al-Ittihad al-Islami", 1, 3, true, false, ALITTIHADALISLAMI);
     }
     
     @Override

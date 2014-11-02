@@ -19,6 +19,7 @@ package freeWarOnTerror.cards;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.Game;
 import static freeWarOnTerror.Game.isCardInPlay;
+import static freeWarOnTerror.helpers.CONSTANTS.SANCTIONS;
 
 /**
  *
@@ -27,7 +28,7 @@ import static freeWarOnTerror.Game.isCardInPlay;
 public class Sanctions extends Card {
 
     public Sanctions() {
-        super("Sanctions", 1, 2, true);
+        super("Sanctions", 1, 2, false, false, SANCTIONS);
     }
     
     @Override

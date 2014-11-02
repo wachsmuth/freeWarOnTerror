@@ -21,6 +21,7 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.modifyFunding;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CONSTANTS.HIJAB;
 import static freeWarOnTerror.helpers.CONSTANTS.TURKEY;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 
@@ -31,7 +32,7 @@ import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 public class Hijab extends Card {
     
     public Hijab(){
-        super("Hijab", 3, 2, true);
+        super("Hijab", 3, 2, true, false, HIJAB);
     }
     
     @Override

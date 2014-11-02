@@ -19,6 +19,7 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.getTroops;
 import static freeWarOnTerror.Game.modifyFunding;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CONSTANTS.HIZBUTTAHRIR;
 
 /**
  *
@@ -27,7 +28,7 @@ import freeWarOnTerror.abClasses.Card;
 public class HizbUtTahrir extends Card {
     
     public HizbUtTahrir(){
-        super("Hizb Ut-Tahrir", 1, 1, false);
+        super("Hizb Ut-Tahrir", 1, 1, false, false, HIZBUTTAHRIR);
     }
     
     @Override

@@ -21,6 +21,7 @@ import static freeWarOnTerror.Game.getUS;
 import static freeWarOnTerror.Game.modifyFunding;
 import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CONSTANTS.GAZAWAR;
 
 /**
  *
@@ -29,7 +30,7 @@ import freeWarOnTerror.abClasses.Card;
 public class GazaWar extends Card {
     
     public GazaWar(){
-        super("Gaza War", 2, 3, false);
+        super("Gaza War", 2, 3, false, false, GAZAWAR);
     }
     
     @Override

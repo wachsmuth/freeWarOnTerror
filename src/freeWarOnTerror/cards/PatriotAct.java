@@ -20,6 +20,7 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.getSchengenCountries;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CONSTANTS.PATRIOTACT;
 import static freeWarOnTerror.helpers.CONSTANTS.PHILIPPINES;
 import static freeWarOnTerror.helpers.CONSTANTS.UNITEDKINGDOM;
 import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
@@ -31,7 +32,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
 public class PatriotAct extends Card {
 
     public PatriotAct() {
-        super("Patriot Act", 3, 2, true);
+        super("Patriot Act", 3, 2, true, true, PATRIOTACT);
     }
 
     @Override

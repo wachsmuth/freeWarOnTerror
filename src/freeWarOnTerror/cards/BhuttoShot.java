@@ -27,7 +27,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.PAKISTAN;
 public class BhuttoShot extends Card {
     
     public BhuttoShot(){
-        super("Bhutto Shot", 2, 3, true);
+        super("Bhutto Shot", 2, 3, true, true, PAKISTAN);
     }
     
     @Override

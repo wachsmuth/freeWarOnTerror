@@ -23,6 +23,7 @@ import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.FRANCE;
 import static freeWarOnTerror.helpers.CONSTANTS.GERMANY;
+import static freeWarOnTerror.helpers.CONSTANTS.SCHROEDERANDCHIRAC;
 
 /**
  *
@@ -31,7 +32,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.GERMANY;
 public class SchroederAndChirac extends Card {
 
     public SchroederAndChirac() {
-        super("Schroeder & Chirac", 2, 3, true);
+        super("Schroeder & Chirac", 2, 3, true, false, SCHROEDERANDCHIRAC);
     }
 
     @Override

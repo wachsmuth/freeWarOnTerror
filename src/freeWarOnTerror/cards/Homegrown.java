@@ -19,6 +19,7 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CONSTANTS.HOMEGROWN;
 import static freeWarOnTerror.helpers.CONSTANTS.UNITEDKINGDOM;
 
 /**
@@ -28,7 +29,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.UNITEDKINGDOM;
 public class Homegrown extends Card {
     
     public Homegrown(){
-        super("Homegrown", 2, 3, false);
+        super("Homegrown", 2, 3, false, false, HOMEGROWN);
     }
     
     @Override

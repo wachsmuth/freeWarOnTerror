@@ -20,6 +20,7 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.INDONESIA;
+import static freeWarOnTerror.helpers.CONSTANTS.JEMAAHISLAMIYA;
 
 /**
  *
@@ -28,7 +29,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.INDONESIA;
 public class JemaahIslamiya extends Card {
     
     public JemaahIslamiya(){
-        super("Jemaah Islamiya", 2, 3, false);
+        super("Jemaah Islamiya", 2, 3, false, false, JEMAAHISLAMIYA);
     }
     
     @Override

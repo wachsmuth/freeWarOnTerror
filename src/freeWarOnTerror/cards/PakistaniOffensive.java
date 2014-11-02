@@ -22,6 +22,7 @@ import static freeWarOnTerror.Game.removeCardFromPlay;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.PAKISTAN;
+import static freeWarOnTerror.helpers.CONSTANTS.PAKISTANIOFFENSIVE;
 
 /**
  *
@@ -30,7 +31,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.PAKISTAN;
 public class PakistaniOffensive extends Card {
     
     public PakistaniOffensive(){
-        super("Pakistani Offensive", 3, 2, false);
+        super("Pakistani Offensive", 3, 2, false, false, PAKISTANIOFFENSIVE);
     }
     
     @Override
