@@ -17,6 +17,8 @@
 package freeWarOnTerror.helpers;
 
 import freeWarOnTerror.Game;
+import freeWarOnTerror.abClasses.Country;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -101,5 +103,15 @@ public class InputLoop {
             return true;
         }
         return false;
+    }
+    
+    public static Country inputLoop(String question, ArrayList<Country> countriesArray){
+        String[] countries = new String[countriesArray.size()];
+        int i = 0;
+        for (Country c : countriesArray){
+            countries[i] = c.getName();
+            i++;
+        }
+        return countriesArray.get(inputLoop(question, countries)-1);
     }
 }

@@ -356,6 +356,15 @@ public class Game {
             Scenario letsRoll = new LetsRoll();
             System.out.println("Chosen scenario is Let's Roll.");
         }
+        for (Country c : allCountries){
+            if (c instanceof MuslimCountry){
+            muslimCountries.add((MuslimCountry) c);
+        }
+            if (c instanceof NonMuslimCountry){
+                nonMuslimCountries.add((NonMuslimCountry) c);
+            }
+        }
+        
         turn = new Turn();
         turn.startTurn();
     }
