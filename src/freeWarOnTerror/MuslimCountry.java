@@ -218,7 +218,13 @@ public class MuslimCountry extends Country {
         return aid > 0;
     }
     
-    public boolean canMajorJihad(){
-        return governance < 4 && troopAmount() + 5 < cellAmount();
+    public boolean canMajorJihad(int ops){
+        if (besiegedRegime){
+            return governance < 4 && troopAmount() + 5 <= cellAmount();
+        }
+        else if (ops > 1){
+            return governance < 4 && troopAmount() + 5 <= cellAmount();
+        }
+        return false;
     }
 }
