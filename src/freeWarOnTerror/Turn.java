@@ -45,7 +45,7 @@ public class Turn {
     private boolean jihadistDone;
     private boolean USADone;
 
-    public void Turn() {
+    public Turn() {
         Game.incrementTurnNumber();
         jihadistDone = false;
         USADone = false;

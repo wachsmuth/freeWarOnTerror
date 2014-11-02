@@ -349,7 +349,7 @@ public Game() {
     public static void printStatus(){
         int count = 0;
         for (Country c : allCountries){
-            System.out.println(count + ": " + c);
+            System.out.println(count++ + ": " + c);
         }
     }
 }
