@@ -6,6 +6,7 @@
 package freeWarOnTerror;
 
 import freeWarOnTerror.helpers.InputLoop;
+import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -47,7 +48,11 @@ public class FreeWarOnTerror extends Application {
      */
     public static void main(String[] args) {
         System.out.println("Hej");
-        int in = InputLoop.inputLoop(1,2,3);
+        ArrayList<String> strings = new ArrayList<>();
+        strings.add("Blue");
+        strings.add("Red");
+        strings.add("Green");
+        String in = InputLoop.inputLoop("What is your favorite colour?", strings);
         System.out.println("Hej2 " + in);
         //launch(args);
     }

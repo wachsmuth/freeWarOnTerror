@@ -16,8 +16,10 @@
  */
 package freeWarOnTerror.helpers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import static sun.plugin2.os.windows.FLASHWINFO.size;
 
 /**
  *
@@ -48,4 +50,37 @@ public class InputLoop {
         return userInput;
     }
 
+    public static String inputLoop(String question, ArrayList<String> options) {
+        String answerString; 
+        Scanner inputScanner = new Scanner(System.in);
+        System.out.println(question);
+        System.out.println("Valid input is: ");
+        int j = 0;
+        int[] noOfOptions = new int[options.size()];
+        for (String s : options){
+            noOfOptions[j] = j+1;
+            j++;
+            System.out.println(j + ": " + s);
+        }
+        int userInput;
+        inputloop:
+        while (true) {
+            try {
+                System.out.print("Enter your input: ");
+                userInput = Integer.parseInt(inputScanner.nextLine());
+                for (int i : noOfOptions) {
+                    if (userInput == i) {
+                        answerString = options.get(i);
+                        break inputloop;
+                    }
+                }
+                System.out.println("Not on the list of permitted input."); //If wrong number
+            } catch (NumberFormatException e) {
+                System.out.println("Input is not of correct type"); //this prints if 
+                //Do nothing. We keep trying.
+            }
+        }
+        return answerString;
+    }
+    
 }
