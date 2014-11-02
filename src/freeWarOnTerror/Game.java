@@ -19,6 +19,7 @@ package freeWarOnTerror;
 import freeWarOnTerror.Countries.CountryUSA;
 import freeWarOnTerror.Players.PlayerJihadist;
 import freeWarOnTerror.Players.PlayerUS;
+import freeWarOnTerror.Scenarios.LetsRoll;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import freeWarOnTerror.abClasses.Player;
@@ -43,6 +44,7 @@ public class Game {
     private static int goodFairCountries = 0;
     private static int poorIslamistCountries = 0;
     private static int oilPriceSpike = 0;
+    private static final Turn turn = new Turn();
     private static final ArrayList<String> persistentEffects = new ArrayList<>();
     private static final ArrayList<Country> allCountries = new ArrayList<>();
     private static final ArrayList<MuslimCountry> muslimCountries = new ArrayList<>();
@@ -77,8 +79,8 @@ public class Game {
             currentPlayer = playerJihadist;
         }
     }
-    
-    public static void switchCurrentPlayer(Player p){
+
+    public static void switchCurrentPlayer(Player p) {
         currentPlayer = p;
     }
 
@@ -335,4 +337,13 @@ public class Game {
     public static void incrementTurnNumber() {
         Game.turnNumber++;
     }
+
+    public static void startGame(int scenario) {
+        if (scenario == 1) {
+            Scenario letsRoll = new LetsRoll();
+            System.out.println("Chosen scenario is Let's Roll.");
+        }
+        turn.startTurn();
+    }
+
 }
