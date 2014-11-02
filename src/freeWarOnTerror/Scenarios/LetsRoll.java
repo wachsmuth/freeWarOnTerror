@@ -17,6 +17,7 @@
 package freeWarOnTerror.Scenarios;
 
 import static freeWarOnTerror.Game.getCountry;
+import static freeWarOnTerror.Game.placeCell;
 import static freeWarOnTerror.Game.setFunding;
 import static freeWarOnTerror.Game.setPostureHard;
 import static freeWarOnTerror.Game.setPrestige;
@@ -60,7 +61,9 @@ public class LetsRoll extends Scenario {
         getCountry(AFGHANISTAN).setGovernanceAndAlignment(4,3);
         MuslimCountry somalia = (MuslimCountry) getCountry(SOMALIA);
         somalia.setBesiegedRegime(true);
-        
+        for (int i = 0;i < 4;i++){
+        placeCell(getCountry(AFGHANISTAN));
+        }
         //TODO: Cells and troops
     }
     
