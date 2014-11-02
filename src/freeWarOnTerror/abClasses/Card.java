@@ -13,6 +13,8 @@ public abstract class Card {
     private Boolean removedAfterPlay;
     private final String name;
     private final int id;
+    private final boolean mark;
+    private final int[] countries;
 
     public Card(String name, int ops, int alignment, Boolean removedAfterPlay, boolean mark, int id) {
         this.name = name;
@@ -20,6 +22,8 @@ public abstract class Card {
         this.alignment = alignment;
         this.removedAfterPlay = removedAfterPlay;
         this.id = id;
+        this.mark = mark;
+        countries = null;
     }
     
     public Card(String name, int ops, int alignment, Boolean removedAfterPlay, boolean mark, int id, int ... countries) {
@@ -28,6 +32,8 @@ public abstract class Card {
         this.alignment = alignment;
         this.removedAfterPlay = removedAfterPlay;
         this.id = id;
+        this.mark = mark;
+        this.countries = countries;
     }
 
     public abstract void playEvent();
