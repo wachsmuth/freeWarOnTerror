@@ -13,7 +13,6 @@ import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
 import static freeWarOnTerror.helpers.CONSTANTS.WMD;
 import freeWarOnTerror.helpers.Die;
 import static freeWarOnTerror.helpers.Die.rollDie;
-import java.util.Iterator;
 
 /**
  *
@@ -223,5 +222,10 @@ public class MuslimCountry extends Country {
             return governance < 4 && troopAmount() + 5 <= cellAmount();
         }
         return false;
+    }
+    
+    @Override
+    public String toString(){
+        return getName();
     }
 }

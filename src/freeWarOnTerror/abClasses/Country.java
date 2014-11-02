@@ -7,10 +7,7 @@ package freeWarOnTerror.abClasses;
 
 import freeWarOnTerror.Cell;
 import freeWarOnTerror.NonMuslimCountry;
-import freeWarOnTerror.Plot;
-import freeWarOnTerror.Troop;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -141,5 +138,6 @@ public abstract class Country extends Location {
         return needsTesting;
     }
     
+    public abstract String toString();
 
 }

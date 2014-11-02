@@ -44,7 +44,7 @@ public class Game {
     private static int goodFairCountries = 0;
     private static int poorIslamistCountries = 0;
     private static int oilPriceSpike = 0;
-    private static final Turn turn = new Turn();
+    private static Turn turn;
     private static final ArrayList<String> persistentEffects = new ArrayList<>();
     private static final ArrayList<Country> allCountries = new ArrayList<>();
     private static final ArrayList<MuslimCountry> muslimCountries = new ArrayList<>();
@@ -342,7 +342,14 @@ public Game() {
             Scenario letsRoll = new LetsRoll();
             System.out.println("Chosen scenario is Let's Roll.");
         }
+        turn = new Turn();
         turn.startTurn();
     }
 
+    public static void printStatus(){
+        int count = 0;
+        for (Country c : allCountries){
+            System.out.println(count + ": " + c);
+        }
+    }
 }

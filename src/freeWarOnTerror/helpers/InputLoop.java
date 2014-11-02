@@ -16,6 +16,7 @@
  */
 package freeWarOnTerror.helpers;
 
+import freeWarOnTerror.Game;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -28,12 +29,18 @@ public class InputLoop {
     public static int inputLoop(int... args) {
         Scanner inputScanner = new Scanner(System.in);
         System.out.println("Valid input is: " + Arrays.toString(args));
+        System.out.println("Other valid comamnds: status");
         int userInput;
         inputloop:
         while (true) {
             try {
                 System.out.print("Enter your input: ");
-                userInput = Integer.parseInt(inputScanner.nextLine());
+                String userInputRaw = inputScanner.nextLine();
+                if (extendedCommands(userInputRaw)) {
+                    continue;
+                }
+                userInput = Integer.parseInt(userInputRaw);
+                //Check for extended commands
                 for (int i : args) {
                     if (userInput == i) {
                         break inputloop;
@@ -49,14 +56,14 @@ public class InputLoop {
     }
 
     public static int inputLoop(String question, String... options) {
-        String answerString; 
+        String answerString;
         Scanner inputScanner = new Scanner(System.in);
         System.out.println(question);
         System.out.println("Valid input is: ");
         int j = 0;
         int[] noOfOptions = new int[options.length];
-        for (String s : options){
-            noOfOptions[j] = j+1;
+        for (String s : options) {
+            noOfOptions[j] = j + 1;
             j++;
             System.out.println(j + ": " + s);
         }
@@ -65,10 +72,14 @@ public class InputLoop {
         while (true) {
             try {
                 System.out.print("Enter your input: ");
-                userInput = Integer.parseInt(inputScanner.nextLine());
+                String userInputRaw = inputScanner.nextLine();
+                if (extendedCommands(userInputRaw)) {
+                    continue;
+                }
+                userInput = Integer.parseInt(userInputRaw);
                 for (int i : noOfOptions) {
                     if (userInput == i) {
-                       // answerString = options.get(i);
+                        // answerString = options.get(i);
                         break inputloop;
                     }
                 }
@@ -80,5 +91,15 @@ public class InputLoop {
         }
         return userInput;
     }
-    
+
+    private static boolean extendedCommands(String userInput) {
+        if (Game.getTurnNumber() == 0){
+            return false; //Game didn't start yet
+        }
+        if (userInput.equals("status")) {
+            Game.printStatus();
+            return true;
+        }
+        return false;
+    }
 }

@@ -71,11 +71,10 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
         rollPosture();
         if (isPostureHard() && posture == 1) {
             modifyPrestige(1);
-        }
-        else if (posture == -1){
+        } else if (posture == -1) {
             modifyPrestige(1);
         }
-        
+
     }
 
     public Boolean getSchengen() {
@@ -112,4 +111,8 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
         }
     }
 
+    @Override
+    public String toString() {
+        return getName();
+    }
 }
