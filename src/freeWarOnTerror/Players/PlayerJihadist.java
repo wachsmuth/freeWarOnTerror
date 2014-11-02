@@ -17,6 +17,7 @@
 package freeWarOnTerror.Players;
 
 import freeWarOnTerror.Game;
+import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getMuslimCountries;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
@@ -49,9 +50,23 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
     public void majorJihad() {
 
     }
+    
+    public boolean canMinorJihad(){
+        for (Country c : getMuslimCountries()){
+            if (c.canPlot()){
+                return true;
+            }
+        }
+        return false;
+    }
 
-    public void plot() {
-
+    public boolean canPlot() {
+        for (Country c : getAllCountries()){
+            if (c.canPlot()){
+                return true;
+            }
+        }
+        return false;
     }
     
     public boolean canMajorJihad(int ops){
