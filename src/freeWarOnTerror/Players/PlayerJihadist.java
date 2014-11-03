@@ -17,14 +17,18 @@
 package freeWarOnTerror.Players;
 
 import freeWarOnTerror.Game;
+import static freeWarOnTerror.Game.canRecruit;
 import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getMuslimCountries;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
+import static freeWarOnTerror.helpers.CONSTANTS.AUTO;
 import static freeWarOnTerror.helpers.CONSTANTS.JIHAD;
 import static freeWarOnTerror.helpers.CONSTANTS.NEUTRAL;
+import static freeWarOnTerror.helpers.CONSTANTS.USA;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
+import java.util.ArrayList;
 
 /**
  *
@@ -102,7 +106,7 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
 
     @Override
     public void drawPhase() {
-        //Islamist Draw
+        //Jihadist Draw
         if (Game.getFunding() > 6) {
             draw(9);
         } else if (Game.getFunding() > 3) {
@@ -112,8 +116,55 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
         }
     }
 
+    public void chooseHowToPlay(Card c){
+        ArrayList<String> waysToPlayIt = new ArrayList<>();
+        int event = -1;
+        int plot = -1;
+        int recruit = -1;
+        int minorJihad = -1;
+        int majorJihad = -1;
+        int addReserves = -1;
+        int useReserves = -1;
+        if (canPlayAsEvent(c)){
+            waysToPlayIt.add("Play as event");
+            event = waysToPlayIt.size();
+        }
+        if (canPlot()){
+            waysToPlayIt.add("Use ops to Plot");
+            plot = waysToPlayIt.size();
+        }
+        if (canRecruit()){
+            waysToPlayIt.add("Use ops to Recruit");
+            recruit = 1;
+        }
+        if (canMinorJihad()){
+            waysToPlayIt.add("Use ops for Minor Jihad");
+            minorJihad = 1;
+        }
+        if (canMajorJihad()){
+            waysToPlayIt.add("Use ops for Major Jihad");
+            majorJihad = waysToPlayItSize();
+        }
+    }
+    
     @Override
     public void playCard(Card c) {
+        if (c.getAlignment() == USA || c.getAlignment() == AUTO) {
+            int userInput = inputLoop("Do you want", "The event to happen first", "To play ops first");
+            if (userInput == 1) {
+                Game.playCard(c);
+                playForOps(c.getOps());
+            } else {
+                playForOps(c.getOps());
+                Game.playCard(c);
+            }
+        }
+        else {
+            chooseHowToPlay(c);
+        }
+        
+        
+
         if ((c.getAlignment() == JIHAD || c.getAlignment() == NEUTRAL) && c.getPlayable()) {
             System.out.println("Do you want to:");
             System.out.println("1: Play for ops");
@@ -124,15 +175,11 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
             } else {
                 Game.playCard(c);
             }
-            
 
-        } 
-        
-        else if (c.getAlignment() == JIHAD || c.getAlignment() == NEUTRAL){
+        } else if (c.getAlignment() == JIHAD || c.getAlignment() == NEUTRAL) {
             System.out.println("Event unplayable, playing for ops.");
             playForOps(c.getOps());
-        }
-                else {
+        } else {
             //Event and ops both happen - but which first?
             System.out.println("Do you want:");
             System.out.println("1: The event to happen first");
