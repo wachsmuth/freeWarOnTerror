@@ -44,6 +44,7 @@ import freeWarOnTerror.cards.KemalistRepublic;
 import freeWarOnTerror.cards.KingAbdullah;
 import freeWarOnTerror.cards.Kosovo;
 import freeWarOnTerror.cards.LebanonWar;
+import freeWarOnTerror.cards.MassTurnout;
 import freeWarOnTerror.cards.MoroTalks;
 import freeWarOnTerror.cards.NEST;
 import freeWarOnTerror.cards.PakistaniOffensive;
@@ -361,6 +362,7 @@ public class Scenario {
         deck.addCard(new KingAbdullah());
         deck.addCard(new Kosovo());
         deck.addCard(new LebanonWar());
+        deck.addCard(new MassTurnout());
         deck.addCard(new MoroTalks());
         deck.addCard(new NEST());
         deck.addCard(new PakistaniOffensive());
@@ -374,7 +376,5 @@ public class Scenario {
         deck.addCard(new UyghurJihad());
         deck.addCard(new VieiradeMelloSlain());
         deck.addCard(new Wahhabism());
-        
-        deck.shuffle();
     }
 }

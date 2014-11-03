@@ -364,7 +364,7 @@ public class Game {
                 nonMuslimCountries.add((NonMuslimCountry) c);
             }
         }
-        
+        drawPile.shuffle();
         turn = new Turn();
         turn.startTurn();
     }
