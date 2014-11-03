@@ -27,6 +27,7 @@ public abstract class Player {
     private final String name;
     private final ArrayList<Card> hand = new ArrayList<>();
     private int reserves = 0;
+    private final ArrayList<Action> actions = new ArrayList<>();
     
     public Player(String name){
         this.name = name;
