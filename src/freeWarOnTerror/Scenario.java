@@ -28,6 +28,7 @@ import freeWarOnTerror.abClasses.Country;
 import freeWarOnTerror.cards.AlAzhar;
 import freeWarOnTerror.cards.AlIttihadAlIslami;
 import freeWarOnTerror.cards.AnbarAwakening;
+import freeWarOnTerror.cards.AnsarAlIslam;
 import freeWarOnTerror.cards.BhuttoShot;
 import freeWarOnTerror.cards.CTR;
 import freeWarOnTerror.cards.Darfur;
@@ -344,6 +345,7 @@ public class Scenario {
         deck.addCard(new AlAzhar());
         deck.addCard(new AlIttihadAlIslami());
         deck.addCard(new AnbarAwakening());
+        deck.addCard(new AnsarAlIslam());
         deck.addCard(new BhuttoShot());
         deck.addCard(new CTR());
         deck.addCard(new Darfur());
@@ -358,7 +360,6 @@ public class Scenario {
         deck.addCard(new KemalistRepublic());
         deck.addCard(new KingAbdullah());
         deck.addCard(new Kosovo());
-        deck.addCard(new LebanonWar());
         deck.addCard(new LebanonWar());
         deck.addCard(new MoroTalks());
         deck.addCard(new NEST());
