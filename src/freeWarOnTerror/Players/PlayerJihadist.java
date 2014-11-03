@@ -17,19 +17,13 @@
 package freeWarOnTerror.Players;
 
 import freeWarOnTerror.Game;
-import static freeWarOnTerror.Game.canRecruit;
 import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getMuslimCountries;
 import freeWarOnTerror.MuslimCountry;
-import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.AUTO;
-import static freeWarOnTerror.helpers.CONSTANTS.JIHAD;
-import static freeWarOnTerror.helpers.CONSTANTS.NEUTRAL;
 import static freeWarOnTerror.helpers.CONSTANTS.USA;
-import static freeWarOnTerror.helpers.InputLoop.inputLoop;
-import java.util.ArrayList;
 
 /**
  *
@@ -38,12 +32,11 @@ import java.util.ArrayList;
 public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
 
     private boolean firstPlot = false;
-    private final ArrayList<Action> actions = new ArrayList<>();
 
     public PlayerJihadist(String name) {
         super(name);
-        actions.add(new ActionPlot());
-        actions.add(new ActionEventJihadist());
+        addAction(new ActionPlot());
+        addAction(new ActionEventJihadist());
     }
 
     public void recruit() {
