@@ -259,6 +259,21 @@ public class MuslimCountry extends Country {
             }
             string = string + gov;
         }
-        return appendString(string) + moveablesString();
+        
+        string = appendString(string) + moveablesString();
+        
+        if(regimeChange == 2){
+            string += "Green Regime Change ";
+        }
+        else if (regimeChange == 1){
+            string += "Tan Regime Change ";
+        }
+        if (aid > 0){
+            string += aid + " Aid ";
+        }
+        if (besiegedRegime){
+            string += "Besieged Regime ";
+        }
+        return string;
     }
 }
