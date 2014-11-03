@@ -144,10 +144,6 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
             waysToPlayIt.add("Use ops for Minor Jihad");
             minorJihad = 1;
         }
-        if (canMajorJihad()){
-            waysToPlayIt.add("Use ops for Major Jihad");
-            majorJihad = waysToPlayItSize();
-        }
     }
     
     @Override

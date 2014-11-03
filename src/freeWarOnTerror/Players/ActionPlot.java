@@ -18,6 +18,7 @@ package freeWarOnTerror.Players;
 
 import static freeWarOnTerror.Game.getAllCountries;
 import freeWarOnTerror.abClasses.Action;
+import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 
 /**
@@ -30,10 +31,11 @@ public class ActionPlot extends Action {
         super("Use ops to plot");
     }
     
+  
     @Override
-    public boolean canDoAction() {
-        for (Country c : getAllCountries()) {
-            if (c.canPlot()) {
+    public boolean canDoAction(Card c) {
+        for (Country country : getAllCountries()) {
+            if (country.canPlot()) {
                 return true;
             }
         }
@@ -41,7 +43,7 @@ public class ActionPlot extends Action {
     }
     
     @Override
-    public void performAction(){
+    public void performAction(Card c){
         //DEBUG TO DO
     }
 }

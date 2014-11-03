@@ -41,7 +41,7 @@ public abstract class Action {
         return description;
     }
 
-    public abstract boolean canDoAction();
+    public abstract boolean canDoAction(Card c);
 
-    public abstract void performAction();
+    public abstract void performAction(Card c);
 }
