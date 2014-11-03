@@ -50,6 +50,7 @@ import freeWarOnTerror.cards.NEST;
 import freeWarOnTerror.cards.PakistaniOffensive;
 import freeWarOnTerror.cards.PatriotAct;
 import freeWarOnTerror.cards.Pirates;
+import freeWarOnTerror.cards.RegionalAlQaeda;
 import freeWarOnTerror.cards.Saddam;
 import freeWarOnTerror.cards.SaddamCaptured;
 import freeWarOnTerror.cards.Sanctions;
@@ -368,6 +369,8 @@ public class Scenario {
         deck.addCard(new PakistaniOffensive());
         deck.addCard(new PatriotAct());
         deck.addCard(new Pirates());
+        deck.addCard(new RegionalAlQaeda());
+        deck.addCard(new RegionalAlQaeda());
         deck.addCard(new Saddam());
         deck.addCard(new SaddamCaptured());
         deck.addCard(new Sanctions());
