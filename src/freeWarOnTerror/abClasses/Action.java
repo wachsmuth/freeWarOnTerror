@@ -21,18 +21,27 @@ package freeWarOnTerror.abClasses;
  * @author Emil
  */
 public abstract class Action {
-    
+
     private final String description;
-    
-    public Action(String description){
+    private int value = -1;
+
+    public Action(String description) {
         this.description = description;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
     }
 
     public String getDescription() {
         return description;
     }
-    
+
     public abstract boolean canDoAction();
-    
+
     public abstract void performAction();
 }
