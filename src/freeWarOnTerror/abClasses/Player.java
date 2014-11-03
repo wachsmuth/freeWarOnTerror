@@ -30,6 +30,8 @@ public abstract class Player {
     private int reserves = 0;
     private final ArrayList<Action> actions = new ArrayList<>();
     
+    
+    
     public Player(String name){
         this.name = name;
     }
@@ -93,6 +95,10 @@ public abstract class Player {
         return c;
     }
     
+    public void addAction(Action a){
+        actions.add(a);
+    }
+    
     public abstract void drawPhase();
     
     public abstract boolean canPlayAsEvent(Card c);
@@ -118,6 +124,17 @@ public abstract class Player {
         if (reserves > 2){
             reserves = 2;
         }
+    }
+    
+    public void chooseEventOrOps(Card c){
+        int userInput = inputLoop("Do you want", "The event to happen first", "To play ops first");
+            if (userInput == 1) {
+                Game.playCard(c);
+                howToPlay(c);
+            } else {
+                howToPlay(c);
+                Game.playCard(c);
+            }
     }
     
     public abstract void playCard(Card c);

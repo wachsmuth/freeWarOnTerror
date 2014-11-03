@@ -43,6 +43,7 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
     public PlayerJihadist(String name) {
         super(name);
         actions.add(new ActionPlot());
+        actions.add(new ActionEventJihadist());
     }
 
     public void recruit() {
@@ -118,79 +119,14 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
             draw(7);
         }
     }
-
-    public void chooseHowToPlay(Card c){
-        ArrayList<String> waysToPlayIt = new ArrayList<>();
-        int event = -1;
-        int plot = -1;
-        int recruit = -1;
-        int minorJihad = -1;
-        int majorJihad = -1;
-        int addReserves = -1;
-        int useReserves = -1;
-        if (canPlayAsEvent(c)){
-            waysToPlayIt.add("Play as event");
-            event = waysToPlayIt.size();
-        }
-        if (canPlot()){
-            waysToPlayIt.add("Use ops to Plot");
-            plot = waysToPlayIt.size();
-        }
-        if (canRecruit()){
-            waysToPlayIt.add("Use ops to Recruit");
-            recruit = 1;
-        }
-        if (canMinorJihad()){
-            waysToPlayIt.add("Use ops for Minor Jihad");
-            minorJihad = 1;
-        }
-    }
     
     @Override
     public void playCard(Card c) {
         if (c.getAlignment() == USA || c.getAlignment() == AUTO) {
-            int userInput = inputLoop("Do you want", "The event to happen first", "To play ops first");
-            if (userInput == 1) {
-                Game.playCard(c);
-                playForOps(c.getOps());
-            } else {
-                playForOps(c.getOps());
-                Game.playCard(c);
-            }
+            chooseEventOrOps(c);
         }
         else {
-            chooseHowToPlay(c);
-        }
-        
-        
-
-        if ((c.getAlignment() == JIHAD || c.getAlignment() == NEUTRAL) && c.getPlayable()) {
-            System.out.println("Do you want to:");
-            System.out.println("1: Play for ops");
-            System.out.println("2: Play for event");
-            int userInput = inputLoop(1, 2);
-            if (userInput == 1) {
-                playForOps(c.getOps());
-            } else {
-                Game.playCard(c);
-            }
-
-        } else if (c.getAlignment() == JIHAD || c.getAlignment() == NEUTRAL) {
-            System.out.println("Event unplayable, playing for ops.");
-            playForOps(c.getOps());
-        } else {
-            //Event and ops both happen - but which first?
-            System.out.println("Do you want:");
-            System.out.println("1: The event to happen first");
-            System.out.println("2: To play the ops first");
-            int userInput = inputLoop(1, 2);
-            if (userInput == 1) {
-                Game.playCard(c);
-                playForOps(c.getOps());
-            } else {
-                playForOps(c.getOps());
-                Game.playCard(c);
-            }
+            howToPlay(c);
         }
     }
 }
