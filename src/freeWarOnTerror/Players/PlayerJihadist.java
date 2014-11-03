@@ -21,6 +21,7 @@ import static freeWarOnTerror.Game.canRecruit;
 import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getMuslimCountries;
 import freeWarOnTerror.MuslimCountry;
+import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.AUTO;
@@ -37,9 +38,11 @@ import java.util.ArrayList;
 public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
 
     private boolean firstPlot = false;
+    private final ArrayList<Action> actions = new ArrayList<>();
 
     public PlayerJihadist(String name) {
         super(name);
+        actions.add(new ActionPlot());
     }
 
     public void recruit() {
