@@ -23,6 +23,10 @@ import freeWarOnTerror.Scenarios.LetsRoll;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import freeWarOnTerror.abClasses.Player;
+import static freeWarOnTerror.helpers.CONSTANTS.FAIR;
+import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
+import static freeWarOnTerror.helpers.CONSTANTS.ISLAMISTRULE;
+import static freeWarOnTerror.helpers.CONSTANTS.POOR;
 import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
 import static freeWarOnTerror.helpers.Die.prestigeRoll;
 import java.util.ArrayList;
@@ -356,11 +360,11 @@ public class Game {
             Scenario letsRoll = new LetsRoll();
             System.out.println("Chosen scenario is Let's Roll.");
         }
-        for (Country c : allCountries){
-            if (c instanceof MuslimCountry){
-            muslimCountries.add((MuslimCountry) c);
-        }
-            if (c instanceof NonMuslimCountry){
+        for (Country c : allCountries) {
+            if (c instanceof MuslimCountry) {
+                muslimCountries.add((MuslimCountry) c);
+            }
+            if (c instanceof NonMuslimCountry) {
                 nonMuslimCountries.add((NonMuslimCountry) c);
             }
         }
@@ -380,5 +384,89 @@ public class Game {
             counter = counter + count++;
             System.out.println(counter + ": " + c);
         }
+    }
+
+    public static void checkForVictory() {
+        checkForVictoryUS();
+        checkForVictoryJihad();
+    }
+
+    public static void WMDinUS() {
+        victoryJihad();
+    }
+
+    private static void checkForVictoryUS() {
+        //Check for US Victory
+
+        //By resources
+        int USresources = 0;
+        for (MuslimCountry c : muslimCountries) {
+            //Total resources
+            if (c.getGovernance() == GOOD) {
+                USresources += c.getResources();
+            }
+        }
+        if (USresources >= 12) {
+            victoryUS();
+            return;
+        }
+        //By governance
+        int goodGovernances = 0;
+        for (MuslimCountry c : muslimCountries) {
+            //Total resources
+            if (c.getGovernance() == GOOD || c.getGovernance() == FAIR) {
+                goodGovernances++;
+            }
+        }
+        if (goodGovernances >= 15) {
+            victoryUS();
+            return;
+        }
+
+        //By No jihadist cells
+        boolean cellsFound = false;
+        for (Country c : getAllCountries()) {
+            if (c.hasCells()) {
+                cellsFound = true;
+            }
+        }
+        if (cellsFound == false) {
+            victoryUS();
+        }
+    }
+
+    private static void checkForVictoryJihad() {
+        //By islamist rule resources
+        int islamistRuleResources = 0;
+        for (MuslimCountry c : getMuslimCountries()) {
+            if (c.getGovernance() == ISLAMISTRULE) { //Do only muslime countries have resources? DEBUG
+                islamistRuleResources += c.getResources();
+            }
+        }
+        if (islamistRuleResources >= 6) {
+            victoryJihad();
+            return;
+        }
+
+        //By US Prestige and poor government
+        if (getPrestige() == 1) {
+            int shittyCountries = 0;
+            for (MuslimCountry c : getMuslimCountries()) {
+                if (c.getGovernance() == POOR || c.getGovernance() == ISLAMISTRULE) {
+                    shittyCountries++;
+                }
+            }
+            if (shittyCountries >= 15) {
+                victoryJihad();
+            }
+        }
+    }
+
+    private static void victoryUS() {
+
+    }
+
+    private static void victoryJihad() {
+
     }
 }

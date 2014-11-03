@@ -117,7 +117,9 @@ public class Turn {
         //Reset first plot
         PlayerJihadist jihadist = getJihadist();
         jihadist.setFirstPlot(false);
-        startTurn();
+        //startTurn(); DEBUG - want a turn object for every turn
+        
+        Game.checkForVictory();
     }
 
     private void playCardPhase() {
@@ -156,6 +158,8 @@ public class Turn {
 
         //Plays the card
         cPlayer.playCard(hand.get(userInput));
+        
+        Game.checkForVictory();
     }
 
     private void throwAwayOrKeep() {

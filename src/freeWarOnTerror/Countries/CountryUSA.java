@@ -16,22 +16,36 @@
  */
 package freeWarOnTerror.Countries;
 
+import freeWarOnTerror.Game;
 import freeWarOnTerror.NonMuslimCountry;
+import freeWarOnTerror.Plot;
+import static freeWarOnTerror.helpers.CONSTANTS.WMD;
 
 /**
  *
  * @author Emil
  */
 public class CountryUSA extends NonMuslimCountry {
-    
-    public CountryUSA(String name, int id, int governance){
+
+    public CountryUSA(String name, int id, int governance) {
         super(name, id, governance, governance, false);
         noLongerNeedsTesting();
     }
-    
+
     @Override
-    public Boolean canWarOfIdeas(int ops){
+    public Boolean canWarOfIdeas(int ops) {
         return false;
     }
-    
+
+    @Override
+    public void resolvePlots() {
+        for (Plot p : getPlots()) {
+            if (p.getType() == WMD) {
+                Game.WMDinUS(); //US Loses
+                return;
+            }
+        }
+        //Else handle like normal
+        super.resolvePlots();
+    }
 }
