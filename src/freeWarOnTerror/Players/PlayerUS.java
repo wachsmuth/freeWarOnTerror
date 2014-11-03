@@ -16,14 +16,12 @@
  */
 package freeWarOnTerror.Players;
 
-import freeWarOnTerror.Game;
 import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getTroops;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
-import static freeWarOnTerror.helpers.CONSTANTS.NEUTRAL;
+import static freeWarOnTerror.helpers.CONSTANTS.AUTO;
 import static freeWarOnTerror.helpers.CONSTANTS.USA;
-import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 
 /**
  *
@@ -33,6 +31,9 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
 
     public PlayerUS(String name) {
         super(name);
+        addAction(new ActionEventUS());
+        addAction(new ActionWarOfIdeas());
+        
     }
 
     public void disrupt() {
@@ -57,11 +58,6 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
 
     public void deploy() {
 
-    }
-
-    @Override
-    public boolean canPlayAsEvent(Card c) {
-        return (c.getAlignment() == 2 || c.getAlignment() == 1) && c.getPlayable();
     }
 
     public boolean canAlert(int ops) {
@@ -103,39 +99,11 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
     }
 
     @Override
-    public void playForOps(int ops) {
-        //DEBUG - doesn't do jack yet
-    }
-
-    @Override
     public void playCard(Card c) {
-        if (c.getAlignment() == USA || c.getAlignment() == NEUTRAL && c.getPlayable()) {
-            System.out.println("Do you want to:");
-            System.out.println("1: Play for ops");
-            System.out.println("2: Play for event");
-            int userInput = inputLoop(1, 2);
-            if (userInput == 1) {
-                playForOps(c.getOps());
-            } else {
-                Game.playCard(c);
-            }
-
-        } else if (c.getAlignment() == USA || c.getAlignment() == NEUTRAL) {
-            System.out.println("Event unplayable, playing for ops.");
-            playForOps(c.getOps());
+        if (c.getAlignment() == USA || c.getAlignment() == AUTO) {
+            chooseEventOrOps(c);
         } else {
-            //Event and ops both happen - but which first?
-            System.out.println("Do you want:");
-            System.out.println("1: The event to happen first");
-            System.out.println("2: To play the ops first");
-            int userInput = inputLoop(1, 2);
-            if (userInput == 1) {
-                Game.playCard(c);
-                playForOps(c.getOps());
-            } else {
-                playForOps(c.getOps());
-                Game.playCard(c);
-            }
+            howToPlay(c);
         }
     }
 }

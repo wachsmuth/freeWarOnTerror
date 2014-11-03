@@ -17,6 +17,7 @@ package freeWarOnTerror.abClasses;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 import freeWarOnTerror.Game;
+import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 /**
  *
@@ -27,9 +28,32 @@ public abstract class Player {
     private final String name;
     private final ArrayList<Card> hand = new ArrayList<>();
     private int reserves = 0;
+    private final ArrayList<Action> actions = new ArrayList<>();
+    
+    
     
     public Player(String name){
         this.name = name;
+    }
+    
+    public void howToPlay(Card c){
+        ArrayList<String> possibleActions = new ArrayList<>();
+        for (Action a : actions){
+            a.setValue(-1);
+            if (a.canDoAction(c)){
+                possibleActions.add(a.getDescription());
+                a.setValue(possibleActions.size());
+            }
+        }
+        String[] stringArray = new String[possibleActions.size()];
+        stringArray = possibleActions.toArray(stringArray);
+        int userInput = inputLoop("Choose how to play the card", stringArray);
+        for (Action a : actions){
+            if (a.getValue() == userInput){
+                a.performAction(c);
+                break;
+            }
+        }
     }
     
     public String getName(){
@@ -71,9 +95,11 @@ public abstract class Player {
         return c;
     }
     
-    public abstract void drawPhase();
+    public void addAction(Action a){
+        actions.add(a);
+    }
     
-    public abstract boolean canPlayAsEvent(Card c);
+    public abstract void drawPhase();
 
     public int getReserves() {
         return reserves;
@@ -98,7 +124,16 @@ public abstract class Player {
         }
     }
     
-    public abstract void playCard(Card c);
+    public void chooseEventOrOps(Card c){
+        int userInput = inputLoop("Do you want", "The event to happen first", "To play ops first");
+            if (userInput == 1) {
+                Game.playCard(c);
+                howToPlay(c);
+            } else {
+                howToPlay(c);
+                Game.playCard(c);
+            }
+    }
     
-    public abstract void playForOps(int ops);
+    public abstract void playCard(Card c);
 }
