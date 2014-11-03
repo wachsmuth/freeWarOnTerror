@@ -16,6 +16,7 @@
  */
 package freeWarOnTerror.Players;
 
+import static freeWarOnTerror.Game.playCard;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
 
@@ -36,7 +37,7 @@ public class ActionEventUS extends Action {
     
     @Override
     public void performAction(Card c){
-        
+        playCard(c);
     }
     
 }

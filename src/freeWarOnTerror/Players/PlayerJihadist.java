@@ -37,6 +37,7 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
         super(name);
         addAction(new ActionPlot());
         addAction(new ActionEventJihadist());
+        addAction(new ActionMajorJihad());
     }
 
     public void recruit() {
@@ -64,24 +65,6 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
         return false;
     }
 
-    public boolean canPlot() {
-        for (Country c : getAllCountries()) {
-            if (c.canPlot()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean canMajorJihad(int ops) {
-        for (Country c : getMuslimCountries()) {
-            MuslimCountry x = (MuslimCountry) c;
-            if (x.canMajorJihad(ops)) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     public boolean hasUsedFirstPlot() {
         return firstPlot;

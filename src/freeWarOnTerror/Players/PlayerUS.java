@@ -16,15 +16,12 @@
  */
 package freeWarOnTerror.Players;
 
-import freeWarOnTerror.Game;
 import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getTroops;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.AUTO;
-import static freeWarOnTerror.helpers.CONSTANTS.NEUTRAL;
 import static freeWarOnTerror.helpers.CONSTANTS.USA;
-import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 
 /**
  *
@@ -34,6 +31,8 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
 
     public PlayerUS(String name) {
         super(name);
+        addAction(new ActionEventUS());
+        addAction(new ActionWarOfIdeas());
         
     }
 

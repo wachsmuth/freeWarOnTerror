@@ -16,36 +16,26 @@
  */
 package freeWarOnTerror.Players;
 
-import static freeWarOnTerror.Game.getMuslimCountries;
-import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
-import freeWarOnTerror.abClasses.Country;
 
 /**
  *
  * @author Emil
  */
-public class ActionMajorJihad extends Action {
-
-    public ActionMajorJihad() {
-        super("Use ops for Major Jihad");
+public class ActionWarOfIdeas extends Action {
+    
+    public ActionWarOfIdeas(){
+        super("Use ops for War of Ideas");
     }
-
+    
     @Override
-    public boolean canDoAction(Card c) {
-        for (Country country : getMuslimCountries()) {
-            MuslimCountry x = (MuslimCountry) country;
-            if (x.canMajorJihad(c.getOps())) {
-                return true;
-            }
-        }
-        return false;
+    public boolean canDoAction(Card c){
+        return true;
     }
-
+    
     @Override
-    public void performAction(Card c) {
+    public void performAction(Card c){
         //DEBUG to do
     }
-
 }
