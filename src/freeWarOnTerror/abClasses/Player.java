@@ -100,8 +100,6 @@ public abstract class Player {
     }
     
     public abstract void drawPhase();
-    
-    public abstract boolean canPlayAsEvent(Card c);
 
     public int getReserves() {
         return reserves;
@@ -138,6 +136,4 @@ public abstract class Player {
     }
     
     public abstract void playCard(Card c);
-    
-    public abstract void playForOps(int ops);
 }

@@ -83,22 +83,12 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
         return false;
     }
 
-    @Override
-    public boolean canPlayAsEvent(Card c) {
-        return (c.getAlignment() == 1 || c.getAlignment() == 3) && c.getPlayable();
-    }
-
     public boolean hasUsedFirstPlot() {
         return firstPlot;
     }
 
     public void setFirstPlot(boolean firstPlot) {
         this.firstPlot = firstPlot;
-    }
-
-    @Override
-    public void playForOps(int ops) {
-        //DEBUG - doesn't do jack yet
     }
 
     @Override
