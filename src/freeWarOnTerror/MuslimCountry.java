@@ -153,6 +153,9 @@ public class MuslimCountry extends Country {
         if (governance == 1 && alignment == 1) {
             return false;
         }
+        else if (needsTesting() && ops == 1){
+            return false;
+        }
         return ops >= governance && alignment < 3;
     }
 
