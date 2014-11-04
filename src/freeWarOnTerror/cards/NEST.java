@@ -17,6 +17,7 @@
 package freeWarOnTerror.cards;
 
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CONSTANTS.NEST;
 import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
 
 /**
@@ -26,7 +27,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
 public class NEST extends Card {
     
     public NEST(){
-        super("NEST", 1, 2, true, true, UNITEDSTATES);
+        super("NEST", 1, 2, true, true, NEST, UNITEDSTATES);
     }
     
     @Override
