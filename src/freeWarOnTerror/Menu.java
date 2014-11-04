@@ -36,10 +36,11 @@ public class Menu {
     }
 
     public static void chooseScenario() {
-        int i = inputLoop("Choose a scenario", "Let's Roll!", "Choose number of reshuffles", "Exit");
-        if (i == 1) {
-            startGame(1);
-        } else if (i == 2) {
+        int i = inputLoop("Choose a scenario", "Let's Roll!", "You Can Call Me Al", "Choose number of reshuffles", "Exit");
+        if (i < 3){
+            startGame(i-1);
+        }
+        else if (i == 3) {
             chooseReshuffles();
         } else {
             System.exit(0);

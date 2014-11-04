@@ -20,6 +20,7 @@ import freeWarOnTerror.Countries.CountryUSA;
 import freeWarOnTerror.Players.PlayerJihadist;
 import freeWarOnTerror.Players.PlayerUS;
 import freeWarOnTerror.Scenarios.LetsRoll;
+import freeWarOnTerror.Scenarios.YouCanCallMeAl;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import freeWarOnTerror.abClasses.Player;
@@ -62,6 +63,11 @@ public class Game {
     private static Deck discardPile = new Deck();
     private static final Track track = new Track();
     private static final Deck removedCards = new Deck();
+    private static final ArrayList<Scenario> scenarios = new ArrayList<>();
+    static {
+        scenarios.add(new LetsRoll());
+        scenarios.add(new YouCanCallMeAl());
+    }
     private static final PlayerJihadist playerJihadist = new PlayerJihadist("JihadPlayer");
     private static final PlayerUS playerUS = new PlayerUS("USPlayer");
     private static final List<Player> players = new ArrayList<>();
@@ -411,9 +417,14 @@ public class Game {
     }
 
     public static void startGame(int scenario) {
-        if (scenario == 1) {
-            Scenario letsRoll = new LetsRoll();
-            System.out.println("Chosen scenario is Let's Roll.");
+        int i = 0;
+        for (Scenario s : scenarios){
+            if (scenario == i){
+                System.out.println("Chosen scenario is " + s.getName());
+                s.create();
+                s.setup();
+            }
+                i++;
         }
         for (Country c : allCountries) {
             if (c instanceof MuslimCountry) {

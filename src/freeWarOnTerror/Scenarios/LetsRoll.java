@@ -40,10 +40,10 @@ public class LetsRoll extends Scenario {
 
     public LetsRoll() {
         super("Let's Roll!");
-        setup();
     }
 
-    private void setup() {
+    @Override
+    public void setup() {
         //Markers
 
         setPrestige(7);

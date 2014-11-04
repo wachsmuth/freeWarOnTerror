@@ -99,7 +99,7 @@ import java.util.ArrayList;
  *
  * @author Emil
  */
-public class Scenario {
+public abstract class Scenario {
 
     private final ArrayList<Country> countries;
     private final Deck deck;
@@ -113,13 +113,18 @@ public class Scenario {
         deck = getDrawPile();
         schengenCountries = new ArrayList<>();
         schengenBorderCountries = new ArrayList<>();
+    }
+
+    public void create() {
         createWorld();
         createLists();
         createConnections();
         createDeck();
     }
-    
-      public String getName() {
+
+    public abstract void setup();
+
+    public String getName() {
         return name;
     }
 
