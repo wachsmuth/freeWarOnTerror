@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package freeWarOnTerror.Players;
+package freeWarOnTerror.Players.Actions;
 
 import static freeWarOnTerror.Game.canRecruit;
 import static freeWarOnTerror.Game.getAllCountries;

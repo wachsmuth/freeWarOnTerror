@@ -14,30 +14,39 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package freeWarOnTerror.Players;
+package freeWarOnTerror.Players.Actions;
 
-import static freeWarOnTerror.Game.playCard;
+import static freeWarOnTerror.Game.getAllCountries;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
+import freeWarOnTerror.abClasses.Country;
+import static freeWarOnTerror.helpers.InputLoop.inputLoop;
+import java.util.ArrayList;
 
 /**
  *
  * @author Emil
  */
-public class ActionEventJihadist extends Action {
+public class ActionWarOfIdeas extends Action {
     
-    public ActionEventJihadist(){
-        super("Play as event");
+    public ActionWarOfIdeas(){
+        super("Use ops for War of Ideas");
     }
     
     @Override
     public boolean canDoAction(Card c){
-        return (c.getAlignment() == 1 || c.getAlignment() == 3) && c.getPlayable();
+        return true;
     }
     
     @Override
     public void performAction(Card c){
-        playCard(c);
+       ArrayList<Country> validCountries = new ArrayList<>();
+            for (Country country : getAllCountries()) {
+                if (country.canWarOfIdeas(c.getOps())) {
+                    validCountries.add(country);
+                }
+            }
+            inputLoop("Choose target for War of Ideas", validCountries).warOfIdeas();
+            
     }
-    
 }

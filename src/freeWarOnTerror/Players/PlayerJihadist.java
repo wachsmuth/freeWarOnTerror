@@ -16,6 +16,10 @@
  */
 package freeWarOnTerror.Players;
 
+import freeWarOnTerror.Players.Actions.ActionEventJihadist;
+import freeWarOnTerror.Players.Actions.ActionRecruit;
+import freeWarOnTerror.Players.Actions.ActionPlot;
+import freeWarOnTerror.Players.Actions.ActionMajorJihad;
 import freeWarOnTerror.Game;
 import static freeWarOnTerror.Game.getMuslimCountries;
 import freeWarOnTerror.MuslimCountry;

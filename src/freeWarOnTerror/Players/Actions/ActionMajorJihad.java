@@ -14,39 +14,38 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package freeWarOnTerror.Players;
+package freeWarOnTerror.Players.Actions;
 
-import static freeWarOnTerror.Game.getUS;
+import static freeWarOnTerror.Game.getMuslimCountries;
+import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
+import freeWarOnTerror.abClasses.Country;
 
 /**
  *
  * @author Emil
  */
-public class ActionReassessment extends Action {
-    
-    public ActionReassessment(){
-        super("Use two cards for reassessment");
+public class ActionMajorJihad extends Action {
+
+    public ActionMajorJihad() {
+        super("Use ops for Major Jihad");
     }
-    
+
     @Override
-    public boolean canDoAction(Card c){
-        if (c.getRealOps() < 3) {
-            return false;
-        }
-        int noOf3Ops = 0;
-        for (Card card : getUS().getHand()) {
-            if (card.getRealOps() > 2) {
-                noOf3Ops++;
+    public boolean canDoAction(Card c) {
+        for (Country country : getMuslimCountries()) {
+            MuslimCountry x = (MuslimCountry) country;
+            if (x.canMajorJihad(c.getOps())) {
+                return true;
             }
         }
-        //DEBUG make it illegal to use reserves here.
-        return noOf3Ops > 1;
+        return false;
     }
-    
+
     @Override
-    public void performAction(Card c){
-        //DEBUG this needs to do something
+    public void performAction(Card c) {
+        //DEBUG to do
     }
+
 }

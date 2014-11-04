@@ -16,6 +16,8 @@
  */
 package freeWarOnTerror.Players;
 
+import freeWarOnTerror.Players.Actions.ActionWarOfIdeas;
+import freeWarOnTerror.Players.Actions.ActionEventUS;
 import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getTroops;
 import freeWarOnTerror.abClasses.Card;

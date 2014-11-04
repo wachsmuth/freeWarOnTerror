@@ -14,36 +14,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package freeWarOnTerror.Players;
+package freeWarOnTerror.Players.Actions;
 
-import static freeWarOnTerror.Game.getAllCountries;
+import static freeWarOnTerror.Game.playCard;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
-import freeWarOnTerror.abClasses.Country;
 
 /**
  *
  * @author Emil
  */
-public class ActionPlot extends Action {
-
-    public ActionPlot(){
-        super("Use ops to plot");
+public class ActionEventJihadist extends Action {
+    
+    public ActionEventJihadist(){
+        super("Play as event");
     }
     
-  
     @Override
-    public boolean canDoAction(Card c) {
-        for (Country country : getAllCountries()) {
-            if (country.canPlot()) {
-                return true;
-            }
-        }
-        return false;
+    public boolean canDoAction(Card c){
+        return (c.getAlignment() == 1 || c.getAlignment() == 3) && c.getPlayable();
     }
     
     @Override
     public void performAction(Card c){
-        //DEBUG TO DO
+        playCard(c);
     }
+    
 }

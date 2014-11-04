@@ -14,48 +14,36 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package freeWarOnTerror.Players;
+package freeWarOnTerror.Players.Actions;
 
 import static freeWarOnTerror.Game.getAllCountries;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
-import static freeWarOnTerror.helpers.InputLoop.inputLoop;
-import java.util.ArrayList;
 
 /**
  *
  * @author Emil
  */
-public class ActionAlert extends Action {
+public class ActionPlot extends Action {
 
-    public ActionAlert() {
-        super("Use the ops to Alert a plot");
+    public ActionPlot(){
+        super("Use ops to plot");
     }
-
+    
+  
     @Override
     public boolean canDoAction(Card c) {
-        if (c.getOps() < 3) {
-            return false;
-        }
         for (Country country : getAllCountries()) {
-            if (country.hasPlots()) {
+            if (country.canPlot()) {
                 return true;
             }
         }
         return false;
     }
-
+    
     @Override
-    public void performAction(Card c) {
-        ArrayList<Country> countriesWithPlots = new ArrayList<>();
-        for (Country country : getAllCountries()) {
-            if (country.hasPlots()) {
-                countriesWithPlots.add(country);
-            }
-        }
-        Country userInput = inputLoop("Pick a country to alert a plot in", countriesWithPlots);
-        //DEBUG actually remove the plot
+    public void performAction(Card c){
+        //DEBUG TO DO
     }
-
 }
