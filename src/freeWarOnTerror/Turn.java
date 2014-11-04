@@ -28,6 +28,7 @@ import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import freeWarOnTerror.abClasses.Player;
+import static freeWarOnTerror.helpers.CONSTANTS.PIRATES;
 import static freeWarOnTerror.helpers.CONSTANTS.SOMALIA;
 import static freeWarOnTerror.helpers.CONSTANTS.YEMEN;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
@@ -93,7 +94,7 @@ public class Turn {
 
     private void turnEnd() {
         //Drop funding
-        if (isCardInPlay("Pirates") && (getCountry(SOMALIA).getGovernance() == 4 || getCountry(YEMEN).getGovernance() == 4)) {
+        if (isCardInPlay(PIRATES) && (getCountry(SOMALIA).getGovernance() == 4 || getCountry(YEMEN).getGovernance() == 4)) {
 
         } else {
             modifyFunding(-1);

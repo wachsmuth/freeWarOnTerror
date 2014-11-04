@@ -22,6 +22,7 @@ import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.FRES;
 import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
+import static freeWarOnTerror.helpers.CONSTANTS.SADDAMCAPTURED;
 
 /**
  *
@@ -41,7 +42,7 @@ public class FREs extends Card {
     @Override
     public void playEvent(){
         int cells;
-        if (isCardInPlay("Saddam Captured")){
+        if (isCardInPlay(SADDAMCAPTURED)){
             cells = 2;
         }
         else {

@@ -18,6 +18,8 @@ package freeWarOnTerror.Countries;
 
 import static freeWarOnTerror.Game.isCardInPlay;
 import freeWarOnTerror.MuslimCountry;
+import static freeWarOnTerror.helpers.CONSTANTS.BENAZIRBHUTTO;
+import static freeWarOnTerror.helpers.CONSTANTS.FATA;
 
 /**
  *
@@ -31,7 +33,7 @@ public class CountryPakistan extends MuslimCountry {
     
     @Override
     public boolean canMinorJihad(){
-        if (isCardInPlay("Benazir Bhutto")){
+        if (isCardInPlay(BENAZIRBHUTTO)){
             return false;
         }
         return super.canMinorJihad();
@@ -39,7 +41,7 @@ public class CountryPakistan extends MuslimCountry {
     
     @Override
     public boolean canMajorJihad(int ops){
-        if (isCardInPlay("Benazir Bhutto")){
+        if (isCardInPlay(BENAZIRBHUTTO)){
             return false;
         }
         return super.canMajorJihad(ops);
@@ -47,7 +49,7 @@ public class CountryPakistan extends MuslimCountry {
     
     @Override
     public boolean canDisrupt(int ops){
-        if (getRegimeChange() == 0 && isCardInPlay("FATA")){
+        if (getRegimeChange() == 0 && isCardInPlay(FATA)){
             return false;
         }
         return super.canDisrupt(ops);

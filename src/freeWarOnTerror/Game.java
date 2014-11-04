@@ -53,6 +53,7 @@ public class Game {
     private static List<Turn> turnList = new ArrayList<>();
     private static final List<Cell> cells = new ArrayList<>();
     private static final ArrayList<String> persistentEffects = new ArrayList<>();
+    private static final ArrayList<Card> markedEvents = new ArrayList<>();
     private static final ArrayList<Country> allCountries = new ArrayList<>();
     private static final ArrayList<MuslimCountry> muslimCountries = new ArrayList<>();
     private static final ArrayList<NonMuslimCountry> schengenCountries = new ArrayList<>();
@@ -315,25 +316,25 @@ public class Game {
         
     }
 
-    public static Boolean isCardInPlay(String card) {
-        for (String s : persistentEffects) {
-            if (s.equals(card)) {
+    public static Boolean isCardInPlay(int id) {
+        for (Card c : markedEvents) {
+            if (id == c.getId())  {
                 return true;
             }
         }
         return false;
     }
 
-    public static void removeCardFromPlay(String card) {
-        for (String s : persistentEffects) {
-            if (s.equals(card)) {
-                persistentEffects.remove(s);
+    public static void removeCardFromPlay(int id) {
+        for (Card c : markedEvents) {
+            if (id == c.getId())  {
+                markedEvents.remove(c);
             }
         }
     }
 
-    public static void addCardToPlay(String card) {
-        persistentEffects.add(card);
+    public static void addCardToPlay(Card card) {
+        markedEvents.add(card);
     }
 
     public static int getGlobalPosture() {

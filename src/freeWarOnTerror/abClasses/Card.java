@@ -88,7 +88,7 @@ public abstract class Card {
     }
     
     public void addToPlay(){
-        addCardToPlay(name);
+        addCardToPlay(this);
     }
 
     public int getId() {

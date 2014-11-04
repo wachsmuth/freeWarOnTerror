@@ -16,10 +16,11 @@
  */
 package freeWarOnTerror.cards;
 
-import static freeWarOnTerror.Game.addCardToPlay;
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.modifyFunding;
+import static freeWarOnTerror.Game.removeCardFromPlay;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CONSTANTS.ABUSAYYAF;
 import static freeWarOnTerror.helpers.CONSTANTS.MOROTALKS;
 import static freeWarOnTerror.helpers.CONSTANTS.PHILIPPINES;
 
@@ -37,6 +38,7 @@ public class MoroTalks extends Card {
     public void playEvent(){
         getCountry(PHILIPPINES).testCountry();
         modifyFunding(-1);
-        addCardToPlay("Moro Talks");
+        removeCardFromPlay(ABUSAYYAF);
+        addToPlay();
     }
 }

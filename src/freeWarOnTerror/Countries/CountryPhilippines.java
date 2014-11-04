@@ -18,6 +18,7 @@ package freeWarOnTerror.Countries;
 
 import static freeWarOnTerror.Game.isCardInPlay;
 import freeWarOnTerror.NonMuslimCountry;
+import static freeWarOnTerror.helpers.CONSTANTS.ABUSAYYAF;
 
 /**
  *
@@ -32,7 +33,7 @@ public class CountryPhilippines extends NonMuslimCountry {
 
     @Override
     public Boolean canDeployTo() {
-        return isCardInPlay("Abu Sayyaf");
+        return isCardInPlay(ABUSAYYAF);
     }
     
     @Override

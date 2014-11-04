@@ -19,6 +19,7 @@ package freeWarOnTerror.cards;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.Game;
 import static freeWarOnTerror.Game.isCardInPlay;
+import static freeWarOnTerror.helpers.CONSTANTS.PATRIOTACT;
 import static freeWarOnTerror.helpers.CONSTANTS.SANCTIONS;
 
 /**
@@ -33,7 +34,7 @@ public class Sanctions extends Card {
     
     @Override
     public Boolean getPlayable(){
-        return isCardInPlay("Patriot Act");
+        return isCardInPlay(PATRIOTACT);
     }
 
     @Override
