@@ -27,26 +27,35 @@ import java.util.ArrayList;
  *
  * @author Emil
  */
-public class ActionWarOfIdeas extends Action {
-    
-    public ActionWarOfIdeas(){
-        super("Use ops for War of Ideas");
+public class ActionAlert extends Action {
+
+    public ActionAlert() {
+        super("Use the ops to Alert a plot");
     }
-    
+
     @Override
-    public boolean canDoAction(Card c){
-        return true;
-    }
-    
-    @Override
-    public void performAction(Card c){
-       ArrayList<Country> validCountries = new ArrayList<>();
-            for (Country country : getAllCountries()) {
-                if (country.canWarOfIdeas(c.getOps())) {
-                    validCountries.add(country);
-                }
+    public boolean canDoAction(Card c) {
+        if (c.getOps() < 3) {
+            return false;
+        }
+        for (Country country : getAllCountries()) {
+            if (country.hasPlots()) {
+                return true;
             }
-            inputLoop("Choose target for War of Ideas", validCountries).warOfIdeas();
-            
+        }
+        return false;
     }
+
+    @Override
+    public void performAction(Card c) {
+        ArrayList<Country> countriesWithPlots = new ArrayList<>();
+        for (Country country : getAllCountries()) {
+            if (country.hasPlots()) {
+                countriesWithPlots.add(country);
+            }
+        }
+        Country userInput = inputLoop("Pick a country to alert a plot in", countriesWithPlots);
+        //DEBUG actually remove the plot
+    }
+
 }
