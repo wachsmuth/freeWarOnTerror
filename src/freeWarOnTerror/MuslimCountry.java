@@ -11,6 +11,7 @@ import static freeWarOnTerror.Game.getPrestigeModifier;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.AppendToString.appendString;
 import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
+import static freeWarOnTerror.helpers.CONSTANTS.ISLAMISTRULE;
 import static freeWarOnTerror.helpers.CONSTANTS.WMD;
 import freeWarOnTerror.helpers.Die;
 import static freeWarOnTerror.helpers.Die.rollDie;
@@ -275,5 +276,15 @@ public class MuslimCountry extends Country {
             string += "Besieged Regime ";
         }
         return string;
+    }
+    
+    @Override
+    public int getRecruit(){
+        if (governance == ISLAMISTRULE){
+            return 10;
+        }
+        else {
+            return governance;
+        }
     }
 }
