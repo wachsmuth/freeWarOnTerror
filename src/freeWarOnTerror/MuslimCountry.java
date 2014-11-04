@@ -150,7 +150,7 @@ public class MuslimCountry extends Country {
 
     @Override
     public Boolean canWarOfIdeas(int ops) {
-        if (governance == 1 && alignment == 1){
+        if (governance == 1 && alignment == 1) {
             return false;
         }
         return ops >= governance && alignment < 3;
@@ -216,8 +216,47 @@ public class MuslimCountry extends Country {
     }
 
     public boolean canMinorJihad() {
-        return getGovernance() < 4 && hasCells();
+        if (getGovernance() < 4 && hasCells()){
+            for (Cell c : getCells()){
+                if (!c.isIdle()){
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
     }
+
+    //returns succes or failure
+    public boolean attemptJihad(Cell c) {
+        System.out.println("Attempting Jihad in " + getName());
+        if (rollDie() <= getGovernance()) {
+            minorJihad();
+            System.out.println("Succes!");
+            //Cell to active
+            if (!c.isActive()){
+                c.setActive(true);
+            }
+            return true;
+        }
+        System.out.println("Failure..");
+        c.kill();
+        return false;
+    }
+
+    private void minorJihad() {
+        shiftGovernance(1);
+        removeAid(1);
+    }
+
+    public void removeAid(int n) {
+        aid = -n;
+        if (aid < 0) {
+            aid = 0;
+        }
+    }
+    
+    
 
     public boolean canMajorJihad(int ops) {
         if (besiegedRegime) {
@@ -229,61 +268,53 @@ public class MuslimCountry extends Country {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         String string = super.toString();
-        if (needsTesting()){
+        if (needsTesting()) {
             string = string + "Untested";
-        }
-        else {
+        } else {
             String gov = "";
-            if (governance == 1){
+            if (governance == 1) {
                 gov += "Good";
-            }
-            else if (governance == 2){
+            } else if (governance == 2) {
                 gov += "Fair";
-            }
-            else if (governance == 3){
+            } else if (governance == 3) {
                 gov += "Poor";
-            }
-            else if (governance == 4){
+            } else if (governance == 4) {
                 gov += "Islamist";
             }
             gov += " ";
-            if (alignment == 1){
+            if (alignment == 1) {
                 gov += "Ally";
-            }
-            else if (alignment == 2){
+            } else if (alignment == 2) {
                 gov += "Neutral";
-            }
-            else if (alignment == 3){
+            } else if (alignment == 3) {
                 gov += "Adversary";
             }
             string = string + gov;
         }
-        
+
         string = appendString(string) + moveablesString();
-        
-        if(regimeChange == 2){
+
+        if (regimeChange == 2) {
             string += "Green Regime Change ";
-        }
-        else if (regimeChange == 1){
+        } else if (regimeChange == 1) {
             string += "Tan Regime Change ";
         }
-        if (aid > 0){
+        if (aid > 0) {
             string += aid + " Aid ";
         }
-        if (besiegedRegime){
+        if (besiegedRegime) {
             string += "Besieged Regime ";
         }
         return string;
     }
-    
+
     @Override
-    public int getRecruit(){
-        if (governance == ISLAMISTRULE){
+    public int getRecruit() {
+        if (governance == ISLAMISTRULE) {
             return 10;
-        }
-        else {
+        } else {
             return governance;
         }
     }

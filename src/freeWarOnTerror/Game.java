@@ -51,6 +51,7 @@ public class Game {
     private static int oilPriceSpike = 0;
     private static Turn currentTurn;
     private static List<Turn> turnList = new ArrayList<>();
+    private static final List<Cell> cells = new ArrayList<>();
     private static final ArrayList<String> persistentEffects = new ArrayList<>();
     private static final ArrayList<Country> allCountries = new ArrayList<>();
     private static final ArrayList<MuslimCountry> muslimCountries = new ArrayList<>();
@@ -386,6 +387,10 @@ public class Game {
 
     public static void incrementTurnNumber() {
         Game.turnNumber++;
+    }
+    
+    public static List<Cell> getCells(){
+        return cells;
     }
 
     public static void startGame(int scenario) {

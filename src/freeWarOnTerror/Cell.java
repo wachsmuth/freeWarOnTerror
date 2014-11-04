@@ -18,41 +18,45 @@ public class Cell extends Moveable {
     private Boolean active = false;
     private boolean idle = true;
     private boolean backlash = false;
-    
+
     public Cell(Location l) {
         super(l);
     }
-    
+
     @Override
     public void move(Location l) {
         setActive(false);
         super.move(l);
     }
-    
-    public void kill(){
+
+    public void kill() {
         move(getTrack());
     }
-    
+
     public boolean isIdle() {
         return idle;
     }
-    
+
+    public boolean isActive() {
+        return active;
+    }
+
     public void setIdle(boolean idle) {
         this.idle = idle;
     }
-    
+
     public void setActive(Boolean active) {
         this.active = active;
     }
-    
+
     public Boolean getActive() {
         return active;
     }
-    
+
     public boolean isBacklash() {
         return backlash;
     }
-    
+
     public void setBacklash(boolean backlash) {
         this.backlash = backlash;
     }

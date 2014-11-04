@@ -1,4 +1,5 @@
 /*
+/*
  * Copyright (C) 2014 Emil
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,7 +21,6 @@ import static freeWarOnTerror.Game.getMuslimCountries;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
-import freeWarOnTerror.abClasses.Country;
 
 /**
  *
@@ -34,9 +34,8 @@ public class ActionMajorJihad extends Action {
 
     @Override
     public boolean canDoAction(Card c) {
-        for (Country country : getMuslimCountries()) {
-            MuslimCountry x = (MuslimCountry) country;
-            if (x.canMajorJihad(c.getOps())) {
+        for (MuslimCountry country : getMuslimCountries()) {
+            if (country.canMajorJihad(c.getOps())) {
                 return true;
             }
         }
