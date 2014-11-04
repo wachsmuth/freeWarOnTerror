@@ -193,6 +193,7 @@ public abstract class Country extends Location {
     public String eventsToString(){
         String events = "";
         for (Card c : getCardsInPlay()){
+            if (c.getCountries().length > 0)
             for (int i : c.getCountries()){
                 if (i == id){
                     events += (c.getName() + " ");
