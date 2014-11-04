@@ -316,7 +316,11 @@ public class Game {
         
     }
 
-    public static Boolean isCardInPlay(int id) {
+    public static ArrayList<Card> getCardsInPlay(){
+        return markedEvents;
+    }
+    
+    public static boolean isCardInPlay(int id) {
         for (Card c : markedEvents) {
             if (id == c.getId())  {
                 return true;
