@@ -137,6 +137,6 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
                 string += "Soft";
             }
         
-        return appendString(string) + moveablesString();
+        return appendString(string) + moveablesString() + eventsToString();
     }
 }

@@ -307,7 +307,7 @@ public class MuslimCountry extends Country {
         if (besiegedRegime) {
             string += "Besieged Regime ";
         }
-        return string;
+        return string + eventsToString();
     }
 
     @Override

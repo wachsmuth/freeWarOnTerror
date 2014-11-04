@@ -6,6 +6,7 @@
 package freeWarOnTerror.abClasses;
 
 import freeWarOnTerror.Cell;
+import static freeWarOnTerror.Game.getCardsInPlay;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.Plot;
 import freeWarOnTerror.Troop;
@@ -187,6 +188,18 @@ public abstract class Country extends Location {
             string += plotAmount() + " plot ";
         }
         return appendString(string);
+    }
+    
+    public String eventsToString(){
+        String events = "";
+        for (Card c : getCardsInPlay()){
+            for (int i : c.getCountries()){
+                if (i == id){
+                    events += (c.getName() + " ");
+                }
+            } 
+        }
+        return events;
     }
 
 }
