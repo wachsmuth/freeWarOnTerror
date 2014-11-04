@@ -294,9 +294,12 @@ public class Game {
             if (card.getRemoved()) {
                 removedCards.addCard(card);
                 remove = true;
+                if (discardPile.hasCard(card)){
+                    discardPile.removeCard(card);
+                }
             }
         }
-        if (!remove) {
+        if (!remove && !discardPile.hasCard(card)) {
             discardPile.addCard(card);
         }
     }
@@ -305,7 +308,10 @@ public class Game {
         for (Player p : players) {
             p.removeCard(card);
         }
-        discardPile.addCard(card);
+        if (!removedCards.hasCard(card) && !discardPile.hasCard(card)){
+            discardPile.addCard(card);
+        }
+        
     }
 
     public static Boolean isCardInPlay(String card) {
