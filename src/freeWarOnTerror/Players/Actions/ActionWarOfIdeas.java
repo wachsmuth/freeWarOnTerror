@@ -46,7 +46,8 @@ public class ActionWarOfIdeas extends Action {
                     validCountries.add(country);
                 }
             }
-            inputLoop("Choose target for War of Ideas", validCountries).warOfIdeas();
+            System.out.println("Choose target for War of Ideas");
+            inputLoop(validCountries).warOfIdeas();
             
     }
 }
