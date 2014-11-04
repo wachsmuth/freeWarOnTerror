@@ -17,11 +17,9 @@
 package freeWarOnTerror.Players;
 
 import freeWarOnTerror.Game;
-import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getMuslimCountries;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.AUTO;
 import static freeWarOnTerror.helpers.CONSTANTS.USA;
 
@@ -38,6 +36,7 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
         addAction(new ActionPlot());
         addAction(new ActionEventJihadist());
         addAction(new ActionMajorJihad());
+        addAction(new ActionRecruit());
     }
 
     public void recruit() {

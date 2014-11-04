@@ -18,9 +18,11 @@ package freeWarOnTerror.Players;
 
 import static freeWarOnTerror.Game.canRecruit;
 import static freeWarOnTerror.Game.getAllCountries;
+import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
+import static freeWarOnTerror.helpers.Die.rollDie;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -52,6 +54,12 @@ public class ActionRecruit extends Action {
 
             targetCountries.add(inputLoop("Choose a country for a recruit attempt", eligibleCountries));
         }
-        //DEBUG place cells
+        for (Country country : targetCountries){
+            if ( country.getRecruit() >= rollDie()){
+                if(canRecruit()){
+                    placeCell(country);
+                }
+            }
+        }
     }
 }
