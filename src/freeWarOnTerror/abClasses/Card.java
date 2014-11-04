@@ -15,6 +15,7 @@ public abstract class Card {
     private final int id;
     private final boolean mark;
     private final int[] countries;
+    private int reserves = 0;
 
     public Card(String name, int ops, int alignment, Boolean removedAfterPlay, boolean mark, int id) {
         this.name = name;
@@ -42,8 +43,16 @@ public abstract class Card {
         return true;
     }
     
-    public int getOps(){
+    public int getRealOps(){
         return ops;
+    }
+    
+    public void modifyReserves(int change){
+        reserves += change;
+    }
+    
+    public int getOps(){
+        return ops + reserves;
     }
     
     public int getAlignment(){
