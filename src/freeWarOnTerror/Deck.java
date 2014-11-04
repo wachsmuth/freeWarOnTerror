@@ -9,7 +9,6 @@ import freeWarOnTerror.abClasses.Card;
 import java.util.ArrayList;
 import java.util.Collections;
 
-
 /**
  *
  * @author Emil
@@ -23,7 +22,20 @@ public class Deck {
     }
 
     public void addCard(Card c) {
-        cards.add( c);
+        cards.add(c);
+    }
+
+    public void removeCard(Card c) {
+        cards.remove(c);
+    }
+
+    public boolean hasCard(Card c) {
+        for (Card card : cards) {
+            if (card == c) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void shuffle() {
