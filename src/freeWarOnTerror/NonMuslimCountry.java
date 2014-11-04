@@ -75,7 +75,7 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
         rollPosture();
         if (isPostureHard() && posture == 1) {
             modifyPrestige(1);
-        } else if (posture == -1) {
+        } else if (!isPostureHard() && posture == -1) {
             modifyPrestige(1);
         }
 
