@@ -31,6 +31,7 @@ import freeWarOnTerror.cards.AnbarAwakening;
 import freeWarOnTerror.cards.AnsarAlIslam;
 import freeWarOnTerror.cards.BhuttoShot;
 import freeWarOnTerror.cards.CTR;
+import freeWarOnTerror.cards.CovertAction;
 import freeWarOnTerror.cards.Darfur;
 import freeWarOnTerror.cards.FREs;
 import freeWarOnTerror.cards.FormerSovietUnion;
@@ -351,6 +352,7 @@ public class Scenario {
         deck.addCard(new AnbarAwakening());
         deck.addCard(new AnsarAlIslam());
         deck.addCard(new BhuttoShot());
+        deck.addCard(new CovertAction());
         deck.addCard(new CTR());
         deck.addCard(new Darfur());
         deck.addCard(new FormerSovietUnion());
