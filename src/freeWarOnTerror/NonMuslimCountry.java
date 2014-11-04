@@ -39,6 +39,7 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
         return posture;
     }
 
+    @Override
     public int getRecruit() {
         return recruit;
     }

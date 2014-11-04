@@ -45,6 +45,10 @@ public abstract class Country extends Location {
     public abstract void testCountry();
 
     public abstract int getGovernance();
+    
+    public int getRecruit(){
+        return getGovernance();
+    }
 
     public int getAlignment() {
         return 0;
