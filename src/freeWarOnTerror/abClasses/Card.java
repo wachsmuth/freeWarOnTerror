@@ -98,6 +98,14 @@ public abstract class Card {
     public String getName() {
         return name;
     }
+
+    public boolean isMark() {
+        return mark;
+    }
+
+    public int[] getCountries() {
+        return countries;
+    }
     
     
 }
