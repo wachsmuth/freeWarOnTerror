@@ -39,6 +39,7 @@ import java.util.List;
 //Static Class
 public class Game {
 
+    private static int decksLeft = 0; //DEBUG - add support for additional decks in menu
     private static int turnNumber = 0;
     private static int prestige = 7;
     private static int funding = 9;
@@ -72,6 +73,37 @@ public class Game {
 
     }
 
+    public static void reshuffleDeck(){
+        if (decksLeft == 0){
+            noCardsLeft();
+            return;
+        }
+        decksLeft--;
+        drawPile = discardPile;
+        discardPile = new Deck();
+        drawPile.shuffle();
+    }
+    
+    private static void noCardsLeft(){
+        int americaRes = 0;
+        int jihadRes = 0;
+        //count resources
+        for (MuslimCountry c : muslimCountries){
+            if (c.getGovernance() == GOOD){
+                americaRes += c.getResources();
+            }
+            else if (c.getGovernance() == ISLAMISTRULE || c.getRegimeChange() == 2){
+                jihadRes += c.getResources();
+            }
+        }
+        
+        if (americaRes > jihadRes * 2){
+            victoryUS();
+        } else {
+            victoryJihad();
+        }
+    }
+    
     public static Player getCurrentPlayer() {
         return currentPlayer;
     }

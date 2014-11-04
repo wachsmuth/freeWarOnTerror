@@ -36,7 +36,8 @@ public class Deck {
             cards.remove(c);
             return c;
         } else {
-            return null;
+            Game.reshuffleDeck();
+            return Game.getDrawPile().draw();
         }
     }
 
