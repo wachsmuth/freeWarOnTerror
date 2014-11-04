@@ -39,7 +39,7 @@ import java.util.List;
 //Static Class
 public class Game {
 
-    private static int decksLeft = 0; //DEBUG - add support for additional decks in menu
+    private static int decksLeft = 0;
     private static int turnNumber = 0;
     private static int prestige = 7;
     private static int funding = 9;
@@ -75,6 +75,12 @@ public class Game {
     public Game() {
 
     }
+
+    public static void setDecksLeft(int decksLeft) {
+        Game.decksLeft = decksLeft;
+    }
+    
+    
 
     public static void reshuffleDeck(){
         if (decksLeft == 0){

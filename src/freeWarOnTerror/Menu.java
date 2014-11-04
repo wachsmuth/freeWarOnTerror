@@ -16,6 +16,7 @@
  */
 package freeWarOnTerror;
 
+import static freeWarOnTerror.Game.setDecksLeft;
 import static freeWarOnTerror.Game.startGame;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 
@@ -24,25 +25,38 @@ import static freeWarOnTerror.helpers.InputLoop.inputLoop;
  * @author Emil
  */
 public class Menu {
-    
-    public static void mainMenu(){
+
+    public static void mainMenu() {
         int i = inputLoop("free War on Terror", "New game", "Exit");
-        if (i == 1){
+        if (i == 1) {
             chooseScenario();
-        }
-        else {
+        } else {
             System.exit(0);
         }
     }
-    
-    public static void chooseScenario(){
-        int i = inputLoop("Choose a scenario", "Let's Roll!", "Exit");
-        if (i == 1){
+
+    public static void chooseScenario() {
+        int i = inputLoop("Choose a scenario", "Let's Roll!", "Choose number of reshuffles", "Exit");
+        if (i == 1) {
             startGame(1);
-        }
-        else {
+        } else if (i == 2) {
+            chooseReshuffles();
+        } else {
             System.exit(0);
         }
     }
-    
+
+    public static void chooseReshuffles() {
+        int i = inputLoop("Choose number of reshuffles", "None", "One", "Two");
+        if (i == 1) {
+            setDecksLeft(0);
+        } else if (i == 2) {
+            setDecksLeft(1);
+        } else {
+            setDecksLeft(2);
+        }
+        chooseScenario();
+
+    }
+
 }
