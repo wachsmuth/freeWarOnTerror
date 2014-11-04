@@ -23,7 +23,7 @@ import static freeWarOnTerror.Game.getTroops;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.AUTO;
-import static freeWarOnTerror.helpers.CONSTANTS.USA;
+import static freeWarOnTerror.helpers.CONSTANTS.JIHAD;
 
 /**
  *
@@ -102,7 +102,7 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
 
     @Override
     public void playCard(Card c) {
-        if (c.getAlignment() == USA || c.getAlignment() == AUTO) {
+        if (c.getAlignment() == JIHAD || c.getAlignment() == AUTO) {
             chooseEventOrOps(c);
         } else {
             howToPlay(c);

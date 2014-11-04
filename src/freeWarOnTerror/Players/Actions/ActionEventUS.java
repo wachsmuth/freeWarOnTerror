@@ -32,7 +32,7 @@ public class ActionEventUS extends Action {
     
     @Override
     public boolean canDoAction(Card c){
-        return (c.getAlignment() == 2 || c.getAlignment() == 3) && c.getPlayable();
+        return (c.getAlignment() == 1 || c.getAlignment() == 2) && c.getPlayable();
     }
     
     @Override
