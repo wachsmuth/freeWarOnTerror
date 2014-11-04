@@ -15,7 +15,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package freeWarOnTerror.Countries;
-
 import static freeWarOnTerror.Game.isCardInPlay;
 import freeWarOnTerror.MuslimCountry;
 import static freeWarOnTerror.helpers.CONSTANTS.BENAZIRBHUTTO;
