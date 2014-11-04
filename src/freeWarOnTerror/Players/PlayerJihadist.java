@@ -16,13 +16,13 @@
  */
 package freeWarOnTerror.Players;
 
-import freeWarOnTerror.Players.Actions.ActionEventJihadist;
-import freeWarOnTerror.Players.Actions.ActionRecruit;
-import freeWarOnTerror.Players.Actions.ActionPlot;
-import freeWarOnTerror.Players.Actions.ActionMajorJihad;
 import freeWarOnTerror.Game;
 import static freeWarOnTerror.Game.getMuslimCountries;
 import freeWarOnTerror.MuslimCountry;
+import freeWarOnTerror.Players.Actions.ActionEventJihadist;
+import freeWarOnTerror.Players.Actions.ActionMajorJihad;
+import freeWarOnTerror.Players.Actions.ActionPlot;
+import freeWarOnTerror.Players.Actions.ActionRecruit;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.AUTO;
 import static freeWarOnTerror.helpers.CONSTANTS.USA;
@@ -32,8 +32,6 @@ import static freeWarOnTerror.helpers.CONSTANTS.USA;
  * @author Emil
  */
 public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
-
-    private boolean firstPlot = false;
 
     public PlayerJihadist(String name) {
         super(name);
@@ -66,15 +64,6 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
             }
         }
         return false;
-    }
-
-
-    public boolean hasUsedFirstPlot() {
-        return firstPlot;
-    }
-
-    public void setFirstPlot(boolean firstPlot) {
-        this.firstPlot = firstPlot;
     }
 
     @Override

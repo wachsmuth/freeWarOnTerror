@@ -49,7 +49,8 @@ public class Game {
     private static int goodFairCountries = 0;
     private static int poorIslamistCountries = 0;
     private static int oilPriceSpike = 0;
-    private static Turn turn;
+    private static Turn currentTurn;
+    private static List<Turn> turnList = new ArrayList<>();
     private static final ArrayList<String> persistentEffects = new ArrayList<>();
     private static final ArrayList<Country> allCountries = new ArrayList<>();
     private static final ArrayList<MuslimCountry> muslimCountries = new ArrayList<>();
@@ -401,8 +402,8 @@ public class Game {
             }
         }
         drawPile.shuffle();
-        turn = new Turn();
-        turn.startTurn();
+        currentTurn = new Turn();
+        currentTurn.startTurn();
     }
 
     public static void printStatus() {
@@ -425,6 +426,12 @@ public class Game {
 
     public static void WMDinUS() {
         victoryJihad();
+    }
+    
+    public static void newTurn(){
+        turnList.add(currentTurn);
+        currentTurn = new Turn();
+        currentTurn.startTurn();
     }
 
     private static void checkForVictoryUS() {

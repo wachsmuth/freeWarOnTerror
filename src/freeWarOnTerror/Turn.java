@@ -19,14 +19,12 @@ package freeWarOnTerror;
 import static freeWarOnTerror.Game.anyIslamistRule;
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.getGlobalPosture;
-import static freeWarOnTerror.Game.getJihadist;
 import static freeWarOnTerror.Game.getMuslimCountries;
 import static freeWarOnTerror.Game.getPlayers;
 import static freeWarOnTerror.Game.isCardInPlay;
 import static freeWarOnTerror.Game.isPostureHard;
 import static freeWarOnTerror.Game.modifyFunding;
 import static freeWarOnTerror.Game.modifyPrestige;
-import freeWarOnTerror.Players.PlayerJihadist;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import freeWarOnTerror.abClasses.Player;
@@ -114,12 +112,9 @@ public class Turn {
         for (Player p : getPlayers()) {
             p.setReserves(0);
         }
-        //Reset first plot
-        PlayerJihadist jihadist = getJihadist();
-        jihadist.setFirstPlot(false);
-        //startTurn(); DEBUG - want a turn object for every turn
-        
         Game.checkForVictory();
+        
+        Game.newTurn(); //All over again
     }
 
     private void playCardPhase() {
