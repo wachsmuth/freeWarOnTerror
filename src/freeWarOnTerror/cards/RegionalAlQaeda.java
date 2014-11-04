@@ -56,7 +56,8 @@ public class RegionalAlQaeda extends Card {
                     untestedCountries.add(c);
                 }
             }
-            Country targetCountry = inputLoop("Choose a untested country to place cells in", untestedCountries);
+            System.out.println("Choose a untested country to place cells in");
+            Country targetCountry = inputLoop(untestedCountries);
             if (anyIslamistRule()) {
                 placeCell(targetCountry);
                 placeCell(targetCountry);
