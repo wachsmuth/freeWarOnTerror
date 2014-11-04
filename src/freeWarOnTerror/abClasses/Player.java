@@ -17,6 +17,7 @@ package freeWarOnTerror.abClasses;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 import freeWarOnTerror.Game;
+import static freeWarOnTerror.Game.discard;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 /**
@@ -54,6 +55,7 @@ public abstract class Player {
                 break;
             }
         }
+        discard(c);
     }
     
     public String getName(){
