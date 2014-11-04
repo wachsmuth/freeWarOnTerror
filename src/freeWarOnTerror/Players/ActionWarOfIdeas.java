@@ -16,8 +16,14 @@
  */
 package freeWarOnTerror.Players;
 
+import static freeWarOnTerror.Game.anyIslamistRule;
+import static freeWarOnTerror.Game.getAllCountries;
+import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
+import freeWarOnTerror.abClasses.Country;
+import static freeWarOnTerror.helpers.InputLoop.inputLoop;
+import java.util.ArrayList;
 
 /**
  *
@@ -36,6 +42,13 @@ public class ActionWarOfIdeas extends Action {
     
     @Override
     public void performAction(Card c){
-        //DEBUG to do
+       ArrayList<Country> validCountries = new ArrayList<>();
+            for (Country country : getAllCountries()) {
+                if (country.canWarOfIdeas(c.getOps())) {
+                    validCountries.add(country);
+                }
+            }
+            inputLoop("Choose target for War of Ideas", validCountries).warOfIdeas();
+            
     }
 }
