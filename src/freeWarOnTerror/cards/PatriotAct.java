@@ -32,7 +32,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
 public class PatriotAct extends Card {
 
     public PatriotAct() {
-        super("Patriot Act", 3, 2, true, true, PATRIOTACT);
+        super("Patriot Act", 3, 2, true, true, PATRIOTACT, UNITEDSTATES);
     }
 
     @Override
