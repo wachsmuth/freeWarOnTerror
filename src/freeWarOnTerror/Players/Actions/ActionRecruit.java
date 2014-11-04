@@ -51,8 +51,8 @@ public class ActionRecruit extends Action {
                     eligibleCountries.add(country);
                 }
             }
-
-            targetCountries.add(inputLoop("Choose a country for a recruit attempt", eligibleCountries));
+            System.out.println("Choose a country for a recruit attempt");
+            targetCountries.add(inputLoop(eligibleCountries));
         }
         for (Country country : targetCountries){
             if ( country.getRecruit() >= rollDie()){
