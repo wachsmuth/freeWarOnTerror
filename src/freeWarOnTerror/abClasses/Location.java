@@ -87,4 +87,5 @@ public abstract class Location {
         return plots.size();
     }
 
+    public abstract String getName();
 }

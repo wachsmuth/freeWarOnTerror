@@ -117,12 +117,10 @@ public class InputLoop {
 
     public static <T> T inputLoop(List<T> stuff) {
         Scanner inputScanner = new Scanner(System.in);
-        System.out.print("Valid input is: ");
-        for (int i = 1; i < stuff.size(); i++) {
-            System.out.print(i + ", ");
+        System.out.println("Valid input is: ");
+        for (int i = 0; i < stuff.size(); i++) {
+            System.out.println(i + " " + stuff.get(i));
         }
-        System.out.println(stuff.size());
-
         int userInput;
         inputloop:
         while (true) {

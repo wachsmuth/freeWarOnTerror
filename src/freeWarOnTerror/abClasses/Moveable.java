@@ -28,8 +28,13 @@ public abstract class Moveable {
         this.myLocation = myLocation;
     }
     
+    public Location getLocation(){
+        return myLocation;
+    }
+    
     public void move(Location l){
         myLocation.remove(this);
         l.add(this);
     }
+    
 }

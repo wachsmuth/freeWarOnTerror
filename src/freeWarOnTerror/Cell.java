@@ -60,4 +60,9 @@ public class Cell extends Moveable {
     public void setBacklash(boolean backlash) {
         this.backlash = backlash;
     }
+    
+    @Override
+    public String toString(){
+        return "Cell: Active " + active + " Idle: " + idle + " Location: " + getLocation().getName();
+    }
 }

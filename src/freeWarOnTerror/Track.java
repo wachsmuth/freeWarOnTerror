@@ -36,4 +36,8 @@ public class Track extends Location {
         add(new Plot(this, 1));
         add(new Plot(this, 1));
     }
+    
+    public String getName(){
+        return "Troop Track";
+    }
 }
