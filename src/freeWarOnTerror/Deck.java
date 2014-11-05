@@ -21,6 +21,24 @@ public class Deck {
         //Empty constructor, remove DEBUG
     }
 
+//--------------------------------GETTERS-------------------------------------------------------
+    public int getSize() {
+        return cards.size();
+    }
+
+    public Card draw() {
+        if (cards.size() > 0) {
+            Card c = (Card) cards.get(0);
+            cards.remove(c);
+            return c;
+        } else {
+            Game.reshuffleDeck();
+            return Game.getDrawPile().draw();
+        }
+    }
+    
+//--------------------------------SETTERS-------------------------------------------------------
+
     public void addCard(Card c) {
         cards.add(c);
     }
@@ -42,18 +60,4 @@ public class Deck {
         Collections.shuffle(cards);
     }
 
-    public Card draw() {
-        if (cards.size() > 0) {
-            Card c = (Card) cards.get(0);
-            cards.remove(c);
-            return c;
-        } else {
-            Game.reshuffleDeck();
-            return Game.getDrawPile().draw();
-        }
-    }
-
-    public int getSize() {
-        return cards.size();
-    }
 }

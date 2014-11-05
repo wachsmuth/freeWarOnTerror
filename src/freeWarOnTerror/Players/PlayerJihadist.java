@@ -41,6 +41,17 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
         addAction(new ActionRecruit());
     }
 
+//--------------------------------GETTERS-------------------------------------------------------
+    public boolean canMinorJihad() {
+        for (MuslimCountry c : getMuslimCountries()) {
+            if (c.canMinorJihad()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+//--------------------------------ACTIONS-----------------------------------------------------
     public void recruit() {
 
     }
@@ -57,15 +68,7 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
 
     }
 
-    public boolean canMinorJihad() {
-        for (MuslimCountry c : getMuslimCountries()) {
-            if (c.canMinorJihad()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
+//--------------------------------OVERRIDES-----------------------------------------------------
     @Override
     public void drawPhase() {
         //Jihadist Draw
@@ -77,13 +80,12 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
             draw(7);
         }
     }
-    
+
     @Override
     public void playCard(Card c) {
         if (c.getAlignment() == USA || c.getAlignment() == AUTO) {
             chooseEventOrOps(c);
-        }
-        else {
+        } else {
             howToPlay(c);
         }
     }

@@ -23,22 +23,26 @@ public class Cell extends Moveable {
         super(l);
     }
 
-    @Override
-    public void move(Location l) {
-        setActive(false);
-        super.move(l);
-    }
-
-    public void kill() {
-        move(getTrack());
-    }
-
+//--------------------------------GETTERS-------------------------------------------------------
     public boolean isIdle() {
         return idle;
     }
 
     public boolean isActive() {
         return active;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public boolean isBacklash() {
+        return backlash;
+    }
+//--------------------------------SETTERS-------------------------------------------------------
+
+    public void kill() {
+        move(getTrack());
     }
 
     public void setIdle(boolean idle) {
@@ -49,20 +53,19 @@ public class Cell extends Moveable {
         this.active = active;
     }
 
-    public Boolean getActive() {
-        return active;
-    }
-
-    public boolean isBacklash() {
-        return backlash;
-    }
-
     public void setBacklash(boolean backlash) {
         this.backlash = backlash;
     }
-    
+
+//--------------------------------OVERRIDES-----------------------------------------------------
     @Override
-    public String toString(){
+    public String toString() {
         return "Cell: Active " + active + " Idle: " + idle + " Location: " + getLocation().getName();
+    }
+
+    @Override
+    public void move(Location l) {
+        setActive(false);
+        super.move(l);
     }
 }

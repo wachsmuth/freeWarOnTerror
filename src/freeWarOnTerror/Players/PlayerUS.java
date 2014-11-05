@@ -16,10 +16,10 @@
  */
 package freeWarOnTerror.Players;
 
-import freeWarOnTerror.Players.Actions.ActionWarOfIdeas;
-import freeWarOnTerror.Players.Actions.ActionEventUS;
 import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getTroops;
+import freeWarOnTerror.Players.Actions.ActionEventUS;
+import freeWarOnTerror.Players.Actions.ActionWarOfIdeas;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.AUTO;
@@ -35,33 +35,10 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
         super(name);
         addAction(new ActionEventUS());
         addAction(new ActionWarOfIdeas());
-        
-    }
-
-    public void disrupt() {
 
     }
 
-    public void warOfIdeas() {
-
-    }
-
-    public void reassessment() {
-
-    }
-
-    public void regimeChange() {
-
-    }
-
-    public void withdraw() {
-
-    }
-
-    public void deploy() {
-
-    }
-
+    //--------------------------------GETTERS-------------------------------------------------------
     public boolean canAlert(int ops) {
         if (ops < 3) {
             return false;
@@ -87,7 +64,33 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
         //DEBUG make it illegal to use reserves here.
         return noOf3Ops > 2;
     }
+    //--------------------------------ACTIONS-----------------------------------------------------
 
+    public void disrupt() {
+
+    }
+
+    public void warOfIdeas() {
+
+    }
+
+    public void reassessment() {
+
+    }
+
+    public void regimeChange() {
+
+    }
+
+    public void withdraw() {
+
+    }
+
+    public void deploy() {
+
+    }
+
+//--------------------------------OVERRIDES-----------------------------------------------------
     @Override
     public void drawPhase() {
         //US draw

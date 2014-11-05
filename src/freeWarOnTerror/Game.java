@@ -40,6 +40,7 @@ import java.util.List;
 //Static Class
 public class Game {
 
+//--------------------------------FIELDS--------------------------------------------------------
     private static int decksLeft = 0;
     private static int turnNumber = 0;
     private static int prestige = 7;
@@ -64,16 +65,15 @@ public class Game {
     private static final Track track = new Track();
     private static final Deck removedCards = new Deck();
     private static final ArrayList<Scenario> scenarios = new ArrayList<>();
-    static {
-        scenarios.add(new LetsRoll());
-        scenarios.add(new YouCanCallMeAl());
-    }
     private static final PlayerJihadist playerJihadist = new PlayerJihadist("JihadPlayer");
     private static final PlayerUS playerUS = new PlayerUS("USPlayer");
     private static final List<Player> players = new ArrayList<>();
     private static Player currentPlayer = playerJihadist;
+//--------------------------------CONSTRUCTOR---------------------------------------------------
 
     static {
+        scenarios.add(new LetsRoll());
+        scenarios.add(new YouCanCallMeAl());
         players.add(playerJihadist);
         players.add(playerUS);
     }
@@ -81,63 +81,10 @@ public class Game {
     public Game() {
 
     }
+//--------------------------------GETTERS-------------------------------------------------------
 
-    public static void setDecksLeft(int decksLeft) {
-        Game.decksLeft = decksLeft;
-    }
-    
-    
-
-    public static void reshuffleDeck(){
-        if (decksLeft == 0){
-            noCardsLeft();
-            return;
-        }
-        decksLeft--;
-        drawPile = discardPile;
-        discardPile = new Deck();
-        drawPile.shuffle();
-    }
-    
-    private static void noCardsLeft(){
-        int americaRes = 0;
-        int jihadRes = 0;
-        //count resources
-        for (MuslimCountry c : muslimCountries){
-            if (c.getGovernance() == GOOD){
-                americaRes += c.getResources();
-            }
-            else if (c.getGovernance() == ISLAMISTRULE || c.getRegimeChange() == 2){
-                jihadRes += c.getResources();
-            }
-        }
-        
-        if (americaRes > jihadRes * 2){
-            victoryUS();
-        } else {
-            victoryJihad();
-        }
-    }
-    
     public static Player getCurrentPlayer() {
         return currentPlayer;
-    }
-
-    public static void switchCurrentPlayer() {
-        if (currentPlayer == playerJihadist) {
-            currentPlayer = playerUS;
-        } else {
-            currentPlayer = playerJihadist;
-        }
-    }
-
-    public static void switchCurrentPlayer(Player p) {
-        currentPlayer = p;
-    }
-
-    public static void connectCountries(Country c1, Country c2) {
-        c1.addAdjacentCountry(c2);
-        c2.addAdjacentCountry(c1);
     }
 
     public static ArrayList<Country> getAllCountries() {
@@ -156,18 +103,6 @@ public class Game {
         return nonMuslimCountries;
     }
 
-    public static Deck getDrawPile() {
-        return drawPile;
-    }
-
-    public static void setFunding(int f) {
-        funding = f;
-    }
-
-    public static void setPrestige(int p) {
-        prestige = p;
-    }
-
     public static int getFunding() {
         return funding;
     }
@@ -180,6 +115,123 @@ public class Game {
         NonMuslimCountry usa = (NonMuslimCountry) getCountry(UNITEDSTATES);
 
         return usa.getPosture() == 1;
+    }
+
+    public static List<Player> getPlayers() {
+        return players;
+    }
+
+    public static boolean anyIslamistRule() {
+        for (MuslimCountry c : muslimCountries) {
+            if (c.getGovernance() == 4) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean anyRegimeChange() {
+        for (MuslimCountry c : muslimCountries) {
+            if (c.getRegimeChange() > 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static PlayerJihadist getJihadist() {
+        return playerJihadist;
+    }
+
+    public static PlayerUS getUS() {
+        return playerUS;
+    }
+
+    public static Track getTrack() {
+        return track;
+    }
+
+    public static int getTroops() {
+        return getTrack().troopAmount();
+    }
+
+    public static boolean canPlaceCell() {
+        return track.hasCells();
+    }
+
+    public static boolean canRecruit() {
+        if (!track.hasCells()) {
+            return false;
+        } else if (funding > 6) {
+            return true;
+        } else if (funding > 3 && track.cellAmount() < 6) {
+            return false;
+        } else {
+            return !(funding < 4 && track.cellAmount() < 11);
+        }
+    }
+
+    public static int getGlobalPosture() {
+        calculateGlobalPosture();
+        return globalPosture;
+    }
+
+    public static int getPosturePenalty() {
+        //Get penalty from GWOT relations
+        int penalty = 0;
+        if (isPostureHard()) {
+            penalty = penalty + getGlobalPosture();
+        } else {
+            penalty = penalty - getGlobalPosture();
+        }
+        if (penalty > 0) {
+            penalty = 0;
+        } else if (penalty < -3) {
+            penalty = -3;
+        }
+        return penalty;
+    }
+
+    public static int getPrestigeModifier() {
+        return (int) (Math.floor(prestige / 3) - 1);
+    }
+
+    public static int getOilPriceSpike() {
+        return oilPriceSpike;
+    }
+
+    public static int getTurnNumber() {
+        return turnNumber;
+    }
+
+    public static List<Cell> getCells() {
+        return cells;
+    }
+//--------------------------------SETTERS-------------------------------------------------------
+
+    public static void switchCurrentPlayer() {
+        if (currentPlayer == playerJihadist) {
+            currentPlayer = playerUS;
+        } else {
+            currentPlayer = playerJihadist;
+        }
+    }
+
+    public static void switchCurrentPlayer(Player p) {
+        currentPlayer = p;
+    }
+
+    public static void connectCountries(Country c1, Country c2) {
+        c1.addAdjacentCountry(c2);
+        c2.addAdjacentCountry(c1);
+    }
+
+    public static void setFunding(int f) {
+        funding = f;
+    }
+
+    public static void setPrestige(int p) {
+        prestige = p;
     }
 
     public static void setPostureHard(boolean posture) {
@@ -233,156 +285,10 @@ public class Game {
         globalPosture = calcValue;
     }
 
-    public static List<Player> getPlayers() {
-        return players;
-    }
-
-    public static boolean anyIslamistRule() {
-        for (MuslimCountry c : muslimCountries) {
-            if (c.getGovernance() == 4) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static boolean anyRegimeChange() {
-        for (MuslimCountry c : muslimCountries) {
-            if (c.getRegimeChange() > 0) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static PlayerJihadist getJihadist() {
-        return playerJihadist;
-    }
-
-    public static PlayerUS getUS() {
-        return playerUS;
-    }
-
-    public static Track getTrack() {
-        return track;
-    }
-
-    public static int getTroops() {
-        return getTrack().troopAmount();
-    }
-
     public static void placeCell(Country country) {
         if (canPlaceCell()) {
             track.getCells().get(0).move(country);
         }
-    }
-
-    public static boolean canPlaceCell() {
-        return track.hasCells();
-    }
-
-    public static boolean canRecruit() {
-        if (!track.hasCells()) {
-            return false;
-        } else if (funding > 6) {
-            return true;
-        } else if (funding > 3 && track.cellAmount() < 6) {
-            return false;
-        } else {
-            return !(funding < 4 && track.cellAmount() < 11);
-        }
-    }
-
-    public static Card draw() {
-        return drawPile.draw();
-    }
-
-    public static void playCard(Card card) {
-        for (Player p : players) {
-            p.removeCard(card);
-        }
-        boolean remove = false;
-        if (card.getPlayable()) {
-            card.playEvent();
-
-            if (card.getRemoved()) {
-                removedCards.addCard(card);
-                remove = true;
-                if (discardPile.hasCard(card)){
-                    discardPile.removeCard(card);
-                }
-            }
-            if (card.isMark()){
-                markedEvents.add(card);
-            }
-        }
-        if (!remove && !discardPile.hasCard(card)) {
-            discardPile.addCard(card);
-        }
-    }
-
-    public static void discard(Card card) {
-        for (Player p : players) {
-            p.removeCard(card);
-        }
-        if (!removedCards.hasCard(card) && !discardPile.hasCard(card)){
-            discardPile.addCard(card);
-        }
-        
-    }
-
-    public static ArrayList<Card> getCardsInPlay(){
-        return markedEvents;
-    }
-    
-    public static boolean isCardInPlay(int id) {
-        for (Card c : markedEvents) {
-            if (id == c.getId())  {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static void removeCardFromPlay(int id) {
-        for (Card c : markedEvents) {
-            if (id == c.getId())  {
-                markedEvents.remove(c);
-            }
-        }
-    }
-
-    public static void addCardToPlay(Card card) {
-        markedEvents.add(card);
-    }
-
-    public static int getGlobalPosture() {
-        calculateGlobalPosture();
-        return globalPosture;
-    }
-
-    public static int getPosturePenalty() {
-        //Get penalty from GWOT relations
-        int penalty = 0;
-        if (isPostureHard()) {
-            penalty = penalty + getGlobalPosture();
-        } else {
-            penalty = penalty - getGlobalPosture();
-        }
-        if (penalty > 0) {
-            penalty = 0;
-        } else if (penalty < -3) {
-            penalty = -3;
-        }
-        return penalty;
-    }
-
-    public static int getPrestigeModifier() {
-        return (int) (Math.floor(prestige / 3) - 1);
-    }
-
-    public static int getOilPriceSpike() {
-        return oilPriceSpike;
     }
 
     public static void updateScoreboard() {
@@ -407,27 +313,19 @@ public class Game {
 
     }
 
-    public static int getTurnNumber() {
-        return turnNumber;
-    }
-
     public static void incrementTurnNumber() {
         Game.turnNumber++;
-    }
-    
-    public static List<Cell> getCells(){
-        return cells;
     }
 
     public static void startGame(int scenario) {
         int i = 0;
-        for (Scenario s : scenarios){
-            if (scenario == i){
+        for (Scenario s : scenarios) {
+            if (scenario == i) {
                 System.out.println("Chosen scenario is " + s.getName());
                 s.create();
                 s.setup();
             }
-                i++;
+            i++;
         }
         for (Country c : allCountries) {
             if (c instanceof MuslimCountry) {
@@ -455,6 +353,115 @@ public class Game {
         }
     }
 
+    public static void newTurn() {
+        turnList.add(currentTurn);
+        currentTurn = new Turn();
+        currentTurn.startTurn();
+    }
+
+//--------------------------------DECK RELATED--------------------------------------------------------
+    public static Deck getDrawPile() {
+        return drawPile;
+    }
+
+    public static boolean isCardInPlay(int id) {
+        for (Card c : markedEvents) {
+            if (id == c.getId()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static ArrayList<Card> getCardsInPlay() {
+        return markedEvents;
+    }
+
+    public static void setDecksLeft(int decksLeft) {
+        Game.decksLeft = decksLeft;
+    }
+
+    public static void reshuffleDeck() {
+        if (decksLeft == 0) {
+            noCardsLeft();
+            return;
+        }
+        decksLeft--;
+        drawPile = discardPile;
+        discardPile = new Deck();
+        drawPile.shuffle();
+    }
+
+    private static void noCardsLeft() {
+        int americaRes = 0;
+        int jihadRes = 0;
+        //count resources
+        for (MuslimCountry c : muslimCountries) {
+            if (c.getGovernance() == GOOD) {
+                americaRes += c.getResources();
+            } else if (c.getGovernance() == ISLAMISTRULE || c.getRegimeChange() == 2) {
+                jihadRes += c.getResources();
+            }
+        }
+
+        if (americaRes > jihadRes * 2) {
+            victoryUS();
+        } else {
+            victoryJihad();
+        }
+    }
+
+    public static Card draw() {
+        return drawPile.draw();
+    }
+
+    public static void playCard(Card card) {
+        for (Player p : players) {
+            p.removeCard(card);
+        }
+        boolean remove = false;
+        if (card.getPlayable()) {
+            card.playEvent();
+
+            if (card.getRemoved()) {
+                removedCards.addCard(card);
+                remove = true;
+                if (discardPile.hasCard(card)) {
+                    discardPile.removeCard(card);
+                }
+            }
+            if (card.isMark()) {
+                markedEvents.add(card);
+            }
+        }
+        if (!remove && !discardPile.hasCard(card)) {
+            discardPile.addCard(card);
+        }
+    }
+
+    public static void discard(Card card) {
+        for (Player p : players) {
+            p.removeCard(card);
+        }
+        if (!removedCards.hasCard(card) && !discardPile.hasCard(card)) {
+            discardPile.addCard(card);
+        }
+
+    }
+
+    public static void removeCardFromPlay(int id) {
+        for (Card c : markedEvents) {
+            if (id == c.getId()) {
+                markedEvents.remove(c);
+            }
+        }
+    }
+
+    public static void addCardToPlay(Card card) {
+        markedEvents.add(card);
+    }
+
+//--------------------------------VICTORY RELATED-----------------------------------------------------
     public static void checkForVictory() {
         checkForVictoryUS();
         checkForVictoryJihad();
@@ -462,12 +469,6 @@ public class Game {
 
     public static void WMDinUS() {
         victoryJihad();
-    }
-    
-    public static void newTurn(){
-        turnList.add(currentTurn);
-        currentTurn = new Turn();
-        currentTurn.startTurn();
     }
 
     private static void checkForVictoryUS() {
