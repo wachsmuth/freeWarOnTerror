@@ -22,7 +22,7 @@ import static freeWarOnTerror.Game.setFunding;
 import static freeWarOnTerror.Game.setPostureHard;
 import static freeWarOnTerror.Game.setPrestige;
 import freeWarOnTerror.MuslimCountry;
-import freeWarOnTerror.Scenario;
+import freeWarOnTerror.abClasses.Scenario;
 import static freeWarOnTerror.helpers.CONSTANTS.AFGHANISTAN;
 import static freeWarOnTerror.helpers.CONSTANTS.GULFSTATES;
 import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;

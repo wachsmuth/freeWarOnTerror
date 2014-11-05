@@ -16,6 +16,7 @@
  */
 package freeWarOnTerror;
 
+import freeWarOnTerror.abClasses.Scenario;
 import freeWarOnTerror.Countries.CountryUSA;
 import freeWarOnTerror.Players.PlayerJihadist;
 import freeWarOnTerror.Players.PlayerUS;

@@ -14,13 +14,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package freeWarOnTerror;
+package freeWarOnTerror.abClasses;
 
 import freeWarOnTerror.Countries.CountryIran;
 import freeWarOnTerror.Countries.CountryIsrael;
 import freeWarOnTerror.Countries.CountryPakistan;
 import freeWarOnTerror.Countries.CountryPhilippines;
 import freeWarOnTerror.Countries.CountryUSA;
+import freeWarOnTerror.Deck;
+import freeWarOnTerror.Game;
+import freeWarOnTerror.MuslimCountry;
+import freeWarOnTerror.NonMuslimCountry;
 import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.getDrawPile;
