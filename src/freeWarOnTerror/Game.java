@@ -291,6 +291,16 @@ public class Game {
         }
     }
 
+    public static void deployTroops(Country origin, Country destination, int amount) {
+        int i = 0;
+        for (Troop t : origin.getTroops()) {
+            if (i < amount) {
+                t.move(destination);
+                i++;
+            }
+        }
+    }
+
     public static void updateScoreboard() {
         goodResources = 0;
         islamistResources = 0;
