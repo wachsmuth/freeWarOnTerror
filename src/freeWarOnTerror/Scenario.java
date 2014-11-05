@@ -35,6 +35,7 @@ import freeWarOnTerror.cards.CTR;
 import freeWarOnTerror.cards.CovertAction;
 import freeWarOnTerror.cards.Darfur;
 import freeWarOnTerror.cards.EuroIslam;
+import freeWarOnTerror.cards.ExKGB;
 import freeWarOnTerror.cards.FATA;
 import freeWarOnTerror.cards.FREs;
 import freeWarOnTerror.cards.FormerSovietUnion;
@@ -365,6 +366,7 @@ public abstract class Scenario {
         deck.addCard(new CTR());
         deck.addCard(new Darfur());
         deck.addCard(new EuroIslam());
+        deck.addCard(new ExKGB());
         deck.addCard(new FATA());
         deck.addCard(new FormerSovietUnion());
         deck.addCard(new FREs());
