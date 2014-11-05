@@ -30,6 +30,7 @@ public abstract class Country extends Location {
         this.name = name;
         this.id = id;
     }
+
     @Override
     public void add(Moveable m) {
         if (m instanceof Cell) {
@@ -41,13 +42,14 @@ public abstract class Country extends Location {
             getTroops().add((Troop) m);
         }
     }
+
     public abstract void resolvePlots();
 
     public abstract void testCountry();
 
     public abstract int getGovernance();
-    
-    public int getRecruit(){
+
+    public int getRecruit() {
         return getGovernance();
     }
 
@@ -112,12 +114,14 @@ public abstract class Country extends Location {
 
         }
     }
-    
-    public void killAllCells(){
-        for (Cell c : getCells()){
-            c.kill();
+
+    public void killAllCells() {
+        if (hasCells()) {
+            for (Cell c : getCells()) {
+                c.kill();
+            }
+            setCadre(true);
         }
-        setCadre(true);
     }
 
     public Boolean canDeployTo() {
@@ -173,39 +177,38 @@ public abstract class Country extends Location {
         String string = appendString(name);
         return string;
     }
-    
-    public String moveablesString(){
+
+    public String moveablesString() {
         String string = "";
-        if (troopAmount() > 1){
+        if (troopAmount() > 1) {
             string += troopAmount() + " troops ";
-        }
-        else if(troopAmount() == 1){
+        } else if (troopAmount() == 1) {
             string += troopAmount() + " troop ";
         }
-        if (cellAmount() > 1){
+        if (cellAmount() > 1) {
             string += cellAmount() + " cells ";
-        }
-        else if (cellAmount() == 1){
+        } else if (cellAmount() == 1) {
             string += cellAmount() + " cell ";
         }
-        if (plotAmount() > 1){
+        if (plotAmount() > 1) {
             string += plotAmount() + " plots ";
         }
-        if (plotAmount() == 1){
+        if (plotAmount() == 1) {
             string += plotAmount() + " plot ";
         }
         return appendString(string);
     }
-    
-    public String eventsToString(){
+
+    public String eventsToString() {
         String events = "";
-        for (Card c : getCardsInPlay()){
-            if (c.getCountries().length > 0)
-            for (int i : c.getCountries()){
-                if (i == id){
-                    events += (c.getName() + " ");
+        for (Card c : getCardsInPlay()) {
+            if (c.getCountries().length > 0) {
+                for (int i : c.getCountries()) {
+                    if (i == id) {
+                        events += (c.getName() + " ");
+                    }
                 }
-            } 
+            }
         }
         return events;
     }
