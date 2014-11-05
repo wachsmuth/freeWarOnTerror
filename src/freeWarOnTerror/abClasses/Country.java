@@ -7,6 +7,7 @@ package freeWarOnTerror.abClasses;
 
 import freeWarOnTerror.Cell;
 import static freeWarOnTerror.Game.getCardsInPlay;
+import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.Plot;
 import freeWarOnTerror.Troop;
@@ -63,6 +64,16 @@ public abstract class Country extends Location {
 
     public boolean canDeployFrom() {
         return false;
+    }
+    
+    public int noCanDeployFrom() {
+        if (this instanceof MuslimCountry){
+            MuslimCountry country = (MuslimCountry) this;
+            if (country.getRegimeChange() > 0){
+                return troopAmount()-cellAmount();
+            }
+        }
+        return troopAmount();
     }
 
     public boolean canDisrupt(int ops) {
