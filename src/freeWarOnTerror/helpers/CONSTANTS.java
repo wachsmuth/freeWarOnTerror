@@ -21,7 +21,12 @@ package freeWarOnTerror.helpers;
  * @author Gustav Wengel
  */
 public class CONSTANTS {
-    //Alignment
+    //ALIGNMENT COUNTIES
+    public final static int A_ALLY = 1;
+    public final static int A_NEUTRAL = 2;
+    public final static int A_ADVERSARY = 3;
+    
+    //Alignment CARD
     public final static int AUTO = 0;
     public final static int NEUTRAL = 1;
     public final static int USA = 2;

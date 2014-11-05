@@ -17,10 +17,14 @@
  */
 package freeWarOnTerror.Players.Actions;
 
+import freeWarOnTerror.Cell;
 import static freeWarOnTerror.Game.getMuslimCountries;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.InputLoop.inputLoop;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -31,7 +35,6 @@ public class ActionMajorJihad extends Action {
     public ActionMajorJihad() {
         super("Use ops for Major Jihad");
     }
-
     @Override
     public boolean canDoAction(Card c) {
         for (MuslimCountry country : getMuslimCountries()) {
@@ -41,10 +44,32 @@ public class ActionMajorJihad extends Action {
         }
         return false;
     }
-
+    
     @Override
     public void performAction(Card c) {
-        //DEBUG to do
+        List<MuslimCountry> targetCountries = new ArrayList<>();
+        for (int i = 0; i < c.getOps(); i++) {
+            List<MuslimCountry> eligibles = new ArrayList<>();
+            for (MuslimCountry country : getMuslimCountries()) {
+                if (country.canMajorJihad(c.getOps())) {
+                    eligibles.add(country);
+                }
+            }
+            //Check if cell dies or no
+            attemptMajorJihad((MuslimCountry) inputLoop("Choose a country for a Jihad attempt", eligibles), c.getOps());
+        }
+
     }
 
+    private void attemptMajorJihad(MuslimCountry place, int ops) {
+        //Choose cells
+        int loopMax = Math.max(place.cellAmount(), ops);
+        List<Cell> cells = new ArrayList<>();
+        
+        System.out.println("Add cells to the attempt:");
+        for (int i = 0; i < loopMax; i++){
+            cells.add(place.pickIdleCell());
+        }
+        place.attemptMajorJihad(cells, ops);
+    }
 }

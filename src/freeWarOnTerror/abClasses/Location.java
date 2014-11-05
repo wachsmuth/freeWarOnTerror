@@ -19,7 +19,9 @@ package freeWarOnTerror.abClasses;
 import freeWarOnTerror.Cell;
 import freeWarOnTerror.Plot;
 import freeWarOnTerror.Troop;
+import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -43,7 +45,17 @@ public abstract class Location {
     public ArrayList<Troop> getTroops() {
         return troops;
     }
-
+    
+    public Cell pickIdleCell(){
+        List<Cell> idleList = getCells();
+        for (Cell c : getCells()){
+            if (c.isIdle()){
+                idleList.add(c);
+            }
+        }
+        return inputLoop(idleList);
+    }
+    
     public int troopAmount() {
         return troops.size();
     }

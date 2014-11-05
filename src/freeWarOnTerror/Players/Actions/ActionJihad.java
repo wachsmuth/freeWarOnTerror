@@ -22,9 +22,6 @@ import static freeWarOnTerror.Game.getMuslimCountries;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.FAIR;
-import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
-import static freeWarOnTerror.helpers.CONSTANTS.POOR;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +39,7 @@ public class ActionJihad extends Action {
     @Override
     public boolean canDoAction(Card c) {
         for (MuslimCountry country : getMuslimCountries()) {
-            if (country.getGovernance() == POOR || country.getGovernance() == GOOD || country.getGovernance() == FAIR || country.hasAid()) {
+            if (country.canMinorJihad()) {
                 return true;
             }
         }
@@ -51,7 +48,6 @@ public class ActionJihad extends Action {
 
     @Override
     public void performAction(Card c) {
-        List<MuslimCountry> targetCountries = new ArrayList<>();
         for (int i = 0; i < c.getOps(); i++) {
             List<MuslimCountry> eligibles = new ArrayList<>();
             for (MuslimCountry country : getMuslimCountries()) {
@@ -68,12 +64,8 @@ public class ActionJihad extends Action {
     private void attemptJihad(MuslimCountry place) {
         //Choose cell
         System.out.println("Which cell?");
-        int count = 0;
-        List<Cell> cells = place.getCells();
-        for (Cell c : cells){
-            System.out.println(count++ + " " + c);
-        }
-        //place.attemptJihad(inputLoop)
+        Cell c = place.pickIdleCell();
+        place.attemptMinorJihad(c);
     }
 
 }
