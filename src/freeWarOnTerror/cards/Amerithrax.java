@@ -47,9 +47,9 @@ public class Amerithrax extends Card {
 
         }
         if (usEvents.size() > 0) {
-            for (Card c : usEvents) {
-                if (c.getOps() < highestOps) {
-                    usEvents.remove(c);
+            for (int i = 0;i < usEvents.size();i++){
+                if (usEvents.get(i).getOps() < highestOps) {
+                    usEvents.remove(usEvents.get(i));
                 }
             }
             System.out.println("Choose a card to discard");
