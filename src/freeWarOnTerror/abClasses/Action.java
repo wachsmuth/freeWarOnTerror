@@ -28,19 +28,22 @@ public abstract class Action {
     public Action(String description) {
         this.description = description;
     }
+//--------------------------------GETTERS-------------------------------------------------------
 
     public int getValue() {
         return value;
     }
 
+    public String getDescription() {
+        return description;
+    }
+//--------------------------------SETTERS-------------------------------------------------------
+
     public void setValue(int value) {
         this.value = value;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
+    //--------------------------------ABSTRACT METHODS----------------------------------------------
     public abstract boolean canDoAction(Card c);
 
     public abstract void performAction(Card c);

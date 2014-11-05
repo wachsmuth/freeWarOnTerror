@@ -30,26 +30,7 @@ public abstract class Location {
     private final ArrayList<Cell> cells = new ArrayList<>();
     private final ArrayList<Plot> plots = new ArrayList<>();
     private final ArrayList<Troop> troops = new ArrayList<>();
-
-    public void add(Moveable m) {
-        if (m instanceof Cell) {
-            cells.add((Cell) m);
-        } else if (m instanceof Plot) {
-            plots.add((Plot) m);
-        } else if (m instanceof Troop) {
-            troops.add((Troop) m);
-        }
-    }
-
-    public void remove(Moveable m) {
-        if (m instanceof Cell) {
-            cells.remove((Cell) m);
-        } else if (m instanceof Plot) {
-            plots.remove((Plot) m);
-        } else if (m instanceof Troop) {
-            troops.remove((Troop) m);
-        }
-    }
+//--------------------------------GETTERS-------------------------------------------------------
 
     public ArrayList<Plot> getPlots() {
         return plots;
@@ -82,10 +63,32 @@ public abstract class Location {
     public Boolean hasPlots() {
         return plots.size() > 0;
     }
-    
-    public int plotAmount(){
+
+    public int plotAmount() {
         return plots.size();
     }
+//--------------------------------SETTERS-------------------------------------------------------
 
+    public void remove(Moveable m) {
+        if (m instanceof Cell) {
+            cells.remove((Cell) m);
+        } else if (m instanceof Plot) {
+            plots.remove((Plot) m);
+        } else if (m instanceof Troop) {
+            troops.remove((Troop) m);
+        }
+    }
+
+    public void add(Moveable m) {
+        if (m instanceof Cell) {
+            cells.add((Cell) m);
+        } else if (m instanceof Plot) {
+            plots.add((Plot) m);
+        } else if (m instanceof Troop) {
+            troops.add((Troop) m);
+        }
+    }
+
+    //--------------------------------ABSTRACT METHODS----------------------------------------------
     public abstract String getName();
 }

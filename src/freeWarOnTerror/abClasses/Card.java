@@ -1,7 +1,5 @@
 package freeWarOnTerror.abClasses;
 
-import static freeWarOnTerror.Game.addCardToPlay;
-
 /**
  *
  * @author Emil
@@ -26,8 +24,8 @@ public abstract class Card {
         this.mark = mark;
         countries = null;
     }
-    
-    public Card(String name, int ops, int alignment, Boolean removedAfterPlay, boolean mark, int id, int ... countries) {
+
+    public Card(String name, int ops, int alignment, Boolean removedAfterPlay, boolean mark, int id, int... countries) {
         this.name = name;
         this.ops = ops;
         this.alignment = alignment;
@@ -37,56 +35,27 @@ public abstract class Card {
         this.countries = countries;
     }
 
-    public abstract void playEvent();
-
+//--------------------------------GETTERS-------------------------------------------------------
     public Boolean getPlayable() {
         return true;
     }
-    
-    public int getRealOps(){
+
+    public int getRealOps() {
         return ops;
     }
-    
-    public void modifyReserves(int change){
-        reserves += change;
-    }
-    
-    public int getOps(){
+
+    public int getOps() {
         return ops + reserves;
     }
-    
-    public int getAlignment(){
+
+    public int getAlignment() {
         return alignment;
     }
-    
-    public Boolean getRemoved(){
+
+    public Boolean getRemoved() {
         return removedAfterPlay;
     }
-    
-    public void setRemoved(Boolean removed){
-        removedAfterPlay = removed;
-    }
 
-    @Override
-    public String toString(){
-        String string = name;
-        string = string + " (";
-        if (alignment == 1){
-            string = string + "Neutral";
-        }
-        else if (alignment == 2){
-            string = string + "US";
-        }
-        else if (alignment == 3){
-            string = string + "Jihadist";
-        }
-        else if (alignment == 0){
-            string = string + "Automatic Event";
-        }
-        string = string + ", " + ops + " ops)";
-        return string;
-    }
-    
     public int getId() {
         return id;
     }
@@ -102,6 +71,35 @@ public abstract class Card {
     public int[] getCountries() {
         return countries;
     }
-    
-    
+//--------------------------------SETTERS-------------------------------------------------------
+
+    public void modifyReserves(int change) {
+        reserves += change;
+    }
+
+    public void setRemoved(Boolean removed) {
+        removedAfterPlay = removed;
+    }
+
+//--------------------------------OVERRIDES-----------------------------------------------------
+    @Override
+    public String toString() {
+        String string = name;
+        string = string + " (";
+        if (alignment == 1) {
+            string = string + "Neutral";
+        } else if (alignment == 2) {
+            string = string + "US";
+        } else if (alignment == 3) {
+            string = string + "Jihadist";
+        } else if (alignment == 0) {
+            string = string + "Automatic Event";
+        }
+        string = string + ", " + ops + " ops)";
+        return string;
+    }
+    //--------------------------------ABSTRACT METHODS----------------------------------------------
+
+    public abstract void playEvent();
+
 }
