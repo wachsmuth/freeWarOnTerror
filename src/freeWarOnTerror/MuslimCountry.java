@@ -278,8 +278,8 @@ public class MuslimCountry extends Country {
     }
 
     @Override
-    public Boolean canDeployTo() {
-        return alignment == 1 && governance < 4;
+    public Boolean canDeployTo(int ops) {
+        return alignment == 1 && governance < 4 && ops >= governance;
     }
 
     @Override

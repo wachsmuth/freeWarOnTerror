@@ -7,6 +7,7 @@ package freeWarOnTerror.abClasses;
 
 import freeWarOnTerror.Cell;
 import static freeWarOnTerror.Game.getCardsInPlay;
+import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.Plot;
 import freeWarOnTerror.Troop;
@@ -57,12 +58,22 @@ public abstract class Country extends Location {
         return false;
     }
 
-    public Boolean canDeployTo() {
+    public Boolean canDeployTo(int ops) {
         return false;
     }
 
     public boolean canDeployFrom() {
         return false;
+    }
+    
+    public int noCanDeployFrom() {
+        if (this instanceof MuslimCountry){
+            MuslimCountry country = (MuslimCountry) this;
+            if (country.getRegimeChange() > 0){
+                return troopAmount()-cellAmount();
+            }
+        }
+        return troopAmount();
     }
 
     public boolean canDisrupt(int ops) {
@@ -73,7 +84,7 @@ public abstract class Country extends Location {
         return cadre || hasCells();
     }
 
-    public boolean canPlot() { //NOTE: This method works for both minor jihad (if used on only Muslim countries) and plotting.
+    public boolean canPlot() { 
         return getGovernance() < 4 && hasCells();
     }
 
