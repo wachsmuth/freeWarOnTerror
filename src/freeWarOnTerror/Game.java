@@ -24,6 +24,7 @@ import freeWarOnTerror.Scenarios.LetsRoll;
 import freeWarOnTerror.Scenarios.YouCanCallMeAl;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
+import freeWarOnTerror.abClasses.Location;
 import freeWarOnTerror.abClasses.Player;
 import static freeWarOnTerror.helpers.CONSTANTS.FAIR;
 import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
@@ -292,7 +293,7 @@ public class Game {
         }
     }
 
-    public static void deployTroops(Country origin, Country destination, int amount) {
+    public static void deployTroops(Location origin, Location destination, int amount) {
         int i = 0;
         for (Troop t : origin.getTroops()) {
             if (i < amount) {

@@ -17,6 +17,7 @@
 package freeWarOnTerror.abClasses;
 
 import freeWarOnTerror.Cell;
+import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.Plot;
 import freeWarOnTerror.Troop;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
@@ -72,6 +73,17 @@ public abstract class Location {
     public Boolean hasTroops() {
         return troops.size() > 0;
     }
+    
+        public int noCanDeployFrom() {
+        if (this instanceof MuslimCountry){
+            MuslimCountry country = (MuslimCountry) this;
+            if (country.getRegimeChange() > 0){
+                return troopAmount()-cellAmount();
+            }
+        }
+        return troopAmount();
+    }
+
 
     public int cellAmount() {
         return cells.size();

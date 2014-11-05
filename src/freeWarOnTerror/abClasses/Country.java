@@ -66,15 +66,6 @@ public abstract class Country extends Location {
         return false;
     }
     
-    public int noCanDeployFrom() {
-        if (this instanceof MuslimCountry){
-            MuslimCountry country = (MuslimCountry) this;
-            if (country.getRegimeChange() > 0){
-                return troopAmount()-cellAmount();
-            }
-        }
-        return troopAmount();
-    }
 
     public boolean canDisrupt(int ops) {
         return (hasTroops() || getAlignment() == 1 || this instanceof NonMuslimCountry) && hasCells() && ops >= getGovernance();
