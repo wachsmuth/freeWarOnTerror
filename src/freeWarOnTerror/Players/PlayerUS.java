@@ -18,6 +18,7 @@ package freeWarOnTerror.Players;
 
 import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getTroops;
+import freeWarOnTerror.Players.Actions.ActionDeploy;
 import freeWarOnTerror.Players.Actions.ActionEventUS;
 import freeWarOnTerror.Players.Actions.ActionWarOfIdeas;
 import freeWarOnTerror.abClasses.Card;
@@ -35,6 +36,7 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
         super(name);
         addAction(new ActionEventUS());
         addAction(new ActionWarOfIdeas());
+        addAction(new ActionDeploy());
 
     }
 
