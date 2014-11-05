@@ -48,16 +48,7 @@ public class FreeWarOnTerror extends Application {
     public static void main(String[] args) {
         
         mainMenu();
-        /*
-        System.out.println("Hej");
-        ArrayList<String> strings = new ArrayList<>();
-        strings.add("Blue");
-        strings.add("Red");
-        strings.add("Green");
-        String in = InputLoop.inputLoop("What is your favorite colour?", strings);
-        System.out.println("Hej2 " + in);
-        //launch(args);1
-                */
+
     }
     
 }
