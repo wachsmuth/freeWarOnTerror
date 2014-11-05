@@ -67,28 +67,7 @@ public class MuslimCountry extends Country {
         return besiegedRegime;
     }
 
-    public boolean canMajorJihad(int ops) {
-        if (besiegedRegime) {
-            return governance == POOR && troopAmount() + 5 <= cellAmount();
-        } else if (ops > 1) {
-            return governance == POOR && troopAmount() + 5 <= cellAmount();
-        }
-        return false;
-    }
-
-    public boolean canMinorJihad() {
-        if (getGovernance() < 4 && hasCells()) {
-            for (Cell c : getCells()) {
-                if (c.isIdle()) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return false;
-    }
 //--------------------------------SETTERS-------------------------------------------------------
-
     public void rollGovernance() {
         alignment = 2;
         int die = Die.rollDie();
@@ -103,7 +82,7 @@ public class MuslimCountry extends Country {
     @Override
     public void setGovernance(int governance) {
         this.governance = governance;
-        if (governance == GOOD && governance == ISLAMISTRULE) {
+        if (governance == GOOD || governance == ISLAMISTRULE) {
             setBesiegedRegime(false);
             this.removeAid(50); //REMOVE IT ALL
             setRegimeChange(0);
@@ -156,20 +135,37 @@ public class MuslimCountry extends Country {
     }
 
     //--------------------------------JIHAD-------------------------------------------------------
+    public boolean canMajorJihad(int ops) {
+        if (besiegedRegime) {
+            return governance == POOR && troopAmount() + 5 <= cellAmount();
+        } else if (ops > 1) {
+            return governance == POOR && troopAmount() + 5 <= cellAmount();
+        }
+        return false;
+    }
+
+    public boolean canMinorJihad() {
+        if (getGovernance() < 4 && hasCells()) {
+            for (Cell c : getCells()) {
+                if (c.isIdle()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return false;
+    }
+
     public void attemptMinorJihad(Cell c) {
         System.out.println("Attempting Jihad in " + getName());
+        c.setActive(true);
         if (rollDie() <= getGovernance()) {
             minorJihad();
             System.out.println("Succes!");
-            //Cell to active
-            if (!c.isActive()) {
-                c.setActive(true);
-            }
-            return;
+        } else {
+            System.out.println("Failure..");
+            c.kill();
         }
-        System.out.println("Failure..");
-        c.kill();
-        return;
     }//returns succes or failure
 
     public void attemptMajorJihad(List<Cell> cells, int ops) {
@@ -190,8 +186,9 @@ public class MuslimCountry extends Country {
         } else if (ops >= 3) {
             majorJihadFailure();
             System.out.println("Major failure");
+        } else {
+            System.out.println("Failure");
         }
-        System.out.println("Failure");
 
     }
 

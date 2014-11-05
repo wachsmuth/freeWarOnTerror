@@ -130,7 +130,6 @@ public abstract class Scenario {
         createLists();
         createConnections();
         createDeck();
-        //getCountry(GULFSTATES).add(new Cell(getCountry(GULFSTATES))); //DEBUG
     }
 
     public String getName() {

@@ -48,12 +48,21 @@ public abstract class Location {
     
     public Cell pickIdleCell(){
         List<Cell> idleList = new ArrayList<>();
+        //Checks
+        if (cellAmount() == 1){
+            cells.get(0).setIdle(false);
+            return cells.get(0);
+        } else if (cellAmount()== 0){
+            return null;
+        }
         for (Cell c : getCells()){
             if (c.isIdle()){
                 idleList.add(c);
             }
         }
-        return inputLoop(idleList);
+        Cell reCell = inputLoop(idleList);
+        reCell.setIdle(false);
+        return reCell;
     }
     
     public int troopAmount() {

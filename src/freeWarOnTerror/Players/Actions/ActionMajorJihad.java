@@ -48,7 +48,6 @@ public class ActionMajorJihad extends Action {
     @Override
     public void performAction(Card c) {
         List<MuslimCountry> targetCountries = new ArrayList<>();
-        for (int i = 0; i < c.getOps(); i++) {
             List<MuslimCountry> eligibles = new ArrayList<>();
             for (MuslimCountry country : getMuslimCountries()) {
                 if (country.canMajorJihad(c.getOps())) {
@@ -57,17 +56,19 @@ public class ActionMajorJihad extends Action {
             }
             //Check if cell dies or no
             attemptMajorJihad((MuslimCountry) inputLoop("Choose a country for a Jihad attempt", eligibles), c.getOps());
-        }
-
     }
 
     private void attemptMajorJihad(MuslimCountry place, int ops) {
         //Choose cells
-        int loopMax = Math.max(place.cellAmount(), ops);
+        int loopMax = Math.min(place.cellAmount(), ops);
         List<Cell> cells = new ArrayList<>();
         
         System.out.println("Add cells to the attempt:");
         for (int i = 0; i < loopMax; i++){
+            Cell addCell = place.pickIdleCell();
+            if (addCell == null) { 
+                System.out.println("something went horribly wrong");
+                return; }//Something went horribly wrong
             cells.add(place.pickIdleCell());
         }
         place.attemptMajorJihad(cells, ops);

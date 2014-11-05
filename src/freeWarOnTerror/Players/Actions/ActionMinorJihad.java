@@ -55,6 +55,10 @@ public class ActionMinorJihad extends Action {
                     eligibles.add(country);
                 }
             }
+            //can we still do it?
+            if (!canDoAction(c)){
+                return;
+            }
             //Check if cell dies or no
             attemptJihad((MuslimCountry) inputLoop("Choose a country for a Jihad attempt", eligibles));
         }
@@ -65,6 +69,10 @@ public class ActionMinorJihad extends Action {
         //Choose cell
         System.out.println("Which cell?");
         Cell c = place.pickIdleCell();
+        if (c == null){
+            System.out.println("No cells anymore");
+            return;
+        }
         place.attemptMinorJihad(c);
     }
 
