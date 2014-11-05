@@ -16,7 +16,9 @@
  */
 package freeWarOnTerror.Scenarios;
 
+import static freeWarOnTerror.Game.deployTroops;
 import static freeWarOnTerror.Game.getCountry;
+import static freeWarOnTerror.Game.getTrack;
 import static freeWarOnTerror.Game.placeCell;
 import static freeWarOnTerror.Game.setFunding;
 import static freeWarOnTerror.Game.setPostureHard;
@@ -37,17 +39,16 @@ import static freeWarOnTerror.helpers.CONSTANTS.SYRIA;
  * @author Emil
  */
 public class YouCanCallMeAl extends Scenario {
-    
-    public YouCanCallMeAl(){
+
+    public YouCanCallMeAl() {
         super("You Can Call Me Al");
     }
-    
+
     @Override
-    public void setup(){
-         //Markers
+    public void setup() {
+        //Markers
         setPrestige(7);
         setPostureHard(false);
-        //DEBUG set troops
         setFunding(9);
         //Countries
         getCountry(LIBYA).setGovernanceAndAlignment(3, 3);
@@ -62,6 +63,7 @@ public class YouCanCallMeAl extends Scenario {
         for (int i = 0; i < 4; i++) {
             placeCell(getCountry(AFGHANISTAN));
         }
-        //TODO: troops
+        deployTroops(getTrack(), getCountry(GULFSTATES), 2);
+        deployTroops(getTrack(), getCountry(SAUDIARABIA), 2);
     }
 }
