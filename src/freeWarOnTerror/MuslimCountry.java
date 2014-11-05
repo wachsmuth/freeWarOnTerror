@@ -189,12 +189,15 @@ public class MuslimCountry extends Country {
             majorJihad();
         } else if (ops >= 3) {
             majorJihadFailure();
+            System.out.println("Major failure");
         }
+        System.out.println("Failure");
 
     }
 
     private void majorJihad() {
         //WE DID IT GUYS
+        System.out.println("Success!");
         setGovernance(ISLAMISTRULE);
         setAlignment(A_ADVERSARY);
         if (this.hasTroops()) {

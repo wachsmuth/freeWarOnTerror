@@ -52,19 +52,7 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
     }
 
 //--------------------------------ACTIONS-----------------------------------------------------
-    public void recruit() {
-
-    }
-
     public void travel() {
-
-    }
-
-    public void minorJihad() {
-
-    }
-
-    public void majorJihad() {
 
     }
 
