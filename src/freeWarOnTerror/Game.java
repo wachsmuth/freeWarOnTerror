@@ -295,11 +295,15 @@ public class Game {
 
     public static void deployTroops(Location origin, Location destination, int amount) {
         int i = 0;
+        ArrayList<Troop> troopsToMove = new ArrayList<>();
         for (Troop t : origin.getTroops()) {
             if (i < amount) {
-                t.move(destination);
+                troopsToMove.add(t);
                 i++;
             }
+        }
+        for (Troop t : troopsToMove){
+            t.move(destination);
         }
     }
 
