@@ -40,6 +40,12 @@ public class ActionDeploy extends Action {
     public boolean canDoAction(Card c) {
         boolean availableOrigin = false;
         boolean availableDestination = false;
+        if (getTrack().hasTroops()) {
+            availableOrigin = true;
+        }
+        if (getTrack().troopAmount() < 15) {
+            availableDestination = true;
+        }
 
         for (Country country : getAllCountries()) {
             if (country.canDeployTo(c.getOps())) {
@@ -56,10 +62,10 @@ public class ActionDeploy extends Action {
     public void performAction(Card c) {
         ArrayList<Location> possibleOrigins = new ArrayList<>();
         ArrayList<Location> possibleDestinations = new ArrayList<>();
-        if (getTrack().hasTroops()){
+        if (getTrack().hasTroops()) {
             possibleOrigins.add(getTrack());
         }
-        if (getTrack().troopAmount() < 15){
+        if (getTrack().troopAmount() < 15) {
             possibleDestinations.add(getTrack());
         }
         for (Country country : getAllCountries()) {
@@ -72,8 +78,8 @@ public class ActionDeploy extends Action {
         }
         System.out.println("Choose origin: ");
         Location origin = inputLoop(possibleOrigins);
-        for (Location l : possibleDestinations){
-            if (l == origin){
+        for (Location l : possibleDestinations) {
+            if (l == origin) {
                 possibleDestinations.remove(l);
             }
         }
@@ -81,7 +87,7 @@ public class ActionDeploy extends Action {
         Location destination = inputLoop(possibleDestinations);
         System.out.println("Choose amount of troops to deploy: ");
         int[] arr = new int[origin.noCanDeployFrom()];
-        for (int i = 0;i < arr.length;i++){
+        for (int i = 0; i < arr.length; i++) {
             arr[i] = i;
         }
         int amount = inputLoop(arr);
