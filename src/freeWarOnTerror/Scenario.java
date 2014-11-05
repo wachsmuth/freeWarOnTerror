@@ -25,8 +25,10 @@ import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.getDrawPile;
 import freeWarOnTerror.abClasses.Country;
+import freeWarOnTerror.cards.AlAnbar;
 import freeWarOnTerror.cards.AlAzhar;
 import freeWarOnTerror.cards.AlIttihadAlIslami;
+import freeWarOnTerror.cards.Amerithrax;
 import freeWarOnTerror.cards.AnbarAwakening;
 import freeWarOnTerror.cards.AnsarAlIslam;
 import freeWarOnTerror.cards.BenazirBhutto;
@@ -52,6 +54,7 @@ import freeWarOnTerror.cards.Kosovo;
 import freeWarOnTerror.cards.LebanonWar;
 import freeWarOnTerror.cards.MassTurnout;
 import freeWarOnTerror.cards.MoroTalks;
+import freeWarOnTerror.cards.MossadAndShinBet;
 import freeWarOnTerror.cards.NEST;
 import freeWarOnTerror.cards.PakistaniOffensive;
 import freeWarOnTerror.cards.PatriotAct;
@@ -354,8 +357,10 @@ public abstract class Scenario {
     }
 
     public void createDeck() { //sample code, WIP
+        deck.addCard(new AlAnbar());
         deck.addCard(new AlAzhar());
         deck.addCard(new AlIttihadAlIslami());
+        deck.addCard(new Amerithrax());
         deck.addCard(new AnbarAwakening());
         deck.addCard(new AnsarAlIslam());
         deck.addCard(new BenazirBhutto());
@@ -381,6 +386,7 @@ public abstract class Scenario {
         deck.addCard(new LebanonWar());
         deck.addCard(new MassTurnout());
         deck.addCard(new MoroTalks());
+        deck.addCard(new MossadAndShinBet());
         deck.addCard(new NEST());
         deck.addCard(new PakistaniOffensive());
         deck.addCard(new PatriotAct());
