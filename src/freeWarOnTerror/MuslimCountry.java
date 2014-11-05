@@ -10,11 +10,14 @@ import static freeWarOnTerror.Game.getPosturePenalty;
 import static freeWarOnTerror.Game.getPrestigeModifier;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.AppendToString.appendString;
+import static freeWarOnTerror.helpers.CONSTANTS.A_ADVERSARY;
 import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
 import static freeWarOnTerror.helpers.CONSTANTS.ISLAMISTRULE;
+import static freeWarOnTerror.helpers.CONSTANTS.POOR;
 import static freeWarOnTerror.helpers.CONSTANTS.WMD;
 import freeWarOnTerror.helpers.Die;
 import static freeWarOnTerror.helpers.Die.rollDie;
+import java.util.List;
 
 /**
  *
@@ -28,7 +31,7 @@ public class MuslimCountry extends Country {
     private final boolean oilCountry;
     private final Boolean shiaMix;
     private boolean besiegedRegime = false;
-    private int regimeChange = 0;
+    private int regimeChange = 0; //0 is no change, 1 is tan change, 2 is green change
     private int aid = 0;
     private int governance = 0; //1 = Good, 2 = Fair, 3 = Poor, 4 = Islamist Rule
     private int alignment = 0; //1 = Ally, 2 = Neutral, 3 = Adversary
@@ -66,9 +69,21 @@ public class MuslimCountry extends Country {
 
     public boolean canMajorJihad(int ops) {
         if (besiegedRegime) {
-            return governance < 4 && troopAmount() + 5 <= cellAmount();
+            return governance == POOR && troopAmount() + 5 <= cellAmount();
         } else if (ops > 1) {
-            return governance < 4 && troopAmount() + 5 <= cellAmount();
+            return governance == POOR && troopAmount() + 5 <= cellAmount();
+        }
+        return false;
+    }
+
+    public boolean canMinorJihad() {
+        if (getGovernance() < 4 && hasCells()) {
+            for (Cell c : getCells()) {
+                if (!c.isIdle()) {
+                    return false;
+                }
+            }
+            return true;
         }
         return false;
     }
@@ -85,8 +100,14 @@ public class MuslimCountry extends Country {
         noLongerNeedsTesting();
     }
 
+    @Override
     public void setGovernance(int governance) {
         this.governance = governance;
+        if (governance == GOOD && governance == ISLAMISTRULE) {
+            setBesiegedRegime(false);
+            this.removeAid(50); //REMOVE IT ALL
+            setRegimeChange(0);
+        }
         noLongerNeedsTesting();
     }
 
@@ -106,11 +127,11 @@ public class MuslimCountry extends Country {
 
     public void shiftGovernance(int change) {
         if (governance != 4) {
-            governance = governance + change;
+            setGovernance(governance + change);
             if (governance < 1) {
-                governance = 1;
+                setGovernance(1);
             } else if (governance > 3) {
-                governance = 3;
+                setGovernance(3);
             }
         }
     }
@@ -127,19 +148,15 @@ public class MuslimCountry extends Country {
         aid++;
     }
 
-    public boolean canMinorJihad() {
-        if (getGovernance() < 4 && hasCells()) {
-            for (Cell c : getCells()) {
-                if (!c.isIdle()) {
-                    return false;
-                }
-            }
-            return true;
+    public void removeAid(int n) {
+        aid = -n;
+        if (aid < 0) {
+            aid = 0;
         }
-        return false;
     }
 
-    public boolean attemptJihad(Cell c) {
+    //--------------------------------JIHAD-------------------------------------------------------
+    public void attemptMinorJihad(Cell c) {
         System.out.println("Attempting Jihad in " + getName());
         if (rollDie() <= getGovernance()) {
             minorJihad();
@@ -148,23 +165,52 @@ public class MuslimCountry extends Country {
             if (!c.isActive()) {
                 c.setActive(true);
             }
-            return true;
+            return;
         }
         System.out.println("Failure..");
         c.kill();
-        return false;
+        return;
     }//returns succes or failure
+
+    public void attemptMajorJihad(List<Cell> cells, int ops) {
+        for (Cell c : getCells()) {
+            c.setActive(true);
+        }
+        int succeses = 0;
+        for (int i = 0; i < ops; i++) {
+            if (rollDie() < 3) {
+                ++succeses;
+                removeAid(1);
+            } else {
+                cells.remove(0); //remove first added cell on failed roll
+            }
+        }
+        if (succeses >= 2 || (succeses >= 1 && getBesiegedRegime() == true)) {
+            majorJihad();
+        } else if (ops >= 3) {
+            majorJihadFailure();
+        }
+
+    }
+
+    private void majorJihad() {
+        //WE DID IT GUYS
+        setGovernance(ISLAMISTRULE);
+        setAlignment(A_ADVERSARY);
+        if (this.hasTroops()) {
+            Game.setPrestige(1);
+        }
+        Game.modifyFunding(getResources());
+    }
 
     private void minorJihad() {
         shiftGovernance(1);
         removeAid(1);
     }
 
-    public void removeAid(int n) {
-        aid = -n;
-        if (aid < 0) {
-            aid = 0;
-        }
+    private void majorJihadFailure() {
+        setBesiegedRegime(true);
+        shiftAlignment(1);
     }
 
 //--------------------------------OVERRIDES-----------------------------------------------------
