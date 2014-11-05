@@ -53,8 +53,9 @@ public class ExKGB extends Card{
                     caucasus.setPosture(1);
                 }
             }
-            else {
+            else {      
                 MuslimCountry centralAsia = (MuslimCountry) getCountry(CENTRALASIA);
+                centralAsia.testCountry();
                 centralAsia.shiftAlignment(1);
             }
         }
