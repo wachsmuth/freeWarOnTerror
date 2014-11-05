@@ -33,6 +33,7 @@ import freeWarOnTerror.cards.BhuttoShot;
 import freeWarOnTerror.cards.CTR;
 import freeWarOnTerror.cards.CovertAction;
 import freeWarOnTerror.cards.Darfur;
+import freeWarOnTerror.cards.FATA;
 import freeWarOnTerror.cards.FREs;
 import freeWarOnTerror.cards.FormerSovietUnion;
 import freeWarOnTerror.cards.GazaWar;
@@ -360,6 +361,7 @@ public abstract class Scenario {
         deck.addCard(new CovertAction());
         deck.addCard(new CTR());
         deck.addCard(new Darfur());
+        deck.addCard(new FATA());
         deck.addCard(new FormerSovietUnion());
         deck.addCard(new FREs());
         deck.addCard(new GazaWar());
