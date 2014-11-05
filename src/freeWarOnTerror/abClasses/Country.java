@@ -112,6 +112,13 @@ public abstract class Country extends Location {
 
         }
     }
+    
+    public void killAllCells(){
+        for (Cell c : getCells()){
+            c.kill();
+        }
+        setCadre(true);
+    }
 
     public Boolean canDeployTo() {
         return false;
