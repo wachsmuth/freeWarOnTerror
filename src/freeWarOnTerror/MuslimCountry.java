@@ -79,11 +79,11 @@ public class MuslimCountry extends Country {
     public boolean canMinorJihad() {
         if (getGovernance() < 4 && hasCells()) {
             for (Cell c : getCells()) {
-                if (!c.isIdle()) {
-                    return false;
+                if (c.isIdle()) {
+                    return true;
                 }
             }
-            return true;
+            return false;
         }
         return false;
     }

@@ -21,6 +21,7 @@ import static freeWarOnTerror.Game.getMuslimCountries;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.Players.Actions.ActionEventJihadist;
 import freeWarOnTerror.Players.Actions.ActionMajorJihad;
+import freeWarOnTerror.Players.Actions.ActionMinorJihad;
 import freeWarOnTerror.Players.Actions.ActionPlot;
 import freeWarOnTerror.Players.Actions.ActionRecruit;
 import freeWarOnTerror.abClasses.Card;
@@ -38,6 +39,7 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
         addAction(new ActionPlot());
         addAction(new ActionEventJihadist());
         addAction(new ActionMajorJihad());
+        addAction(new ActionMinorJihad());
         addAction(new ActionRecruit());
     }
 

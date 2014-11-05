@@ -23,12 +23,11 @@ import freeWarOnTerror.Countries.CountryPhilippines;
 import freeWarOnTerror.Countries.CountryUSA;
 import freeWarOnTerror.Deck;
 import freeWarOnTerror.Game;
-import freeWarOnTerror.MuslimCountry;
-import freeWarOnTerror.NonMuslimCountry;
 import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.getDrawPile;
-import freeWarOnTerror.abClasses.Country;
+import freeWarOnTerror.MuslimCountry;
+import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.cards.AlAnbar;
 import freeWarOnTerror.cards.AlAzhar;
 import freeWarOnTerror.cards.AlIttihadAlIslami;
@@ -131,6 +130,7 @@ public abstract class Scenario {
         createLists();
         createConnections();
         createDeck();
+        //getCountry(GULFSTATES).add(new Cell(getCountry(GULFSTATES))); //DEBUG
     }
 
     public String getName() {

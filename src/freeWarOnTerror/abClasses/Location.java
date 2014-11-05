@@ -47,7 +47,7 @@ public abstract class Location {
     }
     
     public Cell pickIdleCell(){
-        List<Cell> idleList = getCells();
+        List<Cell> idleList = new ArrayList<>();
         for (Cell c : getCells()){
             if (c.isIdle()){
                 idleList.add(c);

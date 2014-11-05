@@ -30,9 +30,9 @@ import java.util.List;
  *
  * @author Emil
  */
-public class ActionJihad extends Action {
+public class ActionMinorJihad extends Action {
 
-    public ActionJihad() {
+    public ActionMinorJihad() {
         super("Use ops for Jihad");
     }
 
