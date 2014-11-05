@@ -55,7 +55,7 @@ public abstract class Country extends Location {
         return 0;
     }
 
-    public void setGovernance() {
+    public void setGovernance(int governance) {
     }
 
     public void setAlignment() {

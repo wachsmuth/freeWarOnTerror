@@ -29,6 +29,7 @@ import freeWarOnTerror.cards.AlAzhar;
 import freeWarOnTerror.cards.AlIttihadAlIslami;
 import freeWarOnTerror.cards.AnbarAwakening;
 import freeWarOnTerror.cards.AnsarAlIslam;
+import freeWarOnTerror.cards.BenazirBhutto;
 import freeWarOnTerror.cards.BhuttoShot;
 import freeWarOnTerror.cards.CTR;
 import freeWarOnTerror.cards.CovertAction;
@@ -358,6 +359,7 @@ public abstract class Scenario {
         deck.addCard(new AlIttihadAlIslami());
         deck.addCard(new AnbarAwakening());
         deck.addCard(new AnsarAlIslam());
+        deck.addCard(new BenazirBhutto());
         deck.addCard(new BhuttoShot());
         deck.addCard(new CovertAction());
         deck.addCard(new CTR());
