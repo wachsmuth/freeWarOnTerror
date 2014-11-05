@@ -126,8 +126,6 @@ public abstract class Scenario {
         createDeck();
     }
 
-    public abstract void setup();
-
     public String getName() {
         return name;
     }
@@ -398,4 +396,8 @@ public abstract class Scenario {
         deck.addCard(new VieiradeMelloSlain());
         deck.addCard(new Wahhabism());
     }
+
+    //--------------------------------ABSTRACT METHODS----------------------------------------------
+    public abstract void setup();
+
 }

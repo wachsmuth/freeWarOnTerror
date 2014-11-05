@@ -40,13 +40,39 @@ public class MuslimCountry extends Country {
         this.shiaMix = shiaMix;
     }
 
-    @Override
-    public void testCountry() {
-        if (getNeedsTesting()) {
-            rollGovernance();
-            noLongerNeedsTesting();
+//--------------------------------GETTERS-------------------------------------------------------
+    public int getResources() {
+        if (oilCountry) {
+            return resources + getOilPriceSpike();
         }
+        return resources;
     }
+
+    public Boolean getShiaMix() {
+        return shiaMix;
+    }
+
+    public int getRegimeChange() {
+        return regimeChange;
+    }
+
+    public Boolean hasAid() {
+        return aid > 0;
+    }
+
+    public Boolean getBesiegedRegime() {
+        return besiegedRegime;
+    }
+
+    public boolean canMajorJihad(int ops) {
+        if (besiegedRegime) {
+            return governance < 4 && troopAmount() + 5 <= cellAmount();
+        } else if (ops > 1) {
+            return governance < 4 && troopAmount() + 5 <= cellAmount();
+        }
+        return false;
+    }
+//--------------------------------SETTERS-------------------------------------------------------
 
     public void rollGovernance() {
         alignment = 2;
@@ -89,76 +115,59 @@ public class MuslimCountry extends Country {
         }
     }
 
-    @Override
-    public void setGovernanceAndAlignment(int governance, int alignment) {
-        this.governance = governance;
-        this.alignment = alignment;
-        noLongerNeedsTesting();
-    }
-
-    @Override
-    public int getGovernance() {
-        return governance;
-    }
-
-    @Override
-    public Boolean canDeployTo() {
-        return alignment == 1 && governance < 4;
-    }
-
-    @Override
-    public boolean canDeployFrom() {
-        if (!hasTroops()) {
-            return false;
-        } else if (regimeChange > 0 && troopAmount() <= cellAmount() + 5) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public int getAlignment() {
-        return alignment;
-    }
-
-    public int getResources() {
-        if (oilCountry) {
-            return resources + getOilPriceSpike();
-        }
-        return resources;
-    }
-
-    public Boolean getShiaMix() {
-        return shiaMix;
-    }
-
-    public Boolean getBesiegedRegime() {
-        return besiegedRegime;
-    }
-
     public void setBesiegedRegime(Boolean bool) {
         besiegedRegime = bool;
-    }
-
-    public int getRegimeChange() {
-        return regimeChange;
     }
 
     public void setRegimeChange(int regimeChange) {
         this.regimeChange = regimeChange;
     }
 
-    @Override
-    public Boolean canWarOfIdeas(int ops) {
-        if (governance == 1 && alignment == 1) {
-            return false;
-        }
-        else if (needsTesting() && ops == 1){
-            return false;
-        }
-        return ops >= governance && alignment < 3;
+    public void addAid() {
+        aid++;
     }
 
+    public boolean canMinorJihad() {
+        if (getGovernance() < 4 && hasCells()) {
+            for (Cell c : getCells()) {
+                if (!c.isIdle()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public boolean attemptJihad(Cell c) {
+        System.out.println("Attempting Jihad in " + getName());
+        if (rollDie() <= getGovernance()) {
+            minorJihad();
+            System.out.println("Succes!");
+            //Cell to active
+            if (!c.isActive()) {
+                c.setActive(true);
+            }
+            return true;
+        }
+        System.out.println("Failure..");
+        c.kill();
+        return false;
+    }//returns succes or failure
+
+    private void minorJihad() {
+        shiftGovernance(1);
+        removeAid(1);
+    }
+
+    public void removeAid(int n) {
+        aid = -n;
+        if (aid < 0) {
+            aid = 0;
+        }
+    }
+
+//--------------------------------OVERRIDES-----------------------------------------------------
     @Override
     public void warOfIdeas() {
         testCountry();
@@ -210,64 +219,46 @@ public class MuslimCountry extends Country {
         }
     }
 
-    public void addAid() {
-        aid++;
+    @Override
+    public void setGovernanceAndAlignment(int governance, int alignment) {
+        this.governance = governance;
+        this.alignment = alignment;
+        noLongerNeedsTesting();
     }
 
-    public Boolean hasAid() {
-        return aid > 0;
+    @Override
+    public int getGovernance() {
+        return governance;
     }
 
-    public boolean canMinorJihad() {
-        if (getGovernance() < 4 && hasCells()){
-            for (Cell c : getCells()){
-                if (!c.isIdle()){
-                    return false;
-                }
-            }
-            return true;
+    @Override
+    public Boolean canDeployTo() {
+        return alignment == 1 && governance < 4;
+    }
+
+    @Override
+    public boolean canDeployFrom() {
+        if (!hasTroops()) {
+            return false;
+        } else if (regimeChange > 0 && troopAmount() <= cellAmount() + 5) {
+            return false;
         }
-        return false;
+        return true;
     }
 
-    //returns succes or failure
-    public boolean attemptJihad(Cell c) {
-        System.out.println("Attempting Jihad in " + getName());
-        if (rollDie() <= getGovernance()) {
-            minorJihad();
-            System.out.println("Succes!");
-            //Cell to active
-            if (!c.isActive()){
-                c.setActive(true);
-            }
-            return true;
+    @Override
+    public int getAlignment() {
+        return alignment;
+    }
+
+    @Override
+    public Boolean canWarOfIdeas(int ops) {
+        if (governance == 1 && alignment == 1) {
+            return false;
+        } else if (needsTesting() && ops == 1) {
+            return false;
         }
-        System.out.println("Failure..");
-        c.kill();
-        return false;
-    }
-
-    private void minorJihad() {
-        shiftGovernance(1);
-        removeAid(1);
-    }
-
-    public void removeAid(int n) {
-        aid = -n;
-        if (aid < 0) {
-            aid = 0;
-        }
-    }
-    
-    
-
-    public boolean canMajorJihad(int ops) {
-        if (besiegedRegime) {
-            return governance < 4 && troopAmount() + 5 <= cellAmount();
-        } else if (ops > 1) {
-            return governance < 4 && troopAmount() + 5 <= cellAmount();
-        }
-        return false;
+        return ops >= governance && alignment < 3;
     }
 
     @Override
@@ -321,4 +312,13 @@ public class MuslimCountry extends Country {
             return governance;
         }
     }
+
+    @Override
+    public void testCountry() {
+        if (getNeedsTesting()) {
+            rollGovernance();
+            noLongerNeedsTesting();
+        }
+    }
+
 }

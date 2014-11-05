@@ -30,15 +30,31 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
         this.schengen = schengen;
     }
 
+//--------------------------------GETTERS-------------------------------------------------------
+    public int getPosture() {
+        return posture;
+    }
+
+    public Boolean getSchengen() {
+        return schengen;
+    }
+//--------------------------------SETTERS-------------------------------------------------------
+
     public void setPosture(int gwot) {
         posture = gwot;
         noLongerNeedsTesting();
     }
 
-    public int getPosture() {
-        return posture;
+    public void rollPosture() {
+        if (4 >= Die.rollDie()) {
+            posture = -1;
+        } else {
+            posture = 1;
+        }
+        noLongerNeedsTesting();
     }
 
+//--------------------------------OVERRIDES-----------------------------------------------------
     @Override
     public int getRecruit() {
         return recruit;
@@ -51,19 +67,10 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
 
     @Override
     public void testCountry() {
-        if (getNeedsTesting()){
-        rollPosture();
-        noLongerNeedsTesting();
+        if (getNeedsTesting()) {
+            rollPosture();
+            noLongerNeedsTesting();
         }
-    }
-
-    public void rollPosture() {
-        if (4 >= Die.rollDie()) {
-            posture = -1;
-        } else {
-            posture = 1;
-        }
-        noLongerNeedsTesting();
     }
 
     @Override
@@ -80,10 +87,6 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
             modifyPrestige(1);
         }
 
-    }
-
-    public Boolean getSchengen() {
-        return schengen;
     }
 
     @Override
@@ -119,24 +122,21 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
     @Override
     public String toString() {
         String string = super.toString();
-        
-            if (governance == 1){
-                string += "Good";
-            }
-            else {
-                string += "Fair";
-            }
-            string += " ";
-            if (needsTesting()){
-                string += "Untested";
-            }
-            else if (posture == 1){
-                string += "Hard";
-            }
-            else {
-                string += "Soft";
-            }
-        
+
+        if (governance == 1) {
+            string += "Good";
+        } else {
+            string += "Fair";
+        }
+        string += " ";
+        if (needsTesting()) {
+            string += "Untested";
+        } else if (posture == 1) {
+            string += "Hard";
+        } else {
+            string += "Soft";
+        }
+
         return appendString(string) + moveablesString() + eventsToString();
     }
 }

@@ -51,6 +51,7 @@ public class Turn {
         firstPlot = true;
     }
 
+//--------------------------------PUBLIC-------------------------------------------------------
     public void startTurn() {
         System.out.println("Turn: " + Game.getTurnNumber());
         System.out.println("Draw Phase");
@@ -80,6 +81,7 @@ public class Turn {
     public void setFirstPlot(boolean firstPlot) {
         this.firstPlot = firstPlot;
     }
+//--------------------------------PRIVATE-------------------------------------------------------
 
     private void drawPhase() {
         Game.getJihadist().drawPhase();
