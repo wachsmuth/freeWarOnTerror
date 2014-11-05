@@ -312,6 +312,9 @@ public class Game {
                     discardPile.removeCard(card);
                 }
             }
+            if (card.isMark()){
+                markedEvents.add(card);
+            }
         }
         if (!remove && !discardPile.hasCard(card)) {
             discardPile.addCard(card);

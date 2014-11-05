@@ -45,6 +45,5 @@ public class PatriotAct extends Card {
             getCountry(UNITEDSTATES).removeAdjacentCountry(c);
             c.removeAdjacentCountry(getCountry(UNITEDSTATES));
         }
-        addToPlay();
     }
 }

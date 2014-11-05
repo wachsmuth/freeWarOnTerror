@@ -87,10 +87,6 @@ public abstract class Card {
         return string;
     }
     
-    public void addToPlay(){
-        addCardToPlay(this);
-    }
-
     public int getId() {
         return id;
     }

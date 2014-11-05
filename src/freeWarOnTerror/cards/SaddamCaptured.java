@@ -43,6 +43,5 @@ public class SaddamCaptured extends Card {
       MuslimCountry iraq = (MuslimCountry) getCountry(IRAQ);
       iraq.addAid();
       modifyPrestige(1);
-      addToPlay();
     }
 }

@@ -37,6 +37,5 @@ public class BhuttoShot extends Card {
     
     @Override
     public void playEvent(){
-        addToPlay();
     }
 }

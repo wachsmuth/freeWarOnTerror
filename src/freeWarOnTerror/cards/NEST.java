@@ -25,13 +25,12 @@ import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
  * @author Emil
  */
 public class NEST extends Card {
-    
-    public NEST(){
+
+    public NEST() {
         super("NEST", 1, 2, true, true, NEST, UNITEDSTATES);
     }
-    
+
     @Override
-    public void playEvent(){
-        addToPlay(); //note: the functionality of the card not implemented yet.
+    public void playEvent() { //note: the functionality of the card not implemented yet.
     }
 }

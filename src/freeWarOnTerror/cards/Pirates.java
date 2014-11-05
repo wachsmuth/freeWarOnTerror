@@ -39,6 +39,5 @@ public class Pirates extends Card {
     
     @Override
     public void playEvent(){
-        addToPlay();
     }
 }

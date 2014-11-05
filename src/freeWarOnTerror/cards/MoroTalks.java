@@ -39,6 +39,5 @@ public class MoroTalks extends Card {
         getCountry(PHILIPPINES).testCountry();
         modifyFunding(-1);
         removeCardFromPlay(ABUSAYYAF);
-        addToPlay();
     }
 }
