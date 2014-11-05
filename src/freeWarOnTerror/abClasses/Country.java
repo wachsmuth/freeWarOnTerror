@@ -57,7 +57,7 @@ public abstract class Country extends Location {
         return false;
     }
 
-    public Boolean canDeployTo() {
+    public Boolean canDeployTo(int ops) {
         return false;
     }
 
@@ -73,7 +73,7 @@ public abstract class Country extends Location {
         return cadre || hasCells();
     }
 
-    public boolean canPlot() { //NOTE: This method works for both minor jihad (if used on only Muslim countries) and plotting.
+    public boolean canPlot() { 
         return getGovernance() < 4 && hasCells();
     }
 
