@@ -17,10 +17,16 @@
 package freeWarOnTerror.cards;
 
 import static freeWarOnTerror.Game.getCountry;
+import static freeWarOnTerror.Game.modifyPrestige;
+import static freeWarOnTerror.Game.removeCardFromPlay;
+import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CONSTANTS.ALANBAR;
 import static freeWarOnTerror.helpers.CONSTANTS.ANBARAWAKENING;
 import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
 import static freeWarOnTerror.helpers.CONSTANTS.SYRIA;
+import static freeWarOnTerror.helpers.InputLoop.inputLoop;
+import java.util.ArrayList;
 
 /**
  *
@@ -39,6 +45,22 @@ public class AnbarAwakening extends Card {
     
     @Override
     public void playEvent(){
-        //DEBUG TBD
+        if (getCountry(IRAQ).hasTroops() && getCountry(SYRIA).hasTroops()){
+            System.out.println("Choose a country for aid");
+            ArrayList<MuslimCountry> iraqAndSyria = new ArrayList<>();
+            iraqAndSyria.add((MuslimCountry) getCountry(IRAQ));
+            iraqAndSyria.add((MuslimCountry) getCountry(SYRIA));
+            inputLoop(iraqAndSyria).addAid();
+        }
+        else if (getCountry(IRAQ).hasTroops()){
+            MuslimCountry iraq = (MuslimCountry) getCountry(IRAQ);
+            iraq.addAid();
+        }
+        else {
+            MuslimCountry syria = (MuslimCountry) getCountry(SYRIA);
+            syria.addAid();
+        }
+        modifyPrestige(1);
+        removeCardFromPlay(ALANBAR);
     }
 }
