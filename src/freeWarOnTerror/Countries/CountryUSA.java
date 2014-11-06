@@ -20,6 +20,7 @@ import freeWarOnTerror.Game;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.Plot;
 import static freeWarOnTerror.helpers.CONSTANTS.WMD;
+import static freeWarOnTerror.helpers.Die.rollDie;
 
 /**
  *
@@ -45,7 +46,18 @@ public class CountryUSA extends NonMuslimCountry {
                 return;
             }
         }
-        //Else handle like normal
+        //DEBUG! Works very differently.
         super.resolvePlots();
     }
+    
+    @Override
+    public void rollPosture(){
+        if (rollDie() > 3){
+            setPosture(1);
+        }
+        else {
+            setPosture(-1);
+        }
+    }
+    
 }
