@@ -16,37 +16,59 @@
  */
 package freeWarOnTerror.Players.Actions;
 
+import static freeWarOnTerror.Game.discard;
 import static freeWarOnTerror.Game.getUS;
+import static freeWarOnTerror.Game.isPostureHard;
+import static freeWarOnTerror.Game.playCard;
+import static freeWarOnTerror.Game.setPostureHard;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.InputLoop.inputLoop;
+import java.util.ArrayList;
 
 /**
  *
  * @author Emil
  */
 public class ActionReassessment extends Action {
-    
-    public ActionReassessment(){
+
+    public ActionReassessment() {
         super("Use two cards for reassessment");
     }
-    
+
     @Override
-    public boolean canDoAction(Card c){
+    public boolean canDoAction(Card c) {
         if (c.getRealOps() < 3) {
             return false;
         }
         int noOf3Ops = 0;
         for (Card card : getUS().getHand()) {
-            if (card.getRealOps() > 2) {
+            if (card.getRealOps() > 2 && card != c) {
                 noOf3Ops++;
             }
         }
         //DEBUG make it illegal to use reserves here.
         return noOf3Ops > 1;
     }
-    
+
     @Override
-    public void performAction(Card c){
-        //DEBUG this needs to do something
+    public void performAction(Card c) {
+        ArrayList<Card> threeOps = new ArrayList<>();
+        for (Card card : getUS().getHand()) {
+            if (card.getRealOps() > 2 && card != c) {
+                threeOps.add(card);
+            }
+
+            
+
+        }
+        Card target = (inputLoop(threeOps));
+        if (target.getAlignment() == 0 || target.getAlignment() == 3){
+            playCard(target);
+        }
+        else {
+            discard(target);
+        }
+        setPostureHard(!isPostureHard());
     }
 }
