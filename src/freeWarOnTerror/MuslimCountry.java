@@ -90,6 +90,7 @@ public class MuslimCountry extends Country {
         noLongerNeedsTesting();
     }
 
+    @Override
     public void setAlignment(int alignment) {
         this.alignment = alignment;
         noLongerNeedsTesting();
@@ -133,7 +134,7 @@ public class MuslimCountry extends Country {
             aid = 0;
         }
     }
-
+    
     //--------------------------------JIHAD-------------------------------------------------------
     public boolean canMajorJihad(int ops) {
         if (besiegedRegime) {
@@ -213,6 +214,12 @@ public class MuslimCountry extends Country {
         shiftAlignment(1);
     }
 
+//-------------------------------REGIME-CHANGE-------------------------------------------------
+    
+    public boolean canRegimeChange(){
+        return governance == ISLAMISTRULE;
+    }
+ 
 //--------------------------------OVERRIDES-----------------------------------------------------
     @Override
     public void warOfIdeas() {
