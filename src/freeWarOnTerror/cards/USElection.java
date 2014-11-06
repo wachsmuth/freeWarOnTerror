@@ -29,7 +29,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.USELECTION;
 public class USElection extends Card {
     
     public USElection(){
-        super("US Election", 3, 1, false, false, USELECTION);
+        super("US Election", 3, 0, false, false, USELECTION);
     }
     
     @Override
