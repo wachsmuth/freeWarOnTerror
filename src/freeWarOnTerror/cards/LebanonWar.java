@@ -50,8 +50,8 @@ public class LebanonWar extends Card {
                     shiaCountries.add(c);
                 }
             }
-           
-            placeCell(inputLoop("Choose a country to place a cell in", shiaCountries));
+            System.out.println("Choose a country to place a cell in");
+            placeCell(inputLoop(shiaCountries));
         }
     }
 }
