@@ -18,8 +18,10 @@ package freeWarOnTerror.Players;
 
 import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getTroops;
+import freeWarOnTerror.Players.Actions.ActionAlert;
 import freeWarOnTerror.Players.Actions.ActionDeploy;
 import freeWarOnTerror.Players.Actions.ActionEventUS;
+import freeWarOnTerror.Players.Actions.ActionReassessment;
 import freeWarOnTerror.Players.Actions.ActionWarOfIdeas;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
@@ -37,6 +39,8 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
         addAction(new ActionEventUS());
         addAction(new ActionWarOfIdeas());
         addAction(new ActionDeploy());
+        addAction(new ActionReassessment());
+        addAction(new ActionAlert());
 
     }
 
@@ -51,20 +55,6 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
             }
         }
         return false;
-    }
-
-    public boolean canReassess(int ops) {
-        if (ops < 3) {
-            return false;
-        }
-        int noOf3Ops = 0;
-        for (Card c : getHand()) {
-            if (c.getOps() > 2) {
-                noOf3Ops++;
-            }
-        }
-        //DEBUG make it illegal to use reserves here.
-        return noOf3Ops > 2;
     }
     //--------------------------------ACTIONS-----------------------------------------------------
 
