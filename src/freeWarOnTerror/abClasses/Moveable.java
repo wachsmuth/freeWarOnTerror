@@ -1,3 +1,5 @@
+
+
 /*
  * Copyright (C) 2014 Emil
  *
@@ -21,20 +23,29 @@ package freeWarOnTerror.abClasses;
  * @author Emil
  */
 public abstract class Moveable {
-    
+
     Location myLocation;
-    
-    public Moveable(Location myLocation){
+
+    public Moveable(){
+        //Empty constructor
+    }
+    public Moveable(Location myLocation) {
         this.myLocation = myLocation;
     }
-    
-    public Location getLocation(){
+
+    public Location getLocation() {
         return myLocation;
     }
-    
-    public void move(Location l){
-        myLocation.remove(this);
-        l.add(this);
+
+    public void move(Location l) {
+        if (myLocation == null) {
+            myLocation = l;
+            l.add(this);
+        } else {
+            myLocation.remove(this);
+            myLocation = l;
+            myLocation.add(this);
+        }
     }
-    
+
 }
