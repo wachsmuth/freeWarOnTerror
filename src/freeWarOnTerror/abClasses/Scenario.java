@@ -144,7 +144,7 @@ public abstract class Scenario {
         return name;
     }
 
-    private void createWorld() { //sample code, WIP
+    protected void createWorld() { //sample code, WIP
         //Muslim countries
         countries.add(new MuslimCountry("Somalia", CONSTANTS.SOMALIA, 1, false, false));
         countries.add(new MuslimCountry("Sudan", CONSTANTS.SUDAN, 1, true, false));
@@ -190,7 +190,7 @@ public abstract class Scenario {
 
     }
 
-    private void createLists() {
+    protected void createLists() {
         for (Country c : countries) {
             if (c instanceof NonMuslimCountry) {
                 NonMuslimCountry x = (NonMuslimCountry) c;
@@ -216,7 +216,7 @@ public abstract class Scenario {
 
     }
 
-    private void createConnections() {
+    protected void createConnections() {
         //United States
         getCountry(UNITEDSTATES).addAdjacentCountry(getCountry(CANADA));
         getCountry(UNITEDSTATES).addAdjacentCountry(getCountry(PHILIPPINES));
@@ -367,7 +367,7 @@ public abstract class Scenario {
         getCountry(MOROCCO).addAdjacentCountries(schengenCountries);
     }
 
-    public void createDeck() { //sample code, WIP
+    protected void createDeck() { //sample code, WIP
         deck.addCard(new AbuSayyaf());
         deck.addCard(new AlAnbar());
         deck.addCard(new AlAzhar());
