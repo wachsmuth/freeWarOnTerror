@@ -68,6 +68,7 @@ import freeWarOnTerror.cards.Pirates;
 import freeWarOnTerror.cards.RegionalAlQaeda;
 import freeWarOnTerror.cards.Saddam;
 import freeWarOnTerror.cards.SaddamCaptured;
+import freeWarOnTerror.cards.Saleh;
 import freeWarOnTerror.cards.Sanctions;
 import freeWarOnTerror.cards.SchroederAndChirac;
 import freeWarOnTerror.cards.Sistani;
@@ -404,6 +405,7 @@ public abstract class Scenario {
         deck.addCard(new RegionalAlQaeda());
         deck.addCard(new Saddam());
         deck.addCard(new SaddamCaptured());
+        deck.addCard(new Saleh());
         deck.addCard(new Sanctions());
         deck.addCard(new Sanctions());
         deck.addCard(new SchroederAndChirac());
