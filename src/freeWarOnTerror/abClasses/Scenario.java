@@ -40,6 +40,7 @@ import freeWarOnTerror.cards.BhuttoShot;
 import freeWarOnTerror.cards.CTR;
 import freeWarOnTerror.cards.CovertAction;
 import freeWarOnTerror.cards.Darfur;
+import freeWarOnTerror.cards.EthiopiaStrikes;
 import freeWarOnTerror.cards.EuroIslam;
 import freeWarOnTerror.cards.ExKGB;
 import freeWarOnTerror.cards.FATA;
@@ -377,6 +378,7 @@ public abstract class Scenario {
         deck.addCard(new CovertAction());
         deck.addCard(new CTR());
         deck.addCard(new Darfur());
+        deck.addCard(new EthiopiaStrikes());
         deck.addCard(new EuroIslam());
         deck.addCard(new ExKGB());
         deck.addCard(new FATA());
