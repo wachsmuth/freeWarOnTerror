@@ -7,10 +7,7 @@ package freeWarOnTerror.abClasses;
 
 import freeWarOnTerror.Cell;
 import static freeWarOnTerror.Game.getCardsInPlay;
-import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.NonMuslimCountry;
-import freeWarOnTerror.Plot;
-import freeWarOnTerror.Troop;
 import static freeWarOnTerror.helpers.AppendToString.appendString;
 import java.util.ArrayList;
 
@@ -135,12 +132,8 @@ public abstract class Country extends Location {
     public void add(Moveable m) {
         if (m instanceof Cell) {
             testCountry();
-            getCells().add((Cell) m);
-        } else if (m instanceof Plot) {
-            getPlots().add((Plot) m);
-        } else if (m instanceof Troop) {
-            getTroops().add((Troop) m);
         }
+        super.add(m);
     }
 
     public void setGovernance(int governance) {

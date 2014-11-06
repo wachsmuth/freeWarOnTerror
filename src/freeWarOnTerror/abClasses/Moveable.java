@@ -26,26 +26,23 @@ public abstract class Moveable {
 
     Location myLocation;
 
-    public Moveable(){
+    public Moveable(Location l){
         //Empty constructor
-    }
-    public Moveable(Location myLocation) {
-        this.myLocation = myLocation;
+        this.addTo(l);
     }
 
     public Location getLocation() {
         return myLocation;
     }
+    
+    private void addTo(Location l){
+        myLocation = l;
+        l.add(this);
+    }
 
     public void move(Location l) {
-        if (myLocation == null) {
-            myLocation = l;
-            l.add(this);
-        } else {
             myLocation.remove(this);
             myLocation = l;
             myLocation.add(this);
         }
     }
-
-}

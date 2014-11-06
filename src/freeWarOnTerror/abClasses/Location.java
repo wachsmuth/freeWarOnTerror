@@ -17,7 +17,6 @@
 package freeWarOnTerror.abClasses;
 
 import freeWarOnTerror.Cell;
-import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.Plot;
 import freeWarOnTerror.Troop;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
@@ -34,30 +33,29 @@ public abstract class Location {
     private final ArrayList<Plot> plots = new ArrayList<>();
     private final ArrayList<Troop> troops = new ArrayList<>();
 //--------------------------------GETTERS-------------------------------------------------------
-
-    public ArrayList<Plot> getPlots() {
+    public List<Plot> getPlots() {
         return plots;
     }
 
-    public ArrayList<Cell> getCells() {
+    public List<Cell> getCells() {
         return cells;
     }
 
-    public ArrayList<Troop> getTroops() {
+    public List<Troop> getTroops() {
         return troops;
     }
-    
-    public Cell pickIdleCell(){
+
+    public Cell pickIdleCell() {
         List<Cell> idleList = new ArrayList<>();
         //Checks
-        if (cellAmount() == 1){
+        if (cellAmount() == 1) {
             cells.get(0).setIdle(false);
             return cells.get(0);
-        } else if (cellAmount()== 0){
+        } else if (cellAmount() == 0) {
             return null;
         }
-        for (Cell c : getCells()){
-            if (c.isIdle()){
+        for (Cell c : getCells()) {
+            if (c.isIdle()) {
                 idleList.add(c);
             }
         }
@@ -65,36 +63,32 @@ public abstract class Location {
         reCell.setIdle(false);
         return reCell;
     }
-    
+
+    //Troops
     public int troopAmount() {
         return troops.size();
     }
 
     public Boolean hasTroops() {
-        return troops.size() > 0;
-    }
-    
-        public int noCanDeployFrom() {
-        if (this instanceof MuslimCountry){
-            MuslimCountry country = (MuslimCountry) this;
-            if (country.getRegimeChange() > 0){
-                return troopAmount()-cellAmount();
-            }
-        }
-        return troopAmount();
+        return !troops.isEmpty();
     }
 
+    public int noCanDeployFrom() {
+        return troopAmount(); //Overriden in muslimcountry
+    }
 
+    //CELLS
     public int cellAmount() {
         return cells.size();
     }
 
     public Boolean hasCells() {
-        return cells.size() > 0;
+        return !cells.isEmpty();
     }
 
+    //plots
     public Boolean hasPlots() {
-        return plots.size() > 0;
+        return !plots.isEmpty();
     }
 
     public int plotAmount() {
@@ -114,11 +108,23 @@ public abstract class Location {
 
     public void add(Moveable m) {
         if (m instanceof Cell) {
-            cells.add((Cell) m);
+            Cell c = (Cell) m;
+            if (cells.contains(c)) {
+                return;
+            }
+            cells.add(c);
         } else if (m instanceof Plot) {
-            plots.add((Plot) m);
+            Plot p = (Plot) m;
+            if (plots.contains(p)) {
+                return;
+            }
+            plots.add(p);
         } else if (m instanceof Troop) {
-            troops.add((Troop) m);
+            Troop t = (Troop) m;
+            if (troops.contains(t)) {
+                return;
+            }
+            troops.add(t);
         }
     }
 
