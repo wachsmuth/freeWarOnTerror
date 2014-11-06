@@ -46,6 +46,7 @@ import freeWarOnTerror.cards.FATA;
 import freeWarOnTerror.cards.FREs;
 import freeWarOnTerror.cards.FormerSovietUnion;
 import freeWarOnTerror.cards.GazaWar;
+import freeWarOnTerror.cards.GazaWithdrawal;
 import freeWarOnTerror.cards.HaririKilled;
 import freeWarOnTerror.cards.Hijab;
 import freeWarOnTerror.cards.HizbUtTahrir;
@@ -381,6 +382,7 @@ public abstract class Scenario {
         deck.addCard(new FormerSovietUnion());
         deck.addCard(new FREs());
         deck.addCard(new GazaWar());
+        deck.addCard(new GazaWithdrawal());
         deck.addCard(new HaririKilled());
         deck.addCard(new Hijab());
         deck.addCard(new HizbUtTahrir());
