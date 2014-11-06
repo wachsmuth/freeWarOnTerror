@@ -69,6 +69,7 @@ import freeWarOnTerror.cards.SaddamCaptured;
 import freeWarOnTerror.cards.Sanctions;
 import freeWarOnTerror.cards.SchroederAndChirac;
 import freeWarOnTerror.cards.Sistani;
+import freeWarOnTerror.cards.USElection;
 import freeWarOnTerror.cards.UyghurJihad;
 import freeWarOnTerror.cards.VieiradeMelloSlain;
 import freeWarOnTerror.cards.Wahhabism;
@@ -403,6 +404,7 @@ public abstract class Scenario {
         deck.addCard(new Sanctions());
         deck.addCard(new SchroederAndChirac());
         deck.addCard(new Sistani());
+        deck.addCard(new USElection());
         deck.addCard(new UyghurJihad());
         deck.addCard(new VieiradeMelloSlain());
         deck.addCard(new Wahhabism());
