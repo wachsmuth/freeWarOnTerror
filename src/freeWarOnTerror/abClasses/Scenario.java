@@ -52,6 +52,7 @@ import freeWarOnTerror.cards.HizbUtTahrir;
 import freeWarOnTerror.cards.Homegrown;
 import freeWarOnTerror.cards.IEDs;
 import freeWarOnTerror.cards.JemaahIslamiya;
+import freeWarOnTerror.cards.Kashmir;
 import freeWarOnTerror.cards.KemalistRepublic;
 import freeWarOnTerror.cards.KingAbdullah;
 import freeWarOnTerror.cards.Kosovo;
@@ -386,6 +387,7 @@ public abstract class Scenario {
         deck.addCard(new Homegrown());
         deck.addCard(new IEDs());
         deck.addCard(new JemaahIslamiya());
+        deck.addCard(new Kashmir());
         deck.addCard(new KemalistRepublic());
         deck.addCard(new KingAbdullah());
         deck.addCard(new Kosovo());
