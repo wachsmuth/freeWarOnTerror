@@ -64,6 +64,7 @@ import freeWarOnTerror.cards.MassTurnout;
 import freeWarOnTerror.cards.MoroTalks;
 import freeWarOnTerror.cards.MossadAndShinBet;
 import freeWarOnTerror.cards.NEST;
+import freeWarOnTerror.cards.Opium;
 import freeWarOnTerror.cards.PakistaniOffensive;
 import freeWarOnTerror.cards.PatriotAct;
 import freeWarOnTerror.cards.Pirates;
@@ -403,6 +404,7 @@ public abstract class Scenario {
         deck.addCard(new MoroTalks());
         deck.addCard(new MossadAndShinBet());
         deck.addCard(new NEST());
+        deck.addCard(new Opium());
         deck.addCard(new PakistaniOffensive());
         deck.addCard(new PatriotAct());
         deck.addCard(new Pirates());
