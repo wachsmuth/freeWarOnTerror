@@ -172,7 +172,7 @@ public class Game {
             return !(funding < 4 && track.cellAmount() < 11);
         }
     }
-
+    
     public static int getGlobalPosture() {
         calculateGlobalPosture();
         return globalPosture;
@@ -243,6 +243,11 @@ public class Game {
         } else {
             usa.setPosture(-1);
         }
+    }
+    
+    public static void rollUSPosture(){
+        CountryUSA us = (CountryUSA) getCountry(UNITEDSTATES);
+        us.rollPosture();
     }
 
     public static Country getCountry(int id) {

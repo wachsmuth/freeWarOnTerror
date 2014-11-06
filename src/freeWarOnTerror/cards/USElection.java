@@ -16,12 +16,10 @@
  */
 package freeWarOnTerror.cards;
 
-import freeWarOnTerror.Countries.CountryUSA;
-import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.getPosturePenalty;
 import static freeWarOnTerror.Game.modifyPrestige;
+import static freeWarOnTerror.Game.rollUSPosture;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
 import static freeWarOnTerror.helpers.CONSTANTS.USELECTION;
 
 /**
@@ -36,8 +34,7 @@ public class USElection extends Card {
     
     @Override
     public void playEvent(){
-        CountryUSA us = (CountryUSA) getCountry(UNITEDSTATES);
-        us.rollPosture();
+        rollUSPosture();
         if (getPosturePenalty() == 0){
             modifyPrestige(1);
         }
