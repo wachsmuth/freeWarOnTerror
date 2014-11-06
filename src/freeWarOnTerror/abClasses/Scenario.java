@@ -28,6 +28,7 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.getDrawPile;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.NonMuslimCountry;
+import freeWarOnTerror.cards.AbuSayyaf;
 import freeWarOnTerror.cards.AlAnbar;
 import freeWarOnTerror.cards.AlAzhar;
 import freeWarOnTerror.cards.AlIttihadAlIslami;
@@ -360,6 +361,7 @@ public abstract class Scenario {
     }
 
     public void createDeck() { //sample code, WIP
+        deck.addCard(new AbuSayyaf());
         deck.addCard(new AlAnbar());
         deck.addCard(new AlAzhar());
         deck.addCard(new AlIttihadAlIslami());
