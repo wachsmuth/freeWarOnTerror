@@ -45,6 +45,9 @@ public abstract class Card {
     }
 
     public int getOps() {
+        if (ops + reserves > 3){
+            return 3;
+        }
         return ops + reserves;
     }
 
