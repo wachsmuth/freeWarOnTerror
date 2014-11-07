@@ -22,6 +22,7 @@ import freeWarOnTerror.Players.Actions.ActionAlert;
 import freeWarOnTerror.Players.Actions.ActionDeploy;
 import freeWarOnTerror.Players.Actions.ActionEventUS;
 import freeWarOnTerror.Players.Actions.ActionReassessment;
+import freeWarOnTerror.Players.Actions.ActionReservesAdd;
 import freeWarOnTerror.Players.Actions.ActionWarOfIdeas;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
@@ -41,6 +42,7 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
         addAction(new ActionDeploy());
         addAction(new ActionReassessment());
         addAction(new ActionAlert());
+        addAction(new ActionReservesAdd(this));
 
     }
 
