@@ -78,11 +78,7 @@ public class ActionDeploy extends Action {
         }
         System.out.println("Choose origin: ");
         Location origin = inputLoop(possibleOrigins);
-        for (Location l : possibleDestinations) {
-            if (l == origin) {
-                possibleDestinations.remove(l);
-            }
-        }
+        possibleDestinations.remove(origin);
         System.out.println("Choose destination: ");
         Location destination = inputLoop(possibleDestinations);
         System.out.println("Choose amount of troops to deploy: ");

@@ -33,15 +33,15 @@ public abstract class Location {
     private final ArrayList<Plot> plots = new ArrayList<>();
     private final ArrayList<Troop> troops = new ArrayList<>();
 //--------------------------------GETTERS-------------------------------------------------------
-    public List<Plot> getPlots() {
+    public ArrayList<Plot> getPlots() {
         return plots;
     }
 
-    public List<Cell> getCells() {
+    public ArrayList<Cell> getCells() {
         return cells;
     }
 
-    public List<Troop> getTroops() {
+    public ArrayList<Troop> getTroops() {
         return troops;
     }
 

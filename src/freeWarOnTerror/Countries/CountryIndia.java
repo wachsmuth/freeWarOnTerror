@@ -14,45 +14,27 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package freeWarOnTerror;
+package freeWarOnTerror.Countries;
 
-import freeWarOnTerror.abClasses.Location;
-import freeWarOnTerror.abClasses.Moveable;
+import static freeWarOnTerror.Game.removeCardFromPlay;
+import freeWarOnTerror.NonMuslimCountry;
+import static freeWarOnTerror.helpers.CONSTANTS.INDOPAKISTANITALKS;
 
 /**
  *
  * @author Emil
  */
-public class Plot extends Moveable{
+public class CountryIndia extends NonMuslimCountry {
     
-    private final int type; //Type 1, 2, 3 = strength; Variable WMD is 4
-    private boolean faceUp;
-       private boolean backlash = false;
-    
-    public Plot (Location l, int type){
-        super(l);
-        this.type = type;
+    public CountryIndia(String name, int id, int governance, int recruit, boolean schengen){
+        super(name, id, governance, recruit, schengen);
     }
     
-    public int getType(){
-        return type;
+        @Override
+    public void resolvePlots(){
+        if (hasPlots()){
+            removeCardFromPlay(INDOPAKISTANITALKS);
+        }
+        super.resolvePlots();
     }
-
-    public boolean isFaceUp() {
-        return faceUp;
-    }
-
-    public void setFaceUp(boolean faceUp) {
-        this.faceUp = faceUp;
-    }
-
-    public boolean isBacklash() {
-        return backlash;
-    }
-
-    public void setBacklash(boolean backlash) {
-        this.backlash = backlash;
-    }
-    
-    
 }

@@ -20,6 +20,7 @@ import static freeWarOnTerror.Game.getAllCountries;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
+import java.util.ArrayList;
 
 /**
  *
@@ -44,6 +45,14 @@ public class ActionPlot extends Action {
     
     @Override
     public void performAction(Card c){
-        //DEBUG TO DO
+        ArrayList<Country> eligibleCountries = new ArrayList<>();
+        for (Country country : getAllCountries()) {
+            if (country.canPlot()) {
+                eligibleCountries.add(country);
+            }
+        }
+        
+        //DEBUG make cells not idle!
+        
     }
 }

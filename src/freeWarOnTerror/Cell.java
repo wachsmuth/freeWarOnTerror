@@ -17,7 +17,7 @@ public class Cell extends Moveable {
 
     private Boolean active = false;
     private boolean idle = true;
-    private boolean backlash = false;
+ 
 
     public Cell(Location l) {
         super(l);
@@ -36,9 +36,6 @@ public class Cell extends Moveable {
         return active;
     }
 
-    public boolean isBacklash() {
-        return backlash;
-    }
 //--------------------------------SETTERS-------------------------------------------------------
 
     public void kill() {
@@ -52,15 +49,17 @@ public class Cell extends Moveable {
     public void setActive(Boolean active) {
         this.active = active;
     }
-
-    public void setBacklash(boolean backlash) {
-        this.backlash = backlash;
-    }
-
 //--------------------------------OVERRIDES-----------------------------------------------------
     @Override
     public String toString() {
-        return "Cell: Active " + active + " Idle: " + idle + " Location: " + getLocation().getName();
+        String string = "";
+        if (getActive()){
+            string += "Active Cell";
+        }
+        else {
+            string += "Sleeper Cell";
+        }
+        return string + " Location: " + getLocation().getName();
     }
 
     @Override

@@ -48,44 +48,6 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
 
     }
 
-    //--------------------------------GETTERS-------------------------------------------------------
-    public boolean canAlert(int ops) {
-        if (ops < 3) {
-            return false;
-        }
-        for (Country c : getAllCountries()) {
-            if (c.hasPlots()) {
-                return true;
-            }
-        }
-        return false;
-    }
-    //--------------------------------ACTIONS-----------------------------------------------------
-
-    public void disrupt() {
-
-    }
-
-    public void warOfIdeas() {
-
-    }
-
-    public void reassessment() {
-
-    }
-
-    public void regimeChange() {
-
-    }
-
-    public void withdraw() {
-
-    }
-
-    public void deploy() {
-
-    }
-
 //--------------------------------OVERRIDES-----------------------------------------------------
     @Override
     public void drawPhase() {

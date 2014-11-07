@@ -92,7 +92,7 @@ public abstract class Country extends Location {
         return needsTesting;
     }
 
-    public String moveablesString() {
+    protected String moveablesString() {
         String string = "";
         if (troopAmount() > 1) {
             string += troopAmount() + " troops ";
@@ -113,7 +113,7 @@ public abstract class Country extends Location {
         return appendString(string);
     }
 
-    public String eventsToString() {
+    protected String eventsToString() {
         String events = "";
         for (Card c : getCardsInPlay()) {
             if (c.getCountries().length > 0) {

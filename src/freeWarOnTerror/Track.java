@@ -37,7 +37,13 @@ public class Track extends Location {
         add(new Plot(this, 1));
     }
     
+    @Override
     public String getName(){
+        return "Troop Track";
+    }
+    
+    @Override
+    public String toString(){
         return "Troop Track";
     }
 }

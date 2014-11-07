@@ -16,6 +16,7 @@
  */
 package freeWarOnTerror.abClasses;
 
+import freeWarOnTerror.Countries.CountryIndia;
 import freeWarOnTerror.Countries.CountryIran;
 import freeWarOnTerror.Countries.CountryIsrael;
 import freeWarOnTerror.Countries.CountryPakistan;
@@ -172,7 +173,7 @@ public abstract class Scenario {
         countries.add(new NonMuslimCountry("China", CONSTANTS.CHINA, 2, 2, false));
         countries.add(new NonMuslimCountry("Thailand", CONSTANTS.THAILAND, 2, 2, false));
         countries.add(new NonMuslimCountry("Kenya/Tanzania", CONSTANTS.KENYA, 2, 2, false));
-        countries.add(new NonMuslimCountry("India", CONSTANTS.INDIA, 1, 1, false));
+        countries.add(new CountryIndia("India", CONSTANTS.INDIA, 1, 1, false));
         countries.add(new NonMuslimCountry("Serbia", CONSTANTS.SERBIA, 1, 1, false));
         //Schengen
         countries.add(new NonMuslimCountry("Scandinavia", CONSTANTS.SCANDINAVIA, 1, 1, true));

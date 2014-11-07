@@ -16,7 +16,10 @@
  */
 package freeWarOnTerror.Countries;
 
+import freeWarOnTerror.Game;
+import freeWarOnTerror.Plot;
 import static freeWarOnTerror.helpers.AppendToString.appendString;
+import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
 
 /**
  *
@@ -30,12 +33,15 @@ public class CountryIran extends freeWarOnTerror.abClasses.Country {
         super(name, id);
         noLongerNeedsTesting();
     }
+
     @Override
     public String toString() {
         return appendString(getName()) + appendString("Fair") + moveablesString();
     }
+
     @Override
-    public void testCountry() {}
+    public void testCountry() {
+    }
 
     @Override
     public int getGovernance() {
@@ -46,13 +52,20 @@ public class CountryIran extends freeWarOnTerror.abClasses.Country {
     public Boolean canWarOfIdeas(int ops) {
         return false;
     }
-    
+
     @Override
-    public void resolvePlots(){
-        //DEBUG
+    public void resolvePlots() {
+        for (Plot p : super.getPlots()) {
+            if (governance == GOOD) {
+                Game.modifyFunding(2);
+            } else {
+                Game.modifyFunding(1);
+            }
+        }
     }
-    
+
     @Override
-    public void warOfIdeas(){}
+    public void warOfIdeas() {
+    }
 
 }

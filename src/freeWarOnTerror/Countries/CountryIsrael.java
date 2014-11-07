@@ -7,7 +7,9 @@ package freeWarOnTerror.Countries;
 
 import static freeWarOnTerror.Game.isPostureHard;
 import static freeWarOnTerror.Game.modifyPrestige;
+import static freeWarOnTerror.Game.removeCardFromPlay;
 import freeWarOnTerror.NonMuslimCountry;
+import static freeWarOnTerror.helpers.CONSTANTS.ABBAS;
 import static freeWarOnTerror.helpers.Die.rollDie;
 
 /**
@@ -33,9 +35,17 @@ public class CountryIsrael extends NonMuslimCountry {
         if (isPostureHard() && die > 4){
             modifyPrestige(1);
         }
-        else if (die < 5){
+        else if (!isPostureHard() && die < 5){
             modifyPrestige(1);
         }
+    }
+    
+    @Override
+    public void resolvePlots(){
+        if (hasPlots()){
+            removeCardFromPlay(ABBAS);
+        }
+        super.resolvePlots();
     }
 
 }

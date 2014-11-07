@@ -26,6 +26,7 @@ import freeWarOnTerror.Players.Actions.ActionPlot;
 import freeWarOnTerror.Players.Actions.ActionRecruit;
 import freeWarOnTerror.Players.Actions.ActionReservesAdd;
 import freeWarOnTerror.Players.Actions.ActionReservesUse;
+import freeWarOnTerror.Players.Actions.ActionTravel;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.AUTO;
 import static freeWarOnTerror.helpers.CONSTANTS.USA;
@@ -43,6 +44,7 @@ public class PlayerJihadist extends freeWarOnTerror.abClasses.Player {
         addAction(new ActionMajorJihad());
         addAction(new ActionMinorJihad());
         addAction(new ActionRecruit());
+        addAction(new ActionTravel());
         addAction(new ActionReservesUse(this));
         addAction(new ActionReservesAdd(this));
     }
