@@ -172,7 +172,7 @@ public class Game {
             return !(funding < 4 && track.cellAmount() < 11);
         }
     }
-    
+
     public static int getGlobalPosture() {
         calculateGlobalPosture();
         return globalPosture;
@@ -244,8 +244,8 @@ public class Game {
             usa.setPosture(-1);
         }
     }
-    
-    public static void rollUSPosture(){
+
+    public static void rollUSPosture() {
         CountryUSA us = (CountryUSA) getCountry(UNITEDSTATES);
         us.rollPosture();
     }
@@ -307,7 +307,7 @@ public class Game {
                 i++;
             }
         }
-        for (Troop t : troopsToMove){
+        for (Troop t : troopsToMove) {
             t.move(destination);
         }
     }
