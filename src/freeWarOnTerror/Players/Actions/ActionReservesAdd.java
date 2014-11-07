@@ -30,7 +30,7 @@ public class ActionReservesAdd extends Action {
     
     
     public ActionReservesAdd(Player player){
-        super("Store ops in reservers");
+        super("Store ops in reserves");
         this.player = player;
     }
     
