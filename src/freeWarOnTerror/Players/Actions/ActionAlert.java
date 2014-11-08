@@ -55,7 +55,7 @@ public class ActionAlert extends Action {
             }
         }
         Country userInput = inputLoop("Pick a country to alert a plot in", countriesWithPlots);
-        //DEBUG actually remove the plot
+        userInput.removeRandomPlot();
     }
 
 }
