@@ -17,8 +17,14 @@
 package freeWarOnTerror.cards;
 
 import static freeWarOnTerror.Game.anyRegimeChange;
+import static freeWarOnTerror.Game.getMuslimCountries;
+import static freeWarOnTerror.Game.placeCell;
+import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
+import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.FOREIGNFIGHTERS;
+import static freeWarOnTerror.helpers.InputLoop.inputLoop;
+import java.util.ArrayList;
 
 /**
  *
@@ -35,7 +41,31 @@ public class ForeignFighters extends Card {
         return anyRegimeChange();
     }
     
+    @Override
     public void playEvent(){
-        
+        MuslimCountry targetCountry;
+        ArrayList<Country> regimeChangeCountries = new ArrayList<>();
+        for (MuslimCountry c : getMuslimCountries()){
+            if (c.getRegimeChange() > 0){
+                regimeChangeCountries.add(c);
+            }
+        }
+        if (regimeChangeCountries.size() == 1){
+            targetCountry = (MuslimCountry) regimeChangeCountries.get(0);
+        }
+        else {
+            targetCountry = (MuslimCountry) inputLoop("Pick a regime change country to improve governance in", regimeChangeCountries);
+        }
+        placeCell(targetCountry);
+        placeCell(targetCountry);
+        placeCell(targetCountry);
+        placeCell(targetCountry);
+        placeCell(targetCountry);
+        if (targetCountry.hasAid()){
+            targetCountry.removeAid(1);
+        }
+        else {
+            targetCountry.setBesiegedRegime(true);
+        }
     }
 }
