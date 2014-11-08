@@ -8,6 +8,7 @@ package freeWarOnTerror;
 import static freeWarOnTerror.Game.getOilPriceSpike;
 import static freeWarOnTerror.Game.getPosturePenalty;
 import static freeWarOnTerror.Game.getPrestigeModifier;
+import static freeWarOnTerror.Game.rollPrestige;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.AppendToString.appendString;
 import static freeWarOnTerror.helpers.CONSTANTS.A_ADVERSARY;
@@ -134,7 +135,7 @@ public class MuslimCountry extends Country {
             aid = 0;
         }
     }
-    
+
     //--------------------------------JIHAD-------------------------------------------------------
     public boolean canMajorJihad(int ops) {
         if (besiegedRegime) {
@@ -215,11 +216,20 @@ public class MuslimCountry extends Country {
     }
 
 //-------------------------------REGIME-CHANGE-------------------------------------------------
-    
-    public boolean canRegimeChange(){
+    public boolean canRegimeChange() {
         return governance == ISLAMISTRULE;
     }
- 
+
+    public void regimeChange() {
+        for (Cell c : getCells()) {
+            c.setActive(true);
+        }
+        regimeChange = 2;
+        rollGovernance();
+        setAlignment(1);
+        rollPrestige();
+    }
+
 //--------------------------------OVERRIDES-----------------------------------------------------
     @Override
     public void warOfIdeas() {
