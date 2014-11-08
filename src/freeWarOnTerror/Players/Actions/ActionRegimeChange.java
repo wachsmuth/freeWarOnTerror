@@ -17,9 +17,13 @@
 package freeWarOnTerror.Players.Actions;
 
 import static freeWarOnTerror.Game.getMuslimCountries;
+import static freeWarOnTerror.Game.getTrack;
+import static freeWarOnTerror.Game.isPostureHard;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
+import freeWarOnTerror.abClasses.Location;
+import java.util.ArrayList;
 
 /**
  *
@@ -33,19 +37,41 @@ public class ActionRegimeChange extends Action {
     
     @Override
     public boolean canDoAction(Card c){
+        
         if (c.getOps() < 3){
             return false;
         }
+        if (!isPostureHard()){
+            return false;
+        }
+        boolean origin = false;
+        boolean destination = false;
+        if (getTrack().troopAmount() > 5){
+            origin = true;
+        }
         for (MuslimCountry country : getMuslimCountries()){
+            if (country.canRegimeChangeFrom()){
+                origin = true;
+            }
             if (country.canRegimeChange()){
-                return true;
+                destination = true;
             }
         }
-        return false;
+        return origin && destination;
     }
     
     @Override
     public void performAction(Card c){
+        ArrayList<MuslimCountry> candidates = new ArrayList<>();
+        ArrayList<Location> origins = new ArrayList<>();
+        for (MuslimCountry country : getMuslimCountries()){
+            if (country.canRegimeChange()){
+                candidates.add(country);
+            }
+            if (country.canRegimeChangeFrom()){
+                origins.add(country);
+            }
+        }
         
     }
     

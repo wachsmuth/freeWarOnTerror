@@ -84,7 +84,7 @@ public class ActionDeploy extends Action {
         System.out.println("Choose amount of troops to deploy: ");
         int[] arr = new int[origin.noCanDeployFrom()];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = i;
+            arr[i] = i+1;
         }
         int amount = inputLoop(arr);
         Game.deployTroops(origin, destination, amount);
