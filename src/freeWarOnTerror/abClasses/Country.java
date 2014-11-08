@@ -63,6 +63,9 @@ public abstract class Country extends Location {
         return false;
     }
     
+    public boolean canRegimeChangeFrom(){
+        return troopAmount() > 6;
+    }
 
     public boolean canDisrupt(int ops) {
         return (hasTroops() || getAlignment() == 1 || this instanceof NonMuslimCountry) && (hasCells() || cadre) && ops >= getGovernance();

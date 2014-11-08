@@ -219,6 +219,16 @@ public class MuslimCountry extends Country {
     public boolean canRegimeChange() {
         return governance == ISLAMISTRULE;
     }
+    
+    @Override
+    public boolean canRegimeChangeFrom(){
+        if (!hasTroops()) {
+            return false;
+        } else if (regimeChange > 0 && troopAmount() <= cellAmount() + 11) {
+            return false;
+        }
+        return super.canRegimeChangeFrom();
+    }
 
     public void regimeChange() {
         for (Cell c : getCells()) {
