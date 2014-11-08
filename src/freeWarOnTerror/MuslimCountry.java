@@ -8,6 +8,7 @@ package freeWarOnTerror;
 import static freeWarOnTerror.Game.getOilPriceSpike;
 import static freeWarOnTerror.Game.getPosturePenalty;
 import static freeWarOnTerror.Game.getPrestigeModifier;
+import static freeWarOnTerror.Game.modifyFunding;
 import static freeWarOnTerror.Game.rollPrestige;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.AppendToString.appendString;
@@ -277,11 +278,14 @@ public class MuslimCountry extends Country {
     @Override
     public void resolvePlots() {
         for (Plot p : super.getPlots()) {
+            int change = 1;
             if (governance == GOOD) {
-                Game.modifyFunding(2);
-            } else {
-                Game.modifyFunding(1);
+                change = 2;
             }
+            if (p.isBacklash()){
+                change = -change;
+            }
+            modifyFunding(change);
             if (troopAmount() > 0) {
                 if (p.getType() == WMD) {
                     Game.setPrestige(1);
