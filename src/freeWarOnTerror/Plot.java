@@ -16,6 +16,7 @@
  */
 package freeWarOnTerror;
 
+import static freeWarOnTerror.Game.getTrack;
 import freeWarOnTerror.abClasses.Location;
 import freeWarOnTerror.abClasses.Moveable;
 
@@ -23,18 +24,18 @@ import freeWarOnTerror.abClasses.Moveable;
  *
  * @author Emil
  */
-public class Plot extends Moveable{
-    
+public class Plot extends Moveable {
+
     private final int type; //Type 1, 2, 3 = strength; Variable WMD is 4
     private boolean faceUp;
-       private boolean backlash = false;
-    
-    public Plot (Location l, int type){
+    private boolean backlash = false;
+
+    public Plot(Location l, int type) {
         super(l);
         this.type = type;
     }
-    
-    public int getType(){
+
+    public int getType() {
         return type;
     }
 
@@ -46,6 +47,14 @@ public class Plot extends Moveable{
         this.faceUp = faceUp;
     }
 
+    public void remove() {
+        if (type == 4) {
+            getLocation().remove(this);
+        } else {
+            move(getTrack());
+        }
+    }
+
     public boolean isBacklash() {
         return backlash;
     }
@@ -53,6 +62,5 @@ public class Plot extends Moveable{
     public void setBacklash(boolean backlash) {
         this.backlash = backlash;
     }
-    
-    
+
 }
