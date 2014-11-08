@@ -8,6 +8,7 @@ package freeWarOnTerror.abClasses;
 import freeWarOnTerror.Cell;
 import static freeWarOnTerror.Game.getCardsInPlay;
 import freeWarOnTerror.NonMuslimCountry;
+import freeWarOnTerror.Plot;
 import static freeWarOnTerror.helpers.AppendToString.appendString;
 import java.util.ArrayList;
 
@@ -77,6 +78,10 @@ public abstract class Country extends Location {
 
     public boolean canPlot() { 
         return getGovernance() < 4 && hasCells();
+    }
+    
+    public Plot getRandomPlot(){
+        return getPlots().get((int) Math.floor(Math.random()*plotAmount()));
     }
 
     public Boolean getCadre() {
@@ -182,6 +187,10 @@ public abstract class Country extends Location {
             }
             setCadre(true);
         }
+    }
+    
+    public void removeRandomPlot(){
+        getRandomPlot().remove();
     }
 
     public void setCadre(Boolean cadre) {
