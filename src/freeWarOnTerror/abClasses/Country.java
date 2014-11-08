@@ -65,7 +65,7 @@ public abstract class Country extends Location {
     
 
     public boolean canDisrupt(int ops) {
-        return (hasTroops() || getAlignment() == 1 || this instanceof NonMuslimCountry) && hasCells() && ops >= getGovernance();
+        return (hasTroops() || getAlignment() == 1 || this instanceof NonMuslimCountry) && (hasCells() || cadre) && ops >= getGovernance();
     }
 
     public Boolean canRecruit() {
