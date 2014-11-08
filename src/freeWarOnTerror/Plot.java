@@ -52,6 +52,7 @@ public class Plot extends Moveable {
             getLocation().remove(this);
         } else {
             move(getTrack());
+            setBacklash(false);
         }
     }
 
