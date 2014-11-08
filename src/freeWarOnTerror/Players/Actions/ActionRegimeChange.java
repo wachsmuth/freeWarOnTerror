@@ -16,6 +16,7 @@
  */
 package freeWarOnTerror.Players.Actions;
 
+import static freeWarOnTerror.Game.deployTroops;
 import static freeWarOnTerror.Game.getMuslimCountries;
 import static freeWarOnTerror.Game.getTrack;
 import static freeWarOnTerror.Game.isPostureHard;
@@ -23,6 +24,7 @@ import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Location;
+import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
 /**
@@ -64,6 +66,9 @@ public class ActionRegimeChange extends Action {
     public void performAction(Card c){
         ArrayList<MuslimCountry> candidates = new ArrayList<>();
         ArrayList<Location> origins = new ArrayList<>();
+        if (getTrack().troopAmount() > 5){
+            origins.add(getTrack());
+        }
         for (MuslimCountry country : getMuslimCountries()){
             if (country.canRegimeChange()){
                 candidates.add(country);
@@ -72,6 +77,18 @@ public class ActionRegimeChange extends Action {
                 origins.add(country);
             }
         }
+        System.out.println("Choose where to regime change from:");
+        Location origin = inputLoop(origins);
+        System.out.println("Choose country to regime change: ");
+        MuslimCountry destination = inputLoop(candidates);
+        int[] arr = new int[origin.noCanDeployFrom()-5];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = i+6;
+        }
+        System.out.println("Choose amount of troops to move in: ");
+        int amount = inputLoop(arr);
+        deployTroops(origin, destination, amount);
+        destination.regimeChange();
         
     }
     

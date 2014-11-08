@@ -16,17 +16,16 @@
  */
 package freeWarOnTerror.Players;
 
-import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getTroops;
 import freeWarOnTerror.Players.Actions.ActionAlert;
 import freeWarOnTerror.Players.Actions.ActionDeploy;
 import freeWarOnTerror.Players.Actions.ActionEventUS;
 import freeWarOnTerror.Players.Actions.ActionReassessment;
+import freeWarOnTerror.Players.Actions.ActionRegimeChange;
 import freeWarOnTerror.Players.Actions.ActionReservesAdd;
 import freeWarOnTerror.Players.Actions.ActionReservesUse;
 import freeWarOnTerror.Players.Actions.ActionWarOfIdeas;
 import freeWarOnTerror.abClasses.Card;
-import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.AUTO;
 import static freeWarOnTerror.helpers.CONSTANTS.JIHAD;
 
@@ -43,6 +42,7 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
         addAction(new ActionDeploy());
         addAction(new ActionReassessment());
         addAction(new ActionAlert());
+        addAction(new ActionRegimeChange());
         addAction(new ActionReservesUse(this));
         addAction(new ActionReservesAdd(this));
 
