@@ -131,7 +131,7 @@ public class MuslimCountry extends Country {
     }
 
     public void removeAid(int n) {
-        aid = -n;
+        aid += -n;
         if (aid < 0) {
             aid = 0;
         }
