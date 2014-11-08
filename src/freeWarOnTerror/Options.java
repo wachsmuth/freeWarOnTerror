@@ -16,11 +16,9 @@
  */
 package freeWarOnTerror;
 
-import static freeWarOnTerror.Game.getAllCountries;
-import static freeWarOnTerror.Game.getCountry;
-import static freeWarOnTerror.helpers.CONSTANTS.BANGLADESH;
-import static freeWarOnTerror.helpers.CONSTANTS.INDIA;
-import static freeWarOnTerror.helpers.CONSTANTS.INDONESIA;
+import freeWarOnTerror.abClasses.Variant;
+import freeWarOnTerror.variants.Bangladesh;
+import java.util.ArrayList;
 
 /**
  *
@@ -28,24 +26,13 @@ import static freeWarOnTerror.helpers.CONSTANTS.INDONESIA;
  */
 public class Options {
     
-    private static boolean bangladesh = false;
+    private static final ArrayList<Variant> variants = new ArrayList<>();
+    static {
+        variants.add(new Bangladesh());
+    }
     
-    public static void variants(){
-        if (bangladesh){
-            getAllCountries().add(new MuslimCountry("Bangladesh", BANGLADESH, 1, false, false));
-            getCountry(BANGLADESH).addAdjacentCountry(getCountry(INDIA));
-            getCountry(BANGLADESH).addAdjacentCountry(getCountry(INDONESIA));
-            getCountry(INDONESIA).addAdjacentCountry(getCountry(BANGLADESH));
-            getCountry(INDIA).addAdjacentCountry(getCountry(BANGLADESH));
-        }
-    }
-
-    public static boolean isBangladesh() {
-        return bangladesh;
-    }
-
-    public static void setBangladesh(boolean bangladesh) {
-        Options.bangladesh = bangladesh;
+    public static ArrayList<Variant> getVariants(){
+        return variants;
     }
     
     

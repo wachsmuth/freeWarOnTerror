@@ -18,6 +18,7 @@ package freeWarOnTerror;
 
 import static freeWarOnTerror.Game.setDecksLeft;
 import static freeWarOnTerror.Game.startGame;
+import static freeWarOnTerror.Options.getVariants;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 
 /**
@@ -36,12 +37,13 @@ public class Menu {
     }
 
     public static void chooseScenario() {
-        int i = inputLoop("Choose a scenario", "Let's Roll!", "You Can Call Me Al", "Choose number of reshuffles", "Exit");
-        if (i < 3){
-            startGame(i-1);
-        }
-        else if (i == 3) {
+        int i = inputLoop("Choose a scenario", "Let's Roll!", "You Can Call Me Al", "Choose number of reshuffles", "Other options", "Exit");
+        if (i < 3) {
+            startGame(i - 1);
+        } else if (i == 3) {
             chooseReshuffles();
+        } else if (i == 4)  {
+            chooseVariants();
         } else {
             System.exit(0);
         }
@@ -58,6 +60,12 @@ public class Menu {
         }
         chooseScenario();
 
+    }
+
+    public static void chooseVariants() {
+        System.out.println("Enable/disable a variant: ");
+        inputLoop(getVariants()).invertEnabled();
+        chooseScenario();
     }
 
 }
