@@ -46,4 +46,6 @@ public abstract class Variant {
         return "Enable " + getDescription();
     }
     
+    public abstract void activate();
+    
 }
