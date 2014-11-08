@@ -14,26 +14,38 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package freeWarOnTerror;
-
-import freeWarOnTerror.abClasses.Variant;
-import freeWarOnTerror.variants.Bangladesh;
-import java.util.ArrayList;
+package freeWarOnTerror.abClasses;
 
 /**
  *
  * @author Emil
  */
-public class Options {
+public abstract class Variant {
     
-    private static final ArrayList<Variant> variants = new ArrayList<>();
-    static {
-        variants.add(new Bangladesh());
+    private boolean enabled = false;
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
     
-    public static ArrayList<Variant> getVariants(){
-        return variants;
+    public void invertEnabled(){
+        enabled = !enabled;
     }
     
+    protected abstract String getDescription();
+    
+    @Override
+    public String toString(){
+        if (enabled){
+            return "Disable " + getDescription();
+        }
+        return "Enable " + getDescription();
+    }
+    
+    public abstract void activate();
     
 }
