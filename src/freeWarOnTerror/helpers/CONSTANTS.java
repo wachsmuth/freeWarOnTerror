@@ -81,6 +81,7 @@ public class CONSTANTS {
     public final static int INDONESIA = 36;
     public final static int IRANCOUNTRY = 37;
     public final static int BANGLADESH = 38;
+    public final static int AUSTRALIA = 39;
     
     //Cards
     //US

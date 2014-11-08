@@ -17,6 +17,7 @@
 package freeWarOnTerror;
 
 import freeWarOnTerror.abClasses.Variant;
+import freeWarOnTerror.variants.Australia;
 import freeWarOnTerror.variants.Bangladesh;
 import java.util.ArrayList;
 
@@ -29,6 +30,7 @@ public class Options {
     private static final ArrayList<Variant> variants = new ArrayList<>();
     static {
         variants.add(new Bangladesh());
+        variants.add(new Australia());
     }
     
     public static ArrayList<Variant> getVariants(){
