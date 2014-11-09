@@ -47,8 +47,7 @@ public class ActionReassessment extends Action {
                 noOf3Ops++;
             }
         }
-        //DEBUG make it illegal to use reserves here.
-        return noOf3Ops > 1;
+        return noOf3Ops > 0;
     }
 
     @Override
