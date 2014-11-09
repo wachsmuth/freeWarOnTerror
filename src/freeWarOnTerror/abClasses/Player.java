@@ -16,8 +16,10 @@ package freeWarOnTerror.abClasses;
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+import freeWarOnTerror.Cell;
 import freeWarOnTerror.Game;
 import static freeWarOnTerror.Game.discard;
+import static freeWarOnTerror.Game.getCells;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -105,6 +107,9 @@ public abstract class Player {
             }
         }
         discard(c);
+        for (Cell cell : getCells()){
+            cell.setIdle(true);
+        }
     }
 
     public void draw() {

@@ -80,6 +80,9 @@ public class Game {
         scenarios.add(new YouCanCallMeAl());
         players.add(playerJihadist);
         players.add(playerUS);
+        for (Cell c :getTrack().getCells()){
+            cells.add(c);
+        }
     }
 
     public Game() {
