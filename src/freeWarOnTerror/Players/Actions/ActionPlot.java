@@ -16,11 +16,17 @@
  */
 package freeWarOnTerror.Players.Actions;
 
+import freeWarOnTerror.Cell;
+import freeWarOnTerror.Game;
 import static freeWarOnTerror.Game.getAllCountries;
+import freeWarOnTerror.Plot;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
+import static freeWarOnTerror.helpers.Die.rollLessThanGovernance;
+import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -32,9 +38,11 @@ public class ActionPlot extends Action {
         super("Use ops to plot");
     }
     
-  
     @Override
     public boolean canDoAction(Card c) {
+        if (plotsLeft() == false ) {
+            return false;
+        }
         for (Country country : getAllCountries()) {
             if (country.canPlot()) {
                 return true;
@@ -45,14 +53,53 @@ public class ActionPlot extends Action {
     
     @Override
     public void performAction(Card c){
-        ArrayList<Country> eligibleCountries = new ArrayList<>();
-        for (Country country : getAllCountries()) {
-            if (country.canPlot()) {
-                eligibleCountries.add(country);
+        for (int i = 0; i < c.getOps(); i++){
+            List<Country> eligibleCountries = getEligibles();
+            if (eligibleCountries.size() == 0){
+                System.out.println("No more places to plot");
+                return;
             }
+            System.out.println("Plot in which country?");
+            Country plotPlace = inputLoop(eligibleCountries);
+            Cell terrorCell = plotPlace.pickIdleCell();
+            placePlot(plotPlace, terrorCell);
         }
+        
+        //For each plot
         
         //DEBUG make cells not idle!
         
+    }
+    
+    public List<Country> getEligibles(){
+        ArrayList<Country> reList = new ArrayList<>();
+        for (Country country : getAllCountries()) {
+            if (country.canPlot()) {
+                reList.add(country);
+            }
+        }
+        return reList;
+    }
+    
+    public void placePlot(Country place, Cell c){
+        //Choose plot
+        Plot p = inputLoop(availablePlots());
+        if (rollLessThanGovernance(place)){
+            place.placePlot(p);
+            System.out.println("Plot placed!");
+        }
+        else {
+            System.out.println("Failed!");
+        }
+        
+    }
+    
+    public List<Plot> availablePlots(){
+        return Game.getTrack().getPlots();
+    }
+    
+    public boolean plotsLeft(){
+        //Debug, are there any plots left to place?
+        return (!availablePlots().isEmpty());
     }
 }

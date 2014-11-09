@@ -19,12 +19,13 @@ package freeWarOnTerror;
 import static freeWarOnTerror.Game.getTrack;
 import freeWarOnTerror.abClasses.Location;
 import freeWarOnTerror.abClasses.Moveable;
+import static freeWarOnTerror.helpers.CONSTANTS.WMD;
 
 /**
  *
  * @author Emil
  */
-public class Plot extends Moveable {
+public class Plot extends Moveable implements Comparable<Plot> {
 
     private final int type; //Type 1, 2, 3 = strength; Variable WMD is 4
     private boolean faceUp;
@@ -64,4 +65,16 @@ public class Plot extends Moveable {
         this.backlash = backlash;
     }
 
+    @Override
+    public String toString(){
+        if (type == WMD){
+            return "Plot type: WMD";
+        }
+        return "Plot type: " + type;
+    }
+    
+    @Override
+    public int compareTo(Plot other){
+        return other.getType()-type;
+    }
 }

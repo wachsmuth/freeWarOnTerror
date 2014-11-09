@@ -16,7 +16,6 @@
  */
 package freeWarOnTerror;
 
-import freeWarOnTerror.abClasses.Scenario;
 import freeWarOnTerror.Countries.CountryUSA;
 import static freeWarOnTerror.Options.getVariants;
 import freeWarOnTerror.Players.PlayerJihadist;
@@ -27,6 +26,7 @@ import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import freeWarOnTerror.abClasses.Location;
 import freeWarOnTerror.abClasses.Player;
+import freeWarOnTerror.abClasses.Scenario;
 import freeWarOnTerror.abClasses.Variant;
 import static freeWarOnTerror.helpers.CONSTANTS.FAIR;
 import static freeWarOnTerror.helpers.CONSTANTS.GOOD;

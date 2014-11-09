@@ -6,6 +6,7 @@ import static freeWarOnTerror.helpers.AppendToString.appendString;
 import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
 import static freeWarOnTerror.helpers.CONSTANTS.WMD;
 import freeWarOnTerror.helpers.Die;
+import java.util.Iterator;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -91,7 +92,9 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
 
     @Override
     public void resolvePlots() {
-        for (Plot p : super.getPlots()) {
+        Iterator i = getPlots().iterator();
+        while (i.hasNext()) {
+            Plot p = (Plot) i.next();
             //Posture
             rollPosture();
             if (schengen == true) {
@@ -116,6 +119,11 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
                     Game.modifyPrestige(-1);
                 }
             }
+            //Move plot back to track
+            System.out.println("Plot succeeded in: " + getName());
+            Plot tempReference = p;
+            i.remove();
+            tempReference.move(Game.getTrack());
         }
     }
 

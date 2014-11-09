@@ -21,6 +21,7 @@ import freeWarOnTerror.Plot;
 import freeWarOnTerror.Troop;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -33,15 +34,16 @@ public abstract class Location {
     private final ArrayList<Plot> plots = new ArrayList<>();
     private final ArrayList<Troop> troops = new ArrayList<>();
 //--------------------------------GETTERS-------------------------------------------------------
-    public ArrayList<Plot> getPlots() {
+    public List<Plot> getPlots() {
+        Collections.sort(plots);
         return plots;
     }
 
-    public ArrayList<Cell> getCells() {
+    public List<Cell> getCells() {
         return cells;
     }
 
-    public ArrayList<Troop> getTroops() {
+    public List<Troop> getTroops() {
         return troops;
     }
 
@@ -84,6 +86,15 @@ public abstract class Location {
 
     public Boolean hasCells() {
         return !cells.isEmpty();
+    }
+    
+    public Boolean hasIdleCells(){
+        for (Cell c : getCells()){
+            if (c.isIdle()){
+                return true;
+            }
+        }
+        return false;
     }
 
     //plots

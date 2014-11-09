@@ -77,7 +77,11 @@ public abstract class Country extends Location {
     }
 
     public boolean canPlot() { 
-        return getGovernance() < 4 && hasCells();
+        return getGovernance() < 4 && hasIdleCells();
+    }
+    
+    public void placePlot(Plot p){
+        p.move(this);
     }
     
     public Plot getRandomPlot(){

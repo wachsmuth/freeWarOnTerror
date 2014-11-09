@@ -20,6 +20,7 @@ import freeWarOnTerror.Game;
 import freeWarOnTerror.Plot;
 import static freeWarOnTerror.helpers.AppendToString.appendString;
 import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
+import java.util.Iterator;
 
 /**
  *
@@ -55,12 +56,19 @@ public class CountryIran extends freeWarOnTerror.abClasses.Country {
 
     @Override
     public void resolvePlots() {
-        for (Plot p : super.getPlots()) {
+        Iterator i = getPlots().iterator();
+        while (i.hasNext()) {
+            Plot p = (Plot) i.next();
             if (governance == GOOD) {
                 Game.modifyFunding(2);
             } else {
                 Game.modifyFunding(1);
             }
+            //Move plot back to track
+            System.out.println("Plot succeeded in: " + getName());
+            Plot tempReference = p;
+            i.remove();
+            tempReference.move(Game.getTrack());
         }
     }
 

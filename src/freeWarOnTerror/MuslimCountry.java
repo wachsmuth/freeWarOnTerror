@@ -19,6 +19,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.POOR;
 import static freeWarOnTerror.helpers.CONSTANTS.WMD;
 import freeWarOnTerror.helpers.Die;
 import static freeWarOnTerror.helpers.Die.rollDie;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -277,7 +278,9 @@ public class MuslimCountry extends Country {
 
     @Override
     public void resolvePlots() {
-        for (Plot p : super.getPlots()) {
+        Iterator i = getPlots().iterator();
+        while (i.hasNext()) {
+            Plot p = (Plot) i.next();
             int change = 1;
             if (governance == GOOD) {
                 change = 2;
@@ -293,6 +296,11 @@ public class MuslimCountry extends Country {
                     Game.modifyPrestige(-1);
                 }
             }
+            //Move plot back to track
+            System.out.println("Plot succeeded in: " + getName());
+            Plot tempReference = p;
+            i.remove();
+            tempReference.move(Game.getTrack());
         }
     }
 

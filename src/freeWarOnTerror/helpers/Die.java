@@ -5,6 +5,8 @@
  */
 package freeWarOnTerror.helpers;
 
+import freeWarOnTerror.abClasses.Country;
+
 /**
  *
  * @author Emil
@@ -13,6 +15,10 @@ public class Die {
 
     public static int rollDie() {
         return (int) Math.floor(Math.random() * 6 + 1);
+    }
+    
+    public static boolean rollLessThanGovernance(Country c){
+        return (rollDie() < c.getGovernance());
     }
 
     public static int prestigeRoll() {
