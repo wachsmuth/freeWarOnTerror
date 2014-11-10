@@ -46,7 +46,7 @@ public class Hijab extends Card {
     public void playEvent(){
         MuslimCountry turkey = (MuslimCountry) getCountry(TURKEY);
         turkey.testCountry();
-        turkey.shiftGovernance(1);
+        turkey.shiftGovernance(-1);
         int input = inputLoop("Select France's posture", "hard", "soft");
         NonMuslimCountry france = (NonMuslimCountry) getCountry(FRANCE);
         if (input == 1){
