@@ -241,6 +241,12 @@ public class MuslimCountry extends Country {
         setAlignment(1);
         rollPrestige();
     }
+    
+    public void withdraw(){
+        removeAid(100);
+        setBesiegedRegime(true);
+        rollPrestige();
+    }
 
 //--------------------------------OVERRIDES-----------------------------------------------------
     @Override
