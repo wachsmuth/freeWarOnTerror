@@ -82,6 +82,7 @@ import freeWarOnTerror.cards.Sanctions;
 import freeWarOnTerror.cards.SchroederAndChirac;
 import freeWarOnTerror.cards.Sharia;
 import freeWarOnTerror.cards.Sistani;
+import freeWarOnTerror.cards.SpecialForces;
 import freeWarOnTerror.cards.Taliban;
 import freeWarOnTerror.cards.USElection;
 import freeWarOnTerror.cards.UyghurJihad;
@@ -432,6 +433,9 @@ public abstract class Scenario {
         deck.addCard(new SchroederAndChirac());
         deck.addCard(new Sharia());
         deck.addCard(new Sistani());
+        deck.addCard(new SpecialForces());
+        deck.addCard(new SpecialForces());
+        deck.addCard(new SpecialForces());
         deck.addCard(new Taliban());
         deck.addCard(new USElection());
         deck.addCard(new UyghurJihad());
