@@ -16,7 +16,7 @@
  */
 package freeWarOnTerror.Players.Actions;
 
-import static freeWarOnTerror.Game.anyIslamistRule;
+import static freeWarOnTerror.Game.anyRegimeChange;
 import static freeWarOnTerror.Game.deployTroops;
 import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getMuslimCountries;
@@ -45,7 +45,10 @@ public class ActionWithdraw extends Action {
         if (isPostureHard()) {
             return false;
         }
-        return anyIslamistRule();
+        if (c.getOps() < 3){
+            return false;
+        }
+        return anyRegimeChange();
     }
 
     @Override

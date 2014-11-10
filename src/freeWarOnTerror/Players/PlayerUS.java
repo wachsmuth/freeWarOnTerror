@@ -25,6 +25,7 @@ import freeWarOnTerror.Players.Actions.ActionRegimeChange;
 import freeWarOnTerror.Players.Actions.ActionReservesAdd;
 import freeWarOnTerror.Players.Actions.ActionReservesUse;
 import freeWarOnTerror.Players.Actions.ActionWarOfIdeas;
+import freeWarOnTerror.Players.Actions.ActionWithdraw;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.AUTO;
 import static freeWarOnTerror.helpers.CONSTANTS.JIHAD;
@@ -43,6 +44,7 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
         addAction(new ActionReassessment());
         addAction(new ActionAlert());
         addAction(new ActionRegimeChange());
+        addAction(new ActionWithdraw());
         addAction(new ActionReservesUse(this));
         addAction(new ActionReservesAdd(this));
 
