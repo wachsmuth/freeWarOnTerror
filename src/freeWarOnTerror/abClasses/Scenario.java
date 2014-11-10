@@ -72,6 +72,7 @@ import freeWarOnTerror.cards.Opium;
 import freeWarOnTerror.cards.PakistaniOffensive;
 import freeWarOnTerror.cards.PatriotAct;
 import freeWarOnTerror.cards.Pirates;
+import freeWarOnTerror.cards.Predator;
 import freeWarOnTerror.cards.Quartet;
 import freeWarOnTerror.cards.RegionalAlQaeda;
 import freeWarOnTerror.cards.Saddam;
@@ -418,6 +419,9 @@ public abstract class Scenario {
         deck.addCard(new PakistaniOffensive());
         deck.addCard(new PatriotAct());
         deck.addCard(new Pirates());
+        deck.addCard(new Predator());
+        deck.addCard(new Predator());
+        deck.addCard(new Predator());
         deck.addCard(new Quartet());
         deck.addCard(new RegionalAlQaeda());
         deck.addCard(new Saddam());
