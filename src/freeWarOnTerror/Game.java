@@ -546,9 +546,18 @@ public class Game {
     private static void checkForVictoryJihad() {
         //By islamist rule resources
         int islamistRuleResources = 0;
+        boolean anyAdjacentIslamistRule = false;
         for (MuslimCountry c : getMuslimCountries()) {
-            if (c.getGovernance() == ISLAMISTRULE) { //Do only muslime countries have resources? DEBUG
+            if (c.getGovernance() == ISLAMISTRULE) { 
                 islamistRuleResources += c.getResources();
+                if (!anyAdjacentIslamistRule){
+                    for (Country c2 : c.getAdjacentCountries()){
+                        if (c2.getGovernance() == 4){
+                            anyAdjacentIslamistRule = true;
+                            break;
+                        }
+                    }
+                }
             }
         }
         if (islamistRuleResources >= 6) {
