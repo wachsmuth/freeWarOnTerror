@@ -54,7 +54,6 @@ public class Game {
     private static int islamistResources = 0;
     private static int goodFairCountries = 0;
     private static int poorIslamistCountries = 0;
-    private static int oilPriceSpike = 0;
     private static Turn currentTurn;
     private static List<Turn> turnList = new ArrayList<>();
     private static final List<Cell> cells = new ArrayList<>();
@@ -80,7 +79,7 @@ public class Game {
         scenarios.add(new YouCanCallMeAl());
         players.add(playerJihadist);
         players.add(playerUS);
-        for (Cell c :getTrack().getCells()){
+        for (Cell c : getTrack().getCells()) {
             cells.add(c);
         }
     }
@@ -89,6 +88,10 @@ public class Game {
 
     }
 //--------------------------------GETTERS-------------------------------------------------------
+
+    public static Turn getCurrentTurn() {
+        return currentTurn;
+    }
 
     public static Player getCurrentPlayer() {
         return currentPlayer;
@@ -201,10 +204,6 @@ public class Game {
 
     public static int getPrestigeModifier() {
         return (int) (Math.floor(prestige / 3) - 1);
-    }
-
-    public static int getOilPriceSpike() {
-        return oilPriceSpike;
     }
 
     public static int getTurnNumber() {
@@ -470,17 +469,17 @@ public class Game {
         }
     }
 
-    public static Deck getDiscardPile(){
+    public static Deck getDiscardPile() {
         return discardPile;
     }
     /*public static void discard(Card card) {
-        for (Player p : players) {
-            p.removeCard(card);
-        }
-        if (!removedCards.hasCard(card) && !discardPile.hasCard(card)) {
-            discardPile.addCard(card);
-        }
-    }*/
+     for (Player p : players) {
+     p.removeCard(card);
+     }
+     if (!removedCards.hasCard(card) && !discardPile.hasCard(card)) {
+     discardPile.addCard(card);
+     }
+     }*/
 
     public static void removeCardFromPlay(int id) {
         for (Card c : markedEvents) {

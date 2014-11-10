@@ -43,12 +43,14 @@ public class Turn {
     private boolean firstPlot;
     private boolean jihadistDone;
     private boolean USADone;
+    private boolean oilSpike;
 
     public Turn() {
         Game.incrementTurnNumber();
         jihadistDone = false;
         USADone = false;
         firstPlot = true;
+        oilSpike = false;
     }
 
 //--------------------------------PUBLIC-------------------------------------------------------
@@ -99,6 +101,14 @@ public class Turn {
 
     public void setFirstPlot(boolean firstPlot) {
         this.firstPlot = firstPlot;
+    }
+    
+    public void oilSpike(){
+        oilSpike = true;
+    }
+    
+    public boolean isOilSpike(){
+        return oilSpike;
     }
 //--------------------------------PRIVATE-------------------------------------------------------
 

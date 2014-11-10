@@ -5,7 +5,6 @@
  */
 package freeWarOnTerror;
 
-import static freeWarOnTerror.Game.getOilPriceSpike;
 import static freeWarOnTerror.Game.getPosturePenalty;
 import static freeWarOnTerror.Game.getPrestigeModifier;
 import static freeWarOnTerror.Game.modifyFunding;
@@ -48,8 +47,8 @@ public class MuslimCountry extends Country {
 
 //--------------------------------GETTERS-------------------------------------------------------
     public int getResources() {
-        if (oilCountry) {
-            return resources + getOilPriceSpike();
+        if (oilCountry && Game.getCurrentTurn().isOilSpike()) {
+            return resources + 1;
         }
         return resources;
     }
