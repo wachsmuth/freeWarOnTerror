@@ -16,7 +16,7 @@
  */
 package freeWarOnTerror.cards;
 
-import static freeWarOnTerror.Game.discard;
+import static freeWarOnTerror.Game.getCurrentPlayer;
 import static freeWarOnTerror.Game.getUS;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.AMERITHRAX;
@@ -53,7 +53,7 @@ public class Amerithrax extends Card {
                 }
             }
             System.out.println("Choose a card to discard");
-            discard(inputLoop(usEvents));
+            getCurrentPlayer().discard(inputLoop(usEvents));
         }
     }
 }

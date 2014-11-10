@@ -52,6 +52,21 @@ public class Turn {
     }
 
 //--------------------------------PUBLIC-------------------------------------------------------
+    private void DEBUG() { //Function for cfhanging parameters of a turn to test faster. Should not be in production code
+        /*System.out.println("DEBUG START");
+        //System.out.println(Game.getUS().getHand());
+        while (true) {
+            System.out.println("Discarding " + getUS().getHand().get(0));
+            getUS().discard(getUS().getHand().get(0));
+            if (Game.getUS().getHand().size() == 1) {
+                break;
+            }
+        }
+        switchCurrentPlayer(getUS());
+        playCardPre();
+        System.out.println("Debug done");*/
+    }
+
     public void startTurn() {
         System.out.println("Turn: " + Game.getTurnNumber());
         System.out.println("Draw Phase");
@@ -62,13 +77,17 @@ public class Turn {
                 c.setRegimeChange(1);
             }
         }
-        while (USADone == false && jihadistDone == false) {
+        DEBUG(); //Debug
+        while (USADone == false || jihadistDone == false) {
             Game.switchCurrentPlayer(Game.getJihadist());
-            playCardPhase();
-            playCardPhase();
+            System.out.println("Jihadists turn to play cards");
+            playCardPre();
+            playCardPre();
             Game.switchCurrentPlayer();
-            playCardPhase();
-            playCardPhase();
+            System.out.println("US's turn to play cards");
+            playCardPre();
+            playCardPre();
+            System.out.println("Resolving plots");
             resolvePlots();
         }
         turnEnd();
@@ -116,19 +135,21 @@ public class Turn {
             p.setReserves(0);
         }
         Game.checkForVictory();
-        
+
         Game.newTurn(); //All over again
     }
 
-    private void playCardPhase() {
+    private void playCardPre() {
         Player cPlayer = Game.getCurrentPlayer();
         ArrayList<Card> hand = cPlayer.getHand();
 
         //If no cards
         if (hand.isEmpty()) {
             if (cPlayer == Game.getUS()) {
+                System.out.println("US is out of cards");
                 USADone = true;
             } else {
+                System.out.println("Jihad is out of cards");
                 jihadistDone = true;
             }
             return;
@@ -139,8 +160,14 @@ public class Turn {
             USADone = true;
             return;
         }
+        pickCard();
+    }
 
+    private void pickCard() {
         //Prints hand
+        Player cPlayer = Game.getCurrentPlayer();
+        ArrayList<Card> hand = cPlayer.getHand();
+
         int count = 0;
         for (Card c : hand) {
             System.out.println(count++ + ": " + c);
@@ -155,12 +182,41 @@ public class Turn {
         int userInput = inputLoop(okInput);
 
         //Plays the card
-        cPlayer.playCard(hand.get(userInput));
-        
+        this.playCardMain(hand.get(userInput));
+    }
+
+    private void playCardMain(Card c) {
+        Player cPlayer = Game.getCurrentPlayer();
+
+        cPlayer.playCard(c);
+
         Game.checkForVictory();
     }
 
     private void throwAwayOrKeep() {
-        //Debug, still need to do that
+        Player cPlayer = Game.getCurrentPlayer();
+        ArrayList<Card> hand = cPlayer.getHand();
+        System.out.println("Your last card is: " + hand.get(0));
+        System.out.println("Do you want to: ");
+        System.out.println("0: Throw it out");
+        System.out.println("1: Save it");
+        System.out.println("2: Play is like normal");
+        int userInput = inputLoop(0, 1, 2);
+        switch (userInput) {
+            case 0:
+                cPlayer.discard(hand.get(0));
+                System.out.println("Discarded");
+                break;
+            case 1:
+                System.out.println("Savin it!");
+                break;//Do nothing
+            case 2:
+                System.out.println("Playing it");
+                playCardMain(hand.get(0)); //Business as usual
+                break;
+            default:
+                System.out.println("error invalid input");
+                break;
+        }
     }
 }

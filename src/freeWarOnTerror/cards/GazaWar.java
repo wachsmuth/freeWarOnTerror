@@ -16,7 +16,7 @@
  */
 package freeWarOnTerror.cards;
 
-import static freeWarOnTerror.Game.discard;
+import static freeWarOnTerror.Game.getCurrentPlayer;
 import static freeWarOnTerror.Game.getUS;
 import static freeWarOnTerror.Game.modifyFunding;
 import static freeWarOnTerror.Game.modifyPrestige;
@@ -35,7 +35,7 @@ public class GazaWar extends Card {
     
     @Override
     public void playEvent(){
-        discard(getUS().getRandomCard());
+        getCurrentPlayer().discard(getUS().getRandomCard());
         modifyFunding(1);
         modifyPrestige(-1);
     }

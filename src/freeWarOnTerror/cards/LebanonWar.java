@@ -17,7 +17,7 @@
 package freeWarOnTerror.cards;
 
 import static freeWarOnTerror.Game.canPlaceCell;
-import static freeWarOnTerror.Game.discard;
+import static freeWarOnTerror.Game.getCurrentPlayer;
 import static freeWarOnTerror.Game.getMuslimCountries;
 import static freeWarOnTerror.Game.getUS;
 import static freeWarOnTerror.Game.modifyPrestige;
@@ -34,19 +34,19 @@ import java.util.ArrayList;
  * @author Emil
  */
 public class LebanonWar extends Card {
-    
-    public LebanonWar(){
+
+    public LebanonWar() {
         super("Lebanon War", 3, 3, false, false, LEBANONWAR);
     }
-    
+
     @Override
-    public void playEvent(){
-                discard(getUS().getRandomCard());
+    public void playEvent() {
+        getCurrentPlayer().discard(getUS().getRandomCard());
         modifyPrestige(-1);
-        if (canPlaceCell()){
+        if (canPlaceCell()) {
             ArrayList<Country> shiaCountries = new ArrayList<>();
-            for (MuslimCountry c : getMuslimCountries()){
-                if(c.getShiaMix()){
+            for (MuslimCountry c : getMuslimCountries()) {
+                if (c.getShiaMix()) {
                     shiaCountries.add(c);
                 }
             }

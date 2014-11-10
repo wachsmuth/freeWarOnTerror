@@ -16,7 +16,7 @@
  */
 package freeWarOnTerror.cards;
 
-import static freeWarOnTerror.Game.discard;
+import static freeWarOnTerror.Game.getCurrentPlayer;
 import static freeWarOnTerror.Game.getMuslimCountries;
 import static freeWarOnTerror.Game.getUS;
 import freeWarOnTerror.MuslimCountry;
@@ -45,6 +45,6 @@ public class IEDs extends Card {
     
     @Override
     public void playEvent(){
-        discard(getUS().getRandomCard());
+        getCurrentPlayer().discard(getUS().getRandomCard());
     }
 }

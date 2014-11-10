@@ -18,7 +18,6 @@ package freeWarOnTerror.abClasses;
  */
 import freeWarOnTerror.Cell;
 import freeWarOnTerror.Game;
-import static freeWarOnTerror.Game.discard;
 import static freeWarOnTerror.Game.getCells;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
@@ -86,6 +85,11 @@ public abstract class Player {
             reserves = 2;
         }
     }
+    
+    public void discard(Card c){
+        Game.getDiscardPile().addCard(c);
+        hand.remove(c);
+    }
 
     //--------------------------------OTHER---------------------------------------------------------
     public void howToPlay(Card c) {
@@ -115,6 +119,7 @@ public abstract class Player {
     public void draw() {
         addCard(Game.draw());
     }
+    
 
     public void draw(int amount) {
         for (int i = 0; i < amount; i++) {

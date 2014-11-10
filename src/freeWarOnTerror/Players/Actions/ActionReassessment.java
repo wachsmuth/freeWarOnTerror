@@ -16,7 +16,7 @@
  */
 package freeWarOnTerror.Players.Actions;
 
-import static freeWarOnTerror.Game.discard;
+import static freeWarOnTerror.Game.getCurrentPlayer;
 import static freeWarOnTerror.Game.getUS;
 import static freeWarOnTerror.Game.isPostureHard;
 import static freeWarOnTerror.Game.playCard;
@@ -66,7 +66,7 @@ public class ActionReassessment extends Action {
             playCard(target);
         }
         else {
-            discard(target);
+            getCurrentPlayer().discard(target);
         }
         setPostureHard(!isPostureHard());
     }

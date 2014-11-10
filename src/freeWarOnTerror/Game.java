@@ -470,15 +470,17 @@ public class Game {
         }
     }
 
-    public static void discard(Card card) {
+    public static Deck getDiscardPile(){
+        return discardPile;
+    }
+    /*public static void discard(Card card) {
         for (Player p : players) {
             p.removeCard(card);
         }
         if (!removedCards.hasCard(card) && !discardPile.hasCard(card)) {
             discardPile.addCard(card);
         }
-
-    }
+    }*/
 
     public static void removeCardFromPlay(int id) {
         for (Card c : markedEvents) {
