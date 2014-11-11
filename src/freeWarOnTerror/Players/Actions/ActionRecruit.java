@@ -18,6 +18,7 @@ package freeWarOnTerror.Players.Actions;
 
 import static freeWarOnTerror.Game.canRecruit;
 import static freeWarOnTerror.Game.getAllCountries;
+import static freeWarOnTerror.Game.getCurrentTurn;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
@@ -38,6 +39,9 @@ public class ActionRecruit extends Action {
 
     @Override
     public boolean canDoAction(Card c) {
+        if (getCurrentTurn().isGtmo()){
+            return false;
+        }
         return canRecruit();
     }
 
