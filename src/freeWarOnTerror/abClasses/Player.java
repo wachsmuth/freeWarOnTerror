@@ -135,6 +135,19 @@ public abstract class Player {
         }
         return c;
     }
+    
+    public void discardSpecificCard(int id){
+        Card target = null;
+        for (Card c : getHand()){
+            if (c.getId() == id){
+                target = c;
+                break;
+            }
+        }
+        if (target != null){
+            discard(target);
+        }
+    }
 
     public void chooseEventOrOps(Card c) {
         int userInput = inputLoop("Do you want", "The event to happen first", "To play ops first");
