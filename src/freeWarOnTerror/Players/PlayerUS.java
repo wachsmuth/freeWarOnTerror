@@ -19,6 +19,7 @@ package freeWarOnTerror.Players;
 import static freeWarOnTerror.Game.getTroops;
 import freeWarOnTerror.Players.Actions.ActionAlert;
 import freeWarOnTerror.Players.Actions.ActionDeploy;
+import freeWarOnTerror.Players.Actions.ActionDisrupt;
 import freeWarOnTerror.Players.Actions.ActionEventUS;
 import freeWarOnTerror.Players.Actions.ActionReassessment;
 import freeWarOnTerror.Players.Actions.ActionRegimeChange;
@@ -41,6 +42,7 @@ public class PlayerUS extends freeWarOnTerror.abClasses.Player {
         addAction(new ActionEventUS());
         addAction(new ActionWarOfIdeas());
         addAction(new ActionDeploy());
+        addAction(new ActionDisrupt());
         addAction(new ActionReassessment());
         addAction(new ActionAlert());
         addAction(new ActionRegimeChange());
