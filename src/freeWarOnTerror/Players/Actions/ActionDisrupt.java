@@ -18,11 +18,15 @@ package freeWarOnTerror.Players.Actions;
 
 import freeWarOnTerror.Cell;
 import static freeWarOnTerror.Game.getAllCountries;
+import static freeWarOnTerror.Game.isCardInPlay;
 import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
+import static freeWarOnTerror.helpers.CONSTANTS.ALANBAR;
+import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
+import static freeWarOnTerror.helpers.CONSTANTS.SYRIA;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -57,9 +61,12 @@ public class ActionDisrupt extends Action {
         System.out.println("Choose where to disrupt");
         Country targetCountry = inputLoop(eligibleCountries);
         int iterations = 1;
-        if (targetCountry.troopAmount() > 1) {
+        if (isCardInPlay(ALANBAR) && (targetCountry.getID() == SYRIA || targetCountry.getID() == IRAQ)){
+            
+        }
+        else if (targetCountry.troopAmount() > 1) {
             iterations = 2;
-            modifyPrestige(1);
+      
         } else if (targetCountry instanceof NonMuslimCountry) {
             NonMuslimCountry tc = (NonMuslimCountry) targetCountry;
             if (tc.getPosture() == 1) {
@@ -82,6 +89,9 @@ public class ActionDisrupt extends Action {
         }
         else {
             targetCountry.setCadre(false);
+        }
+        if (targetCountry.troopAmount() > 1) {
+            modifyPrestige(1);
         }
     }
 }
