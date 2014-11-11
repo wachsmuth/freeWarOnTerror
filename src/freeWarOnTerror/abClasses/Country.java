@@ -186,8 +186,8 @@ public abstract class Country extends Location {
 
     public void killAllCells() {
         if (hasCells()) {
-            for (Cell c : getCells()) {
-                c.kill();
+            for (int i = 0; i < cellAmount(); i++) {
+                getCells().get(0).kill();
             }
             setCadre(true);
         }
