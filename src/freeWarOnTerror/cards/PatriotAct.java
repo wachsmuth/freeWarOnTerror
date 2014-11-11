@@ -17,12 +17,10 @@
 package freeWarOnTerror.cards;
 
 import static freeWarOnTerror.Game.getCountry;
-import static freeWarOnTerror.Game.getSchengenCountries;
-import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
+import freeWarOnTerror.abClasses.Country;
+import static freeWarOnTerror.helpers.CONSTANTS.CANADA;
 import static freeWarOnTerror.helpers.CONSTANTS.PATRIOTACT;
-import static freeWarOnTerror.helpers.CONSTANTS.PHILIPPINES;
-import static freeWarOnTerror.helpers.CONSTANTS.UNITEDKINGDOM;
 import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
 
 /**
@@ -37,13 +35,11 @@ public class PatriotAct extends Card {
 
     @Override
     public void playEvent() {
-        getCountry(UNITEDSTATES).removeAdjacentCountry(getCountry(PHILIPPINES));
-        getCountry(PHILIPPINES).removeAdjacentCountry(getCountry(UNITEDSTATES));
-        getCountry(UNITEDSTATES).removeAdjacentCountry(getCountry(UNITEDKINGDOM));
-        getCountry(UNITEDKINGDOM).removeAdjacentCountry(getCountry(UNITEDSTATES));
-        for (NonMuslimCountry c : getSchengenCountries()) {
-            getCountry(UNITEDSTATES).removeAdjacentCountry(c);
-            c.removeAdjacentCountry(getCountry(UNITEDSTATES));
+        for (Country c : getCountry(UNITEDSTATES).getAdjacentCountries()) {
+            if (c != getCountry(CANADA)) {
+                c.removeAdjacentCountry(getCountry(UNITEDSTATES));
+                getCountry(UNITEDSTATES).removeAdjacentCountry(c);
+            }
         }
     }
 }
