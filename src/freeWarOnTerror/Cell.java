@@ -41,6 +41,16 @@ public class Cell extends Moveable {
     public void kill() {
         move(getTrack());
     }
+    
+    public void disrupt(){
+        setIdle(false);
+        if (isActive()){
+            kill();
+        }
+        else {
+            setActive(true);
+        }
+    }
 
     public void setIdle(boolean idle) {
         this.idle = idle;
