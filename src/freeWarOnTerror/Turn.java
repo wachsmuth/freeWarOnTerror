@@ -44,6 +44,9 @@ public class Turn {
     private boolean jihadistDone;
     private boolean USADone;
     private boolean oilSpike;
+    private boolean biometrics;
+    private boolean itjihad;
+    private boolean gtmo;
 
     public Turn() {
         Game.incrementTurnNumber();
@@ -51,6 +54,9 @@ public class Turn {
         USADone = false;
         firstPlot = true;
         oilSpike = false;
+        biometrics = false;
+        itjihad = false;
+        gtmo = false;
     }
 
 //--------------------------------PUBLIC-------------------------------------------------------
@@ -110,6 +116,32 @@ public class Turn {
     public boolean isOilSpike(){
         return oilSpike;
     }
+
+    public boolean isBiometrics() {
+        return biometrics;
+    }
+    
+    public void biometrics(){
+        biometrics = true;
+    }
+
+    public boolean isItjihad() {
+        return itjihad;
+    }
+    
+    public void itjihad(){
+        itjihad = true;
+    }
+
+    public boolean isGtmo() {
+        return gtmo;
+    }
+    
+    public void gtmo(){
+        gtmo = true;
+    }
+    
+    
 //--------------------------------PRIVATE-------------------------------------------------------
 
     private void drawPhase() {
