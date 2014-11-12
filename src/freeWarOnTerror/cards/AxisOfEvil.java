@@ -32,7 +32,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.JAYSHALMAHDI;
 public class AxisOfEvil extends Card {
 
     public AxisOfEvil() {
-        super("Axis of Evil", 3, 3, false, false, AXISOFEVIL);
+        super("\"Axis of Evil\"", 3, 3, false, false, AXISOFEVIL);
     }
     
     @Override
