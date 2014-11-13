@@ -47,10 +47,7 @@ public class MuslimCountry extends Country {
 
 //--------------------------------GETTERS-------------------------------------------------------
     public int getResources() {
-        if (oilCountry && Game.getCurrentTurn().isOilSpike()) {
-            return resources + 1;
-        }
-        return resources;
+        return resources + Game.getCurrentTurn().isOilSpike();
     }
 
     public Boolean getShiaMix() {

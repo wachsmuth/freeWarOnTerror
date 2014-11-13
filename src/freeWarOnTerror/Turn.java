@@ -43,7 +43,7 @@ public class Turn {
     private boolean firstPlot;
     private boolean jihadistDone;
     private boolean USADone;
-    private boolean oilSpike;
+    private int oilSpike;
     private boolean biometrics;
     private boolean itjihad;
     private boolean gtmo;
@@ -53,7 +53,7 @@ public class Turn {
         jihadistDone = false;
         USADone = false;
         firstPlot = true;
-        oilSpike = false;
+        oilSpike = 0;
         biometrics = false;
         itjihad = false;
         gtmo = false;
@@ -110,10 +110,10 @@ public class Turn {
     }
     
     public void oilSpike(){
-        oilSpike = true;
+        oilSpike += 1;
     }
     
-    public boolean isOilSpike(){
+    public int isOilSpike(){
         return oilSpike;
     }
 

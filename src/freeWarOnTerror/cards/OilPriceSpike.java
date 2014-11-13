@@ -17,6 +17,7 @@
 package freeWarOnTerror.cards;
 
 import static freeWarOnTerror.Game.getCurrentPlayer;
+import static freeWarOnTerror.Game.getCurrentTurn;
 import static freeWarOnTerror.Game.getDiscardPile;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.OILPRICESPIKE;
@@ -47,6 +48,6 @@ public class OilPriceSpike extends Card {
             getDiscardPile().removeCard(card);
             getCurrentPlayer().addCard(card);
         }
-        //DEBUG put lapsing effect into play
+        getCurrentTurn().oilSpike();
     }
 }
