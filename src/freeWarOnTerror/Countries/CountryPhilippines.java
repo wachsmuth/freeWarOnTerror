@@ -17,7 +17,9 @@
 package freeWarOnTerror.Countries;
 
 import static freeWarOnTerror.Game.isCardInPlay;
+import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.NonMuslimCountry;
+import freeWarOnTerror.Plot;
 import static freeWarOnTerror.helpers.CONSTANTS.ABUSAYYAF;
 
 /**
@@ -39,5 +41,12 @@ public class CountryPhilippines extends NonMuslimCountry {
     @Override
     public boolean canDeployFrom(){
         return hasTroops();
+    }
+    
+    @Override
+    public void placePlot(Plot p){
+        if (isCardInPlay(ABUSAYYAF) && cellAmount() + 1 > troopAmount()){
+            modifyPrestige(-1);
+        }
     }
 }
