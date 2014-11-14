@@ -41,6 +41,7 @@ import freeWarOnTerror.cards.AxisOfEvil;
 import freeWarOnTerror.cards.Backlash;
 import freeWarOnTerror.cards.BenazirBhutto;
 import freeWarOnTerror.cards.BhuttoShot;
+import freeWarOnTerror.cards.BinLadin;
 import freeWarOnTerror.cards.CTR;
 import freeWarOnTerror.cards.CovertAction;
 import freeWarOnTerror.cards.Darfur;
@@ -395,6 +396,7 @@ public abstract class Scenario {
         deck.addCard(new Backlash());
         deck.addCard(new BenazirBhutto());
         deck.addCard(new BhuttoShot());
+        deck.addCard(new BinLadin());
         deck.addCard(new CovertAction());
         deck.addCard(new CTR());
         deck.addCard(new Darfur());
