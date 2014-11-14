@@ -71,6 +71,7 @@ import freeWarOnTerror.cards.MartyrdomOperation;
 import freeWarOnTerror.cards.MassTurnout;
 import freeWarOnTerror.cards.MoroTalks;
 import freeWarOnTerror.cards.MossadAndShinBet;
+import freeWarOnTerror.cards.Musharraf;
 import freeWarOnTerror.cards.NEST;
 import freeWarOnTerror.cards.OilPriceSpike;
 import freeWarOnTerror.cards.Opium;
@@ -428,6 +429,7 @@ public abstract class Scenario {
         deck.addCard(new MassTurnout());
         deck.addCard(new MoroTalks());
         deck.addCard(new MossadAndShinBet());
+        deck.addCard(new Musharraf());
         deck.addCard(new NEST());
         deck.addCard(new OilPriceSpike());
         deck.addCard(new OilPriceSpike());
