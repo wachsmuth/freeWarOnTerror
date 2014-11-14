@@ -93,6 +93,7 @@ import freeWarOnTerror.cards.UyghurJihad;
 import freeWarOnTerror.cards.VieiradeMelloSlain;
 import freeWarOnTerror.cards.Wahhabism;
 import freeWarOnTerror.cards.Wiretapping;
+import freeWarOnTerror.cards.Zawahiri;
 import freeWarOnTerror.helpers.CONSTANTS;
 import static freeWarOnTerror.helpers.CONSTANTS.AFGHANISTAN;
 import static freeWarOnTerror.helpers.CONSTANTS.ALGERIA;
@@ -454,6 +455,7 @@ public abstract class Scenario {
         deck.addCard(new VieiradeMelloSlain());
         deck.addCard(new Wahhabism());
         deck.addCard(new Wiretapping());
+        deck.addCard(new Zawahiri());
     }
 
     //--------------------------------ABSTRACT METHODS----------------------------------------------
