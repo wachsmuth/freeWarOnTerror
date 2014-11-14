@@ -91,6 +91,7 @@ import freeWarOnTerror.cards.Sharia;
 import freeWarOnTerror.cards.Sistani;
 import freeWarOnTerror.cards.SpecialForces;
 import freeWarOnTerror.cards.Taliban;
+import freeWarOnTerror.cards.TonyBlair;
 import freeWarOnTerror.cards.USElection;
 import freeWarOnTerror.cards.UyghurJihad;
 import freeWarOnTerror.cards.VieiradeMelloSlain;
@@ -456,6 +457,7 @@ public abstract class Scenario {
         deck.addCard(new SpecialForces());
         deck.addCard(new SpecialForces());
         deck.addCard(new Taliban());
+        deck.addCard(new TonyBlair());
         deck.addCard(new USElection());
         deck.addCard(new UyghurJihad());
         deck.addCard(new VieiradeMelloSlain());
