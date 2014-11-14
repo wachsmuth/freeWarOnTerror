@@ -17,10 +17,13 @@
 package freeWarOnTerror.cards;
 
 import static freeWarOnTerror.Game.getCountry;
+import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.ALJAZEERA;
 import static freeWarOnTerror.helpers.CONSTANTS.SAUDIARABIA;
+import static freeWarOnTerror.helpers.InputLoop.inputLoop;
+import java.util.ArrayList;
 
 /**
  *
@@ -47,6 +50,16 @@ public class AlJazeera extends Card {
     
     @Override
     public void playEvent(){
-        
+        ArrayList<Country> eligibleCountries = new ArrayList<>();
+        if (getCountry(SAUDIARABIA).hasTroops()){
+            eligibleCountries.add(getCountry(SAUDIARABIA));
+        }
+        for (Country c : getCountry(SAUDIARABIA).getAdjacentCountries()){
+            if (c.hasTroops()){
+                eligibleCountries.add(c);
+            }
+        }
+        System.out.println("Choose a country to shift alignment of");
+        ((MuslimCountry) inputLoop(eligibleCountries)).shiftAlignment(1);
     }
 }

@@ -34,6 +34,7 @@ import freeWarOnTerror.cards.AbuSayyaf;
 import freeWarOnTerror.cards.AlAnbar;
 import freeWarOnTerror.cards.AlAzhar;
 import freeWarOnTerror.cards.AlIttihadAlIslami;
+import freeWarOnTerror.cards.AlJazeera;
 import freeWarOnTerror.cards.Amerithrax;
 import freeWarOnTerror.cards.AnbarAwakening;
 import freeWarOnTerror.cards.AnsarAlIslam;
@@ -390,6 +391,7 @@ public abstract class Scenario {
         deck.addCard(new AlAnbar());
         deck.addCard(new AlAzhar());
         deck.addCard(new AlIttihadAlIslami());
+        deck.addCard(new AlJazeera());
         deck.addCard(new Amerithrax());
         deck.addCard(new AnbarAwakening());
         deck.addCard(new AnsarAlIslam());
