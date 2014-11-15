@@ -16,7 +16,6 @@
  */
 package freeWarOnTerror.cards;
 
-import static freeWarOnTerror.Game.getCurrentPlayer;
 import static freeWarOnTerror.Game.getUS;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.AMERITHRAX;
@@ -38,22 +37,20 @@ public class Amerithrax extends Card {
         ArrayList<Card> usEvents = new ArrayList<>();
         int highestOps = 0;
         for (Card c : getUS().getHand()) {
-            if (c.getAlignment() == 2) {
-                usEvents.add(c);
-                if (c.getOps() > highestOps) {
+            if (c.getAlignment() == 2 && c.getOps() > highestOps) {
                     highestOps = c.getOps();
-                }
+            }
+        }
+        for (Card c : getUS().getHand()) {
+            if (c.getAlignment() == 2 && c.getOps() == highestOps) {
+                usEvents.add(c);
+
             }
 
         }
         if (usEvents.size() > 0) {
-            for (int i = 0;i < usEvents.size();i++){
-                if (usEvents.get(i).getOps() < highestOps) {
-                    usEvents.remove(usEvents.get(i));
-                }
-            }
             System.out.println("Choose a card to discard");
-            getCurrentPlayer().discard(inputLoop(usEvents));
+            getUS().discard(inputLoop(usEvents));
         }
     }
 }
