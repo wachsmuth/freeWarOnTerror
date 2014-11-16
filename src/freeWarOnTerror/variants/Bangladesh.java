@@ -16,13 +16,7 @@
  */
 package freeWarOnTerror.variants;
 
-import static freeWarOnTerror.Game.getAllCountries;
-import static freeWarOnTerror.Game.getCountry;
-import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Variant;
-import static freeWarOnTerror.helpers.CONSTANTS.BANGLADESH;
-import static freeWarOnTerror.helpers.CONSTANTS.INDIA;
-import static freeWarOnTerror.helpers.CONSTANTS.INDONESIA;
 
 /**
  *
@@ -37,10 +31,10 @@ public class Bangladesh extends Variant {
 
     @Override
     public void activate() {
-        getAllCountries().add(new MuslimCountry("Bangladesh", BANGLADESH, 1, false, false));
+        /*getAllCountries().add(new MuslimCountry("Bangladesh", BANGLADESH, 1, false, false));
         getCountry(BANGLADESH).addAdjacentCountry(getCountry(INDIA));
-        getCountry(BANGLADESH).addAdjacentCountry(getCountry(INDONESIA));
-        getCountry(INDONESIA).addAdjacentCountry(getCountry(BANGLADESH));
-        getCountry(INDIA).addAdjacentCountry(getCountry(BANGLADESH));
+        getCountry(BANGLADESH).addAdjacentCountry(getCountry(CountryLookup.INDONESIA));
+        getCountry(CountryLookup.INDONESIA).addAdjacentCountry(getCountry(BANGLADESH));
+        getCountry(INDIA).addAdjacentCountry(getCountry(BANGLADESH)); DEBUG */ 
     }
 }
