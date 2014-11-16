@@ -18,6 +18,7 @@ package freeWarOnTerror.Players.Actions;
 
 import freeWarOnTerror.Cell;
 import static freeWarOnTerror.Game.getAllCountries;
+import static freeWarOnTerror.Game.getCurrentTurn;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
@@ -43,10 +44,20 @@ public class ActionTravel extends Action {
 
     @Override
     public void performAction(Card c) {
-        Cell[] chosenCells = new Cell[c.getOps()];
-        Country[] chosenOrigins = new Country[c.getOps()];
-        Country[] chosenDestinations = new Country[c.getOps()];
-        for (int i = 0; i < c.getOps(); i++) {
+        if (getCurrentTurn().isBiometrics()){
+            
+        }
+        else {
+            normalTravel(c.getOps());
+        }
+
+    }
+    
+    private void normalTravel(int ops){
+        Cell[] chosenCells = new Cell[ops];
+        Country[] chosenOrigins = new Country[ops];
+        Country[] chosenDestinations = new Country[ops];
+        for (int i = 0; i < ops; i++) {
             ArrayList<Cell> availableCells = new ArrayList<>();
             for (Country country : getAllCountries()) {
                 if (country.hasCells()) {
@@ -64,7 +75,11 @@ public class ActionTravel extends Action {
             chosenDestinations[i] = inputLoop(getAllCountries());
             chosenCells[i].setIdle(false);
         }
-        for (int i = 0; i < c.getOps(); i++) {
+        moveCells(ops, chosenOrigins, chosenDestinations, chosenCells);
+    }
+
+    private void moveCells(int ops, Country[] chosenOrigins, Country[] chosenDestinations, Cell[] chosenCells) {
+        for (int i = 0; i < ops; i++) {
             chosenDestinations[i].testCountry();
             boolean isTravelAutomatic = false;
             if (chosenOrigins[i] == chosenDestinations[i]) {
@@ -74,18 +89,15 @@ public class ActionTravel extends Action {
             } else if (chosenDestinations[i].getGovernance() == ISLAMISTRULE) {
                 isTravelAutomatic = true;
             }
-            if (isTravelAutomatic){
+            if (isTravelAutomatic) {
                 chosenCells[i].move(chosenDestinations[i]);
-            }
-            else {
-                if (chosenDestinations[i].getGovernance() >= rollDie()){
+            } else {
+                if (chosenDestinations[i].getGovernance() >= rollDie()) {
                     chosenCells[i].move(chosenDestinations[i]);
-                }
-                else {
+                } else {
                     chosenCells[i].kill();
                 }
             }
-
         }
     }
 }
