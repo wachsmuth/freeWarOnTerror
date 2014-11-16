@@ -19,8 +19,8 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.anyIslamistRule;
 import static freeWarOnTerror.Game.modifyFunding;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.BENELUX;
 import static freeWarOnTerror.helpers.CONSTANTS.EUROISLAM;
+import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.setCountryPosture;
 
 /**
@@ -35,7 +35,7 @@ public class EuroIslam extends Card {
     
     @Override
     public void playEvent(){
-        setCountryPosture(BENELUX);
+        setCountryPosture(CountryLookup.BENELUX);
         if (!anyIslamistRule()){
             modifyFunding(-1);
         }

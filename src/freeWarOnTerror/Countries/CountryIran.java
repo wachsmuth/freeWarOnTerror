@@ -20,6 +20,7 @@ import freeWarOnTerror.Game;
 import freeWarOnTerror.Plot;
 import static freeWarOnTerror.helpers.AppendToString.appendString;
 import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
+import freeWarOnTerror.helpers.CountryLookup;
 import java.util.Iterator;
 
 /**
@@ -30,6 +31,11 @@ public class CountryIran extends freeWarOnTerror.abClasses.Country {
 
     int governance = 2;
 
+    public CountryIran(CountryLookup c){
+        super(c);
+        noLongerNeedsTesting();
+    }
+    
     public CountryIran(String name, int id) {
         super(name, id);
         noLongerNeedsTesting();

@@ -21,8 +21,8 @@ import static freeWarOnTerror.Game.isCardInPlay;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.FRES;
-import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
 import static freeWarOnTerror.helpers.CONSTANTS.SADDAMCAPTURED;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -36,7 +36,7 @@ public class FREs extends Card {
     
     @Override
     public Boolean getPlayable(){
-        return getCountry(IRAQ).hasTroops();
+        return getCountry(CountryLookup.IRAQ).hasTroops();
     }
     
     @Override
@@ -49,7 +49,7 @@ public class FREs extends Card {
             cells = 4;
         }
         for (int i = 0;i < cells;i++){
-            placeCell(getCountry(IRAQ));
+            placeCell(getCountry(CountryLookup.IRAQ));
         }
     }
 }

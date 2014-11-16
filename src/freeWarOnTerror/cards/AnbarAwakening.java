@@ -25,6 +25,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.ALANBAR;
 import static freeWarOnTerror.helpers.CONSTANTS.ANBARAWAKENING;
 import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
 import static freeWarOnTerror.helpers.CONSTANTS.SYRIA;
+import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -40,24 +41,24 @@ public class AnbarAwakening extends Card {
     
     @Override
     public Boolean getPlayable(){
-        return getCountry(IRAQ).hasTroops() || getCountry(SYRIA).hasTroops();
+        return getCountry(CountryLookup.IRAQ).hasTroops() || getCountry(CountryLookup.SYRIA).hasTroops();
     }
     
     @Override
     public void playEvent(){
-        if (getCountry(IRAQ).hasTroops() && getCountry(SYRIA).hasTroops()){
+        if (getCountry(CountryLookup.IRAQ).hasTroops() && getCountry(CountryLookup.SYRIA).hasTroops()){
             System.out.println("Choose a country for aid");
             ArrayList<MuslimCountry> iraqAndSyria = new ArrayList<>();
-            iraqAndSyria.add((MuslimCountry) getCountry(IRAQ));
-            iraqAndSyria.add((MuslimCountry) getCountry(SYRIA));
+            iraqAndSyria.add((MuslimCountry) getCountry(CountryLookup.IRAQ));
+            iraqAndSyria.add((MuslimCountry) getCountry(CountryLookup.SYRIA));
             inputLoop(iraqAndSyria).addAid();
         }
-        else if (getCountry(IRAQ).hasTroops()){
-            MuslimCountry iraq = (MuslimCountry) getCountry(IRAQ);
+        else if (getCountry(CountryLookup.IRAQ).hasTroops()){
+            MuslimCountry iraq = (MuslimCountry) getCountry(CountryLookup.IRAQ);
             iraq.addAid();
         }
         else {
-            MuslimCountry syria = (MuslimCountry) getCountry(SYRIA);
+            MuslimCountry syria = (MuslimCountry) getCountry(CountryLookup.SYRIA);
             syria.addAid();
         }
         modifyPrestige(1);

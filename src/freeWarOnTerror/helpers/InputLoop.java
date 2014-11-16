@@ -142,7 +142,7 @@ public class InputLoop {
         }
     }
     
-    public static void setCountryPosture(int country){
+    public static void setCountryPosture(CountryLookup country){
                 int input = inputLoop("Select " + getCountry(country).getName() + "'s posture", "hard", "soft");
         NonMuslimCountry c = (NonMuslimCountry) getCountry(country);
         if (input == 1){

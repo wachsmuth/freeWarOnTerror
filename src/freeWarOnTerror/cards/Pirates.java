@@ -21,6 +21,7 @@ import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.PIRATES;
 import static freeWarOnTerror.helpers.CONSTANTS.SOMALIA;
 import static freeWarOnTerror.helpers.CONSTANTS.YEMEN;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -34,7 +35,7 @@ public class Pirates extends Card {
     
     @Override
     public Boolean getPlayable(){
-        return getCountry(SOMALIA).getGovernance() == 4 || getCountry(YEMEN).getGovernance() == 4;
+        return getCountry(CountryLookup.SOMALIA).getGovernance() == 4 || getCountry(CountryLookup.YEMEN).getGovernance() == 4;
     }
     
     @Override

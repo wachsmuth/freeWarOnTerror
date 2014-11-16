@@ -21,7 +21,7 @@ import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.ALJAZEERA;
-import static freeWarOnTerror.helpers.CONSTANTS.SAUDIARABIA;
+import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -37,10 +37,10 @@ public class AlJazeera extends Card {
     
     @Override
     public Boolean getPlayable(){
-        if (getCountry(SAUDIARABIA).hasTroops()){
+        if (getCountry(CountryLookup.SAUDIARABIA).hasTroops()){
             return true;
         }
-        for (Country c : getCountry(SAUDIARABIA).getAdjacentCountries()){
+        for (Country c : getCountry(CountryLookup.SAUDIARABIA).getAdjacentCountries()){
             if (c.hasTroops()){
                 return true;
             }
@@ -51,10 +51,10 @@ public class AlJazeera extends Card {
     @Override
     public void playEvent(){
         ArrayList<Country> eligibleCountries = new ArrayList<>();
-        if (getCountry(SAUDIARABIA).hasTroops()){
-            eligibleCountries.add(getCountry(SAUDIARABIA));
+        if (getCountry(CountryLookup.SAUDIARABIA).hasTroops()){
+            eligibleCountries.add(getCountry(CountryLookup.SAUDIARABIA));
         }
-        for (Country c : getCountry(SAUDIARABIA).getAdjacentCountries()){
+        for (Country c : getCountry(CountryLookup.SAUDIARABIA).getAdjacentCountries()){
             if (c.hasTroops()){
                 eligibleCountries.add(c);
             }

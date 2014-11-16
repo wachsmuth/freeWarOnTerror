@@ -98,6 +98,7 @@ public class Game {
         }
         return null;
     }
+    
     public static Turn getCurrentTurn() {
         return currentTurn;
     }
@@ -131,8 +132,7 @@ public class Game {
     }
 
     public static boolean isPostureHard() {
-        NonMuslimCountry usa = (NonMuslimCountry) getCountry(UNITEDSTATES);
-
+        NonMuslimCountry usa = (NonMuslimCountry) getCountry(CountryLookup.UNITEDSTATES);
         return usa.getPosture() == 1;
     }
 
@@ -250,7 +250,7 @@ public class Game {
     }
 
     public static void setPostureHard(boolean posture) {
-        NonMuslimCountry usa = (NonMuslimCountry) getCountry(UNITEDSTATES);
+        NonMuslimCountry usa = (NonMuslimCountry) getCountry(CountryLookup.UNITEDSTATES);
         if (posture) {
             usa.setPosture(1);
         } else {
@@ -259,17 +259,8 @@ public class Game {
     }
 
     public static void rollUSPosture() {
-        CountryUSA us = (CountryUSA) getCountry(UNITEDSTATES);
+        CountryUSA us = (CountryUSA) getCountry(CountryLookup.UNITEDSTATES);
         us.rollPosture();
-    }
-
-    public static Country getCountry(int id) {
-        for (Country c : allCountries) {
-            if (c.getID() == id) {
-                return c;
-            }
-        }
-        return null;
     }
 
     public static void rollPrestige() {

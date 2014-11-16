@@ -24,6 +24,7 @@ import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.ABBAS;
 import static freeWarOnTerror.helpers.CONSTANTS.ISRAEL;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -42,7 +43,7 @@ public class Abbas extends Card {
             plays = false;
         }
         else {
-            for (Country c : getCountry(ISRAEL).getAdjacentCountries()){
+            for (Country c : getCountry(CountryLookup.ISRAEL).getAdjacentCountries()){
                 if (c.getGovernance() == 4){
                     plays = false;
                     break;

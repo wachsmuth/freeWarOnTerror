@@ -21,6 +21,7 @@ import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.FATA;
 import static freeWarOnTerror.helpers.CONSTANTS.PAKISTAN;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -34,6 +35,6 @@ public class FATA extends Card {
     
     @Override
     public void playEvent(){
-        placeCell(getCountry(PAKISTAN));
+        placeCell(getCountry(CountryLookup.PAKISTAN));
     }
 }

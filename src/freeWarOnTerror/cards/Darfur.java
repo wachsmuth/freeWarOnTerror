@@ -21,7 +21,7 @@ import static freeWarOnTerror.Game.getPrestige;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.DARFUR;
-import static freeWarOnTerror.helpers.CONSTANTS.SUDAN;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -35,7 +35,7 @@ public class Darfur extends Card {
     
     @Override
     public void playEvent(){
-        MuslimCountry sudan = (MuslimCountry) getCountry(SUDAN);
+        MuslimCountry sudan = (MuslimCountry) getCountry(CountryLookup.SUDAN);
         sudan.testCountry();
         if (getPrestige() > 6){
             sudan.addAid();

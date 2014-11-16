@@ -22,6 +22,7 @@ import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
 import static freeWarOnTerror.helpers.CONSTANTS.SADDAMCAPTURED;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -35,12 +36,12 @@ public class SaddamCaptured extends Card {
     
     @Override
     public Boolean getPlayable(){
-        return (getCountry(IRAQ).troopAmount() > 0);
+        return (getCountry(CountryLookup.IRAQ).troopAmount() > 0);
     }
     
     @Override
     public void playEvent(){
-      MuslimCountry iraq = (MuslimCountry) getCountry(IRAQ);
+      MuslimCountry iraq = (MuslimCountry) getCountry(CountryLookup.IRAQ);
       iraq.addAid();
       modifyPrestige(1);
     }

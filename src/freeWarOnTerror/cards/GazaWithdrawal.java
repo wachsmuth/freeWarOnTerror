@@ -23,7 +23,7 @@ import static freeWarOnTerror.Game.modifyFunding;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.GAZAWITHDRAWAL;
-import static freeWarOnTerror.helpers.CONSTANTS.ISRAEL;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -41,7 +41,7 @@ public class GazaWithdrawal extends Card {
             modifyFunding(-1);
         }
         else {
-            placeCell(getCountry(ISRAEL));
+            placeCell(getCountry(CountryLookup.ISRAEL));
         }
     }
     

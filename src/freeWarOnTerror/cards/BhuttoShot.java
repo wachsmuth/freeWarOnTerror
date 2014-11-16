@@ -16,9 +16,10 @@
  */
 package freeWarOnTerror.cards;
 
-import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.Game.getCountry;
+import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.PAKISTAN;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -32,7 +33,7 @@ public class BhuttoShot extends Card {
     
     @Override
     public Boolean getPlayable(){
-        return getCountry(PAKISTAN).hasCells();
+        return getCountry(CountryLookup.PAKISTAN).hasCells();
     }
     
     @Override

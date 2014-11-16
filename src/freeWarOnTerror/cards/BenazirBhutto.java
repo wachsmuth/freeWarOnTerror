@@ -23,6 +23,7 @@ import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.BENAZIRBHUTTO;
 import static freeWarOnTerror.helpers.CONSTANTS.BHUTTOSHOT;
 import static freeWarOnTerror.helpers.CONSTANTS.PAKISTAN;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -36,10 +37,10 @@ public class BenazirBhutto extends Card {
     
     @Override
     public Boolean getPlayable(){
-        if (getCountry(PAKISTAN).getGovernance() == 4){
+        if (getCountry(CountryLookup.PAKISTAN).getGovernance() == 4){
             return false;
         }
-        for (Country c : getCountry(PAKISTAN).getAdjacentCountries()){
+        for (Country c : getCountry(CountryLookup.PAKISTAN).getAdjacentCountries()){
             if (c.getGovernance() == 4){
                 return false;
             }
@@ -49,8 +50,8 @@ public class BenazirBhutto extends Card {
     
     @Override
     public void playEvent(){
-        if (getCountry(PAKISTAN).getGovernance() == 3){
-            getCountry(PAKISTAN).setGovernance(2);
+        if (getCountry(CountryLookup.PAKISTAN).getGovernance() == 3){
+            getCountry(CountryLookup.PAKISTAN).setGovernance(2);
         }
     }
 }

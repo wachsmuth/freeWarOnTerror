@@ -24,6 +24,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.ALANBAR;
 import static freeWarOnTerror.helpers.CONSTANTS.ANBARAWAKENING;
 import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
 import static freeWarOnTerror.helpers.CONSTANTS.SYRIA;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -42,6 +43,6 @@ public class AlAnbar extends Card {
     
     @Override
     public void playEvent(){
-        placeCell(getCountry(IRAQ));
+        placeCell(getCountry(CountryLookup.IRAQ));
     }
 }

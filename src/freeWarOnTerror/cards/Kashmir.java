@@ -23,7 +23,7 @@ import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.INDOPAKISTANITALKS;
 import static freeWarOnTerror.helpers.CONSTANTS.KASHMIR;
-import static freeWarOnTerror.helpers.CONSTANTS.PAKISTAN;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -42,7 +42,7 @@ public class Kashmir extends Card {
     
     @Override
     public void playEvent(){
-        MuslimCountry pakistan = (MuslimCountry) getCountry(PAKISTAN);
+        MuslimCountry pakistan = (MuslimCountry) getCountry(CountryLookup.PAKISTAN);
         pakistan.shiftAlignment(1);
         placeCell(pakistan);
     }

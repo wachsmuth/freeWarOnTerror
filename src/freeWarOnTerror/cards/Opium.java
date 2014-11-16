@@ -19,8 +19,8 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.AFGHANISTAN;
 import static freeWarOnTerror.helpers.CONSTANTS.OPIUM;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -34,26 +34,26 @@ public class Opium extends Card {
 
     @Override
     public Boolean getPlayable() {
-        return getCountry(AFGHANISTAN).hasCells();
+        return getCountry(CountryLookup.AFGHANISTAN).hasCells();
     }
 
     @Override
     public void playEvent() {
-        placeCell(getCountry(AFGHANISTAN));
-        placeCell(getCountry(AFGHANISTAN));
-        placeCell(getCountry(AFGHANISTAN));
-        if (getCountry(AFGHANISTAN).getGovernance() == 4) {
-            placeCell(getCountry(AFGHANISTAN));
-            placeCell(getCountry(AFGHANISTAN));
-            placeCell(getCountry(AFGHANISTAN));
-            placeCell(getCountry(AFGHANISTAN));
-            placeCell(getCountry(AFGHANISTAN));
-            placeCell(getCountry(AFGHANISTAN));
-            placeCell(getCountry(AFGHANISTAN));
-            placeCell(getCountry(AFGHANISTAN));
-            placeCell(getCountry(AFGHANISTAN));
-            placeCell(getCountry(AFGHANISTAN));
-            placeCell(getCountry(AFGHANISTAN));
+        placeCell(getCountry(CountryLookup.AFGHANISTAN));
+        placeCell(getCountry(CountryLookup.AFGHANISTAN));
+        placeCell(getCountry(CountryLookup.AFGHANISTAN));
+        if (getCountry(CountryLookup.AFGHANISTAN).getGovernance() == 4) {
+            placeCell(getCountry(CountryLookup.AFGHANISTAN));
+            placeCell(getCountry(CountryLookup.AFGHANISTAN));
+            placeCell(getCountry(CountryLookup.AFGHANISTAN));
+            placeCell(getCountry(CountryLookup.AFGHANISTAN));
+            placeCell(getCountry(CountryLookup.AFGHANISTAN));
+            placeCell(getCountry(CountryLookup.AFGHANISTAN));
+            placeCell(getCountry(CountryLookup.AFGHANISTAN));
+            placeCell(getCountry(CountryLookup.AFGHANISTAN));
+            placeCell(getCountry(CountryLookup.AFGHANISTAN));
+            placeCell(getCountry(CountryLookup.AFGHANISTAN));
+            placeCell(getCountry(CountryLookup.AFGHANISTAN));
         }
     }
 }

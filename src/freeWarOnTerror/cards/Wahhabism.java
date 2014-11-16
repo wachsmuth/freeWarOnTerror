@@ -20,8 +20,8 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.modifyFunding;
 import static freeWarOnTerror.Game.setFunding;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.SAUDIARABIA;
 import static freeWarOnTerror.helpers.CONSTANTS.WAHHABISM;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -35,11 +35,11 @@ public class Wahhabism extends Card{
     
     @Override
     public void playEvent(){
-        if (getCountry(SAUDIARABIA).getGovernance() == 4){
+        if (getCountry(CountryLookup.SAUDIARABIA).getGovernance() == 4){
             setFunding(9);
         }
         else {
-            modifyFunding(getCountry(SAUDIARABIA).getGovernance());
+            modifyFunding(getCountry(CountryLookup.SAUDIARABIA).getGovernance());
         }
     }
 }

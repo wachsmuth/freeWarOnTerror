@@ -23,7 +23,7 @@ package freeWarOnTerror.helpers;
 public enum CountryLookup {
 
     UNITEDSTATES("United States"),
-    /*CANADA("Canada", 1, 1, false),*/
+    CANADA("Canada", 1, 1, false),
     UNITEDKINGDOM("United Kingdom", 1, 3, false),
     SCANDINAVIA("Scandinavia", 1, 1, false),
     BENELUX("Benelux", 1, 1, true),
@@ -39,12 +39,12 @@ public enum CountryLookup {
     INDIA("India", 1, 1, false),
     CHINA("China", 2, 2, false),
     THAILAND("Thailand", 2, 2, false),
-    PHILIPPINES("Philippines", 2, 3),
+    PHILIPPINES("Philippines", 2, 3, false),
     KENYA("Kenya/Tanzania", 2, 2, false),
     MOROCCO("Morocco", 2, false, false),
     ALGERIA("Algeria/Tunisia", 1, true, false),
     LIBYA("Libya", 1, true, false),
-    EGYPT("Egypt", 3, false, false),
+    EGYPT("EGYPT", 3, false, false),
     SUDAN("Sudan", 1, true, false),
     SOMALIA("Somalia", 1, false, false),
     YEMEN("Yemen", 1, false, true),
@@ -70,10 +70,15 @@ public enum CountryLookup {
     private int governance;
     private int alignment;
     private int recruit;
+    private boolean muslimCountry;
+
+    public boolean isMuslimCountry() {
+        return muslimCountry;
+    }
     
     private CountryLookup(String name, int DEBUG, int DEBUG2){
         
-    }
+    } //Philipines
     
     private CountryLookup(String name, int DEBUG){
         this.name = name;
@@ -81,21 +86,24 @@ public enum CountryLookup {
     
     private CountryLookup(String name) {
         this.name = name;
-    }
+        muslimCountry = false;
+    } //United states only
 
     private CountryLookup(String name, int governance, int recruit, boolean schengen) {
         this.name = name;
         this.governance = governance;
         this.recruit = recruit;
         this.schengen = schengen;
+        this.muslimCountry = false;
     }//NonMuslimCountries
 
-    private CountryLookup(String name, int resources, boolean oilCountry, boolean shiaMix) { //MuslimCountries
+    private CountryLookup(String name, int resources, boolean oilCountry, boolean shiaMix) {
         this.name = name;
         this.resources = resources;
         this.oilCountry = oilCountry;
         this.shiaMix = shiaMix;
-    }
+        this.muslimCountry = true;
+    } //MuslimCountries
 
     //GETTERS
     public String getName() {

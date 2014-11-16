@@ -22,7 +22,7 @@ import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.ANSARALISLAM;
 import static freeWarOnTerror.helpers.CONSTANTS.IRANCOUNTRY;
-import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
+import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 
 /**
@@ -37,17 +37,17 @@ public class AnsarAlIslam extends Card {
     
     @Override
     public Boolean getPlayable(){
-        return getCountry(IRAQ).getGovernance() > 1 || getCountry(IRAQ).needsTesting();
+        return getCountry(CountryLookup.IRAQ).getGovernance() > 1 || getCountry(CountryLookup.IRAQ).needsTesting();
     }
     
     @Override
     public void playEvent(){
         if (canPlaceCell()){
             if (inputLoop("Choose where to place a cell", "Iraq", "Iran") == 1){
-                placeCell(getCountry(IRAQ));
+                placeCell(getCountry(CountryLookup.IRAQ));
             }
             else {
-                placeCell(getCountry(IRANCOUNTRY));
+                placeCell(getCountry(CountryLookup.IRAN));
             }
         }
     }
