@@ -33,6 +33,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
 import static freeWarOnTerror.helpers.CONSTANTS.ISLAMISTRULE;
 import static freeWarOnTerror.helpers.CONSTANTS.POOR;
 import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
+import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.Die.prestigeRoll;
 import java.util.ArrayList;
 import java.util.List;
@@ -89,6 +90,14 @@ public class Game {
     }
 //--------------------------------GETTERS-------------------------------------------------------
 
+    public static Country getCountry(CountryLookup cL){
+        for (Country c : allCountries) {
+            if (c.getCountryID() == cL.ordinal()) {
+                return c;
+            }
+        }
+        return null;
+    }
     public static Turn getCurrentTurn() {
         return currentTurn;
     }

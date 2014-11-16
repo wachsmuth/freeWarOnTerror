@@ -16,6 +16,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
 import static freeWarOnTerror.helpers.CONSTANTS.ISLAMISTRULE;
 import static freeWarOnTerror.helpers.CONSTANTS.POOR;
 import static freeWarOnTerror.helpers.CONSTANTS.WMD;
+import freeWarOnTerror.helpers.CountryLookup;
 import freeWarOnTerror.helpers.Die;
 import static freeWarOnTerror.helpers.Die.rollDie;
 import java.util.Iterator;
@@ -38,6 +39,12 @@ public class MuslimCountry extends Country {
     private int governance = 0; //1 = Good, 2 = Fair, 3 = Poor, 4 = Islamist Rule
     private int alignment = 0; //1 = Ally, 2 = Neutral, 3 = Adversary
 
+    public MuslimCountry(CountryLookup c){
+        super(c);
+        this.resources = c.getResources();
+        this.oilCountry = c.isOilCountry();
+        this.shiaMix = c.isShiaMix();
+    }
     public MuslimCountry(String name, int id, int resources, boolean oilCountry, boolean shiaMix) {
         super(name, id);
         this.resources = resources;

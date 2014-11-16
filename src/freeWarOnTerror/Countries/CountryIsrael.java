@@ -19,7 +19,7 @@ import static freeWarOnTerror.helpers.Die.rollDie;
 public class CountryIsrael extends NonMuslimCountry {
 
     public CountryIsrael(String name, int id, int governance) {
-        super(name, id, governance, governance, false);
+        super(name, id, governance, governance, false); //Debug - wtf?
         noLongerNeedsTesting();
         setPosture(1);
     }

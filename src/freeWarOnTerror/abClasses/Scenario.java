@@ -107,7 +107,6 @@ import static freeWarOnTerror.helpers.CONSTANTS.CENTRALASIA;
 import static freeWarOnTerror.helpers.CONSTANTS.CHINA;
 import static freeWarOnTerror.helpers.CONSTANTS.EGYPT;
 import static freeWarOnTerror.helpers.CONSTANTS.GULFSTATES;
-import static freeWarOnTerror.helpers.CONSTANTS.INDIA;
 import static freeWarOnTerror.helpers.CONSTANTS.INDONESIA;
 import static freeWarOnTerror.helpers.CONSTANTS.IRANCOUNTRY;
 import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
@@ -130,6 +129,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.TURKEY;
 import static freeWarOnTerror.helpers.CONSTANTS.UNITEDKINGDOM;
 import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
 import static freeWarOnTerror.helpers.CONSTANTS.YEMEN;
+import freeWarOnTerror.helpers.CountryLookup;
 import java.util.ArrayList;
 
 /**
@@ -191,7 +191,8 @@ public abstract class Scenario {
         countries.add(new NonMuslimCountry("China", CONSTANTS.CHINA, 2, 2, false));
         countries.add(new NonMuslimCountry("Thailand", CONSTANTS.THAILAND, 2, 2, false));
         countries.add(new NonMuslimCountry("Kenya/Tanzania", CONSTANTS.KENYA, 2, 2, false));
-        countries.add(new CountryIndia("India", CONSTANTS.INDIA, 1, 1, false));
+        //countries.add(new CountryIndia("India", CONSTANTS.INDIA, 1, 1, false));
+        countries.add(new CountryIndia(CountryLookup.INDIA));
         countries.add(new NonMuslimCountry("Serbia", CONSTANTS.SERBIA, 1, 1, false));
         //Schengen
         countries.add(new NonMuslimCountry("Scandinavia", CONSTANTS.SCANDINAVIA, 1, 1, true));
@@ -335,21 +336,21 @@ public abstract class Scenario {
         getCountry(PAKISTAN).addAdjacentCountry(getCountry(GULFSTATES));
         getCountry(PAKISTAN).addAdjacentCountry(getCountry(IRANCOUNTRY));
         getCountry(PAKISTAN).addAdjacentCountry(getCountry(AFGHANISTAN));
-        getCountry(PAKISTAN).addAdjacentCountry(getCountry(INDIA));
+        getCountry(PAKISTAN).addAdjacentCountry(getCountry(CountryLookup.INDIA));
         getCountry(PAKISTAN).addAdjacentCountry(getCountry(INDONESIA));
         //China
         getCountry(CHINA).addAdjacentCountry(getCountry(CENTRALASIA));
         getCountry(CHINA).addAdjacentCountry(getCountry(THAILAND));
         //India
-        getCountry(INDIA).addAdjacentCountry(getCountry(PAKISTAN));
-        getCountry(INDIA).addAdjacentCountry(getCountry(INDONESIA));
+        getCountry(CountryLookup.INDIA).addAdjacentCountry(getCountry(PAKISTAN));
+        getCountry(CountryLookup.INDIA).addAdjacentCountry(getCountry(INDONESIA));
         //Thailand
         getCountry(THAILAND).addAdjacentCountry(getCountry(CHINA));
         getCountry(THAILAND).addAdjacentCountry(getCountry(INDONESIA));
         getCountry(THAILAND).addAdjacentCountry(getCountry(PHILIPPINES));
         //Indonesia/Malaysia
         getCountry(INDONESIA).addAdjacentCountry(getCountry(THAILAND));
-        getCountry(INDONESIA).addAdjacentCountry(getCountry(INDIA));
+        getCountry(INDONESIA).addAdjacentCountry(getCountry(CountryLookup.INDIA));
         getCountry(INDONESIA).addAdjacentCountry(getCountry(PAKISTAN));
         getCountry(INDONESIA).addAdjacentCountry(getCountry(PHILIPPINES));
         //Philippines

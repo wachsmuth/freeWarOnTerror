@@ -10,6 +10,7 @@ import static freeWarOnTerror.Game.getCardsInPlay;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.Plot;
 import static freeWarOnTerror.helpers.AppendToString.appendString;
+import freeWarOnTerror.helpers.CountryLookup;
 import java.util.ArrayList;
 
 /**
@@ -24,13 +25,24 @@ public abstract class Country extends Location {
     private Boolean cadre = false;
     private Boolean ctr = false;
     private final int id;
+    private final int countryID;
 
+    public Country(CountryLookup c){
+        this.name = c.getName();
+        this.countryID = c.ordinal();
+        this.id = 0;
+    }
     public Country(String name, int id) {
         this.name = name;
         this.id = id;
+        countryID = 0;
     }
 //--------------------------------GETTERS-------------------------------------------------------
 
+    public int getCountryID(){
+        return countryID;
+    }
+    
     public int getRecruit() {
         return getGovernance();
     }
