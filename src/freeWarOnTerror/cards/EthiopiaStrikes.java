@@ -20,8 +20,8 @@ import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.ETHIOPIASTRIKES;
-import static freeWarOnTerror.helpers.CONSTANTS.SOMALIA;
 import static freeWarOnTerror.helpers.CONSTANTS.YEMEN;
+import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -37,21 +37,21 @@ public class EthiopiaStrikes extends Card {
 
     @Override
     public Boolean getPlayable() {
-        return getCountry(SOMALIA).getGovernance() == 4 || getCountry(YEMEN).getGovernance() == 4;
+        return getCountry(CountryLookup.SOMALIA).getGovernance() == 4 || getCountry(CountryLookup.YEMEN).getGovernance() == 4;
     }
 
     @Override
     public void playEvent() {
-        if (getCountry(SOMALIA).getGovernance() == 4 && getCountry(YEMEN).getGovernance() == 4) {
+        if (getCountry(CountryLookup.SOMALIA).getGovernance() == 4 && getCountry(CountryLookup.YEMEN).getGovernance() == 4) {
             ArrayList<Country> somaliaAndYemen = new ArrayList<>();
-            somaliaAndYemen.add(getCountry(SOMALIA));
-            somaliaAndYemen.add(getCountry(YEMEN));
+            somaliaAndYemen.add(getCountry(CountryLookup.SOMALIA));
+            somaliaAndYemen.add(getCountry(CountryLookup.YEMEN));
             System.out.println("Choose a country to set to Poor Neutral: ");
             inputLoop(somaliaAndYemen).setGovernanceAndAlignment(3, 2);
-        } else if (getCountry(SOMALIA).getGovernance() == 4) {
-            getCountry(SOMALIA).setGovernanceAndAlignment(3, 2);
-        } else if (getCountry(YEMEN).getGovernance() == 4) {
-            getCountry(YEMEN).setGovernanceAndAlignment(3, 2);
+        } else if (getCountry(CountryLookup.SOMALIA).getGovernance() == 4) {
+            getCountry(CountryLookup.SOMALIA).setGovernanceAndAlignment(3, 2);
+        } else if (getCountry(CountryLookup.YEMEN).getGovernance() == 4) {
+            getCountry(CountryLookup.YEMEN).setGovernanceAndAlignment(3, 2);
         }
     }
 }

@@ -21,12 +21,17 @@ import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.Plot;
 import static freeWarOnTerror.helpers.CONSTANTS.ABUSAYYAF;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
  * @author Emil
  */
 public class CountryPhilippines extends NonMuslimCountry {
+    
+    public CountryPhilippines(CountryLookup c){
+        super(c);
+    }
 
     public CountryPhilippines(String name, int id, int governance, int recruit) {
         super(name, id, governance, recruit, false);

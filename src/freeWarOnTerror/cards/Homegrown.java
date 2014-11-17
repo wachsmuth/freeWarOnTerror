@@ -20,7 +20,7 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.HOMEGROWN;
-import static freeWarOnTerror.helpers.CONSTANTS.UNITEDKINGDOM;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -34,7 +34,7 @@ public class Homegrown extends Card {
     
     @Override
     public void playEvent(){
-        placeCell(getCountry(UNITEDKINGDOM));
+        placeCell(getCountry(CountryLookup.UNITEDKINGDOM));
     }
     
 }

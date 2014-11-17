@@ -21,6 +21,7 @@ import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.INDIA;
 import static freeWarOnTerror.helpers.CONSTANTS.INDOPAKISTANITALKS;
 import static freeWarOnTerror.helpers.CONSTANTS.PAKISTAN;
+import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.setCountryPosture;
 
 /**
@@ -35,13 +36,13 @@ public class IndoPakistaniTalks extends Card {
     
     @Override
     public Boolean getPlayable(){
-        return getCountry(PAKISTAN).getGovernance() > 0 && getCountry(PAKISTAN).getGovernance() < 3;
+        return getCountry(CountryLookup.PAKISTAN).getGovernance() > 0 && getCountry(CountryLookup.PAKISTAN).getGovernance() < 3;
     }
     
     @Override
     public void playEvent(){
-        getCountry(PAKISTAN).setAlignment(1);
-        setCountryPosture(INDIA);
+        getCountry(CountryLookup.PAKISTAN).setAlignment(1);
+        setCountryPosture(CountryLookup.INDIA);
         //TO DO: Remove this card if a plot resolved in India.
     }
 }

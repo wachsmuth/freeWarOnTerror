@@ -20,6 +20,7 @@ import freeWarOnTerror.Game;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.Plot;
 import static freeWarOnTerror.helpers.CONSTANTS.WMD;
+import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.Die.rollDie;
 
 /**
@@ -27,6 +28,11 @@ import static freeWarOnTerror.helpers.Die.rollDie;
  * @author Emil
  */
 public class CountryUSA extends NonMuslimCountry {
+    
+    public CountryUSA(CountryLookup c){
+        super(c);
+        noLongerNeedsTesting();
+    }
 
     public CountryUSA(String name, int id, int governance) {
         super(name, id, governance, governance, false);

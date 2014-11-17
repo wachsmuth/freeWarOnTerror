@@ -25,14 +25,7 @@ import static freeWarOnTerror.Game.setPostureHard;
 import static freeWarOnTerror.Game.setPrestige;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Scenario;
-import static freeWarOnTerror.helpers.CONSTANTS.AFGHANISTAN;
-import static freeWarOnTerror.helpers.CONSTANTS.GULFSTATES;
-import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
-import static freeWarOnTerror.helpers.CONSTANTS.LIBYA;
-import static freeWarOnTerror.helpers.CONSTANTS.PAKISTAN;
-import static freeWarOnTerror.helpers.CONSTANTS.SAUDIARABIA;
-import static freeWarOnTerror.helpers.CONSTANTS.SOMALIA;
-import static freeWarOnTerror.helpers.CONSTANTS.SYRIA;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -53,20 +46,20 @@ public class LetsRoll extends Scenario {
         setFunding(9);
 
         //Countries
-        getCountry(LIBYA).setGovernanceAndAlignment(3, 3);
-        getCountry(SYRIA).setGovernanceAndAlignment(2, 3);
-        getCountry(IRAQ).setGovernanceAndAlignment(3, 3);
-        getCountry(SAUDIARABIA).setGovernanceAndAlignment(3, 1);
-        getCountry(GULFSTATES).setGovernanceAndAlignment(2, 1);
-        getCountry(PAKISTAN).setGovernanceAndAlignment(2, 2);
-        getCountry(AFGHANISTAN).setGovernanceAndAlignment(4, 3);
-        MuslimCountry somalia = (MuslimCountry) getCountry(SOMALIA);
+        getCountry(CountryLookup.LIBYA).setGovernanceAndAlignment(3, 3);
+        getCountry(CountryLookup.SYRIA).setGovernanceAndAlignment(2, 3);
+        getCountry(CountryLookup.IRAQ).setGovernanceAndAlignment(3, 3);
+        getCountry(CountryLookup.SAUDIARABIA).setGovernanceAndAlignment(3, 1);
+        getCountry(CountryLookup.GULFSTATES).setGovernanceAndAlignment(2, 1);
+        getCountry(CountryLookup.PAKISTAN).setGovernanceAndAlignment(2, 2);
+        getCountry(CountryLookup.AFGHANISTAN).setGovernanceAndAlignment(4, 3);
+        MuslimCountry somalia = (MuslimCountry) getCountry(CountryLookup.SOMALIA);
         somalia.setBesiegedRegime(true);
         for (int i = 0; i < 4; i++) {
-            placeCell(getCountry(AFGHANISTAN));
+            placeCell(getCountry(CountryLookup.AFGHANISTAN));
         }
-        deployTroops(getTrack(), getCountry(GULFSTATES), 2);
-        deployTroops(getTrack(), getCountry(SAUDIARABIA), 2);
+        deployTroops(getTrack(), getCountry(CountryLookup.GULFSTATES), 2);
+        deployTroops(getTrack(), getCountry(CountryLookup.SAUDIARABIA), 2);
     }
 
 }

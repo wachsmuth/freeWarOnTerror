@@ -19,8 +19,8 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.INDONESIA;
 import static freeWarOnTerror.helpers.CONSTANTS.JEMAAHISLAMIYA;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -35,7 +35,7 @@ public class JemaahIslamiya extends Card {
     @Override
     public void playEvent(){
         for(int i = 0; i < 2;i++){
-            placeCell(getCountry(INDONESIA));
+            placeCell(getCountry(CountryLookup.INDONESIA));
         }
     }
 }

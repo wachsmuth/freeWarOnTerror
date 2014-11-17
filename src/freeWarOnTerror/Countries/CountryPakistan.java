@@ -19,12 +19,17 @@ import static freeWarOnTerror.Game.isCardInPlay;
 import freeWarOnTerror.MuslimCountry;
 import static freeWarOnTerror.helpers.CONSTANTS.BENAZIRBHUTTO;
 import static freeWarOnTerror.helpers.CONSTANTS.FATA;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
  * @author Emil
  */
 public class CountryPakistan extends MuslimCountry {
+    
+    public CountryPakistan(CountryLookup c){
+        super(c);
+    }
     
     public CountryPakistan(String name, int id, int resources, boolean oilCountry, boolean shiaMix){
         super(name, id, resources, oilCountry, shiaMix);

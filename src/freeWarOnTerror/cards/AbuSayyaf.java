@@ -23,6 +23,7 @@ import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.ABUSAYYAF;
 import static freeWarOnTerror.helpers.CONSTANTS.MOROTALKS;
 import static freeWarOnTerror.helpers.CONSTANTS.PHILIPPINES;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -41,6 +42,6 @@ public class AbuSayyaf extends Card {
     
     @Override
     public void playEvent(){
-        placeCell(getCountry(PHILIPPINES)); //DEBUG add code in CountryPhilippines to make this event fully work
+        placeCell(getCountry(CountryLookup.PHILIPPINES)); //DEBUG add code in CountryPhilippines to make this event fully work
     }
 }

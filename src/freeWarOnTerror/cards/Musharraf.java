@@ -22,7 +22,7 @@ import static freeWarOnTerror.Game.isCardInPlay;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.BENAZIRBHUTTO;
 import static freeWarOnTerror.helpers.CONSTANTS.MUSHARRAF;
-import static freeWarOnTerror.helpers.CONSTANTS.PAKISTAN;
+import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 
 /**
@@ -37,13 +37,13 @@ public class Musharraf extends Card {
     
     @Override
     public Boolean getPlayable(){
-        return !isCardInPlay(BENAZIRBHUTTO) && getCountry(PAKISTAN).hasCells();
+        return !isCardInPlay(BENAZIRBHUTTO) && getCountry(CountryLookup.PAKISTAN).hasCells();
     }
     
     @Override
     public void playEvent(){
-        Cell target = inputLoop(getCountry(PAKISTAN).getCells());
+        Cell target = inputLoop(getCountry(CountryLookup.PAKISTAN).getCells());
         target.kill();
-        getCountry(PAKISTAN).setGovernanceAndAlignment(3, 1);
+        getCountry(CountryLookup.PAKISTAN).setGovernanceAndAlignment(3, 1);
     }
 }

@@ -20,9 +20,9 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.CENTRALASIA;
 import static freeWarOnTerror.helpers.CONSTANTS.CHINA;
 import static freeWarOnTerror.helpers.CONSTANTS.UYGHURJIHAD;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -36,10 +36,10 @@ public class UyghurJihad extends Card {
     
     @Override
     public void playEvent(){
-        NonMuslimCountry china = (NonMuslimCountry) getCountry(CHINA);
+        NonMuslimCountry china = (NonMuslimCountry) getCountry(CountryLookup.CHINA);
         china.testCountry();
         if (china.getPosture() == 1){
-            placeCell(getCountry(CENTRALASIA));
+            placeCell(getCountry(CountryLookup.CENTRALASIA));
         }
         else {
             placeCell(china);

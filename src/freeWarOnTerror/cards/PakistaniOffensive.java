@@ -22,8 +22,8 @@ import static freeWarOnTerror.Game.removeCardFromPlay;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.FATA;
-import static freeWarOnTerror.helpers.CONSTANTS.PAKISTAN;
 import static freeWarOnTerror.helpers.CONSTANTS.PAKISTANIOFFENSIVE;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -37,7 +37,7 @@ public class PakistaniOffensive extends Card {
     
     @Override
     public Boolean getPlayable(){
-        MuslimCountry pakistan = (MuslimCountry) getCountry(PAKISTAN);
+        MuslimCountry pakistan = (MuslimCountry) getCountry(CountryLookup.PAKISTAN);
         return pakistan.getAlignment() == 1 && isCardInPlay(FATA);
     }
     

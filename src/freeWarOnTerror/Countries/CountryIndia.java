@@ -19,12 +19,17 @@ package freeWarOnTerror.Countries;
 import static freeWarOnTerror.Game.removeCardFromPlay;
 import freeWarOnTerror.NonMuslimCountry;
 import static freeWarOnTerror.helpers.CONSTANTS.INDOPAKISTANITALKS;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
  * @author Emil
  */
 public class CountryIndia extends NonMuslimCountry {
+    
+    public CountryIndia(CountryLookup c){
+        super(c);  
+    }
     
     public CountryIndia(String name, int id, int governance, int recruit, boolean schengen){
         super(name, id, governance, recruit, schengen);

@@ -19,10 +19,8 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.getUS;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.CANADA;
-import static freeWarOnTerror.helpers.CONSTANTS.UNITEDKINGDOM;
-import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
 import static freeWarOnTerror.helpers.CONSTANTS.WIRETAPPING;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -36,17 +34,17 @@ public class Wiretapping extends Card {
     
     @Override
     public Boolean getPlayable(){
-        return getCountry(CANADA).hasCells() || getCountry(UNITEDSTATES).hasCells() || getCountry(UNITEDKINGDOM).hasCells() || getCountry(CANADA).getCadre() || getCountry(UNITEDSTATES).getCadre() || getCountry(UNITEDKINGDOM).getCadre();
+        return getCountry(CountryLookup.CANADA).hasCells() || getCountry(CountryLookup.UNITEDSTATES).hasCells() || getCountry(CountryLookup.UNITEDKINGDOM).hasCells() || getCountry(CountryLookup.CANADA).getCadre() || getCountry(CountryLookup.UNITEDSTATES).getCadre() || getCountry(CountryLookup.UNITEDKINGDOM).getCadre();
     }
     
     @Override
     public void playEvent(){
-        getCountry(CANADA).killAllCells();
-        getCountry(CANADA).setCadre(false);
-        getCountry(UNITEDSTATES).killAllCells();
-        getCountry(UNITEDSTATES).setCadre(false);
-        getCountry(UNITEDKINGDOM).killAllCells();
-        getCountry(UNITEDKINGDOM).setCadre(false);
+        getCountry(CountryLookup.CANADA).killAllCells();
+        getCountry(CountryLookup.CANADA).setCadre(false);
+        getCountry(CountryLookup.UNITEDSTATES).killAllCells();
+        getCountry(CountryLookup.UNITEDSTATES).setCadre(false);
+        getCountry(CountryLookup.UNITEDKINGDOM).killAllCells();
+        getCountry(CountryLookup.UNITEDKINGDOM).setCadre(false);
         getUS().draw();
     }
 }

@@ -10,6 +10,7 @@ import static freeWarOnTerror.Game.modifyPrestige;
 import static freeWarOnTerror.Game.removeCardFromPlay;
 import freeWarOnTerror.NonMuslimCountry;
 import static freeWarOnTerror.helpers.CONSTANTS.ABBAS;
+import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.Die.rollDie;
 
 /**
@@ -17,9 +18,15 @@ import static freeWarOnTerror.helpers.Die.rollDie;
  * @author Emil
  */
 public class CountryIsrael extends NonMuslimCountry {
+    
+    public CountryIsrael(CountryLookup c){
+        super(c);
+        noLongerNeedsTesting();
+        setPosture(1);
+    }
 
     public CountryIsrael(String name, int id, int governance) {
-        super(name, id, governance, governance, false);
+        super(name, id, governance, governance, false); //Debug - wtf?
         noLongerNeedsTesting();
         setPosture(1);
     }

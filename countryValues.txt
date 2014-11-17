@@ -20,7 +20,7 @@
 19: Morocco
 20: Algeria/Tunisia
 21: Libya
-22: Egypt
+22: getCountry(CountryLookup.EGYPT)
 23: Sudan
 24: Somalia
 25: Yemen
@@ -32,7 +32,7 @@
 31: Iraq
 32: Gulf States
 33: Pakistan
-34: Afghanistan
+34: getCountry(CountryLookup.AFGHANISTAN)
 35: Central Asia
 36: Indonesia/Malaysia
 37: Iran

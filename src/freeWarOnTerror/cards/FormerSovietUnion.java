@@ -19,8 +19,8 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.CENTRALASIA;
 import static freeWarOnTerror.helpers.CONSTANTS.FORMERSOVIETUNION;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -34,8 +34,8 @@ public class FormerSovietUnion extends Card{
     
     @Override
     public void playEvent(){
-        MuslimCountry centralAsia = (MuslimCountry) getCountry(CENTRALASIA);
-        centralAsia.rollGovernance();
+        MuslimCountry CENTRALASIA = (MuslimCountry) getCountry(CountryLookup.CENTRALASIA);
+        CENTRALASIA.rollGovernance();
     }
     
 }

@@ -21,7 +21,7 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.modifyFunding;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.ALAZHAR;
-import static freeWarOnTerror.helpers.CONSTANTS.EGYPT;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -35,7 +35,7 @@ public class AlAzhar extends Card {
     
     @Override
     public void playEvent(){
-        getCountry(EGYPT).testCountry();
+       getCountry(CountryLookup.EGYPT).testCountry();
         if (anyIslamistRule()){
             modifyFunding(-2);
         }

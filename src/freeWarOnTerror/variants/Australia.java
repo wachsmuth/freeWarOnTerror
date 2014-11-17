@@ -16,13 +16,7 @@
  */
 package freeWarOnTerror.variants;
 
-import static freeWarOnTerror.Game.getAllCountries;
-import static freeWarOnTerror.Game.getCountry;
-import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Variant;
-import static freeWarOnTerror.helpers.CONSTANTS.AUSTRALIA;
-import static freeWarOnTerror.helpers.CONSTANTS.INDONESIA;
-import static freeWarOnTerror.helpers.CONSTANTS.PHILIPPINES;
 
 /**
  *
@@ -37,10 +31,10 @@ public class Australia extends Variant {
     
     @Override
     public void activate(){
-        getAllCountries().add(new NonMuslimCountry("Australia", AUSTRALIA, 1, 1, false));
-        getCountry(PHILIPPINES).addAdjacentCountry(getCountry(AUSTRALIA));
-        getCountry(AUSTRALIA).addAdjacentCountry(getCountry(PHILIPPINES));
-        getCountry(INDONESIA).addAdjacentCountry(getCountry(AUSTRALIA));
-        getCountry(AUSTRALIA).addAdjacentCountry(getCountry(INDONESIA));
+        /*getAllCountries().add(new NonMuslimCountry("Australia", AUSTRALIA, 1, 1, false));
+        getCountry(CountryLookup.PHILIPPINES).addAdjacentCountry(getCountry(AUSTRALIA));
+        getCountry(AUSTRALIA).addAdjacentCountry(getCountry(CountryLookup.PHILIPPINES));
+        getCountry(CountryLookup.INDONESIA).addAdjacentCountry(getCountry(AUSTRALIA));
+        getCountry(AUSTRALIA).addAdjacentCountry(getCountry(CountryLookup.INDONESIA)); DEBUG */ 
     }
 }

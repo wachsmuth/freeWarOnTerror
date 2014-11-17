@@ -20,7 +20,7 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.ALITTIHADALISLAMI;
-import static freeWarOnTerror.helpers.CONSTANTS.SOMALIA;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -34,6 +34,6 @@ public class AlIttihadAlIslami extends Card {
     
     @Override
     public void playEvent(){
-        placeCell(getCountry(SOMALIA));
+        placeCell(getCountry(CountryLookup.SOMALIA));
     }
 }

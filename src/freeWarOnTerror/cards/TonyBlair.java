@@ -21,8 +21,7 @@ import static freeWarOnTerror.Game.getSchengenCountries;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.TONYBLAIR;
-import static freeWarOnTerror.helpers.CONSTANTS.UNITEDKINGDOM;
-import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
+import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 
 /**
@@ -37,7 +36,7 @@ public class TonyBlair extends Card {
     
     @Override
     public void playEvent(){
-        ((NonMuslimCountry) getCountry(UNITEDKINGDOM)).setPosture(((NonMuslimCountry) getCountry(UNITEDSTATES)).getPosture());
+        ((NonMuslimCountry) getCountry(CountryLookup.UNITEDKINGDOM)).setPosture(((NonMuslimCountry) getCountry(CountryLookup.UNITEDSTATES)).getPosture());
         for (int i = 0; i < 3; i++){
             System.out.println("Choose a Schengen country to roll War of Ideas in.");
             inputLoop(getSchengenCountries()).warOfIdeas();

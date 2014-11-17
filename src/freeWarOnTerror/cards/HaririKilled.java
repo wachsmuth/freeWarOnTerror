@@ -21,7 +21,7 @@ import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.HARIRIKILLED;
 import static freeWarOnTerror.helpers.CONSTANTS.LEBANON;
-import static freeWarOnTerror.helpers.CONSTANTS.SYRIA;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -35,8 +35,8 @@ public class HaririKilled extends Card {
     
     @Override
     public void playEvent(){
-        getCountry(LEBANON).testCountry();
-        MuslimCountry syria = (MuslimCountry) getCountry(SYRIA);
+        getCountry(CountryLookup.LEBANON).testCountry();
+        MuslimCountry syria = (MuslimCountry) getCountry(CountryLookup.SYRIA);
         syria.setAlignment(3);
         syria.shiftGovernance(1);
     }

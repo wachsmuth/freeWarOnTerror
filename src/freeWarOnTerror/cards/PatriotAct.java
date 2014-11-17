@@ -22,6 +22,7 @@ import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.CANADA;
 import static freeWarOnTerror.helpers.CONSTANTS.PATRIOTACT;
 import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -35,10 +36,10 @@ public class PatriotAct extends Card {
 
     @Override
     public void playEvent() {
-        for (Country c : getCountry(UNITEDSTATES).getAdjacentCountries()) {
-            if (c != getCountry(CANADA)) {
-                c.removeAdjacentCountry(getCountry(UNITEDSTATES));
-                getCountry(UNITEDSTATES).removeAdjacentCountry(c);
+        for (Country c : getCountry(CountryLookup.UNITEDSTATES).getAdjacentCountries()) {
+            if (c != getCountry(CountryLookup.CANADA)) {
+                c.removeAdjacentCountry(getCountry(CountryLookup.UNITEDSTATES));
+                getCountry(CountryLookup.UNITEDSTATES).removeAdjacentCountry(c);
             }
         }
     }

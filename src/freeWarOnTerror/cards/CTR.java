@@ -20,9 +20,9 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.isPostureHard;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.CENTRALASIA;
 import static freeWarOnTerror.helpers.CONSTANTS.CTR;
 import static freeWarOnTerror.helpers.CONSTANTS.RUSSIA;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -41,10 +41,10 @@ public class CTR extends Card {
     
     @Override
     public void playEvent(){
-        getCountry(RUSSIA).setCTR(true);
-        MuslimCountry centralAsia = (MuslimCountry) getCountry(CENTRALASIA);
-        if (centralAsia.getAlignment() < 3){
-            centralAsia.setCTR(true);
+        getCountry(CountryLookup.RUSSIA).setCTR(true);
+        MuslimCountry CENTRALASIA = (MuslimCountry) getCountry(CountryLookup.CENTRALASIA);
+        if (CENTRALASIA.getAlignment() < 3){
+            CENTRALASIA.setCTR(true);
         }
     }
 }

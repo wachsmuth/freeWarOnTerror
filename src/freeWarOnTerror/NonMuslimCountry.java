@@ -5,6 +5,7 @@ import static freeWarOnTerror.Game.modifyPrestige;
 import static freeWarOnTerror.helpers.AppendToString.appendString;
 import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
 import static freeWarOnTerror.helpers.CONSTANTS.WMD;
+import freeWarOnTerror.helpers.CountryLookup;
 import freeWarOnTerror.helpers.Die;
 import java.util.Iterator;
 
@@ -24,6 +25,12 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
     private final int recruit;
     private final Boolean schengen;
 
+    public NonMuslimCountry(CountryLookup c){
+        super(c);
+        this.governance = c.getGovernance();
+        this.recruit = c.getRecruit();
+        this.schengen = c.isSchengen();
+    }
     public NonMuslimCountry(String name, int id, int governance, int recruit, Boolean schengen) {
         super(name, id);
         this.governance = governance;

@@ -22,9 +22,8 @@ import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.CAUCASUS;
-import static freeWarOnTerror.helpers.CONSTANTS.CENTRALASIA;
 import static freeWarOnTerror.helpers.CONSTANTS.EXKGB;
-import static freeWarOnTerror.helpers.CONSTANTS.RUSSIA;
+import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 
 /**
@@ -39,13 +38,13 @@ public class ExKGB extends Card{
     
     @Override
     public void playEvent(){
-        if (getCountry(RUSSIA).getCTR()){
-            getCountry(RUSSIA).setCTR(false);
+        if (getCountry(CountryLookup.RUSSIA).getCTR()){
+            getCountry(CountryLookup.RUSSIA).setCTR(false);
         }
         else {
             int input = inputLoop("Choose one of the following", "Set Caucasus to opposite posture of US", "Test and shift Central Asia 1 box toward Adversary");
             if (input == 1){
-                NonMuslimCountry caucasus = (NonMuslimCountry) getCountry(CAUCASUS);
+                NonMuslimCountry caucasus = (NonMuslimCountry) getCountry(CountryLookup.CAUCASUS);
                 if (isPostureHard()){
                     caucasus.setPosture(-1);
                 }
@@ -54,9 +53,9 @@ public class ExKGB extends Card{
                 }
             }
             else {      
-                MuslimCountry centralAsia = (MuslimCountry) getCountry(CENTRALASIA);
-                centralAsia.testCountry();
-                centralAsia.shiftAlignment(1);
+                MuslimCountry CENTRALASIA = (MuslimCountry) getCountry(CountryLookup.CENTRALASIA);
+                CENTRALASIA.testCountry();
+                CENTRALASIA.shiftAlignment(1);
             }
         }
     }

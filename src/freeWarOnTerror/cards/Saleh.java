@@ -23,7 +23,7 @@ import static freeWarOnTerror.Game.getUS;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.SALEH;
-import static freeWarOnTerror.helpers.CONSTANTS.YEMEN;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -37,7 +37,7 @@ public class Saleh extends Card {
     
     @Override
     public void playEvent(){
-        MuslimCountry yemen = (MuslimCountry) getCountry(YEMEN);
+        MuslimCountry yemen = (MuslimCountry) getCountry(CountryLookup.YEMEN);
         yemen.testCountry();
         if (getCurrentPlayer() == getUS() && yemen.getGovernance() < 4){
             yemen.setAlignment(1);

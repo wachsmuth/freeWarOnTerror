@@ -18,10 +18,8 @@ package freeWarOnTerror.cards;
 
 import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.ISRAEL;
-import static freeWarOnTerror.helpers.CONSTANTS.JORDAN;
-import static freeWarOnTerror.helpers.CONSTANTS.LEBANON;
 import static freeWarOnTerror.helpers.CONSTANTS.MOSSADANDSHINBET;
+import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
@@ -35,13 +33,13 @@ public class MossadAndShinBet extends Card {
 
     @Override
     public Boolean getPlayable() {
-        return getCountry(ISRAEL).hasCells() || getCountry(JORDAN).hasCells() || getCountry(LEBANON).hasCells();
+        return getCountry(CountryLookup.ISRAEL).hasCells() || getCountry(CountryLookup.JORDAN).hasCells() || getCountry(CountryLookup.LEBANON).hasCells();
     }
 
     @Override
     public void playEvent() {
-        getCountry(ISRAEL).killAllCells();
-        getCountry(JORDAN).killAllCells();
-        getCountry(LEBANON).killAllCells();
+        getCountry(CountryLookup.ISRAEL).killAllCells();
+        getCountry(CountryLookup.JORDAN).killAllCells();
+        getCountry(CountryLookup.LEBANON).killAllCells();
     }
 }
