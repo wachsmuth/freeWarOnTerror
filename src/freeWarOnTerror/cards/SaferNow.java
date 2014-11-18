@@ -24,9 +24,7 @@ import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.SAFERNOW;
-import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
-import static freeWarOnTerror.helpers.InputLoop.inputLoop;
-import static freeWarOnTerror.helpers.InputLoop.setCountryPosture;
+import freeWarOnTerror.helpers.CountryLookup;
 import java.util.ArrayList;
 
 /**
@@ -58,10 +56,10 @@ public class SaferNow extends Card {
         modifyPrestige(3);
         ArrayList <NonMuslimCountry> eligibleCountries = new ArrayList<>();
         for (NonMuslimCountry c : getNonMuslimCountries()){
-            if (c.getID() != UNITEDSTATES){
+            if (!c.is(CountryLookup.UNITEDSTATES)){
                 eligibleCountries.add(c);
             }
         }
-        // setCountryPosture(inputLoop(eligibleCountries)); WTF DEBUG
+         //setCountryPosture(inputLoop(eligibleCountries)); DEBUG
     }
 }

@@ -19,9 +19,9 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.PIRATES;
-import static freeWarOnTerror.helpers.CONSTANTS.SOMALIA;
-import static freeWarOnTerror.helpers.CONSTANTS.YEMEN;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.CountryLookup.SOMALIA;
+import static freeWarOnTerror.helpers.CountryLookup.YEMEN;
 
 /**
  *

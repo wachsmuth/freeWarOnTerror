@@ -18,8 +18,8 @@ package freeWarOnTerror.cards;
 
 import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.PAKISTAN;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.CountryLookup.PAKISTAN;
 
 /**
  *
@@ -28,7 +28,7 @@ import freeWarOnTerror.helpers.CountryLookup;
 public class BhuttoShot extends Card {
     
     public BhuttoShot(){
-        super("Bhutto Shot", 2, 3, true, true, PAKISTAN);
+        super("Bhutto Shot", 2, 3, true, true, PAKISTAN.ordinal()); //Debug is this right??
     }
     
     @Override

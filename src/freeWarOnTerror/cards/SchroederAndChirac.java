@@ -21,7 +21,6 @@ import static freeWarOnTerror.Game.isPostureHard;
 import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.GERMANY;
 import static freeWarOnTerror.helpers.CONSTANTS.SCHROEDERANDCHIRAC;
 import freeWarOnTerror.helpers.CountryLookup;
 

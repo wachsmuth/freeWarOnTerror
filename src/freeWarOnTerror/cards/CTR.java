@@ -21,7 +21,6 @@ import static freeWarOnTerror.Game.isPostureHard;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.CTR;
-import static freeWarOnTerror.helpers.CONSTANTS.RUSSIA;
 import freeWarOnTerror.helpers.CountryLookup;
 
 /**

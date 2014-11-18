@@ -20,7 +20,6 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.CHINA;
 import static freeWarOnTerror.helpers.CONSTANTS.UYGHURJIHAD;
 import freeWarOnTerror.helpers.CountryLookup;
 

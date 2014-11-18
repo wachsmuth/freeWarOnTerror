@@ -20,7 +20,6 @@ import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.ETHIOPIASTRIKES;
-import static freeWarOnTerror.helpers.CONSTANTS.YEMEN;
 import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;

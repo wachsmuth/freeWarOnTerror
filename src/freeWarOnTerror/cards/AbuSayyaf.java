@@ -22,8 +22,8 @@ import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.ABUSAYYAF;
 import static freeWarOnTerror.helpers.CONSTANTS.MOROTALKS;
-import static freeWarOnTerror.helpers.CONSTANTS.PHILIPPINES;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.CountryLookup.PHILIPPINES;
 
 /**
  *

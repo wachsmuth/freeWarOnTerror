@@ -18,7 +18,7 @@ package freeWarOnTerror.cards;
 
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.NEST;
-import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
+import static freeWarOnTerror.helpers.CountryLookup.UNITEDSTATES;
 
 /**
  *

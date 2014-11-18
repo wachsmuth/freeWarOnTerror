@@ -1,5 +1,7 @@
 package freeWarOnTerror.abClasses;
 
+import freeWarOnTerror.helpers.CountryLookup;
+
 /**
  *
  * @author Emil
@@ -12,7 +14,7 @@ public abstract class Card {
     private final String name;
     private final int id;
     private final boolean mark;
-    private final int[] countries;
+    private final CountryLookup[] countries;
     private int reserves = 0;
 
     public Card(String name, int ops, int alignment, Boolean removedAfterPlay, boolean mark, int id) {
@@ -25,14 +27,14 @@ public abstract class Card {
         countries = null;
     }
 
-    public Card(String name, int ops, int alignment, Boolean removedAfterPlay, boolean mark, int id, int... countries) {
+    public Card(String name, int ops, int alignment, Boolean removedAfterPlay, boolean mark, int id, CountryLookup... lookups) {
         this.name = name;
         this.ops = ops;
         this.alignment = alignment;
         this.removedAfterPlay = removedAfterPlay;
         this.id = id;
         this.mark = mark;
-        this.countries = countries;
+        this.countries = lookups;
     }
 
 //--------------------------------GETTERS-------------------------------------------------------
@@ -71,7 +73,7 @@ public abstract class Card {
         return mark;
     }
 
-    public int[] getCountries() {
+    public CountryLookup[] getCountries() {
         return countries;
     }
 //--------------------------------SETTERS-------------------------------------------------------

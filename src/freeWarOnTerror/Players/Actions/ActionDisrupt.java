@@ -25,8 +25,7 @@ import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.ALANBAR;
-import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
-import static freeWarOnTerror.helpers.CONSTANTS.SYRIA;
+import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -61,7 +60,7 @@ public class ActionDisrupt extends Action {
         System.out.println("Choose where to disrupt");
         Country targetCountry = inputLoop(eligibleCountries);
         int iterations = 1;
-        if (isCardInPlay(ALANBAR) && (targetCountry.getID() == SYRIA || targetCountry.getID() == IRAQ)){
+        if (isCardInPlay(ALANBAR) && (targetCountry.is(CountryLookup.SYRIA) || targetCountry.is(CountryLookup.IRAQ))){
             
         }
         else if (targetCountry.troopAmount() > 1) {

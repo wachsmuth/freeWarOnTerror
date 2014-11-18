@@ -24,25 +24,33 @@ public abstract class Country extends Location {
     private Boolean needsTesting = true;
     private Boolean cadre = false;
     private Boolean ctr = false;
+    private final int idDEBUG;
     private final int id;
-    private final int countryID;
+    private final CountryLookup lookUp;
 
-    public Country(CountryLookup c){
+    public Country(CountryLookup c) {
         this.name = c.getName();
-        this.countryID = c.ordinal();
-        this.id = 0;
+        this.id = c.ordinal();
+        this.idDEBUG = 0;
+        this.lookUp = c;
     }
+
     public Country(String name, int id) {
         this.name = name;
-        this.id = id;
-        countryID = 0;
+        this.idDEBUG = id;
+        this.id = 0;
+        lookUp = null;
     }
 //--------------------------------GETTERS-------------------------------------------------------
 
-    public int getCountryID(){
-        return countryID;
+    public boolean is(CountryLookup c) {
+        return (this.lookUp == c);
     }
-    
+
+    public int getID() {
+        return id;
+    }
+
     public int getRecruit() {
         return getGovernance();
     }
@@ -75,8 +83,8 @@ public abstract class Country extends Location {
     public boolean canDeployFrom() {
         return false;
     }
-    
-    public boolean canRegimeChangeFrom(){
+
+    public boolean canRegimeChangeFrom() {
         return troopAmount() > 6;
     }
 
@@ -88,16 +96,16 @@ public abstract class Country extends Location {
         return cadre || hasCells();
     }
 
-    public boolean canPlot() { 
+    public boolean canPlot() {
         return getGovernance() < 4 && hasIdleCells();
     }
-    
-    public void placePlot(Plot p){
+
+    public void placePlot(Plot p) {
         p.move(this);
     }
-    
-    public Plot getRandomPlot(){
-        return getPlots().get((int) Math.floor(Math.random()*plotAmount()));
+
+    public Plot getRandomPlot() {
+        return getPlots().get((int) Math.floor(Math.random() * plotAmount()));
     }
 
     public Boolean getCadre() {
@@ -108,8 +116,8 @@ public abstract class Country extends Location {
         return ctr;
     }
 
-    public int getID() {
-        return id;
+    public int getIDDebug() {
+        return idDEBUG;
     }
 
     public Boolean getNeedsTesting() {
@@ -140,14 +148,12 @@ public abstract class Country extends Location {
     protected String eventsToString() {
         String events = "";
         for (Card c : getCardsInPlay()) {
-            if (c.getCountries().length > 0) {
-                for (int i : c.getCountries()) {
-                    if (i == id) {
+                for (CountryLookup country : c.getCountries()) {
+                    if (this.is(country)) {
                         events += (c.getName() + " ");
                     }
                 }
             }
-        }
         return events;
     }
 //--------------------------------SETTERS-------------------------------------------------------
@@ -204,8 +210,8 @@ public abstract class Country extends Location {
             setCadre(true);
         }
     }
-    
-    public void removeRandomPlot(){
+
+    public void removeRandomPlot() {
         getRandomPlot().remove();
     }
 

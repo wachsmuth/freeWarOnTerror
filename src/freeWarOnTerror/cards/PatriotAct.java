@@ -19,10 +19,9 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
-import static freeWarOnTerror.helpers.CONSTANTS.CANADA;
 import static freeWarOnTerror.helpers.CONSTANTS.PATRIOTACT;
-import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.CountryLookup.UNITEDSTATES;
 
 /**
  *

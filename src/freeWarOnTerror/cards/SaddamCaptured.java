@@ -20,9 +20,9 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
 import static freeWarOnTerror.helpers.CONSTANTS.SADDAMCAPTURED;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.CountryLookup.IRAQ;
 
 /**
  *

@@ -18,10 +18,10 @@ package freeWarOnTerror.cards;
 
 import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.INDIA;
 import static freeWarOnTerror.helpers.CONSTANTS.INDOPAKISTANITALKS;
-import static freeWarOnTerror.helpers.CONSTANTS.PAKISTAN;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.CountryLookup.INDIA;
+import static freeWarOnTerror.helpers.CountryLookup.PAKISTAN;
 import static freeWarOnTerror.helpers.InputLoop.setCountryPosture;
 
 /**

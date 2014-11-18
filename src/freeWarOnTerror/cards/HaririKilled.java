@@ -20,7 +20,6 @@ import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.HARIRIKILLED;
-import static freeWarOnTerror.helpers.CONSTANTS.LEBANON;
 import freeWarOnTerror.helpers.CountryLookup;
 
 /**

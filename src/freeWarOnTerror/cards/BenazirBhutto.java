@@ -22,8 +22,8 @@ import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.BENAZIRBHUTTO;
 import static freeWarOnTerror.helpers.CONSTANTS.BHUTTOSHOT;
-import static freeWarOnTerror.helpers.CONSTANTS.PAKISTAN;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.CountryLookup.PAKISTAN;
 
 /**
  *

@@ -23,8 +23,8 @@ import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.ABBAS;
-import static freeWarOnTerror.helpers.CONSTANTS.ISRAEL;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.CountryLookup.ISRAEL;
 
 /**
  *

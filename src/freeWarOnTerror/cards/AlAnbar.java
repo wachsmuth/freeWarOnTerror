@@ -22,9 +22,9 @@ import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.ALANBAR;
 import static freeWarOnTerror.helpers.CONSTANTS.ANBARAWAKENING;
-import static freeWarOnTerror.helpers.CONSTANTS.IRAQ;
-import static freeWarOnTerror.helpers.CONSTANTS.SYRIA;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.CountryLookup.IRAQ;
+import static freeWarOnTerror.helpers.CountryLookup.SYRIA;
 
 /**
  *

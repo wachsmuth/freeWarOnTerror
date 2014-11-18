@@ -32,7 +32,6 @@ import static freeWarOnTerror.helpers.CONSTANTS.FAIR;
 import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
 import static freeWarOnTerror.helpers.CONSTANTS.ISLAMISTRULE;
 import static freeWarOnTerror.helpers.CONSTANTS.POOR;
-import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
 import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.Die.prestigeRoll;
 import java.util.ArrayList;
@@ -92,7 +91,7 @@ public class Game {
 
     public static Country getCountry(CountryLookup cL){
         for (Country c : allCountries) {
-            if (c.getCountryID() == cL.ordinal()) {
+            if (c.getID() == cL.ordinal()) {
                 return c;
             }
         }
@@ -239,7 +238,7 @@ public class Game {
     public static void connectCountries(Country c1, Country c2) {
         c1.addAdjacentCountry(c2);
         c2.addAdjacentCountry(c1);
-    }
+    } //DEBUG change to countryLookup?
 
     public static void setFunding(int f) {
         funding = f;
@@ -472,15 +471,7 @@ public class Game {
     public static Deck getDiscardPile() {
         return discardPile;
     }
-    /*public static void discard(Card card) {
-     for (Player p : players) {
-     p.removeCard(card);
-     }
-     if (!removedCards.hasCard(card) && !discardPile.hasCard(card)) {
-     discardPile.addCard(card);
-     }
-     }*/
-
+    
     public static void removeCardFromPlay(int id) {
         for (Card c : markedEvents) {
             if (id == c.getId()) {

@@ -29,7 +29,6 @@ import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import freeWarOnTerror.abClasses.Player;
 import static freeWarOnTerror.helpers.CONSTANTS.PIRATES;
-import static freeWarOnTerror.helpers.CONSTANTS.YEMEN;
 import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
@@ -60,7 +59,12 @@ public class Turn {
     }
 
 //--------------------------------PUBLIC-------------------------------------------------------
-    private void DEBUG() { //Function for cfhanging parameters of a turn to test faster. Should not be in production code
+    private void DEBUG() { 
+        Country c = getCountry(CountryLookup.IRAQ);
+        if (c.is(CountryLookup.IRAQ)){
+            System.out.println("yay");
+        }
+    //Function for cfhanging parameters of a turn to test faster. Should not be in production code
         /*System.out.println("DEBUG START");
         //System.out.println(Game.getUS().getHand());
         while (true) {

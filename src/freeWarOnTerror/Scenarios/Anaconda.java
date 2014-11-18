@@ -27,8 +27,6 @@ import static freeWarOnTerror.Game.setPrestige;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Country;
 import freeWarOnTerror.abClasses.Scenario;
-import static freeWarOnTerror.helpers.CONSTANTS.CENTRALASIA;
-import static freeWarOnTerror.helpers.CONSTANTS.UNITEDSTATES;
 import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
@@ -72,7 +70,7 @@ public class Anaconda extends Scenario {
         // Must remove from play cards Patriot and Tora Bora
         ArrayList<Country> eligibleCountries = new ArrayList<>();
         for (Country c : getAllCountries()) {
-            if (c.getID() != UNITEDSTATES) {
+            if (c.is(CountryLookup.UNITEDSTATES)) {
                 eligibleCountries.add(c);
             }
         }

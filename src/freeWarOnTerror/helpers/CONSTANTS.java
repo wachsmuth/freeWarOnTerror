@@ -41,7 +41,8 @@ public class CONSTANTS {
     //For plot
     public final static int WMD = 4;
     
-    //Countries
+    //Countries deprecated
+    /*
     public final static int UNITEDSTATES = 0;
     public final static int CANADA = 1;
     public final static int UNITEDKINGDOM = 2;
@@ -82,7 +83,7 @@ public class CONSTANTS {
     public final static int IRANCOUNTRY = 37;
     public final static int BANGLADESH = 38;
     public final static int AUSTRALIA = 39;
-    
+    */
     //Cards
     //US
     public final static int BACKLASH = 1;

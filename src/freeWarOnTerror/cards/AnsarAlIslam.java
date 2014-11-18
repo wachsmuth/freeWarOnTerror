@@ -21,7 +21,6 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.CONSTANTS.ANSARALISLAM;
-import static freeWarOnTerror.helpers.CONSTANTS.IRANCOUNTRY;
 import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 
