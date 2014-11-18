@@ -33,10 +33,7 @@ public class CountryPhilippines extends NonMuslimCountry {
         super(c);
     }
 
-    public CountryPhilippines(String name, int id, int governance, int recruit) {
-        super(name, id, governance, recruit, false);
 
-    }
 
     @Override
     public Boolean canDeployTo(int ops) {

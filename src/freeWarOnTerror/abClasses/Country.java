@@ -24,31 +24,16 @@ public abstract class Country extends Location {
     private Boolean needsTesting = true;
     private Boolean cadre = false;
     private Boolean ctr = false;
-    private final int idDEBUG;
-    private final int id;
     private final CountryLookup lookUp;
 
     public Country(CountryLookup c) {
         this.name = c.getName();
-        this.id = c.ordinal();
-        this.idDEBUG = 0;
         this.lookUp = c;
     }
 
-    public Country(String name, int id) {
-        this.name = name;
-        this.idDEBUG = id;
-        this.id = 0;
-        lookUp = null;
-    }
 //--------------------------------GETTERS-------------------------------------------------------
-
     public boolean is(CountryLookup c) {
         return (this.lookUp == c);
-    }
-
-    public int getID() {
-        return id;
     }
 
     public int getRecruit() {
@@ -116,10 +101,6 @@ public abstract class Country extends Location {
         return ctr;
     }
 
-    public int getIDDebug() {
-        return idDEBUG;
-    }
-
     public Boolean getNeedsTesting() {
         return needsTesting;
     }
@@ -148,12 +129,12 @@ public abstract class Country extends Location {
     protected String eventsToString() {
         String events = "";
         for (Card c : getCardsInPlay()) {
-                for (CountryLookup country : c.getCountries()) {
-                    if (this.is(country)) {
-                        events += (c.getName() + " ");
-                    }
+            for (CountryLookup country : c.getCountries()) {
+                if (this.is(country)) {
+                    events += (c.getName() + " ");
                 }
             }
+        }
         return events;
     }
 //--------------------------------SETTERS-------------------------------------------------------

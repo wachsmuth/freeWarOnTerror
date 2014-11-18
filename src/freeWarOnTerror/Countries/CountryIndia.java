@@ -31,10 +31,6 @@ public class CountryIndia extends NonMuslimCountry {
         super(c);  
     }
     
-    public CountryIndia(String name, int id, int governance, int recruit, boolean schengen){
-        super(name, id, governance, recruit, schengen);
-    }
-    
         @Override
     public void resolvePlots(){
         if (hasPlots()){

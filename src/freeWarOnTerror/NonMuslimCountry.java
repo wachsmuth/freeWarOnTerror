@@ -31,13 +31,6 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
         this.recruit = c.getRecruit();
         this.schengen = c.isSchengen();
     }
-    public NonMuslimCountry(String name, int id, int governance, int recruit, Boolean schengen) {
-        super(name, id);
-        this.governance = governance;
-        this.recruit = recruit;
-        this.schengen = schengen;
-    }
-
 //--------------------------------GETTERS-------------------------------------------------------
     public int getPosture() {
         return posture;

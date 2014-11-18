@@ -36,10 +36,6 @@ public class CountryIran extends freeWarOnTerror.abClasses.Country {
         noLongerNeedsTesting();
     }
     
-    public CountryIran(String name, int id) {
-        super(name, id);
-        noLongerNeedsTesting();
-    }
 
     @Override
     public String toString() {

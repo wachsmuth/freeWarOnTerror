@@ -34,10 +34,6 @@ public class CountryUSA extends NonMuslimCountry {
         noLongerNeedsTesting();
     }
 
-    public CountryUSA(String name, int id, int governance) {
-        super(name, id, governance, governance, false);
-        noLongerNeedsTesting();
-    }
 
     @Override
     public Boolean canWarOfIdeas(int ops) {

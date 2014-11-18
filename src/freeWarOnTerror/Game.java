@@ -91,7 +91,7 @@ public class Game {
 
     public static Country getCountry(CountryLookup cL){
         for (Country c : allCountries) {
-            if (c.getID() == cL.ordinal()) {
+            if (c.is(cL)) {
                 return c;
             }
         }

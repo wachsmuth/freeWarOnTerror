@@ -25,11 +25,7 @@ public class CountryIsrael extends NonMuslimCountry {
         setPosture(1);
     }
 
-    public CountryIsrael(String name, int id, int governance) {
-        super(name, id, governance, governance, false); //Debug - wtf?
-        noLongerNeedsTesting();
-        setPosture(1);
-    }
+
     
     @Override
     public void rollPosture(){

@@ -31,9 +31,7 @@ public class CountryPakistan extends MuslimCountry {
         super(c);
     }
     
-    public CountryPakistan(String name, int id, int resources, boolean oilCountry, boolean shiaMix){
-        super(name, id, resources, oilCountry, shiaMix);
-    }
+
     
     @Override
     public boolean canMinorJihad(){

@@ -46,12 +46,6 @@ public class MuslimCountry extends Country {
         this.shiaMix = c.isShiaMix();
     }
 
-    public MuslimCountry(String name, int id, int resources, boolean oilCountry, boolean shiaMix) {
-        super(name, id);
-        this.resources = resources;
-        this.oilCountry = oilCountry;
-        this.shiaMix = shiaMix;
-    }
 
 //--------------------------------GETTERS-------------------------------------------------------
     public int getResources() {
