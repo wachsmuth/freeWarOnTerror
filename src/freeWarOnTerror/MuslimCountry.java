@@ -39,12 +39,13 @@ public class MuslimCountry extends Country {
     private int governance = 0; //1 = Good, 2 = Fair, 3 = Poor, 4 = Islamist Rule
     private int alignment = 0; //1 = Ally, 2 = Neutral, 3 = Adversary
 
-    public MuslimCountry(CountryLookup c){
+    public MuslimCountry(CountryLookup c) {
         super(c);
         this.resources = c.getResources();
         this.oilCountry = c.isOilCountry();
         this.shiaMix = c.isShiaMix();
     }
+
     public MuslimCountry(String name, int id, int resources, boolean oilCountry, boolean shiaMix) {
         super(name, id);
         this.resources = resources;
@@ -103,11 +104,13 @@ public class MuslimCountry extends Country {
     }
 
     public void shiftAlignment(int change) {
-        alignment = alignment + change;
-        if (alignment < 1) {
-            alignment = 0;
-        } else if (alignment > 3) {
-            alignment = 3;
+        if (alignment < 4) { // it should obviously not undo Islamist Rule
+            alignment = alignment + change;
+            if (alignment < 1) {
+                alignment = 0;
+            } else if (alignment > 3) {
+                alignment = 3;
+            }
         }
     }
 
@@ -224,9 +227,9 @@ public class MuslimCountry extends Country {
     public boolean canRegimeChange() {
         return governance == ISLAMISTRULE;
     }
-    
+
     @Override
-    public boolean canRegimeChangeFrom(){
+    public boolean canRegimeChangeFrom() {
         if (!hasTroops()) {
             return false;
         } else if (regimeChange > 0 && troopAmount() <= cellAmount() + 11) {
@@ -244,8 +247,8 @@ public class MuslimCountry extends Country {
         setAlignment(1);
         rollPrestige();
     }
-    
-    public void withdraw(){
+
+    public void withdraw() {
         removeAid(100);
         setBesiegedRegime(true);
         rollPrestige();
@@ -294,7 +297,7 @@ public class MuslimCountry extends Country {
             if (governance == GOOD) {
                 change = 2;
             }
-            if (p.isBacklash()){
+            if (p.isBacklash()) {
                 change = -change;
             }
             modifyFunding(change);
