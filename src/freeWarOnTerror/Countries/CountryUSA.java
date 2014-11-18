@@ -17,6 +17,8 @@
 package freeWarOnTerror.Countries;
 
 import freeWarOnTerror.Game;
+import static freeWarOnTerror.Game.rollPrestige;
+import static freeWarOnTerror.Game.setFunding;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.Plot;
 import static freeWarOnTerror.helpers.CONSTANTS.WMD;
@@ -28,12 +30,11 @@ import static freeWarOnTerror.helpers.Die.rollDie;
  * @author Emil
  */
 public class CountryUSA extends NonMuslimCountry {
-    
-    public CountryUSA(CountryLookup c){
+
+    public CountryUSA(CountryLookup c) {
         super(c);
         noLongerNeedsTesting();
     }
-
 
     @Override
     public Boolean canWarOfIdeas(int ops) {
@@ -47,19 +48,19 @@ public class CountryUSA extends NonMuslimCountry {
                 Game.WMDinUS(); //US Loses
                 return;
             }
+            setFunding(9);
+            rollPrestige();
+            rollPosture();
         }
-        //DEBUG! Works very differently.
-        super.resolvePlots();
     }
-    
+
     @Override
-    public void rollPosture(){
-        if (rollDie() > 3){
+    public void rollPosture() {
+        if (rollDie() > 3) {
             setPosture(1);
-        }
-        else {
+        } else {
             setPosture(-1);
         }
     }
-    
+
 }
