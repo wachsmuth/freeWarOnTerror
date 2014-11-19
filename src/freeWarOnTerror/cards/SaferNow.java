@@ -25,6 +25,8 @@ import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CONSTANTS.SAFERNOW;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.InputLoop.inputLoop;
+import static freeWarOnTerror.helpers.InputLoop.setCountryPosture;
 import java.util.ArrayList;
 
 /**
@@ -60,6 +62,6 @@ public class SaferNow extends Card {
                 eligibleCountries.add(c);
             }
         }
-         //setCountryPosture(inputLoop(eligibleCountries)); DEBUG
+        setCountryPosture(inputLoop(eligibleCountries));
     }
 }
