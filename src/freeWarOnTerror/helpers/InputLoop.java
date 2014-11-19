@@ -143,8 +143,12 @@ public class InputLoop {
     }
     
     public static void setCountryPosture(CountryLookup country){
-        int input = inputLoop("Select " + getCountry(country).getName() + "'s posture", "hard", "soft");
-        NonMuslimCountry c = (NonMuslimCountry) getCountry(country);
+        setCountryPosture(getCountry(country));
+    }
+    
+    public static void setCountryPosture(Country country){
+        int input = inputLoop("Select " + country.getName() + "'s posture", "hard", "soft");
+        NonMuslimCountry c = (NonMuslimCountry) country;
         if (input == 1){
             c.setPosture(1);
         }
@@ -152,5 +156,4 @@ public class InputLoop {
             c.setPosture(-1);
         }
     }
-    
 }
