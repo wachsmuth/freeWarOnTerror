@@ -32,7 +32,7 @@ public enum Alignment {
         this.value = n;
     }
     
-    public int value(){
+    public int id(){
         return value;
     }
 }

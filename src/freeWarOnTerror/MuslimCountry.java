@@ -105,13 +105,12 @@ public class MuslimCountry extends Country {
 
     public void shiftAlignment(int change) {
             //Check boundaries.
-            if (alignment.value()+change < 1){
+            if (alignment.id()+change < 1){
                 this.alignment = Alignment.ALLY;
-            } else if (alignment.value()+change > 3) {
+            } else if (alignment.id()+change > 3) {
                 this.alignment = Alignment.ADVERSARY;
             } else {
-                
-           
+                alignment = alignment.values()[alignment.id()+change];
         }
     }
 
@@ -355,7 +354,7 @@ public class MuslimCountry extends Country {
         } else if (needsTesting() && ops == 1) {
             return false;
         }
-        return ops >= governance && alignment.value() < 3;
+        return ops >= governance && alignment.id() < 3;
     }
 
     @Override
