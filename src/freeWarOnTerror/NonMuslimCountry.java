@@ -25,13 +25,14 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
     private final int recruit;
     private final Boolean schengen;
 
-    public NonMuslimCountry(CountryLookup c){
+    public NonMuslimCountry(CountryLookup c) {
         super(c);
         this.governance = c.getGovernance();
         this.recruit = c.getRecruit();
         this.schengen = c.isSchengen();
     }
 //--------------------------------GETTERS-------------------------------------------------------
+
     public int getPosture() {
         return posture;
     }
@@ -39,8 +40,13 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
     public Boolean getSchengen() {
         return schengen;
     }
-//--------------------------------SETTERS-------------------------------------------------------
 
+    @Override
+    public boolean canDisrupt(int ops) {
+        return (hasCells() || this.getCadre()) && ops >= getGovernance();
+    }
+
+//--------------------------------SETTERS-------------------------------------------------------
     public void setPosture(int gwot) {
         posture = gwot;
         noLongerNeedsTesting();

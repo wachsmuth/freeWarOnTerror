@@ -17,7 +17,9 @@
 package freeWarOnTerror.cards;
 
 import static freeWarOnTerror.Game.getCountry;
+import static freeWarOnTerror.Game.getMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.Alignment.ALLY;
 import static freeWarOnTerror.helpers.CONSTANTS.INDOPAKISTANITALKS;
 import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.CountryLookup.INDIA;
@@ -41,7 +43,7 @@ public class IndoPakistaniTalks extends Card {
     
     @Override
     public void playEvent(){
-        getCountry(CountryLookup.PAKISTAN).setAlignment(1);
+        getMuslimCountry(CountryLookup.PAKISTAN).setAlignment(ALLY);
         setCountryPosture(CountryLookup.INDIA);
         //TO DO: Remove this card if a plot resolved in India.
     }

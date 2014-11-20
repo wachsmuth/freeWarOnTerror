@@ -18,6 +18,7 @@ package freeWarOnTerror.Scenarios;
 
 import static freeWarOnTerror.Game.deployTroops;
 import static freeWarOnTerror.Game.getCountry;
+import static freeWarOnTerror.Game.getMuslimCountry;
 import static freeWarOnTerror.Game.getTrack;
 import static freeWarOnTerror.Game.placeCell;
 import static freeWarOnTerror.Game.setFunding;
@@ -25,6 +26,9 @@ import static freeWarOnTerror.Game.setPostureHard;
 import static freeWarOnTerror.Game.setPrestige;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Scenario;
+import static freeWarOnTerror.helpers.Alignment.ADVERSARY;
+import static freeWarOnTerror.helpers.Alignment.ALLY;
+import static freeWarOnTerror.helpers.Alignment.NEUTRAL;
 import freeWarOnTerror.helpers.CountryLookup;
 
 /**
@@ -44,17 +48,17 @@ public class YouCanCallMeAl extends Scenario {
         setPostureHard(false);
         setFunding(9);
         //Countries
-        getCountry(CountryLookup.LIBYA).setGovernanceAndAlignment(3, 3);
-        getCountry(CountryLookup.SYRIA).setGovernanceAndAlignment(2, 3);
-        getCountry(CountryLookup.IRAQ).setGovernanceAndAlignment(3, 3);
-        getCountry(CountryLookup.SAUDIARABIA).setGovernanceAndAlignment(3, 1);
-        getCountry(CountryLookup.GULFSTATES).setGovernanceAndAlignment(2, 1);
-        getCountry(CountryLookup.PAKISTAN).setGovernanceAndAlignment(2, 2);
-        getCountry(CountryLookup.AFGHANISTAN).setGovernanceAndAlignment(4, 3);
-        MuslimCountry somalia = (MuslimCountry) getCountry(CountryLookup.SOMALIA);
+        getMuslimCountry(CountryLookup.LIBYA).setGovernanceAndAlignment(3, ADVERSARY);
+        getMuslimCountry(CountryLookup.SYRIA).setGovernanceAndAlignment(2, ADVERSARY);
+        getMuslimCountry(CountryLookup.IRAQ).setGovernanceAndAlignment(3, ADVERSARY);
+        getMuslimCountry(CountryLookup.SAUDIARABIA).setGovernanceAndAlignment(3, ALLY);
+        getMuslimCountry(CountryLookup.GULFSTATES).setGovernanceAndAlignment(2, ALLY);
+        getMuslimCountry(CountryLookup.PAKISTAN).setGovernanceAndAlignment(2, NEUTRAL);
+        getMuslimCountry(CountryLookup.AFGHANISTAN).setGovernanceAndAlignment(4, ADVERSARY);
+        MuslimCountry somalia = getMuslimCountry(CountryLookup.SOMALIA);
         somalia.setBesiegedRegime(true);
         for (int i = 0; i < 4; i++) {
-            placeCell(getCountry(CountryLookup.AFGHANISTAN));
+            placeCell(getMuslimCountry(CountryLookup.AFGHANISTAN));
         }
         deployTroops(getTrack(), getCountry(CountryLookup.GULFSTATES), 2);
         deployTroops(getTrack(), getCountry(CountryLookup.SAUDIARABIA), 2);

@@ -22,6 +22,7 @@ import static freeWarOnTerror.Game.getJihadist;
 import static freeWarOnTerror.Game.getUS;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.Alignment.ALLY;
 import static freeWarOnTerror.helpers.CONSTANTS.SALEH;
 import freeWarOnTerror.helpers.CountryLookup;
 
@@ -40,7 +41,7 @@ public class Saleh extends Card {
         MuslimCountry yemen = (MuslimCountry) getCountry(CountryLookup.YEMEN);
         yemen.testCountry();
         if (getCurrentPlayer() == getUS() && yemen.getGovernance() < 4){
-            yemen.setAlignment(1);
+            yemen.setAlignment(ALLY);
             yemen.addAid();
         }
         else if(getCurrentPlayer() == getJihadist()){

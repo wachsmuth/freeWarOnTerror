@@ -19,6 +19,7 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.Alignment.ALLY;
 import static freeWarOnTerror.helpers.CONSTANTS.KEMALISTREPUBLIC;
 import freeWarOnTerror.helpers.CountryLookup;
 
@@ -35,7 +36,7 @@ public class KemalistRepublic extends Card {
     @Override
     public void playEvent(){
         MuslimCountry turkey = (MuslimCountry) getCountry(CountryLookup.TURKEY);
-        turkey.setAlignment(1);
-        turkey.setGovernance(2);
+        turkey.setAlignment(ALLY);
+        turkey.setGovernance(2); //switch to setGovernanceAndAlignment debug
     }
 }

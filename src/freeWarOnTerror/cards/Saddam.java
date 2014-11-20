@@ -21,6 +21,7 @@ import static freeWarOnTerror.Game.isCardInPlay;
 import static freeWarOnTerror.Game.setFunding;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.Alignment.ADVERSARY;
 import static freeWarOnTerror.helpers.CONSTANTS.SADDAM;
 import static freeWarOnTerror.helpers.CONSTANTS.SADDAMCAPTURED;
 import freeWarOnTerror.helpers.CountryLookup;
@@ -38,7 +39,7 @@ public class Saddam extends Card {
     @Override
     public Boolean getPlayable(){
         MuslimCountry iraq = (MuslimCountry) getCountry(CountryLookup.IRAQ);
-        return iraq.getGovernance() == 3 && iraq.getAlignment() == 3 && !isCardInPlay(SADDAMCAPTURED);
+        return iraq.getGovernance() == 3 && iraq.getAlignment() == ADVERSARY && !isCardInPlay(SADDAMCAPTURED);
     }
     
     @Override

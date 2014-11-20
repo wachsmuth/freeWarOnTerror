@@ -18,8 +18,10 @@ package freeWarOnTerror.cards;
 
 import freeWarOnTerror.Cell;
 import static freeWarOnTerror.Game.getCountry;
+import static freeWarOnTerror.Game.getMuslimCountry;
 import static freeWarOnTerror.Game.isCardInPlay;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.Alignment.ALLY;
 import static freeWarOnTerror.helpers.CONSTANTS.BENAZIRBHUTTO;
 import static freeWarOnTerror.helpers.CONSTANTS.MUSHARRAF;
 import freeWarOnTerror.helpers.CountryLookup;
@@ -44,6 +46,6 @@ public class Musharraf extends Card {
     public void playEvent(){
         Cell target = inputLoop(getCountry(CountryLookup.PAKISTAN).getCells());
         target.kill();
-        getCountry(CountryLookup.PAKISTAN).setGovernanceAndAlignment(3, 1);
+        getMuslimCountry(CountryLookup.PAKISTAN).setGovernanceAndAlignment(3, ALLY);
     }
 }

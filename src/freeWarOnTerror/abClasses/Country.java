@@ -7,11 +7,12 @@ package freeWarOnTerror.abClasses;
 
 import freeWarOnTerror.Cell;
 import static freeWarOnTerror.Game.getCardsInPlay;
-import freeWarOnTerror.NonMuslimCountry;
+import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.Plot;
 import static freeWarOnTerror.helpers.AppendToString.appendString;
 import freeWarOnTerror.helpers.CountryLookup;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -39,17 +40,23 @@ public abstract class Country extends Location {
     public int getRecruit() {
         return getGovernance();
     }
-
-    public int getAlignment() {
-        return 0;
-    }
-
+    
     public Boolean needsTesting() {
         return needsTesting;
     }
 
     public ArrayList<Country> getAdjacentCountries() {
         return adjacentCountries;
+    }
+    
+    public List<MuslimCountry> getAdjacentMuslimCountries(){
+        List<MuslimCountry> reList = new ArrayList<>();
+        for (Country c : adjacentCountries){
+            if (c instanceof MuslimCountry){
+                reList.add((MuslimCountry) c );
+            }
+        }
+        return reList;
     }
 
     public Boolean isCountryAdjacent(Country country) {
@@ -73,9 +80,9 @@ public abstract class Country extends Location {
         return troopAmount() > 6;
     }
 
-    public boolean canDisrupt(int ops) {
-        return (hasTroops() || getAlignment() == 1 || this instanceof NonMuslimCountry) && (hasCells() || cadre) && ops >= getGovernance();
-    }
+    public abstract boolean canDisrupt(int ops) ;
+        //return (hasTroops() || getAlignment() == ALLY || this instanceof NonMuslimCountry) && (hasCells() || cadre) && ops >= getGovernance();
+    //} //Debug - bad code
 
     public Boolean canRecruit() {
         return cadre || hasCells();
@@ -145,15 +152,6 @@ public abstract class Country extends Location {
             testCountry();
         }
         super.add(m);
-    }
-
-    public void setGovernance(int governance) {
-    }
-
-    public void setAlignment(int alignment) {
-    }
-
-    public void setGovernanceAndAlignment(int governance, int alignment) {
     }
 
     public void addAdjacentCountry(Country c) {

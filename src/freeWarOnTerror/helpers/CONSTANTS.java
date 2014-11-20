@@ -22,9 +22,9 @@ package freeWarOnTerror.helpers;
  */
 public class CONSTANTS {
     //ALIGNMENT COUNTIES
-    public final static int A_ALLY = 1;
+    /*public final static int A_ALLY = 1;
     public final static int A_NEUTRAL = 2;
-    public final static int A_ADVERSARY = 3;
+    public final static int A_ADVERSARY = 3;*/
     
     //Alignment CARD
     public final static int AUTO = 0;

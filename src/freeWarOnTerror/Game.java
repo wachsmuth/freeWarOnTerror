@@ -98,6 +98,15 @@ public class Game {
         return null;
     }
     
+    public static MuslimCountry getMuslimCountry(CountryLookup cL){
+        for (Country c : allCountries) {
+            if (c.is(cL) && c instanceof MuslimCountry) {
+                return (MuslimCountry) c;
+            }
+        }
+        return null;
+    }
+    
     public static Turn getCurrentTurn() {
         return currentTurn;
     }

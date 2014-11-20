@@ -22,6 +22,7 @@ import static freeWarOnTerror.helpers.AppendToString.appendString;
 import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
 import freeWarOnTerror.helpers.CountryLookup;
 import java.util.Iterator;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  *
@@ -35,8 +36,12 @@ public class CountryIran extends freeWarOnTerror.abClasses.Country {
         super(c);
         noLongerNeedsTesting();
     }
-    
 
+    @Override
+    public boolean canDisrupt(int ops) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    } //Debug duno what t odo
+    
     @Override
     public String toString() {
         return appendString(getName()) + appendString("Fair") + moveablesString();
@@ -44,6 +49,7 @@ public class CountryIran extends freeWarOnTerror.abClasses.Country {
 
     @Override
     public void testCountry() {
+        throw new NotImplementedException();
     }
 
     @Override

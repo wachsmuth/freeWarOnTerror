@@ -20,6 +20,8 @@ import static freeWarOnTerror.Game.getMuslimCountries;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
+import static freeWarOnTerror.helpers.Alignment.ADVERSARY;
+import static freeWarOnTerror.helpers.Alignment.NEUTRAL;
 import static freeWarOnTerror.helpers.CONSTANTS.COVERTACTION;
 import static freeWarOnTerror.helpers.Die.rollDie;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
@@ -38,7 +40,7 @@ public class CovertAction extends Card {
     @Override
     public Boolean getPlayable() {
         for (MuslimCountry c : getMuslimCountries()) {
-            if (c.getAlignment() == 3) {
+            if (c.getAlignment() == ADVERSARY) {
                 return true;
             }
         }
@@ -50,7 +52,7 @@ public class CovertAction extends Card {
         MuslimCountry targetCountry;
         ArrayList<Country> adversaries = new ArrayList<>();
         for (MuslimCountry c : getMuslimCountries()) {
-            if (c.getAlignment() == 3) {
+            if (c.getAlignment() == ADVERSARY) {
                 adversaries.add(c);
             }
         }
@@ -60,7 +62,7 @@ public class CovertAction extends Card {
             targetCountry = (MuslimCountry) inputLoop("Pick an adversary to attempt shift to neutral", adversaries);
         }
         if (3 < rollDie()) {
-            targetCountry.setAlignment(2);
+            targetCountry.setAlignment(NEUTRAL);
         }
     }
 }

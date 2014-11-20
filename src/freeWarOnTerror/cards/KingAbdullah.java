@@ -21,6 +21,7 @@ import static freeWarOnTerror.Game.modifyFunding;
 import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.Alignment.ALLY;
 import static freeWarOnTerror.helpers.CONSTANTS.KINGABDULLAH;
 import freeWarOnTerror.helpers.CountryLookup;
 
@@ -38,7 +39,7 @@ public class KingAbdullah extends Card {
     public void playEvent(){
         MuslimCountry jordan = (MuslimCountry) getCountry(CountryLookup.JORDAN);
         jordan.setGovernance(2);
-        jordan.setAlignment(1);
+        jordan.setAlignment(ALLY);
         modifyFunding(-1);
         modifyPrestige(1);
     }

@@ -17,6 +17,7 @@
 package freeWarOnTerror.cards;
 
 import static freeWarOnTerror.Game.getCountry;
+import static freeWarOnTerror.Game.getMuslimCountry;
 import static freeWarOnTerror.Game.isCardInPlay;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
@@ -37,7 +38,7 @@ public class BenazirBhutto extends Card {
     
     @Override
     public Boolean getPlayable(){
-        if (getCountry(CountryLookup.PAKISTAN).getGovernance() == 4){
+        if (getMuslimCountry(CountryLookup.PAKISTAN).getGovernance() == 4){
             return false;
         }
         for (Country c : getCountry(CountryLookup.PAKISTAN).getAdjacentCountries()){
@@ -51,7 +52,7 @@ public class BenazirBhutto extends Card {
     @Override
     public void playEvent(){
         if (getCountry(CountryLookup.PAKISTAN).getGovernance() == 3){
-            getCountry(CountryLookup.PAKISTAN).setGovernance(2);
+            getMuslimCountry(CountryLookup.PAKISTAN).setGovernance(2);
         }
     }
 }

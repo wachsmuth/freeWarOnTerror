@@ -17,8 +17,10 @@
 package freeWarOnTerror.cards;
 
 import static freeWarOnTerror.Game.getCountry;
+import static freeWarOnTerror.Game.getMuslimCountry;
+import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import freeWarOnTerror.abClasses.Country;
+import static freeWarOnTerror.helpers.Alignment.NEUTRAL;
 import static freeWarOnTerror.helpers.CONSTANTS.ETHIOPIASTRIKES;
 import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
@@ -42,15 +44,15 @@ public class EthiopiaStrikes extends Card {
     @Override
     public void playEvent() {
         if (getCountry(CountryLookup.SOMALIA).getGovernance() == 4 && getCountry(CountryLookup.YEMEN).getGovernance() == 4) {
-            ArrayList<Country> somaliaAndYemen = new ArrayList<>();
-            somaliaAndYemen.add(getCountry(CountryLookup.SOMALIA));
-            somaliaAndYemen.add(getCountry(CountryLookup.YEMEN));
+            ArrayList<MuslimCountry> somaliaAndYemen = new ArrayList<>();
+            somaliaAndYemen.add(getMuslimCountry(CountryLookup.SOMALIA));
+            somaliaAndYemen.add(getMuslimCountry(CountryLookup.YEMEN));
             System.out.println("Choose a country to set to Poor Neutral: ");
-            inputLoop(somaliaAndYemen).setGovernanceAndAlignment(3, 2);
+            inputLoop(somaliaAndYemen).setGovernanceAndAlignment(3, NEUTRAL);
         } else if (getCountry(CountryLookup.SOMALIA).getGovernance() == 4) {
-            getCountry(CountryLookup.SOMALIA).setGovernanceAndAlignment(3, 2);
+            getMuslimCountry(CountryLookup.SOMALIA).setGovernanceAndAlignment(3, NEUTRAL);
         } else if (getCountry(CountryLookup.YEMEN).getGovernance() == 4) {
-            getCountry(CountryLookup.YEMEN).setGovernanceAndAlignment(3, 2);
+            getMuslimCountry(CountryLookup.YEMEN).setGovernanceAndAlignment(3, NEUTRAL);
         }
     }
 }
