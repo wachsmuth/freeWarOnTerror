@@ -19,8 +19,9 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.OPIUM;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.Governance.ISLAMISTRULE;
 
 /**
  *
@@ -29,7 +30,7 @@ import freeWarOnTerror.helpers.CountryLookup;
 public class Opium extends Card {
 
     public Opium() {
-        super("Opium", 2, 3, false, false, OPIUM);
+        super(CardLookup.OPIUM);
     }
 
     @Override
@@ -42,7 +43,7 @@ public class Opium extends Card {
         placeCell(getCountry(CountryLookup.AFGHANISTAN));
         placeCell(getCountry(CountryLookup.AFGHANISTAN));
         placeCell(getCountry(CountryLookup.AFGHANISTAN));
-        if (getCountry(CountryLookup.AFGHANISTAN).getGovernance() == 4) {
+        if (getCountry(CountryLookup.AFGHANISTAN).getGovernance() == ISLAMISTRULE) {
             placeCell(getCountry(CountryLookup.AFGHANISTAN));
             placeCell(getCountry(CountryLookup.AFGHANISTAN));
             placeCell(getCountry(CountryLookup.AFGHANISTAN));

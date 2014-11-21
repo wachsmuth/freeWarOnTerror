@@ -18,7 +18,7 @@ public class Die {
     }
     
     public static boolean rollLessThanGovernance(Country c){
-        return (rollDie() < c.getGovernance());
+        return (rollDie() < c.getGovernance().getValue());
     }
 
     public static int prestigeRoll() {

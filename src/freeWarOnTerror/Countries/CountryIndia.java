@@ -18,7 +18,7 @@ package freeWarOnTerror.Countries;
 
 import static freeWarOnTerror.Game.removeCardFromPlay;
 import freeWarOnTerror.NonMuslimCountry;
-import static freeWarOnTerror.helpers.CONSTANTS.INDOPAKISTANITALKS;
+import static freeWarOnTerror.helpers.CardLookup.INDOPAKISTANITALKS;
 import freeWarOnTerror.helpers.CountryLookup;
 
 /**

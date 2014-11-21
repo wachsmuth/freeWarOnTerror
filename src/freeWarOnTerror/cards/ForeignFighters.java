@@ -22,7 +22,7 @@ import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
-import static freeWarOnTerror.helpers.CONSTANTS.FOREIGNFIGHTERS;
+import freeWarOnTerror.helpers.CardLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -33,7 +33,7 @@ import java.util.ArrayList;
 public class ForeignFighters extends Card {
     
     public ForeignFighters(){
-        super("Foreign Fighters", 3, 3, false, false, FOREIGNFIGHTERS);
+        super(CardLookup.FOREIGNFIGHTERS);
     }
     
     @Override

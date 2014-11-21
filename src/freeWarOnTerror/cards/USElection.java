@@ -20,7 +20,7 @@ import static freeWarOnTerror.Game.getPosturePenalty;
 import static freeWarOnTerror.Game.modifyPrestige;
 import static freeWarOnTerror.Game.rollUSPosture;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.USELECTION;
+import freeWarOnTerror.helpers.CardLookup;
 
 /**
  *
@@ -29,7 +29,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.USELECTION;
 public class USElection extends Card {
     
     public USElection(){
-        super("US Election", 3, 0, false, false, USELECTION);
+        super(CardLookup.USELECTION);
     }
     
     @Override

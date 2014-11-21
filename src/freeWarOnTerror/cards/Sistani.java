@@ -20,7 +20,7 @@ import static freeWarOnTerror.Game.getMuslimCountries;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
-import static freeWarOnTerror.helpers.CONSTANTS.SISTANI;
+import freeWarOnTerror.helpers.CardLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -31,7 +31,7 @@ import java.util.ArrayList;
 public class Sistani extends Card {
     
     public Sistani(){
-        super("Sistani", 3, 2, false, false, SISTANI);
+        super(CardLookup.SISTANI);
     }
     
     @Override

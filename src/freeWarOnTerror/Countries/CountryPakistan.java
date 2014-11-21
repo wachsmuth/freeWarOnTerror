@@ -17,8 +17,8 @@
 package freeWarOnTerror.Countries;
 import static freeWarOnTerror.Game.isCardInPlay;
 import freeWarOnTerror.MuslimCountry;
-import static freeWarOnTerror.helpers.CONSTANTS.BENAZIRBHUTTO;
-import static freeWarOnTerror.helpers.CONSTANTS.FATA;
+import static freeWarOnTerror.helpers.CardLookup.BENAZIRBHUTTO;
+import static freeWarOnTerror.helpers.CardLookup.FATA;
 import freeWarOnTerror.helpers.CountryLookup;
 
 /**

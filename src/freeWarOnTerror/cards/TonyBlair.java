@@ -20,7 +20,7 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.getSchengenCountries;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.TONYBLAIR;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 
@@ -31,7 +31,7 @@ import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 public class TonyBlair extends Card {
 
     public TonyBlair() {
-        super("Tony Blair", 2, 2, true, false, TONYBLAIR);
+        super(CardLookup.TONYBLAIR);
     }
     
     @Override

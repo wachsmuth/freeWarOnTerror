@@ -22,8 +22,8 @@ import static freeWarOnTerror.Game.getCurrentTurn;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
-import static freeWarOnTerror.helpers.CONSTANTS.ISLAMISTRULE;
 import static freeWarOnTerror.helpers.Die.rollDie;
+import static freeWarOnTerror.helpers.Governance.ISLAMISTRULE;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -92,7 +92,7 @@ public class ActionTravel extends Action {
             if (isTravelAutomatic) {
                 chosenCells[i].move(chosenDestinations[i]);
             } else {
-                if (chosenDestinations[i].getGovernance() >= rollDie()) {
+                if (chosenDestinations[i].getGovernance().getValue() >= rollDie()) {
                     chosenCells[i].move(chosenDestinations[i]);
                 } else {
                     chosenCells[i].kill();

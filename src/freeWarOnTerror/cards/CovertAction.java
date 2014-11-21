@@ -22,7 +22,7 @@ import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.Alignment.ADVERSARY;
 import static freeWarOnTerror.helpers.Alignment.NEUTRAL;
-import static freeWarOnTerror.helpers.CONSTANTS.COVERTACTION;
+import freeWarOnTerror.helpers.CardLookup;
 import static freeWarOnTerror.helpers.Die.rollDie;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ import java.util.ArrayList;
 public class CovertAction extends Card {
 
     public CovertAction() {
-        super("Covert Action", 2, 2, false, false, COVERTACTION);
+        super(CardLookup.COVERTACTION);
     }
 
     @Override

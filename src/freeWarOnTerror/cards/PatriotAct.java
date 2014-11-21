@@ -19,9 +19,8 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
-import static freeWarOnTerror.helpers.CONSTANTS.PATRIOTACT;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
-import static freeWarOnTerror.helpers.CountryLookup.UNITEDSTATES;
 
 /**
  *
@@ -30,7 +29,7 @@ import static freeWarOnTerror.helpers.CountryLookup.UNITEDSTATES;
 public class PatriotAct extends Card {
 
     public PatriotAct() {
-        super("Patriot Act", 3, 2, true, true, PATRIOTACT, UNITEDSTATES);
+        super(CardLookup.PATRIOTACT);
     }
 
     @Override

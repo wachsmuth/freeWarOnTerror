@@ -20,10 +20,9 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.modifyFunding;
 import static freeWarOnTerror.Game.removeCardFromPlay;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.ABUSAYYAF;
-import static freeWarOnTerror.helpers.CONSTANTS.MOROTALKS;
+import freeWarOnTerror.helpers.CardLookup;
+import static freeWarOnTerror.helpers.CardLookup.ABUSAYYAF;
 import freeWarOnTerror.helpers.CountryLookup;
-import static freeWarOnTerror.helpers.CountryLookup.PHILIPPINES;
 
 /**
  *
@@ -32,7 +31,7 @@ import static freeWarOnTerror.helpers.CountryLookup.PHILIPPINES;
 public class MoroTalks extends Card {
     
     public MoroTalks(){
-        super("Moro Talks", 1, 2, true, true, MOROTALKS, PHILIPPINES);
+        super(CardLookup.MOROTALKS);
     }
     
     @Override

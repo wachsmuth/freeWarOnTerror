@@ -20,10 +20,8 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.getMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.Alignment.ALLY;
-import static freeWarOnTerror.helpers.CONSTANTS.INDOPAKISTANITALKS;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
-import static freeWarOnTerror.helpers.CountryLookup.INDIA;
-import static freeWarOnTerror.helpers.CountryLookup.PAKISTAN;
 import static freeWarOnTerror.helpers.InputLoop.setCountryPosture;
 
 /**
@@ -33,13 +31,13 @@ import static freeWarOnTerror.helpers.InputLoop.setCountryPosture;
 public class IndoPakistaniTalks extends Card {
     
     public IndoPakistaniTalks(){
-        super("Indo-Pakistani Talks", 3, 2, true, true, INDOPAKISTANITALKS, INDIA, PAKISTAN);
+        super(CardLookup.INDOPAKISTANITALKS);
     }
     
     @Override
     public Boolean getPlayable(){
-        return getCountry(CountryLookup.PAKISTAN).getGovernance() > 0 && getCountry(CountryLookup.PAKISTAN).getGovernance() < 3;
-    }
+        return getCountry(CountryLookup.PAKISTAN).getGovernance().getValue() > 0 && getCountry(CountryLookup.PAKISTAN).getGovernance().getValue() < 3;
+    } //Debug - getGovernance.getValue() > 0 is always true
     
     @Override
     public void playEvent(){

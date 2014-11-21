@@ -19,6 +19,8 @@ package freeWarOnTerror.Players.Actions;
 import static freeWarOnTerror.Game.playCard;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CardAlignment.NEUTRAL;
+import static freeWarOnTerror.helpers.CardAlignment.USA;
 
 /**
  *
@@ -32,7 +34,7 @@ public class ActionEventUS extends Action {
     
     @Override
     public boolean canDoAction(Card c){
-        return (c.getAlignment() == 1 || c.getAlignment() == 2) && c.getPlayable();
+        return (c.getAlignment() == NEUTRAL || c.getAlignment() == USA) && c.getPlayable();
     }
     
     @Override

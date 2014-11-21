@@ -30,6 +30,8 @@ import freeWarOnTerror.abClasses.Scenario;
 import static freeWarOnTerror.helpers.Alignment.ADVERSARY;
 import static freeWarOnTerror.helpers.Alignment.ALLY;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.Governance.FAIR;
+import static freeWarOnTerror.helpers.Governance.POOR;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -50,14 +52,14 @@ public class Anaconda extends Scenario {
         setPostureHard(true);
         setFunding(6);
         //Governance and alignment
-        getMuslimCountry(CountryLookup.LIBYA).setGovernanceAndAlignment(3, ADVERSARY);
-        getMuslimCountry(CountryLookup.SYRIA).setGovernanceAndAlignment(2, ADVERSARY);
-        getMuslimCountry(CountryLookup.IRAQ).setGovernanceAndAlignment(3, ADVERSARY);
-        getMuslimCountry(CountryLookup.SAUDIARABIA).setGovernanceAndAlignment(3, ALLY);
-        getMuslimCountry(CountryLookup.GULFSTATES).setGovernanceAndAlignment(2, ALLY);
-        getMuslimCountry(CountryLookup.PAKISTAN).setGovernanceAndAlignment(3, ALLY);
-        getMuslimCountry(CountryLookup.AFGHANISTAN).setGovernanceAndAlignment(3, ALLY);
-        getMuslimCountry(CountryLookup.CENTRALASIA).setGovernanceAndAlignment(3, ALLY);
+        getMuslimCountry(CountryLookup.LIBYA).setGovernanceAndAlignment(POOR, ADVERSARY);
+        getMuslimCountry(CountryLookup.SYRIA).setGovernanceAndAlignment(FAIR, ADVERSARY);
+        getMuslimCountry(CountryLookup.IRAQ).setGovernanceAndAlignment(POOR, ADVERSARY);
+        getMuslimCountry(CountryLookup.SAUDIARABIA).setGovernanceAndAlignment(POOR, ALLY);
+        getMuslimCountry(CountryLookup.GULFSTATES).setGovernanceAndAlignment(FAIR, ALLY);
+        getMuslimCountry(CountryLookup.PAKISTAN).setGovernanceAndAlignment(POOR, ALLY);
+        getMuslimCountry(CountryLookup.AFGHANISTAN).setGovernanceAndAlignment(POOR, ALLY);
+        getMuslimCountry(CountryLookup.CENTRALASIA).setGovernanceAndAlignment(POOR, ALLY);
         getMuslimCountry(CountryLookup.SOMALIA).setBesiegedRegime(true);
         getMuslimCountry(CountryLookup.AFGHANISTAN).setRegimeChange(1);
         //Cells & troops

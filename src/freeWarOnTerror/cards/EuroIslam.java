@@ -19,7 +19,7 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.anyIslamistRule;
 import static freeWarOnTerror.Game.modifyFunding;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.EUROISLAM;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.setCountryPosture;
 
@@ -30,7 +30,7 @@ import static freeWarOnTerror.helpers.InputLoop.setCountryPosture;
 public class EuroIslam extends Card {
     
     public EuroIslam(){
-        super("Euro-Islam", 2, 2, true, false, EUROISLAM);
+        super(CardLookup.EUROISLAM);
     }
     
     @Override

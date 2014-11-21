@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Emil
+ * Copyright (C) 2014 Wengel
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,30 +14,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package freeWarOnTerror.cards;
 
-import freeWarOnTerror.abClasses.Card;
-import freeWarOnTerror.helpers.CardLookup;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+package freeWarOnTerror.helpers;
 
 /**
  *
- * @author Emil
+ * @author Wengel
  */
-public class DummyCard extends Card {
-
-    public DummyCard(int ops) {
-        super(CardLookup.ABUGHURAYB);
-        throw new NotImplementedException();
-    }
-
-    @Override
-    public Boolean getPlayable() {
-        return false;
-    }
-
-    @Override
-    public void playEvent() {
-
-    }
+public enum CardAlignment {
+    AUTO,
+    NEUTRAL,
+    USA,
+    JIHAD
 }

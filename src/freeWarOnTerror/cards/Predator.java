@@ -20,7 +20,7 @@ import freeWarOnTerror.Cell;
 import static freeWarOnTerror.Game.getMuslimCountries;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.PREDATOR;
+import freeWarOnTerror.helpers.CardLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -31,7 +31,7 @@ import java.util.ArrayList;
 public class Predator extends Card {
     
     public Predator(){
-        super("Predator", 2, 2, false, false, PREDATOR);
+        super(CardLookup.PREDATOR);
     }
     
     @Override

@@ -3,10 +3,11 @@ package freeWarOnTerror;
 import static freeWarOnTerror.Game.isPostureHard;
 import static freeWarOnTerror.Game.modifyPrestige;
 import static freeWarOnTerror.helpers.AppendToString.appendString;
-import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
 import static freeWarOnTerror.helpers.CONSTANTS.WMD;
 import freeWarOnTerror.helpers.CountryLookup;
 import freeWarOnTerror.helpers.Die;
+import freeWarOnTerror.helpers.Governance;
+import static freeWarOnTerror.helpers.Governance.GOOD;
 import java.util.Iterator;
 
 /*
@@ -20,7 +21,7 @@ import java.util.Iterator;
  */
 public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
 
-    private final int governance;
+    private final Governance governance;
     private int posture = 0; //soft = -1, hard = 1
     private final int recruit;
     private final Boolean schengen;
@@ -43,7 +44,7 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
 
     @Override
     public boolean canDisrupt(int ops) {
-        return (hasCells() || this.getCadre()) && ops >= getGovernance();
+        return (hasCells() || this.getCadre()) && ops >= getGovernance().getValue();
     }
 
 //--------------------------------SETTERS-------------------------------------------------------
@@ -68,7 +69,7 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
     }
 
     @Override
-    public int getGovernance() {
+    public Governance getGovernance() {
         return governance;
     }
 
@@ -82,7 +83,7 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
 
     @Override
     public Boolean canWarOfIdeas(int ops) {
-        return ops >= governance;
+        return ops >= governance.getValue();
     }
 
     @Override
@@ -137,7 +138,7 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
     public String toString() {
         String string = super.toString();
 
-        if (governance == 1) {
+        if (governance == GOOD) {
             string += "Good";
         } else {
             string += "Fair";

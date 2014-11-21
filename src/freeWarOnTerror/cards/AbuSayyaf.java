@@ -20,10 +20,9 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.isCardInPlay;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.ABUSAYYAF;
-import static freeWarOnTerror.helpers.CONSTANTS.MOROTALKS;
+import freeWarOnTerror.helpers.CardLookup;
+import static freeWarOnTerror.helpers.CardLookup.MOROTALKS;
 import freeWarOnTerror.helpers.CountryLookup;
-import static freeWarOnTerror.helpers.CountryLookup.PHILIPPINES;
 
 /**
  *
@@ -32,7 +31,7 @@ import static freeWarOnTerror.helpers.CountryLookup.PHILIPPINES;
 public class AbuSayyaf extends Card {
     
     public AbuSayyaf(){
-        super("Abu Sayyaf", 2, 3, true, true, ABUSAYYAF, PHILIPPINES);
+        super(CardLookup.ABUSAYYAF);
     }
     
     @Override

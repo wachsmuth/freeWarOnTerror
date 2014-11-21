@@ -28,8 +28,9 @@ import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
 import freeWarOnTerror.abClasses.Player;
-import static freeWarOnTerror.helpers.CONSTANTS.PIRATES;
+import static freeWarOnTerror.helpers.CardLookup.PIRATES;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.Governance.ISLAMISTRULE;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -161,7 +162,7 @@ public class Turn {
 
     private void turnEnd() {
         //Drop funding
-        if (isCardInPlay(PIRATES) && (getCountry(CountryLookup.SOMALIA).getGovernance() == 4 || getCountry(CountryLookup.YEMEN).getGovernance() == 4)) {
+        if (isCardInPlay(PIRATES) && (getCountry(CountryLookup.SOMALIA).getGovernance() == ISLAMISTRULE || getCountry(CountryLookup.YEMEN).getGovernance() == ISLAMISTRULE)) {
 
         } else {
             modifyFunding(-1);

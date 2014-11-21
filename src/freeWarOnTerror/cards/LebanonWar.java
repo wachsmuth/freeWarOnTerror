@@ -25,7 +25,7 @@ import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
-import static freeWarOnTerror.helpers.CONSTANTS.LEBANONWAR;
+import freeWarOnTerror.helpers.CardLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -36,7 +36,7 @@ import java.util.ArrayList;
 public class LebanonWar extends Card {
 
     public LebanonWar() {
-        super("Lebanon War", 3, 3, false, false, LEBANONWAR);
+        super(CardLookup.LEBANONWAR);
     }
 
     @Override

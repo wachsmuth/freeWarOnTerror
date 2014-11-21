@@ -21,8 +21,10 @@ import static freeWarOnTerror.Game.getMuslimCountry;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.Alignment.NEUTRAL;
-import static freeWarOnTerror.helpers.CONSTANTS.ETHIOPIASTRIKES;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.Governance.ISLAMISTRULE;
+import static freeWarOnTerror.helpers.Governance.POOR;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -33,26 +35,26 @@ import java.util.ArrayList;
 public class EthiopiaStrikes extends Card {
 
     public EthiopiaStrikes() {
-        super("Ethiopia Strikes", 2, 2, true, false, ETHIOPIASTRIKES);
+        super(CardLookup.ETHIOPIASTRIKES);
     }
 
     @Override
     public Boolean getPlayable() {
-        return getCountry(CountryLookup.SOMALIA).getGovernance() == 4 || getCountry(CountryLookup.YEMEN).getGovernance() == 4;
+        return getCountry(CountryLookup.SOMALIA).getGovernance() == ISLAMISTRULE || getCountry(CountryLookup.YEMEN).getGovernance() == ISLAMISTRULE;
     }
 
     @Override
     public void playEvent() {
-        if (getCountry(CountryLookup.SOMALIA).getGovernance() == 4 && getCountry(CountryLookup.YEMEN).getGovernance() == 4) {
+        if (getCountry(CountryLookup.SOMALIA).getGovernance() == ISLAMISTRULE && getCountry(CountryLookup.YEMEN).getGovernance() == ISLAMISTRULE) {
             ArrayList<MuslimCountry> somaliaAndYemen = new ArrayList<>();
             somaliaAndYemen.add(getMuslimCountry(CountryLookup.SOMALIA));
             somaliaAndYemen.add(getMuslimCountry(CountryLookup.YEMEN));
             System.out.println("Choose a country to set to Poor Neutral: ");
-            inputLoop(somaliaAndYemen).setGovernanceAndAlignment(3, NEUTRAL);
-        } else if (getCountry(CountryLookup.SOMALIA).getGovernance() == 4) {
-            getMuslimCountry(CountryLookup.SOMALIA).setGovernanceAndAlignment(3, NEUTRAL);
-        } else if (getCountry(CountryLookup.YEMEN).getGovernance() == 4) {
-            getMuslimCountry(CountryLookup.YEMEN).setGovernanceAndAlignment(3, NEUTRAL);
+            inputLoop(somaliaAndYemen).setGovernanceAndAlignment(POOR, NEUTRAL);
+        } else if (getCountry(CountryLookup.SOMALIA).getGovernance() == ISLAMISTRULE) {
+            getMuslimCountry(CountryLookup.SOMALIA).setGovernanceAndAlignment(POOR, NEUTRAL);
+        } else if (getCountry(CountryLookup.YEMEN).getGovernance() == ISLAMISTRULE) {
+            getMuslimCountry(CountryLookup.YEMEN).setGovernanceAndAlignment(POOR, NEUTRAL);
         }
     }
 }

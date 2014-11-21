@@ -21,7 +21,7 @@ import static freeWarOnTerror.Game.getMuslimCountries;
 import static freeWarOnTerror.Game.getUS;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.IEDS;
+import freeWarOnTerror.helpers.CardLookup;
 
 /**
  *
@@ -30,7 +30,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.IEDS;
 public class IEDs extends Card {
     
     public IEDs(){
-        super("IEDs", 1, 3, false, false, IEDS);
+        super(CardLookup.IEDS);
     }
     
     @Override

@@ -20,7 +20,7 @@ import static freeWarOnTerror.Game.canPlaceCell;
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.ANSARALISLAM;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 
@@ -31,12 +31,12 @@ import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 public class AnsarAlIslam extends Card {
     
     public AnsarAlIslam(){
-        super("Ansar al-Islam", 1, 3, true, false, ANSARALISLAM);
+        super(CardLookup.ANSARALISLAM);
     }
     
     @Override
     public Boolean getPlayable(){
-        return getCountry(CountryLookup.IRAQ).getGovernance() > 1 || getCountry(CountryLookup.IRAQ).needsTesting();
+        return getCountry(CountryLookup.IRAQ).getGovernance().getValue() > 1 || getCountry(CountryLookup.IRAQ).needsTesting();
     }
     
     @Override

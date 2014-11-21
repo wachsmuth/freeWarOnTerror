@@ -19,9 +19,8 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.FATA;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
-import static freeWarOnTerror.helpers.CountryLookup.PAKISTAN;
 
 /**
  *
@@ -30,7 +29,7 @@ import static freeWarOnTerror.helpers.CountryLookup.PAKISTAN;
 public class FATA extends Card {
     
     public FATA(){
-        super("FATA", 3, 3, false, true, FATA, PAKISTAN);
+        super(CardLookup.FATA);
     }
     
     @Override

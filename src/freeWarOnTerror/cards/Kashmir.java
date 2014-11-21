@@ -21,8 +21,8 @@ import static freeWarOnTerror.Game.isCardInPlay;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.INDOPAKISTANITALKS;
-import static freeWarOnTerror.helpers.CONSTANTS.KASHMIR;
+import freeWarOnTerror.helpers.CardLookup;
+import static freeWarOnTerror.helpers.CardLookup.INDOPAKISTANITALKS;
 import freeWarOnTerror.helpers.CountryLookup;
 
 /**
@@ -32,7 +32,7 @@ import freeWarOnTerror.helpers.CountryLookup;
 public class Kashmir extends Card {
     
     public Kashmir(){
-        super("Kashmir", 3, 3, false, false, KASHMIR);
+        super(CardLookup.KASHMIR);
     }
     
     @Override

@@ -18,7 +18,7 @@ package freeWarOnTerror.cards;
 
 import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.MOSSADANDSHINBET;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
 
 /**
@@ -28,7 +28,7 @@ import freeWarOnTerror.helpers.CountryLookup;
 public class MossadAndShinBet extends Card {
 
     public MossadAndShinBet() {
-        super("Mossad & Shin Bet", 2, 2, false, false, MOSSADANDSHINBET);
+        super(CardLookup.MOSSADANDSHINBET);
     }
 
     @Override

@@ -21,7 +21,7 @@ import static freeWarOnTerror.Game.isPostureHard;
 import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.SCHROEDERANDCHIRAC;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
 
 /**
@@ -31,7 +31,7 @@ import freeWarOnTerror.helpers.CountryLookup;
 public class SchroederAndChirac extends Card {
 
     public SchroederAndChirac() {
-        super("Schroeder & Chirac", 2, 3, true, false, SCHROEDERANDCHIRAC);
+        super(CardLookup.SCHROEDERANDCHIRAC);
     }
 
     @Override

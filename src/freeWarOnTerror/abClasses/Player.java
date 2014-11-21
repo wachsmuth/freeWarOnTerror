@@ -19,6 +19,7 @@ package freeWarOnTerror.abClasses;
 import freeWarOnTerror.Cell;
 import freeWarOnTerror.Game;
 import static freeWarOnTerror.Game.getCells;
+import freeWarOnTerror.helpers.CardLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -136,10 +137,10 @@ public abstract class Player {
         return c;
     }
     
-    public void discardSpecificCard(int id){
+    public void discardSpecificCard(CardLookup lookUp){
         Card target = null;
         for (Card c : getHand()){
-            if (c.getId() == id){
+            if (c.is(lookUp)){
                 target = c;
                 break;
             }

@@ -21,8 +21,9 @@ import static freeWarOnTerror.Game.modifyPrestige;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.TALIBAN;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.Governance.ISLAMISTRULE;
 
 /**
  *
@@ -31,7 +32,7 @@ import freeWarOnTerror.helpers.CountryLookup;
 public class Taliban extends Card {
     
     public Taliban(){
-        super("Taliban", 3, 3, false, false, TALIBAN);
+        super(CardLookup.TALIBAN);
     }
     
     @Override
@@ -40,7 +41,7 @@ public class Taliban extends Card {
         afgha.setBesiegedRegime(true);
         placeCell(afgha);
         placeCell(afgha);
-        if (getCountry(CountryLookup.PAKISTAN).getGovernance() == 4 || getCountry(CountryLookup.PAKISTAN).getGovernance() == 4){
+        if (getCountry(CountryLookup.PAKISTAN).getGovernance() == ISLAMISTRULE || getCountry(CountryLookup.PAKISTAN).getGovernance() == ISLAMISTRULE){
             modifyPrestige(-3);
         }
         else {

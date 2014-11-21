@@ -21,7 +21,8 @@ import static freeWarOnTerror.Game.getAllCountries;
 import static freeWarOnTerror.Game.getTrack;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
-import static freeWarOnTerror.helpers.CONSTANTS.MARTYRDOMOPERATION;
+import freeWarOnTerror.helpers.CardLookup;
+import static freeWarOnTerror.helpers.Governance.ISLAMISTRULE;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -32,13 +33,13 @@ import java.util.ArrayList;
 public class MartyrdomOperation extends Card {
 
     public MartyrdomOperation() {
-        super("Martyrdom Operation", 3, 3, false, false, MARTYRDOMOPERATION);
+        super(CardLookup.MARTYRDOMOPERATION);
     }
 
     @Override
     public Boolean getPlayable() {
         for (Country c : getAllCountries()) {
-            if (c.hasCells() && c.getGovernance() < 4) {
+            if (c.hasCells() && c.getGovernance() != ISLAMISTRULE) {
                 return true;
             }
         }
@@ -49,7 +50,7 @@ public class MartyrdomOperation extends Card {
     public void playEvent() {
         ArrayList<Cell> availableCells = new ArrayList<>();
         for (Country c : getAllCountries()) {
-            if (c.hasCells() && c.getGovernance() < 4) {
+            if (c.hasCells() && c.getGovernance() != ISLAMISTRULE) {
                 for (Cell cell : c.getCells()) {
                     availableCells.add(cell);
                 }

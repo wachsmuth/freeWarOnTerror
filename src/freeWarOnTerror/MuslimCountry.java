@@ -15,15 +15,18 @@ import static freeWarOnTerror.helpers.Alignment.ADVERSARY;
 import static freeWarOnTerror.helpers.Alignment.ALLY;
 import static freeWarOnTerror.helpers.Alignment.NEUTRAL;
 import static freeWarOnTerror.helpers.AppendToString.appendString;
-import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
-import static freeWarOnTerror.helpers.CONSTANTS.ISLAMISTRULE;
-import static freeWarOnTerror.helpers.CONSTANTS.POOR;
 import static freeWarOnTerror.helpers.CONSTANTS.WMD;
 import freeWarOnTerror.helpers.CountryLookup;
 import freeWarOnTerror.helpers.Die;
 import static freeWarOnTerror.helpers.Die.rollDie;
+import freeWarOnTerror.helpers.Governance;
+import static freeWarOnTerror.helpers.Governance.FAIR;
+import static freeWarOnTerror.helpers.Governance.GOOD;
+import static freeWarOnTerror.helpers.Governance.ISLAMISTRULE;
+import static freeWarOnTerror.helpers.Governance.POOR;
 import java.util.Iterator;
 import java.util.List;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  *
@@ -39,7 +42,7 @@ public class MuslimCountry extends Country {
     private boolean besiegedRegime = false;
     private int regimeChange = 0; //0 is no change, 1 is tan change, 2 is green change
     private int aid = 0;
-    private int governance = 0; //1 = Good, 2 = Fair, 3 = Poor, 4 = Islamist Rule
+    private Governance governance; //DEBUG WHY WE DONT GET THIS??
     private Alignment alignment = NEUTRAL; //1 = Ally, 2 = Neutral, 3 = Adversary
 
     public MuslimCountry(CountryLookup c) {
@@ -81,14 +84,14 @@ public class MuslimCountry extends Country {
         alignment = Alignment.NEUTRAL;
         int die = Die.rollDie();
         if (die >= 5) {
-            governance = 2;
+            governance = FAIR;
         } else {
-            governance = 3;
+            governance = POOR;
         }
         noLongerNeedsTesting();
     }
 
-    public void setGovernance(int governance) {
+    public void setGovernance(Governance governance) {
         this.governance = governance;
         if (governance == GOOD || governance == ISLAMISTRULE) {
             setBesiegedRegime(false);
@@ -115,14 +118,15 @@ public class MuslimCountry extends Country {
     }
 
     public void shiftGovernance(int change) {
-        if (governance != 4) {
+        throw new NotImplementedException(); //DEBUG FIX
+        /*if (governance != ISLAMISTRULE) {
             setGovernance(governance + change);
             if (governance < 1) {
                 setGovernance(1);
             } else if (governance > 3) {
                 setGovernance(3);
             }
-        }
+        }*/
     }
 
     public void setBesiegedRegime(Boolean bool) {
@@ -155,7 +159,7 @@ public class MuslimCountry extends Country {
     }
 
     public boolean canMinorJihad() {
-        if (getGovernance() < 4 && hasCells()) {
+        if (getGovernance().getValue() < 4 && hasCells()) {
             for (Cell c : getCells()) {
                 if (c.isIdle()) {
                     return true;
@@ -169,7 +173,7 @@ public class MuslimCountry extends Country {
     public void attemptMinorJihad(Cell c) {
         System.out.println("Attempting Jihad in " + getName());
         c.setActive(true);
-        if (rollDie() <= getGovernance()) {
+        if (rollDie() <= getGovernance().getValue()) {
             minorJihad();
             System.out.println("Succes!");
         } else {
@@ -262,12 +266,12 @@ public class MuslimCountry extends Country {
         int dieRoll = rollDie();
         dieRoll += aid;
         for (MuslimCountry c : getAdjacentMuslimCountries()) {
-            if (c.getAlignment() == ALLY && c.getGovernance() == 1) {
+            if (c.getAlignment() == ALLY && c.getGovernance().getValue() == 1) {
                 dieRoll++;
                 break;
             }
         }
-        if (alignment == ALLY && governance == 2) {
+        if (alignment == ALLY && governance == FAIR) {
             dieRoll--;
         }
         dieRoll += getPrestigeModifier();
@@ -279,7 +283,7 @@ public class MuslimCountry extends Country {
                 setAlignment(ALLY);
             } else if (alignment == ADVERSARY) {
                 shiftGovernance(-1);
-                if (governance == 1) {
+                if (governance == GOOD) {
                     regimeChange = 0;
                     aid = 0;
                     besiegedRegime = false;
@@ -316,20 +320,20 @@ public class MuslimCountry extends Country {
         }
     }
 
-    public void setGovernanceAndAlignment(int governance, Alignment alignment) {
+    public void setGovernanceAndAlignment(Governance governance, Alignment alignment) {
         this.governance = governance;
         this.alignment = alignment;
         noLongerNeedsTesting();
     }
 
     @Override
-    public int getGovernance() {
+    public Governance getGovernance() {
         return governance;
     }
 
     @Override
     public Boolean canDeployTo(int ops) {
-        return alignment == ALLY && governance < 4 && ops >= governance;
+        return alignment == ALLY && governance.getValue() < 4 && ops >= governance.getValue();
     }
 
     @Override
@@ -349,12 +353,12 @@ public class MuslimCountry extends Country {
 
     @Override
     public Boolean canWarOfIdeas(int ops) {
-        if (governance == 1 && alignment == ALLY) {
+        if (governance == GOOD && alignment == ALLY) {
             return false;
         } else if (needsTesting() && ops == 1) {
             return false;
         }
-        return ops >= governance && alignment.id() < 3;
+        return ops >= governance.getValue() && alignment.id() < 3;
     }
 
     @Override
@@ -364,13 +368,13 @@ public class MuslimCountry extends Country {
             string = string + "Untested";
         } else {
             String gov = "";
-            if (governance == 1) {
+            if (governance == GOOD) {
                 gov += "Good";
-            } else if (governance == 2) {
+            } else if (governance == FAIR) {
                 gov += "Fair";
-            } else if (governance == 3) {
+            } else if (governance == POOR) {
                 gov += "Poor";
-            } else if (governance == 4) {
+            } else if (governance == ISLAMISTRULE) {
                 gov += "Islamist";
             }
             gov += " ";
@@ -405,7 +409,7 @@ public class MuslimCountry extends Country {
         if (governance == ISLAMISTRULE) {
             return 10;
         } else {
-            return governance;
+            return governance.getValue();
         }
     }
 

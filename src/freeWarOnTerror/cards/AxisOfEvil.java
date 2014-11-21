@@ -20,10 +20,10 @@ import static freeWarOnTerror.Game.getUS;
 import static freeWarOnTerror.Game.rollPrestige;
 import static freeWarOnTerror.Game.setPostureHard;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.AXISOFEVIL;
-import static freeWarOnTerror.helpers.CONSTANTS.HIZBALLAH;
-import static freeWarOnTerror.helpers.CONSTANTS.IRANCARD;
-import static freeWarOnTerror.helpers.CONSTANTS.JAYSHALMAHDI;
+import freeWarOnTerror.helpers.CardLookup;
+import static freeWarOnTerror.helpers.CardLookup.HIZBALLAH;
+import static freeWarOnTerror.helpers.CardLookup.IRANCARD;
+import static freeWarOnTerror.helpers.CardLookup.JAYSHALMAHDI;
 
 /**
  *
@@ -32,7 +32,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.JAYSHALMAHDI;
 public class AxisOfEvil extends Card {
 
     public AxisOfEvil() {
-        super("\"Axis of Evil\"", 3, 3, false, false, AXISOFEVIL);
+        super(CardLookup.AXISOFEVIL);
     }
     
     @Override

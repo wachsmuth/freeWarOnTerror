@@ -16,11 +16,11 @@
  */
 package freeWarOnTerror.cards;
 
-import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.Game;
 import static freeWarOnTerror.Game.isCardInPlay;
-import static freeWarOnTerror.helpers.CONSTANTS.PATRIOTACT;
-import static freeWarOnTerror.helpers.CONSTANTS.SANCTIONS;
+import freeWarOnTerror.abClasses.Card;
+import freeWarOnTerror.helpers.CardLookup;
+import static freeWarOnTerror.helpers.CardLookup.PATRIOTACT;
 
 /**
  *
@@ -29,7 +29,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.SANCTIONS;
 public class Sanctions extends Card {
 
     public Sanctions() {
-        super("Sanctions", 1, 2, false, false, SANCTIONS);
+        super(CardLookup.SANCTIONS);
     }
     
     @Override

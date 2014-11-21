@@ -19,7 +19,7 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.getUS;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.WIRETAPPING;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
 
 /**
@@ -29,7 +29,7 @@ import freeWarOnTerror.helpers.CountryLookup;
 public class Wiretapping extends Card {
     
     public Wiretapping(){
-        super("Wiretapping", 2, 2, false, true, WIRETAPPING);
+        super(CardLookup.WIRETAPPING);
     }
     
     @Override

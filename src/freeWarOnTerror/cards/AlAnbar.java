@@ -20,11 +20,9 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.isCardInPlay;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.ALANBAR;
-import static freeWarOnTerror.helpers.CONSTANTS.ANBARAWAKENING;
+import freeWarOnTerror.helpers.CardLookup;
+import static freeWarOnTerror.helpers.CardLookup.ANBARAWAKENING;
 import freeWarOnTerror.helpers.CountryLookup;
-import static freeWarOnTerror.helpers.CountryLookup.IRAQ;
-import static freeWarOnTerror.helpers.CountryLookup.SYRIA;
 
 /**
  *
@@ -33,7 +31,7 @@ import static freeWarOnTerror.helpers.CountryLookup.SYRIA;
 public class AlAnbar extends Card {
     
     public AlAnbar(){
-        super("Al-Anbar", 2, 3, true, true, ALANBAR, SYRIA, IRAQ);
+        super(CardLookup.ALANBAR);
     }
     
     @Override

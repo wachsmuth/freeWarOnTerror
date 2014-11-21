@@ -21,7 +21,7 @@ import static freeWarOnTerror.Game.getMuslimCountries;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
-import static freeWarOnTerror.helpers.CONSTANTS.MASSTURNOUT;
+import freeWarOnTerror.helpers.CardLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -32,7 +32,7 @@ import java.util.ArrayList;
 public class MassTurnout extends Card {
     
     public MassTurnout(){
-        super("Mass Turnout", 3, 2, false, false, MASSTURNOUT);
+        super(CardLookup.MASSTURNOUT);
     }
     
     @Override

@@ -20,7 +20,7 @@ import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
-import static freeWarOnTerror.helpers.CONSTANTS.ALJAZEERA;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
@@ -32,7 +32,7 @@ import java.util.ArrayList;
 public class AlJazeera extends Card {
     
     public AlJazeera(){
-        super("Al Jazeera", 3, 3, false, false, ALJAZEERA);
+        super(CardLookup.ALJAZEERA);
     }
     
     @Override

@@ -18,7 +18,7 @@ package freeWarOnTerror.cards;
 
 import static freeWarOnTerror.Game.getCurrentTurn;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.BIOMETRICS;
+import freeWarOnTerror.helpers.CardLookup;
 
 /**
  *
@@ -27,7 +27,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.BIOMETRICS;
 public class Biometrics extends Card {
     
     public Biometrics(){
-        super("Biometrics", 1, 2, false, false, BIOMETRICS);
+        super(CardLookup.BIOMETRICS);
     }
     
     @Override

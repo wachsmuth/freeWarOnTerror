@@ -19,8 +19,10 @@ package freeWarOnTerror.Countries;
 import freeWarOnTerror.Game;
 import freeWarOnTerror.Plot;
 import static freeWarOnTerror.helpers.AppendToString.appendString;
-import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
 import freeWarOnTerror.helpers.CountryLookup;
+import freeWarOnTerror.helpers.Governance;
+import static freeWarOnTerror.helpers.Governance.FAIR;
+import static freeWarOnTerror.helpers.Governance.GOOD;
 import java.util.Iterator;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
@@ -30,7 +32,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
  */
 public class CountryIran extends freeWarOnTerror.abClasses.Country {
 
-    int governance = 2;
+    Governance governance = FAIR;
 
     public CountryIran(CountryLookup c){
         super(c);
@@ -53,7 +55,7 @@ public class CountryIran extends freeWarOnTerror.abClasses.Country {
     }
 
     @Override
-    public int getGovernance() {
+    public Governance getGovernance() {
         return governance;
     }
 

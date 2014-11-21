@@ -20,7 +20,7 @@ import freeWarOnTerror.Cell;
 import static freeWarOnTerror.Game.getAllCountries;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
-import static freeWarOnTerror.helpers.CONSTANTS.SPECIALFORCES;
+import freeWarOnTerror.helpers.CardLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -31,7 +31,7 @@ import java.util.ArrayList;
 public class SpecialForces extends Card {
 
     public SpecialForces() {
-        super("Special Forces", 1, 2, false, false, SPECIALFORCES);
+        super(CardLookup.SPECIALFORCES);
     }
 
     @Override

@@ -20,7 +20,7 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.getPrestige;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.DARFUR;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
 
 /**
@@ -30,7 +30,7 @@ import freeWarOnTerror.helpers.CountryLookup;
 public class Darfur extends Card {
     
     public Darfur(){
-        super("Darfur", 3, 1, false, false, DARFUR);
+        super(CardLookup.DARFUR);
     }
     
     @Override

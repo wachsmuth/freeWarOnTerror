@@ -23,8 +23,10 @@ import static freeWarOnTerror.Game.rollUSPosture;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
-import static freeWarOnTerror.helpers.CONSTANTS.SAFERNOW;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.Governance.GOOD;
+import static freeWarOnTerror.helpers.Governance.ISLAMISTRULE;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import static freeWarOnTerror.helpers.InputLoop.setCountryPosture;
 import java.util.ArrayList;
@@ -36,16 +38,16 @@ import java.util.ArrayList;
 public class SaferNow extends Card {
     
     public SaferNow(){
-        super("Safer Now", 3, 2, false, false, SAFERNOW);
+        super(CardLookup.SAFERNOW);
     }
     
     @Override
     public Boolean getPlayable(){
         for (Country c : getAllCountries()){
-            if (c.getGovernance() == 4){
+            if (c.getGovernance() == ISLAMISTRULE){
                 return false;
             }
-            else if (c.getGovernance() == 1 && (c.hasCells() || c.hasPlots())){
+            else if (c.getGovernance() == GOOD && (c.hasCells() || c.hasPlots())){
                 return false;
             }
         }

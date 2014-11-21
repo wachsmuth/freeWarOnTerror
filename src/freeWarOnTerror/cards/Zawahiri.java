@@ -23,9 +23,9 @@ import static freeWarOnTerror.Game.isCardInPlay;
 import static freeWarOnTerror.Game.modifyFunding;
 import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.ALANBAR;
-import static freeWarOnTerror.helpers.CONSTANTS.FATA;
-import static freeWarOnTerror.helpers.CONSTANTS.ZAWAHIRI;
+import freeWarOnTerror.helpers.CardLookup;
+import static freeWarOnTerror.helpers.CardLookup.ALANBAR;
+import static freeWarOnTerror.helpers.CardLookup.FATA;
 
 /**
  *
@@ -34,7 +34,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.ZAWAHIRI;
 public class Zawahiri extends Card {
     
     public Zawahiri(){
-        super("Zawahiri", 2, 1, false, false, ZAWAHIRI);
+        super(CardLookup.ZAWAHIRI);
     }
     
     @Override

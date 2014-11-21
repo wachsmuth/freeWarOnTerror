@@ -20,8 +20,8 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.isCardInPlay;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.FRES;
-import static freeWarOnTerror.helpers.CONSTANTS.SADDAMCAPTURED;
+import freeWarOnTerror.helpers.CardLookup;
+import static freeWarOnTerror.helpers.CardLookup.SADDAMCAPTURED;
 import freeWarOnTerror.helpers.CountryLookup;
 
 /**
@@ -31,7 +31,7 @@ import freeWarOnTerror.helpers.CountryLookup;
 public class FREs extends Card {
     
     public FREs(){
-        super("FREs", 1, 3, false, false, FRES);
+        super(CardLookup.FRES);
     }
     
     @Override

@@ -11,6 +11,7 @@ import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.Plot;
 import static freeWarOnTerror.helpers.AppendToString.appendString;
 import freeWarOnTerror.helpers.CountryLookup;
+import freeWarOnTerror.helpers.Governance;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public abstract class Country extends Location {
     }
 
     public int getRecruit() {
-        return getGovernance();
+        return getGovernance().getValue();
     }
     
     public Boolean needsTesting() {
@@ -89,7 +90,7 @@ public abstract class Country extends Location {
     }
 
     public boolean canPlot() {
-        return getGovernance() < 4 && hasIdleCells();
+        return getGovernance().getValue() < 4 && hasIdleCells();
     }
 
     public void placePlot(Plot p) {
@@ -223,6 +224,6 @@ public abstract class Country extends Location {
 
     public abstract void testCountry();
 
-    public abstract int getGovernance();
+    public abstract Governance getGovernance();
 
 }

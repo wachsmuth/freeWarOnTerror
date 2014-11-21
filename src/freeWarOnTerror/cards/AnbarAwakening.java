@@ -21,11 +21,9 @@ import static freeWarOnTerror.Game.modifyPrestige;
 import static freeWarOnTerror.Game.removeCardFromPlay;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.ALANBAR;
-import static freeWarOnTerror.helpers.CONSTANTS.ANBARAWAKENING;
+import freeWarOnTerror.helpers.CardLookup;
+import static freeWarOnTerror.helpers.CardLookup.ALANBAR;
 import freeWarOnTerror.helpers.CountryLookup;
-import static freeWarOnTerror.helpers.CountryLookup.IRAQ;
-import static freeWarOnTerror.helpers.CountryLookup.SYRIA;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -36,7 +34,7 @@ import java.util.ArrayList;
 public class AnbarAwakening extends Card {
     
     public AnbarAwakening(){
-        super("Anbar Awakening", 2, 2, false, true, ANBARAWAKENING, IRAQ, SYRIA);
+        super(CardLookup.ANBARAWAKENING);
     }
     
     @Override

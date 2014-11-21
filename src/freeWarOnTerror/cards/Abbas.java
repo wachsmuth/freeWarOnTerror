@@ -22,9 +22,9 @@ import static freeWarOnTerror.Game.modifyFunding;
 import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
-import static freeWarOnTerror.helpers.CONSTANTS.ABBAS;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
-import static freeWarOnTerror.helpers.CountryLookup.ISRAEL;
+import static freeWarOnTerror.helpers.Governance.ISLAMISTRULE;
 
 /**
  *
@@ -33,7 +33,7 @@ import static freeWarOnTerror.helpers.CountryLookup.ISRAEL;
 public class Abbas extends Card {
     
     public Abbas(){
-        super("Abbas", 2, 2, true, true, ABBAS, ISRAEL);
+        super(CardLookup.ABBAS);
     }
     
     @Override
@@ -44,7 +44,7 @@ public class Abbas extends Card {
         }
         else {
             for (Country c : getCountry(CountryLookup.ISRAEL).getAdjacentCountries()){
-                if (c.getGovernance() == 4){
+                if (c.getGovernance() == ISLAMISTRULE){
                     plays = false;
                     break;
                 }

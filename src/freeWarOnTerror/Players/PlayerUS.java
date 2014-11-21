@@ -28,8 +28,8 @@ import freeWarOnTerror.Players.Actions.ActionReservesUse;
 import freeWarOnTerror.Players.Actions.ActionWarOfIdeas;
 import freeWarOnTerror.Players.Actions.ActionWithdraw;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.AUTO;
-import static freeWarOnTerror.helpers.CONSTANTS.JIHAD;
+import static freeWarOnTerror.helpers.CardAlignment.AUTO;
+import static freeWarOnTerror.helpers.CardAlignment.JIHAD;
 
 /**
  *

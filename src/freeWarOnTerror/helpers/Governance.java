@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Emil
+ * Copyright (C) 2014 Wengel
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,30 +14,26 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package freeWarOnTerror.cards;
 
-import static freeWarOnTerror.Game.getCountry;
-import freeWarOnTerror.abClasses.Card;
-import freeWarOnTerror.helpers.CardLookup;
-import freeWarOnTerror.helpers.CountryLookup;
-import static freeWarOnTerror.helpers.Governance.ISLAMISTRULE;
+package freeWarOnTerror.helpers;
 
 /**
  *
- * @author Emil
+ * @author Wengel
  */
-public class Pirates extends Card {
+public enum Governance {
+    GOOD(1),
+    FAIR(2),
+    POOR(3),
+    ISLAMISTRULE(4)
+    ;
+    int val;
     
-    public Pirates(){
-        super(CardLookup.PIRATES);
+    private Governance(int id){
+    this.val = id;    
     }
     
-    @Override
-    public Boolean getPlayable(){
-        return getCountry(CountryLookup.SOMALIA).getGovernance() == ISLAMISTRULE || getCountry(CountryLookup.YEMEN).getGovernance() == ISLAMISTRULE;
-    }
-    
-    @Override
-    public void playEvent(){
+    public int getValue(){
+        return this.val;
     }
 }

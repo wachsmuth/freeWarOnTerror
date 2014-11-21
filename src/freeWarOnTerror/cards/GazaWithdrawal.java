@@ -22,7 +22,7 @@ import static freeWarOnTerror.Game.getUS;
 import static freeWarOnTerror.Game.modifyFunding;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.GAZAWITHDRAWAL;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
 
 /**
@@ -32,7 +32,7 @@ import freeWarOnTerror.helpers.CountryLookup;
 public class GazaWithdrawal extends Card {
     
     public GazaWithdrawal(){
-        super("Gaza Withdrawal", 1, 1, true, false, GAZAWITHDRAWAL);
+        super(CardLookup.GAZAWITHDRAWAL);
     }
     
     @Override

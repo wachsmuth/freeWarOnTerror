@@ -20,7 +20,7 @@ import static freeWarOnTerror.Game.isCardInPlay;
 import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.Plot;
-import static freeWarOnTerror.helpers.CONSTANTS.ABUSAYYAF;
+import static freeWarOnTerror.helpers.CardLookup.ABUSAYYAF;
 import freeWarOnTerror.helpers.CountryLookup;
 
 /**
@@ -37,7 +37,7 @@ public class CountryPhilippines extends NonMuslimCountry {
 
     @Override
     public Boolean canDeployTo(int ops) {
-        return isCardInPlay(ABUSAYYAF) && ops >= getGovernance();
+        return isCardInPlay(ABUSAYYAF) && ops >= getGovernance().getValue();
     }
     
     @Override

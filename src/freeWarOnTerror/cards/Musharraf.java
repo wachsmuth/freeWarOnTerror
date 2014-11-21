@@ -22,9 +22,10 @@ import static freeWarOnTerror.Game.getMuslimCountry;
 import static freeWarOnTerror.Game.isCardInPlay;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.Alignment.ALLY;
-import static freeWarOnTerror.helpers.CONSTANTS.BENAZIRBHUTTO;
-import static freeWarOnTerror.helpers.CONSTANTS.MUSHARRAF;
+import freeWarOnTerror.helpers.CardLookup;
+import static freeWarOnTerror.helpers.CardLookup.BENAZIRBHUTTO;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.Governance.POOR;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 
 /**
@@ -34,7 +35,7 @@ import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 public class Musharraf extends Card {
     
     public Musharraf(){
-        super("Musharraf", 2, 1, false, false, MUSHARRAF);
+        super(CardLookup.MUSHARRAF);
     }
     
     @Override
@@ -46,6 +47,6 @@ public class Musharraf extends Card {
     public void playEvent(){
         Cell target = inputLoop(getCountry(CountryLookup.PAKISTAN).getCells());
         target.kill();
-        getMuslimCountry(CountryLookup.PAKISTAN).setGovernanceAndAlignment(3, ALLY);
+        getMuslimCountry(CountryLookup.PAKISTAN).setGovernanceAndAlignment(POOR, ALLY);
     }
 }

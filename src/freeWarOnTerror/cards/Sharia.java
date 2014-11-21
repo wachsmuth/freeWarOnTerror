@@ -19,7 +19,7 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.getMuslimCountries;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.SHARIA;
+import freeWarOnTerror.helpers.CardLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -30,7 +30,7 @@ import java.util.ArrayList;
 public class Sharia extends Card {
     
     public Sharia(){
-        super("Sharia", 2, 2, false, false, SHARIA);
+        super(CardLookup.SHARIA);
     }
     
     @Override

@@ -23,9 +23,10 @@ import static freeWarOnTerror.Game.modifyFunding;
 import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
-import static freeWarOnTerror.helpers.CONSTANTS.ABBAS;
-import static freeWarOnTerror.helpers.CONSTANTS.QUARTET;
+import freeWarOnTerror.helpers.CardLookup;
+import static freeWarOnTerror.helpers.CardLookup.ABBAS;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.Governance.ISLAMISTRULE;
 
 /**
  *
@@ -34,7 +35,7 @@ import freeWarOnTerror.helpers.CountryLookup;
 public class Quartet extends Card {
     
     public Quartet(){
-        super("Quartet", 2, 2, false, false, QUARTET);
+        super(CardLookup.QUARTET);
     }
     
     @Override
@@ -48,7 +49,7 @@ public class Quartet extends Card {
         }
         else {
             for (Country c : getCountry(CountryLookup.ISRAEL).getAdjacentCountries()){
-                if (c.getGovernance() == 4){
+                if (c.getGovernance() == ISLAMISTRULE){
                     return false;
                 }
             }

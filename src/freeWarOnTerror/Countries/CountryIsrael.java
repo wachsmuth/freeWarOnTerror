@@ -9,7 +9,7 @@ import static freeWarOnTerror.Game.isPostureHard;
 import static freeWarOnTerror.Game.modifyPrestige;
 import static freeWarOnTerror.Game.removeCardFromPlay;
 import freeWarOnTerror.NonMuslimCountry;
-import static freeWarOnTerror.helpers.CONSTANTS.ABBAS;
+import static freeWarOnTerror.helpers.CardLookup.ABBAS;
 import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.Die.rollDie;
 

@@ -28,12 +28,13 @@ import freeWarOnTerror.abClasses.Location;
 import freeWarOnTerror.abClasses.Player;
 import freeWarOnTerror.abClasses.Scenario;
 import freeWarOnTerror.abClasses.Variant;
-import static freeWarOnTerror.helpers.CONSTANTS.FAIR;
-import static freeWarOnTerror.helpers.CONSTANTS.GOOD;
-import static freeWarOnTerror.helpers.CONSTANTS.ISLAMISTRULE;
-import static freeWarOnTerror.helpers.CONSTANTS.POOR;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.Die.prestigeRoll;
+import static freeWarOnTerror.helpers.Governance.FAIR;
+import static freeWarOnTerror.helpers.Governance.GOOD;
+import static freeWarOnTerror.helpers.Governance.ISLAMISTRULE;
+import static freeWarOnTerror.helpers.Governance.POOR;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -150,7 +151,7 @@ public class Game {
 
     public static boolean anyIslamistRule() {
         for (MuslimCountry c : muslimCountries) {
-            if (c.getGovernance() == 4) {
+            if (c.getGovernance() == ISLAMISTRULE) {
                 return true;
             }
         }
@@ -330,14 +331,14 @@ public class Game {
         goodFairCountries = 0;
         poorIslamistCountries = 0;
         for (MuslimCountry c : muslimCountries) {
-            if (c.getGovernance() == 1) {
+            if (c.getGovernance() == GOOD) {
                 goodResources = goodResources + c.getResources();
                 goodFairCountries++;
-            } else if (c.getGovernance() == 2) {
+            } else if (c.getGovernance() == FAIR) {
                 goodFairCountries++;
-            } else if (c.getGovernance() == 3) {
+            } else if (c.getGovernance() == POOR) {
                 poorIslamistCountries++;
-            } else if (c.getGovernance() == 4) {
+            } else if (c.getGovernance() == ISLAMISTRULE) {
                 poorIslamistCountries++;
                 islamistResources = islamistResources + c.getResources();
             }
@@ -402,9 +403,9 @@ public class Game {
         return drawPile;
     }
 
-    public static boolean isCardInPlay(int id) {
+    public static boolean isCardInPlay(CardLookup lookUp) {
         for (Card c : markedEvents) {
-            if (id == c.getId()) {
+            if (c.is(lookUp)) {
                 return true;
             }
         }
@@ -481,9 +482,9 @@ public class Game {
         return discardPile;
     }
     
-    public static void removeCardFromPlay(int id) {
+    public static void removeCardFromPlay(CardLookup lookUp) {
         for (Card c : markedEvents) {
-            if (id == c.getId()) {
+            if (c.is(lookUp)) {
                 markedEvents.remove(c);
             }
         }
@@ -552,7 +553,7 @@ public class Game {
                 islamistRuleResources += c.getResources();
                 if (!anyAdjacentIslamistRule){
                     for (Country c2 : c.getAdjacentCountries()){
-                        if (c2.getGovernance() == 4){
+                        if (c2.getGovernance() == ISLAMISTRULE){
                             anyAdjacentIslamistRule = true;
                             break;
                         }

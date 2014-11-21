@@ -21,7 +21,7 @@ import static freeWarOnTerror.Game.isPostureHard;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.EXKGB;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 
@@ -32,7 +32,7 @@ import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 public class ExKGB extends Card{
     
     public ExKGB(){
-        super("Ex-KGB", 2, 3, false, false, EXKGB);
+        super(CardLookup.EXKGB);
     }
     
     @Override

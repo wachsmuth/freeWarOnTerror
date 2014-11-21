@@ -20,7 +20,7 @@ import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import static freeWarOnTerror.helpers.Alignment.ADVERSARY;
-import static freeWarOnTerror.helpers.CONSTANTS.HARIRIKILLED;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
 
 /**
@@ -30,7 +30,7 @@ import freeWarOnTerror.helpers.CountryLookup;
 public class HaririKilled extends Card {
     
     public HaririKilled(){
-        super("Hariri Killed", 2, 3, true, false, HARIRIKILLED);
+        super(CardLookup.HARIRIKILLED);
     }
     
     @Override

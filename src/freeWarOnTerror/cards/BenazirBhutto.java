@@ -21,10 +21,12 @@ import static freeWarOnTerror.Game.getMuslimCountry;
 import static freeWarOnTerror.Game.isCardInPlay;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.abClasses.Country;
-import static freeWarOnTerror.helpers.CONSTANTS.BENAZIRBHUTTO;
-import static freeWarOnTerror.helpers.CONSTANTS.BHUTTOSHOT;
+import freeWarOnTerror.helpers.CardLookup;
+import static freeWarOnTerror.helpers.CardLookup.BHUTTOSHOT;
 import freeWarOnTerror.helpers.CountryLookup;
-import static freeWarOnTerror.helpers.CountryLookup.PAKISTAN;
+import static freeWarOnTerror.helpers.Governance.FAIR;
+import static freeWarOnTerror.helpers.Governance.ISLAMISTRULE;
+import static freeWarOnTerror.helpers.Governance.POOR;
 
 /**
  *
@@ -33,16 +35,16 @@ import static freeWarOnTerror.helpers.CountryLookup.PAKISTAN;
 public class BenazirBhutto extends Card {
     
     public BenazirBhutto(){
-        super("Benazir Bhutto", 3, 2, true, true, BENAZIRBHUTTO, PAKISTAN);
+        super(CardLookup.BENAZIRBHUTTO);
     }
     
     @Override
     public Boolean getPlayable(){
-        if (getMuslimCountry(CountryLookup.PAKISTAN).getGovernance() == 4){
+        if (getMuslimCountry(CountryLookup.PAKISTAN).getGovernance() == ISLAMISTRULE){
             return false;
         }
         for (Country c : getCountry(CountryLookup.PAKISTAN).getAdjacentCountries()){
-            if (c.getGovernance() == 4){
+            if (c.getGovernance() == ISLAMISTRULE){
                 return false;
             }
         }
@@ -51,8 +53,8 @@ public class BenazirBhutto extends Card {
     
     @Override
     public void playEvent(){
-        if (getCountry(CountryLookup.PAKISTAN).getGovernance() == 3){
-            getMuslimCountry(CountryLookup.PAKISTAN).setGovernance(2);
+        if (getCountry(CountryLookup.PAKISTAN).getGovernance() == POOR){
+            getMuslimCountry(CountryLookup.PAKISTAN).setGovernance(FAIR);
         }
     }
 }

@@ -27,16 +27,16 @@ public class CONSTANTS {
     public final static int A_ADVERSARY = 3;*/
     
     //Alignment CARD
-    public final static int AUTO = 0;
+    /*public final static int AUTO = 0;
     public final static int NEUTRAL = 1;
     public final static int USA = 2;
-    public final static int JIHAD = 3;
+    public final static int JIHAD = 3;*/
     
     //Governance
-    public final static int ISLAMISTRULE = 4;
+    /*public final static int ISLAMISTRULE = 4;
     public final static int POOR = 3;
     public final static int FAIR = 2;
-    public final static int GOOD = 1;
+    public final static int GOOD = 1;*/
     
     //For plot
     public final static int WMD = 4;
@@ -86,6 +86,7 @@ public class CONSTANTS {
     */
     //Cards
     //US
+    /*
     public final static int BACKLASH = 1;
     public final static int BIOMETRICS = 2;
     public final static int CTR = 3;
@@ -199,5 +200,6 @@ public class CONSTANTS {
     public final static int SALEH = 119;
     //Automatic events
     public final static int USELECTION = 120;
+    */
             
 }

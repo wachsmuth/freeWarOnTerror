@@ -20,7 +20,7 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.isPostureHard;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.CTR;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
 
 /**
@@ -30,7 +30,7 @@ import freeWarOnTerror.helpers.CountryLookup;
 public class CTR extends Card {
     
     public CTR(){
-        super("CTR", 1, 2, false, false, CTR);
+        super(CardLookup.CTR);
     }
     
     @Override

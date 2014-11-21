@@ -19,7 +19,7 @@ package freeWarOnTerror.cards;
 import static freeWarOnTerror.Game.getCurrentTurn;
 import static freeWarOnTerror.Game.rollPrestige;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.GTMO;
+import freeWarOnTerror.helpers.CardLookup;
 
 /**
  *
@@ -28,7 +28,7 @@ import static freeWarOnTerror.helpers.CONSTANTS.GTMO;
 public class GTMO extends Card {
     
     public GTMO(){
-        super("GTMO", 3, 1, false, false, GTMO);
+        super(CardLookup.GTMO);
     }
     
     @Override

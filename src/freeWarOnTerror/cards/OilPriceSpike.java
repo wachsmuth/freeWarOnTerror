@@ -20,7 +20,8 @@ import static freeWarOnTerror.Game.getCurrentPlayer;
 import static freeWarOnTerror.Game.getCurrentTurn;
 import static freeWarOnTerror.Game.getDiscardPile;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.OILPRICESPIKE;
+import freeWarOnTerror.helpers.CardLookup;
+import static freeWarOnTerror.helpers.CardLookup.OILPRICESPIKE;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -31,14 +32,14 @@ import java.util.ArrayList;
 public class OilPriceSpike extends Card {
     
     public OilPriceSpike(){
-        super("Oil Price Spike", 3, 1, false, false, OILPRICESPIKE);
+        super(CardLookup.OILPRICESPIKE);
     }
     
     @Override
     public void playEvent(){
         ArrayList<Card> possibleDiscards = new ArrayList<>();
         for (Card c : getDiscardPile().getDeck()){
-            if (c.getId() != OILPRICESPIKE){
+            if (c.is(OILPRICESPIKE)){
                 possibleDiscards.add(c);
             }
         }

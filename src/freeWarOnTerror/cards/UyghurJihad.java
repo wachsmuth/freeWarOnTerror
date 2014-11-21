@@ -20,7 +20,7 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.UYGHURJIHAD;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
 
 /**
@@ -30,7 +30,7 @@ import freeWarOnTerror.helpers.CountryLookup;
 public class UyghurJihad extends Card {
     
     public UyghurJihad(){
-        super("Uyghur Jihad", 1, 3, true, false, UYGHURJIHAD);
+        super(CardLookup.UYGHURJIHAD);
     }
     
     @Override

@@ -16,6 +16,9 @@
  */
 package freeWarOnTerror.helpers;
 
+import static freeWarOnTerror.helpers.Governance.FAIR;
+import static freeWarOnTerror.helpers.Governance.GOOD;
+
 /**
  *
  * @author Wengel
@@ -23,24 +26,24 @@ package freeWarOnTerror.helpers;
 public enum CountryLookup {
 
     UNITEDSTATES("United States"),
-    CANADA("Canada", 1, 1, false),
-    UNITEDKINGDOM("United Kingdom", 1, 3, false),
-    SCANDINAVIA("Scandinavia", 1, 1, false),
-    BENELUX("Benelux", 1, 1, true),
-    GERMANY("Germany", 1, 1, true),
-    EASTERNEUROPE("Easterm Europe", 1, 1, true),
-    FRANCE("France", 1, 2, true),
-    ITALY("Italy", 1, 1, true),
-    SPAIN("Spain", 1, 2, true),
-    SERBIA("Serbia", 1, 1, false),
-    RUSSIA("Russia", 2, 2, false),
-    CAUCASUS("Caucasus", 2, 2, false),
+    CANADA("Canada", GOOD, 1, false),
+    UNITEDKINGDOM("United Kingdom", GOOD, 3, false),
+    SCANDINAVIA("Scandinavia", GOOD, 1, false),
+    BENELUX("Benelux", GOOD, 1, true),
+    GERMANY("Germany", GOOD, 1, true),
+    EASTERNEUROPE("Easterm Europe", GOOD, 1, true),
+    FRANCE("France", GOOD, 2, true),
+    ITALY("Italy", GOOD, 1, true),
+    SPAIN("Spain", GOOD, 2, true),
+    SERBIA("Serbia", GOOD, 1, false),
+    RUSSIA("Russia", FAIR, 2, false),
+    CAUCASUS("Caucasus", FAIR, 2, false),
     ISRAEL("Israel", 1),
-    INDIA("India", 1, 1, false),
-    CHINA("China", 2, 2, false),
-    THAILAND("Thailand", 2, 2, false),
-    PHILIPPINES("Philippines", 2, 3, false),
-    KENYA("Kenya/Tanzania", 2, 2, false),
+    INDIA("India", GOOD, 1, false),
+    CHINA("China", FAIR, 2, false),
+    THAILAND("Thailand", FAIR, 2, false),
+    PHILIPPINES("Philippines", FAIR, 3, false),
+    KENYA("Kenya/Tanzania", FAIR, 2, false),
     MOROCCO("Morocco", 2, false, false),
     ALGERIA("Algeria/Tunisia", 1, true, false),
     LIBYA("Libya", 1, true, false),
@@ -67,7 +70,7 @@ public enum CountryLookup {
     private boolean oilCountry;
     private boolean shiaMix;
     private boolean schengen;
-    private int governance;
+    private Governance governance;
     private int alignment;
     private int recruit;
     private boolean muslimCountry;
@@ -89,7 +92,7 @@ public enum CountryLookup {
         muslimCountry = false;
     } //United states only
 
-    private CountryLookup(String name, int governance, int recruit, boolean schengen) {
+    private CountryLookup(String name, Governance governance, int recruit, boolean schengen) {
         this.name = name;
         this.governance = governance;
         this.recruit = recruit;
@@ -126,7 +129,7 @@ public enum CountryLookup {
         return schengen;
     }
 
-    public int getGovernance() {
+    public Governance getGovernance() {
         return governance;
     }
 

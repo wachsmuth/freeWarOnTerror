@@ -1,5 +1,12 @@
 package freeWarOnTerror.abClasses;
 
+
+import freeWarOnTerror.helpers.CardAlignment;
+import static freeWarOnTerror.helpers.CardAlignment.AUTO;
+import static freeWarOnTerror.helpers.CardAlignment.JIHAD;
+import static freeWarOnTerror.helpers.CardAlignment.NEUTRAL;
+import static freeWarOnTerror.helpers.CardAlignment.USA;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
 
 /**
@@ -9,15 +16,27 @@ import freeWarOnTerror.helpers.CountryLookup;
 public abstract class Card {
 
     private final int ops;
-    private final int alignment; //0 is Automatic Event, 1 is Neutral, 2 is US, 3 is Jihadist
+    private CardAlignment alignment; //0 is Automatic Event, 1 is Neutral, 2 is US, 3 is Jihadist
     private Boolean removedAfterPlay;
     private final String name;
     private final int id;
     private final boolean mark;
     private final CountryLookup[] countries;
     private int reserves = 0;
+    private CardLookup cardLookup;
 
-    public Card(String name, int ops, int alignment, Boolean removedAfterPlay, boolean mark, int id) {
+    public Card(CardLookup c){
+        this.name = c.getName();
+        this.alignment = c.getAlignment();
+        this.removedAfterPlay = c.isRemovedAfterPlay();
+        this.id = c.ordinal();
+        this.ops = c.getOps();
+        this.mark = c.isMark();
+        this.countries = c.getLookUps();
+        this.cardLookup = c;
+    }
+    
+    /*public Card(String name, int ops, CardAlignment alignment, Boolean removedAfterPlay, boolean mark, int id) {
         this.name = name;
         this.ops = ops;
         this.alignment = alignment;
@@ -27,7 +46,7 @@ public abstract class Card {
         countries = null;
     }
 
-    public Card(String name, int ops, int alignment, Boolean removedAfterPlay, boolean mark, int id, CountryLookup... lookups) {
+    public Card(String name, int ops, CardAlignment alignment, Boolean removedAfterPlay, boolean mark, int id, CountryLookup... lookups) {
         this.name = name;
         this.ops = ops;
         this.alignment = alignment;
@@ -35,9 +54,12 @@ public abstract class Card {
         this.id = id;
         this.mark = mark;
         this.countries = lookups;
-    }
+    }*/
 
 //--------------------------------GETTERS-------------------------------------------------------
+    public Boolean is(CardLookup c){
+        return (c == cardLookup);
+    }
     public Boolean getPlayable() {
         return true;
     }
@@ -53,7 +75,7 @@ public abstract class Card {
         return ops + reserves;
     }
 
-    public int getAlignment() {
+    public CardAlignment getAlignment() {
         return alignment;
     }
 
@@ -61,9 +83,9 @@ public abstract class Card {
         return removedAfterPlay;
     }
 
-    public int getId() {
+    /*public int getId() {
         return id;
-    }
+    }*/
 
     public String getName() {
         return name;
@@ -91,13 +113,13 @@ public abstract class Card {
     public String toString() {
         String string = name;
         string = string + " (";
-        if (alignment == 1) {
+        if (alignment == NEUTRAL) {
             string = string + "Neutral";
-        } else if (alignment == 2) {
+        } else if (alignment == USA) {
             string = string + "US";
-        } else if (alignment == 3) {
+        } else if (alignment == JIHAD) {
             string = string + "Jihadist";
-        } else if (alignment == 0) {
+        } else if (alignment == AUTO) {
             string = string + "Automatic Event";
         }
         string = string + ", " + ops + " ops)";

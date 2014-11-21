@@ -19,6 +19,8 @@ package freeWarOnTerror.Players.Actions;
 import static freeWarOnTerror.Game.playCard;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CardAlignment.JIHAD;
+import static freeWarOnTerror.helpers.CardAlignment.NEUTRAL;
 
 /**
  *
@@ -32,7 +34,7 @@ public class ActionEventJihadist extends Action {
     
     @Override
     public boolean canDoAction(Card c){
-        return (c.getAlignment() == 1 || c.getAlignment() == 3) && c.getPlayable();
+        return (c.getAlignment() == NEUTRAL || c.getAlignment() == JIHAD) && c.getPlayable();
     }
     
     @Override

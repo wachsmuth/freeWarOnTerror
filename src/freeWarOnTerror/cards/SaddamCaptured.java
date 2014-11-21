@@ -20,9 +20,8 @@ import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.SADDAMCAPTURED;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
-import static freeWarOnTerror.helpers.CountryLookup.IRAQ;
 
 /**
  *
@@ -31,7 +30,7 @@ import static freeWarOnTerror.helpers.CountryLookup.IRAQ;
 public class SaddamCaptured extends Card {
     
     public SaddamCaptured(){
-        super("Saddam Captured", 2, 2, true, true, SADDAMCAPTURED, IRAQ);
+        super(CardLookup.SADDAMCAPTURED);
     }
     
     @Override

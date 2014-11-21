@@ -21,7 +21,7 @@ import static freeWarOnTerror.Game.isPostureHard;
 import static freeWarOnTerror.Game.modifyPrestige;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.KOSOVO;
+import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
 
 /**
@@ -31,7 +31,7 @@ import freeWarOnTerror.helpers.CountryLookup;
 public class Kosovo extends Card {
 
     public Kosovo() {
-        super("Kosovo", 1, 1, false, false, KOSOVO);
+        super(CardLookup.KOSOVO);
     }
 
     @Override

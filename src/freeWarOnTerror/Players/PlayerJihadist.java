@@ -17,8 +17,6 @@
 package freeWarOnTerror.Players;
 
 import freeWarOnTerror.Game;
-import static freeWarOnTerror.Game.getMuslimCountries;
-import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.Players.Actions.ActionEventJihadist;
 import freeWarOnTerror.Players.Actions.ActionMajorJihad;
 import freeWarOnTerror.Players.Actions.ActionMinorJihad;
@@ -28,8 +26,8 @@ import freeWarOnTerror.Players.Actions.ActionReservesAdd;
 import freeWarOnTerror.Players.Actions.ActionReservesUse;
 import freeWarOnTerror.Players.Actions.ActionTravel;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.AUTO;
-import static freeWarOnTerror.helpers.CONSTANTS.USA;
+import static freeWarOnTerror.helpers.CardAlignment.AUTO;
+import static freeWarOnTerror.helpers.CardAlignment.USA;
 
 /**
  *

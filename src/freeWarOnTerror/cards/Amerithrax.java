@@ -18,7 +18,8 @@ package freeWarOnTerror.cards;
 
 import static freeWarOnTerror.Game.getUS;
 import freeWarOnTerror.abClasses.Card;
-import static freeWarOnTerror.helpers.CONSTANTS.AMERITHRAX;
+import static freeWarOnTerror.helpers.CardAlignment.USA;
+import freeWarOnTerror.helpers.CardLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -29,7 +30,7 @@ import java.util.ArrayList;
 public class Amerithrax extends Card {
 
     public Amerithrax() {
-        super("Amerithrax", 2, 3, false, false, AMERITHRAX);
+        super(CardLookup.AMERITHRAX);
     }
 
     @Override
@@ -37,12 +38,12 @@ public class Amerithrax extends Card {
         ArrayList<Card> usEvents = new ArrayList<>();
         int highestOps = 0;
         for (Card c : getUS().getHand()) {
-            if (c.getAlignment() == 2 && c.getOps() > highestOps) {
+            if (c.getAlignment() == USA && c.getOps() > highestOps) {
                     highestOps = c.getOps();
             }
         }
         for (Card c : getUS().getHand()) {
-            if (c.getAlignment() == 2 && c.getOps() == highestOps) {
+            if (c.getAlignment() == USA && c.getOps() == highestOps) {
                 usEvents.add(c);
 
             }

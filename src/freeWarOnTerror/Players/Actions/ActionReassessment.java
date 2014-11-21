@@ -23,6 +23,8 @@ import static freeWarOnTerror.Game.playCard;
 import static freeWarOnTerror.Game.setPostureHard;
 import freeWarOnTerror.abClasses.Action;
 import freeWarOnTerror.abClasses.Card;
+import static freeWarOnTerror.helpers.CardAlignment.AUTO;
+import static freeWarOnTerror.helpers.CardAlignment.JIHAD;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
 import java.util.ArrayList;
 
@@ -62,7 +64,7 @@ public class ActionReassessment extends Action {
 
         }
         Card target = (inputLoop(threeOps));
-        if (target.getAlignment() == 0 || target.getAlignment() == 3){
+        if (target.getAlignment() == AUTO || target.getAlignment() == JIHAD){
             playCard(target);
         }
         else {
