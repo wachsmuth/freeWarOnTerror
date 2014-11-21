@@ -22,6 +22,7 @@ package freeWarOnTerror.helpers;
  * @author Wengel
  */
 public enum Governance {
+    UNASSIGNED(0),
     GOOD(1),
     FAIR(2),
     POOR(3),

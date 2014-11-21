@@ -24,6 +24,7 @@ import static freeWarOnTerror.helpers.Governance.FAIR;
 import static freeWarOnTerror.helpers.Governance.GOOD;
 import static freeWarOnTerror.helpers.Governance.ISLAMISTRULE;
 import static freeWarOnTerror.helpers.Governance.POOR;
+import static freeWarOnTerror.helpers.Governance.UNASSIGNED;
 import java.util.Iterator;
 import java.util.List;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
@@ -42,7 +43,7 @@ public class MuslimCountry extends Country {
     private boolean besiegedRegime = false;
     private int regimeChange = 0; //0 is no change, 1 is tan change, 2 is green change
     private int aid = 0;
-    private Governance governance; //DEBUG WHY WE DONT GET THIS??
+    private Governance governance = UNASSIGNED; //DEBUG WHY WE DONT GET THIS??
     private Alignment alignment = NEUTRAL; //1 = Ally, 2 = Neutral, 3 = Adversary
 
     public MuslimCountry(CountryLookup c) {
