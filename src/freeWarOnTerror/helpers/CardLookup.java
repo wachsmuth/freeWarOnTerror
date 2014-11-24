@@ -78,7 +78,7 @@ public enum CardLookup {
     RENDITIONS,
     SAFERNOW("Safer Now", 3, USA, false, false),
     SISTANI("Sistani", 3, USA, false, false),
-    THEDOOROFITJIHADWASCLOSEDUS,
+    THEDOOROFITJIHADWASCLOSEDUS("The Door of Itjihad Was Closed", 3, USA, false, false),
     //Jihadist
     ADAMGADAHN,
     ALITTIHADALISLAMI("Al-Ittihad al-Islami", 1, JIHAD, true, false),

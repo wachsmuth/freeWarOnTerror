@@ -27,7 +27,7 @@ import freeWarOnTerror.helpers.CardLookup;
 public class TheDoorOfItjihadWasClosedUS extends Card {
     
     public TheDoorOfItjihadWasClosedUS(){
-        super("\"The Door of Itjihad Was Closed\"", 3, 2, false, false, CardLookup.THEDOOROFITJIHADWASCLOSEDUS);
+        super(CardLookup.THEDOOROFITJIHADWASCLOSEDUS);
     }
     
     @Override
