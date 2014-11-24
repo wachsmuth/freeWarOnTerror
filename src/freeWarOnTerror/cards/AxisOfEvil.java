@@ -22,7 +22,7 @@ import static freeWarOnTerror.Game.setPostureHard;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.helpers.CardLookup;
 import static freeWarOnTerror.helpers.CardLookup.HIZBALLAH;
-import static freeWarOnTerror.helpers.CardLookup.IRANCARD;
+import static freeWarOnTerror.helpers.CardLookup.IRAN;
 import static freeWarOnTerror.helpers.CardLookup.JAYSHALMAHDI;
 
 /**
@@ -38,7 +38,7 @@ public class AxisOfEvil extends Card {
     @Override
     public void playEvent(){
         getUS().discardSpecificCard(JAYSHALMAHDI);
-        getUS().discardSpecificCard(IRANCARD);
+        getUS().discardSpecificCard(IRAN);
         getUS().discardSpecificCard(HIZBALLAH);
         setPostureHard(true);
         rollPrestige();

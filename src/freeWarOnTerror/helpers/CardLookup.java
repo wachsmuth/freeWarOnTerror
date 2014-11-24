@@ -36,6 +36,7 @@ import static freeWarOnTerror.helpers.CountryLookup.YEMEN;
  */
 public enum CardLookup {
 //US
+//US
 
     BACKLASH("Backlash", 1, USA, false, false),
     BIOMETRICS("Biometrics", 1, USA, false, false),
@@ -135,7 +136,7 @@ public enum CardLookup {
     KOSOVO("Kosovo", 1, NEUTRAL, false, false),
     FORMERSOVIETUNION("Former Soviet Union", 2, NEUTRAL, false, false),
     HIZBALLAH,
-    IRANCARD,
+    IRAN,
     JAYSHALMAHDI,
     KURDISTAN,
     MUSHARRAF("Musharraf", 2, NEUTRAL, false, false),
