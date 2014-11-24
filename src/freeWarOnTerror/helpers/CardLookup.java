@@ -146,7 +146,7 @@ public enum CardLookup {
     BINLADIN("Bin Ladin", 3, NEUTRAL, false, false),
     DARFUR("Darfur", 3, NEUTRAL, false, false),
     GTMO("GTMO", 3, NEUTRAL, false, false),
-    HAMBALI,
+    HAMBALI("Hambali", 3, NEUTRAL, false, false),
     KSM,
     OILPRICESPIKE("Oil Price Spike", 3, NEUTRAL, false, false),
     SALEH("Saleh", 3, NEUTRAL, false, false),
