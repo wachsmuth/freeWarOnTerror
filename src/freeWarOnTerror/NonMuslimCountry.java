@@ -31,6 +31,9 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
         this.governance = c.getGovernance();
         this.recruit = c.getRecruit();
         this.schengen = c.isSchengen();
+        if (c.isMuslimCountry()){
+            throw new RuntimeException("Wrong countryLookup used in init");
+        } //Debug remove later
     }
 //--------------------------------GETTERS-------------------------------------------------------
 

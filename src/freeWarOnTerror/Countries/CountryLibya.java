@@ -31,6 +31,7 @@ public class CountryLibya extends MuslimCountry {
         super(c);
     }
     
+    @Override
     public boolean canRegimeChange(){
         return isCardInPlay(LIBYANWMD) || super.canRegimeChange();
     }

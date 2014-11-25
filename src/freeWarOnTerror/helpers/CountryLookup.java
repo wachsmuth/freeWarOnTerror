@@ -25,7 +25,7 @@ import static freeWarOnTerror.helpers.Governance.GOOD;
  */
 public enum CountryLookup {
 
-    UNITEDSTATES("United States"),
+    UNITEDSTATES("United States", GOOD, 1, false),
     CANADA("Canada", GOOD, 1, false),
     UNITEDKINGDOM("United Kingdom", GOOD, 3, false),
     SCANDINAVIA("Scandinavia", GOOD, 1, false),
@@ -38,7 +38,7 @@ public enum CountryLookup {
     SERBIA("Serbia", GOOD, 1, false),
     RUSSIA("Russia", FAIR, 2, false),
     CAUCASUS("Caucasus", FAIR, 2, false),
-    ISRAEL("Israel", 1),
+    ISRAEL("Israel", GOOD, 1, false),
     INDIA("India", GOOD, 1, false),
     CHINA("China", FAIR, 2, false),
     THAILAND("Thailand", FAIR, 2, false),
@@ -62,10 +62,10 @@ public enum CountryLookup {
     AFGHANISTAN("Afghanistan", 1, false, true),
     CENTRALASIA("Central Asia", 2, false, false),
     INDONESIA("Indonesia/Malaysia", 3, true, false),
-    IRAN("Iran")
+    IRAN("Iran", FAIR) //special constructor
     ;
     
-    private String name;
+    private final String name;
     private int resources;
     private boolean oilCountry;
     private boolean shiaMix;
@@ -79,18 +79,11 @@ public enum CountryLookup {
         return muslimCountry;
     }
     
-    private CountryLookup(String name, int DEBUG, int DEBUG2){
-        
-    } //Philipines
-    
-    private CountryLookup(String name, int DEBUG){
+   private CountryLookup(String name, Governance governance) {
         this.name = name;
-    }
-    
-    private CountryLookup(String name) {
-        this.name = name;
-        muslimCountry = false;
-    } //United states only
+        this.governance = governance;
+        muslimCountry = true;
+    } //Iran only
 
     private CountryLookup(String name, Governance governance, int recruit, boolean schengen) {
         this.name = name;

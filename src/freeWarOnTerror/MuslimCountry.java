@@ -51,6 +51,9 @@ public class MuslimCountry extends Country {
         this.resources = c.getResources();
         this.oilCountry = c.isOilCountry();
         this.shiaMix = c.isShiaMix();
+        if (!c.isMuslimCountry()){
+            throw new RuntimeException("Wrong countryLookup used in init");
+        } //Debug remove later
     }
 
 
