@@ -138,24 +138,23 @@ public abstract class Scenario {
             switch (c) {
                 case UNITEDSTATES:
                     countries.add(new CountryUSA(c));
-                    break;
+                    continue; //Skip to next country
                 case IRAN:
                     countries.add(new CountryIran(c));
-                    break;
+                    continue;
                 case PHILIPPINES:
                     countries.add(new CountryPhilippines(c));
-                    break;
+                    continue;
                 case ISRAEL:
                     countries.add(new CountryIsrael(c));
-                    break;
+                    continue;
                 case INDIA:
                     countries.add(new CountryIndia(c));
-                    break;
+                    continue;
                 case PAKISTAN:
                     countries.add(new CountryPakistan(c));
-                    break;
+                    continue;
             }
-            
             if (c.isMuslimCountry() == true) {
                 countries.add(new MuslimCountry(c));
             } else {
