@@ -137,17 +137,15 @@ public abstract class Player {
         return c;
     }
     
-    public void discardSpecificCard(CardLookup lookUp){
-        Card target = null;
+    public boolean discardSpecificCard(CardLookup lookUp){
+        boolean discards = false;
         for (Card c : getHand()){
             if (c.is(lookUp)){
-                target = c;
-                break;
+                discard(c);
+                discards = true;
             }
         }
-        if (target != null){
-            discard(target);
-        }
+        return discards;
     }
 
     public void chooseEventOrOps(Card c) {
