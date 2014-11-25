@@ -20,15 +20,16 @@ import static freeWarOnTerror.Game.isCardInPlay;
 import freeWarOnTerror.MuslimCountry;
 import static freeWarOnTerror.helpers.Alignment.ALLY;
 import static freeWarOnTerror.helpers.CardLookup.ALANBAR;
+import static freeWarOnTerror.helpers.CardLookup.IRAQIWMD;
 import freeWarOnTerror.helpers.CountryLookup;
 
 /**
  *
  * @author Emil
  */
-public class CountrySyria extends MuslimCountry {
+public class CountryIraq extends MuslimCountry {
 
-    public CountrySyria(CountryLookup c) {
+    public CountryIraq(CountryLookup c) {
         super(c);
     }
 
@@ -38,5 +39,10 @@ public class CountrySyria extends MuslimCountry {
             return hasCells() && getGovernance().getValue() <= ops && (hasTroops() || getAlignment() == ALLY);
         }
         return super.canDisrupt(ops);
+    }
+    
+    @Override
+    public boolean canRegimeChange(){
+        return isCardInPlay(IRAQIWMD) || super.canRegimeChange();
     }
 }
