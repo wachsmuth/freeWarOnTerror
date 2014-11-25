@@ -19,6 +19,7 @@ package freeWarOnTerror.cards;
 import freeWarOnTerror.Cell;
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.getCurrentPlayer;
+import static freeWarOnTerror.Game.getTrack;
 import static freeWarOnTerror.Game.getUS;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.NonMuslimCountry;
@@ -86,9 +87,10 @@ public class Hambali extends Card {
             inputLoop(eligibleCells).kill();
             getUS().draw();
             getUS().draw();
+            setRemoved(true);
         }
         else {
-            //DEBUG choose a country to place any plot in
+            inputLoop(eligibleCountries).placePlot(inputLoop(getTrack().getPlots()));
         }
     }
 }
