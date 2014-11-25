@@ -41,8 +41,8 @@ public class CountryIran extends freeWarOnTerror.abClasses.Country {
 
     @Override
     public boolean canDisrupt(int ops) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    } //Debug duno what t odo
+        return false;
+    } 
     
     @Override
     public String toString() {

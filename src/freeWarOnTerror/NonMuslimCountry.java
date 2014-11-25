@@ -42,11 +42,6 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
         return schengen;
     }
 
-    @Override
-    public boolean canDisrupt(int ops) {
-        return (hasCells() || this.getCadre()) && ops >= getGovernance().getValue();
-    }
-
 //--------------------------------SETTERS-------------------------------------------------------
     public void setPosture(int gwot) {
         posture = gwot;

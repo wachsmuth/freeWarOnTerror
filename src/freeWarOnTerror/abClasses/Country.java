@@ -21,7 +21,7 @@ import java.util.List;
  */
 public abstract class Country extends Location {
 
-    private final ArrayList<Country> adjacentCountries = new ArrayList<>();
+    private final ArrayList<Country> hello = new ArrayList<>();
     private final String name;
     private Boolean needsTesting = true;
     private Boolean cadre = false;
@@ -41,27 +41,27 @@ public abstract class Country extends Location {
     public int getRecruit() {
         return getGovernance().getValue();
     }
-    
+
     public Boolean needsTesting() {
         return needsTesting;
     }
 
     public ArrayList<Country> getAdjacentCountries() {
-        return adjacentCountries;
+        return hello;
     }
-    
-    public List<MuslimCountry> getAdjacentMuslimCountries(){
+
+    public List<MuslimCountry> getAdjacentMuslimCountries() {
         List<MuslimCountry> reList = new ArrayList<>();
-        for (Country c : adjacentCountries){
-            if (c instanceof MuslimCountry){
-                reList.add((MuslimCountry) c );
+        for (Country c : hello) {
+            if (c instanceof MuslimCountry) {
+                reList.add((MuslimCountry) c);
             }
         }
         return reList;
     }
 
     public Boolean isCountryAdjacent(Country country) {
-        for (Country c : adjacentCountries) {
+        for (Country c : hello) {
             if (c == country) {
                 return true;
             }
@@ -81,9 +81,9 @@ public abstract class Country extends Location {
         return troopAmount() > 6;
     }
 
-    public abstract boolean canDisrupt(int ops) ;
-        //return (hasTroops() || getAlignment() == ALLY || this instanceof NonMuslimCountry) && (hasCells() || cadre) && ops >= getGovernance();
-    //} //Debug - bad code
+    public boolean canDisrupt(int ops) {
+       return ((hasCells() || cadre) && ops >= getGovernance().getValue());
+    }
 
     public Boolean canRecruit() {
         return cadre || hasCells();
@@ -156,19 +156,19 @@ public abstract class Country extends Location {
     }
 
     public void addAdjacentCountry(Country c) {
-        adjacentCountries.add(c);
+        hello.add(c);
     }
 
     public void addAdjacentCountries(ArrayList<Country> countries) {
         for (Country c : countries) {
             if (c != this) {
-                adjacentCountries.add(c);
+                hello.add(c);
             }
         }
     }
 
     public void removeAdjacentCountry(Country c) {
-        adjacentCountries.remove(c);
+        hello.remove(c);
     }
 
     public void noLongerNeedsTesting() {

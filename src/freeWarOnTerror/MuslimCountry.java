@@ -77,7 +77,7 @@ public class MuslimCountry extends Country {
     }
     @Override
     public boolean canDisrupt(int ops){
-        return hasTroops() || getAlignment() == ALLY; //debug check
+        return (hasTroops() || getAlignment() == ALLY) && super.canDisrupt(ops);
     }
 
 //--------------------------------SETTERS-------------------------------------------------------
