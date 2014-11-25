@@ -121,7 +121,7 @@ public class MuslimCountry extends Country {
         }
     }
 
-    public void shiftGovernance(int change) {
+    public void shiftGovernance(int change) { //DEPRECATED
         throw new NotImplementedException(); //DEBUG FIX
         /*if (governance != ISLAMISTRULE) {
             setGovernance(governance + change);
@@ -131,6 +131,24 @@ public class MuslimCountry extends Country {
                 setGovernance(3);
             }
         }*/
+    }
+    
+    public void improveGovernance(){
+        if (getGovernance() == POOR){
+            setGovernance(FAIR);
+        }
+        else if (getGovernance() == FAIR){
+            setGovernance(GOOD);
+        }
+    }
+    
+    public void worsenGovernance(){
+        if (getGovernance() == GOOD){
+            setGovernance(FAIR);
+        }
+        else if (getGovernance() == FAIR){
+            setGovernance(POOR);
+        }
     }
 
     public void setBesiegedRegime(Boolean bool) {
