@@ -104,7 +104,7 @@ public enum CardLookup {
     ISLAMICJIHADUNION,
     JEMAAHISLAMIYA("Jemaah Islamiya", 2, JIHAD, false, false),
     KAZAKHSTRAIN,
-    LASHKARETAYYIBA,
+    LASHKARETAYYIBA("Lashkar-e-Tayyiba", 2, JIHAD, false, false),
     LOOSENUKE,
     OPIUM("Opium", 2, JIHAD, false, false),
     PIRATES("Pirates", 2, JIHAD, true, true, YEMEN, SOMALIA),
