@@ -110,7 +110,7 @@ public class MuslimCountry extends Country {
         noLongerNeedsTesting();
     }
 
-    public void shiftAlignment(int change) {
+    public void shiftAlignment(int change) { //DEPRECATED
             //Check boundaries.
             if (alignment.id()+change < 1){
                 this.alignment = Alignment.ALLY;
@@ -118,6 +118,24 @@ public class MuslimCountry extends Country {
                 this.alignment = Alignment.ADVERSARY;
             } else {
                 alignment = alignment.values()[alignment.id()+change];
+        }
+    }
+    
+    public void shiftTowardsAlly(){
+        if (getAlignment() == NEUTRAL){
+            setAlignment(ALLY);
+        }
+        else if (getAlignment() == ADVERSARY){
+            setAlignment(NEUTRAL);
+        }
+    }
+    
+    public void shiftTowardsAdversary(){
+        if (getAlignment() == NEUTRAL){
+            setAlignment(ADVERSARY);
+        }
+        else if (getAlignment() == ALLY){
+            setAlignment(NEUTRAL);
         }
     }
 
