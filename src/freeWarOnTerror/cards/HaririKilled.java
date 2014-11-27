@@ -38,6 +38,6 @@ public class HaririKilled extends Card {
         getCountry(CountryLookup.LEBANON).testCountry();
         MuslimCountry syria = (MuslimCountry) getCountry(CountryLookup.SYRIA);
         syria.setAlignment(ADVERSARY);
-        syria.shiftGovernance(1);
+        syria.worsenGovernance();
     }
 }

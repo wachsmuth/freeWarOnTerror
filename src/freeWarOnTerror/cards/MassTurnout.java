@@ -55,6 +55,6 @@ public class MassTurnout extends Card {
         else {
             targetCountry = (MuslimCountry) inputLoop("Pick a regime change country to improve governance in", regimeChangeCountries);
         }
-        targetCountry.shiftGovernance(-1);
+        targetCountry.improveGovernance();
     }
 }

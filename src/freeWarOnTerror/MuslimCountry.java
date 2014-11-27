@@ -138,18 +138,6 @@ public class MuslimCountry extends Country {
             setAlignment(NEUTRAL);
         }
     }
-
-    public void shiftGovernance(int change) { //DEPRECATED
-        throw new NotImplementedException(); //DEBUG FIX
-        /*if (governance != ISLAMISTRULE) {
-            setGovernance(governance + change);
-            if (governance < 1) {
-                setGovernance(1);
-            } else if (governance > 3) {
-                setGovernance(3);
-            }
-        }*/
-    }
     
     public void improveGovernance(){
         if (getGovernance() == POOR){
@@ -258,7 +246,7 @@ public class MuslimCountry extends Country {
     }
 
     private void minorJihad() {
-        shiftGovernance(1);
+        worsenGovernance();
         removeAid(1);
     }
 
@@ -321,8 +309,8 @@ public class MuslimCountry extends Country {
         } else if (dieRoll > 4) {
             if (alignment == Alignment.NEUTRAL) {
                 setAlignment(ALLY);
-            } else if (alignment == ADVERSARY) {
-                shiftGovernance(-1);
+            } else if (alignment == ALLY) {
+                improveGovernance();
                 if (governance == GOOD) {
                     regimeChange = 0;
                     aid = 0;
