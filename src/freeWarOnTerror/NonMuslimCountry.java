@@ -8,6 +8,10 @@ import freeWarOnTerror.helpers.CountryLookup;
 import freeWarOnTerror.helpers.Die;
 import freeWarOnTerror.helpers.Governance;
 import static freeWarOnTerror.helpers.Governance.GOOD;
+import freeWarOnTerror.helpers.Posture;
+import static freeWarOnTerror.helpers.Posture.HARD;
+import static freeWarOnTerror.helpers.Posture.SOFT;
+import static freeWarOnTerror.helpers.Posture.UNASSIGNED;
 import java.util.Iterator;
 
 /*
@@ -22,9 +26,9 @@ import java.util.Iterator;
 public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
 
     private final Governance governance;
-    private int posture = 0; //soft = -1, hard = 1
     private final int recruit;
     private final Boolean schengen;
+    private Posture posture = UNASSIGNED;
 
     public NonMuslimCountry(CountryLookup c) {
         super(c);
@@ -37,7 +41,7 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
     }
 //--------------------------------GETTERS-------------------------------------------------------
 
-    public int getPosture() {
+    public Posture getPosture() {
         return posture;
     }
 
@@ -46,16 +50,16 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
     }
 
 //--------------------------------SETTERS-------------------------------------------------------
-    public void setPosture(int gwot) {
-        posture = gwot;
+    public void setPosture(Posture posture) {
+        this.posture = posture;
         noLongerNeedsTesting();
     }
 
     public void rollPosture() {
         if (4 >= Die.rollDie()) {
-            posture = -1;
+            posture = SOFT;
         } else {
-            posture = 1;
+            posture = HARD;
         }
         noLongerNeedsTesting();
     }
@@ -87,9 +91,9 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
     @Override
     public void warOfIdeas() {
         rollPosture();
-        if (isPostureHard() && posture == 1) {
+        if (isPostureHard() && posture == HARD) {
             modifyPrestige(1);
-        } else if (!isPostureHard() && posture == -1) {
+        } else if (!isPostureHard() && posture == SOFT) {
             modifyPrestige(1);
         }
 
@@ -144,7 +148,7 @@ public class NonMuslimCountry extends freeWarOnTerror.abClasses.Country {
         string += " ";
         if (needsTesting()) {
             string += "Untested";
-        } else if (posture == 1) {
+        } else if (posture == HARD) {
             string += "Hard";
         } else {
             string += "Soft";

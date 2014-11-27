@@ -27,6 +27,7 @@ import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.CardLookup.ALANBAR;
 import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
+import static freeWarOnTerror.helpers.Posture.HARD;
 import java.util.ArrayList;
 
 /**
@@ -68,7 +69,7 @@ public class ActionDisrupt extends Action {
       
         } else if (targetCountry instanceof NonMuslimCountry) {
             NonMuslimCountry tc = (NonMuslimCountry) targetCountry;
-            if (tc.getPosture() == 1) {
+            if (tc.getPosture() == HARD) {
                 iterations = 2;
             }
         }

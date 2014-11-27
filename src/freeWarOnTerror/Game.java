@@ -35,6 +35,8 @@ import static freeWarOnTerror.helpers.Governance.FAIR;
 import static freeWarOnTerror.helpers.Governance.GOOD;
 import static freeWarOnTerror.helpers.Governance.ISLAMISTRULE;
 import static freeWarOnTerror.helpers.Governance.POOR;
+import static freeWarOnTerror.helpers.Posture.HARD;
+import static freeWarOnTerror.helpers.Posture.SOFT;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -142,7 +144,7 @@ public class Game {
 
     public static boolean isPostureHard() {
         NonMuslimCountry usa = (NonMuslimCountry) getCountry(CountryLookup.UNITEDSTATES);
-        return usa.getPosture() == 1;
+        return usa.getPosture() == HARD;
     }
 
     public static List<Player> getPlayers() {
@@ -261,9 +263,9 @@ public class Game {
     public static void setPostureHard(boolean posture) {
         NonMuslimCountry usa = (NonMuslimCountry) getCountry(CountryLookup.UNITEDSTATES);
         if (posture) {
-            usa.setPosture(1);
+            usa.setPosture(HARD);
         } else {
-            usa.setPosture(-1);
+            usa.setPosture(SOFT);
         }
     }
 
@@ -300,7 +302,12 @@ public class Game {
             if (c instanceof CountryUSA) {
                 continue;
             }
-            calcValue += c.getPosture();
+            else if (c.getPosture() == HARD){
+                calcValue++;
+            }
+            else if (c.getPosture() == SOFT){
+                calcValue--;
+            }
         }
         globalPosture = calcValue;
     }

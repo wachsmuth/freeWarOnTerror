@@ -24,6 +24,8 @@ import freeWarOnTerror.Plot;
 import static freeWarOnTerror.helpers.CONSTANTS.WMD;
 import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.Die.rollDie;
+import static freeWarOnTerror.helpers.Posture.HARD;
+import static freeWarOnTerror.helpers.Posture.SOFT;
 
 /**
  *
@@ -57,9 +59,9 @@ public class CountryUSA extends NonMuslimCountry {
     @Override
     public void rollPosture() {
         if (rollDie() > 3) {
-            setPosture(1);
+            setPosture(HARD);
         } else {
-            setPosture(-1);
+            setPosture(SOFT);
         }
     }
 

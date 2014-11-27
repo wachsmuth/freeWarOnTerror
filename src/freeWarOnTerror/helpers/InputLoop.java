@@ -20,6 +20,8 @@ import freeWarOnTerror.Game;
 import static freeWarOnTerror.Game.getCountry;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Country;
+import static freeWarOnTerror.helpers.Posture.HARD;
+import static freeWarOnTerror.helpers.Posture.SOFT;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -150,10 +152,10 @@ public class InputLoop {
         int input = inputLoop("Select " + country.getName() + "'s posture", "hard", "soft");
         NonMuslimCountry c = (NonMuslimCountry) country;
         if (input == 1){
-            c.setPosture(1);
+            c.setPosture(HARD);
         }
         else {
-            c.setPosture(-1);
+            c.setPosture(SOFT);
         }
     }
 }

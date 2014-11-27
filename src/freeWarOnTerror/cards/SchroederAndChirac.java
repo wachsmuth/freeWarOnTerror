@@ -23,6 +23,7 @@ import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.Posture.SOFT;
 
 /**
  *
@@ -38,8 +39,8 @@ public class SchroederAndChirac extends Card {
     public void playEvent() {
         NonMuslimCountry france = (NonMuslimCountry) getCountry(CountryLookup.FRANCE);
         NonMuslimCountry germany = (NonMuslimCountry) getCountry(CountryLookup.GERMANY);
-        france.setPosture(-1);
-        germany.setPosture(-1);
+        france.setPosture(SOFT);
+        germany.setPosture(SOFT);
         modifyPrestige(-1);
     }
     

@@ -30,6 +30,7 @@ import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.CountryLookup.INDONESIA;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
+import static freeWarOnTerror.helpers.Posture.HARD;
 import java.util.ArrayList;
 
 /**
@@ -60,7 +61,7 @@ public class Hambali extends Card {
             if (c instanceof MuslimCountry) {
                 return ((MuslimCountry) c).getAlignment() == ALLY;
             } else if (c instanceof NonMuslimCountry) {
-                return ((NonMuslimCountry) c).getPosture() == 1;
+                return ((NonMuslimCountry) c).getPosture() == HARD;
             }
         }
         return false;

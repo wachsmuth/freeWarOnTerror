@@ -24,6 +24,8 @@ import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.InputLoop.inputLoop;
+import static freeWarOnTerror.helpers.Posture.HARD;
+import static freeWarOnTerror.helpers.Posture.SOFT;
 
 /**
  *
@@ -45,10 +47,10 @@ public class ExKGB extends Card{
             if (input == 1){
                 NonMuslimCountry caucasus = (NonMuslimCountry) getCountry(CountryLookup.CAUCASUS);
                 if (isPostureHard()){
-                    caucasus.setPosture(-1);
+                    caucasus.setPosture(SOFT);
                 }
                 else {
-                    caucasus.setPosture(1);
+                    caucasus.setPosture(HARD);
                 }
             }
             else {      

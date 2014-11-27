@@ -23,6 +23,8 @@ import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.Posture.HARD;
+import static freeWarOnTerror.helpers.Posture.SOFT;
 
 /**
  *
@@ -39,10 +41,10 @@ public class Kosovo extends Card {
         modifyPrestige(1);
         NonMuslimCountry serbia = (NonMuslimCountry) Game.getCountry(CountryLookup.SERBIA);
         if (isPostureHard()) {
-            serbia.setPosture(-1);
+            serbia.setPosture(SOFT);
         }
         else {
-            serbia.setPosture(1);
+            serbia.setPosture(HARD);
         }
     }
 }

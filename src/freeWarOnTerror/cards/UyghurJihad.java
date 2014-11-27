@@ -22,6 +22,7 @@ import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.Posture.HARD;
 
 /**
  *
@@ -37,7 +38,7 @@ public class UyghurJihad extends Card {
     public void playEvent(){
         NonMuslimCountry china = (NonMuslimCountry) getCountry(CountryLookup.CHINA);
         china.testCountry();
-        if (china.getPosture() == 1){
+        if (china.getPosture() == HARD){
             placeCell(getCountry(CountryLookup.CENTRALASIA));
         }
         else {

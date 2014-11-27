@@ -12,6 +12,7 @@ import freeWarOnTerror.NonMuslimCountry;
 import static freeWarOnTerror.helpers.CardLookup.ABBAS;
 import freeWarOnTerror.helpers.CountryLookup;
 import static freeWarOnTerror.helpers.Die.rollDie;
+import static freeWarOnTerror.helpers.Posture.HARD;
 
 /**
  *
@@ -22,14 +23,14 @@ public class CountryIsrael extends NonMuslimCountry {
     public CountryIsrael(CountryLookup c){
         super(c);
         noLongerNeedsTesting();
-        setPosture(1);
+        setPosture(HARD);
     }
 
 
     
     @Override
     public void rollPosture(){
-        setPosture(1);
+        setPosture(HARD);
     }
     
     @Override
