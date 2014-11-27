@@ -18,12 +18,13 @@ package freeWarOnTerror.cards;
 
 import static freeWarOnTerror.Game.getCountry;
 import static freeWarOnTerror.Game.modifyPrestige;
-import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.MuslimCountry;
 import freeWarOnTerror.abClasses.Card;
 import freeWarOnTerror.helpers.CardLookup;
 import freeWarOnTerror.helpers.CountryLookup;
+import static freeWarOnTerror.helpers.CountryLookup.PAKISTAN;
 import static freeWarOnTerror.helpers.Governance.ISLAMISTRULE;
+import static freeWarOnTerror.helpers.InputLoop.placeCellsInTwoCountries;
 
 /**
  *
@@ -39,9 +40,8 @@ public class Taliban extends Card {
     public void playEvent(){
         MuslimCountry afgha = (MuslimCountry) getCountry(CountryLookup.AFGHANISTAN);
         afgha.setBesiegedRegime(true);
-        placeCell(afgha);
-        placeCell(afgha);
-        if (getCountry(CountryLookup.PAKISTAN).getGovernance() == ISLAMISTRULE || getCountry(CountryLookup.PAKISTAN).getGovernance() == ISLAMISTRULE){
+        placeCellsInTwoCountries(afgha,getCountry(PAKISTAN));
+        if (getCountry(PAKISTAN).getGovernance() == ISLAMISTRULE || getCountry(CountryLookup.PAKISTAN).getGovernance() == ISLAMISTRULE){
             modifyPrestige(-3);
         }
         else {

@@ -18,6 +18,8 @@ package freeWarOnTerror.helpers;
 
 import freeWarOnTerror.Game;
 import static freeWarOnTerror.Game.getCountry;
+import static freeWarOnTerror.Game.getTrack;
+import static freeWarOnTerror.Game.placeCell;
 import freeWarOnTerror.NonMuslimCountry;
 import freeWarOnTerror.abClasses.Country;
 import static freeWarOnTerror.helpers.Posture.HARD;
@@ -143,19 +145,33 @@ public class InputLoop {
             }
         }
     }
-    
-    public static void setCountryPosture(CountryLookup country){
+
+    public static void setCountryPosture(CountryLookup country) {
         setCountryPosture(getCountry(country));
     }
-    
-    public static void setCountryPosture(Country country){
+
+    public static void setCountryPosture(Country country) {
         int input = inputLoop("Select " + country.getName() + "'s posture", "hard", "soft");
         NonMuslimCountry c = (NonMuslimCountry) country;
-        if (input == 1){
+        if (input == 1) {
             c.setPosture(HARD);
+        } else {
+            c.setPosture(SOFT);
+        }
+    }
+
+    public static void placeCellsInTwoCountries(Country c1, Country c2) {
+        if (getTrack().cellAmount() == 1) {
+            int input = inputLoop("Select which country to place a cell in", c1.getName(), c2.getName());
+            if (input == 1) {
+                placeCell(c1);
+            } else {
+                placeCell(c2);
+            }
         }
         else {
-            c.setPosture(SOFT);
+            placeCell(c1);
+            placeCell(c2);
         }
     }
 }
