@@ -101,7 +101,7 @@ public enum CardLookup {
     HARIRIKILLED("Hariri Killed", 2, JIHAD, true, false),
     HEU,
     HOMEGROWN("Homegrown", 2, JIHAD, false, false),
-    ISLAMICJIHADUNION,
+    ISLAMICJIHADUNION("Islamic Jihad Union", 2, JIHAD, true, false),
     JEMAAHISLAMIYA("Jemaah Islamiya", 2, JIHAD, false, false),
     KAZAKHSTRAIN,
     LASHKARETAYYIBA("Lashkar-e-Tayyiba", 2, JIHAD, false, false),
