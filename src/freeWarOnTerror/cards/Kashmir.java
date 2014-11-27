@@ -43,7 +43,7 @@ public class Kashmir extends Card {
     @Override
     public void playEvent(){
         MuslimCountry pakistan = (MuslimCountry) getCountry(CountryLookup.PAKISTAN);
-        pakistan.shiftAlignment(1);
+        pakistan.shiftTowardsAdversary();
         placeCell(pakistan);
     }
 }

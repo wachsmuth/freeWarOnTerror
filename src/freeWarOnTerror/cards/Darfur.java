@@ -39,11 +39,11 @@ public class Darfur extends Card {
         sudan.testCountry();
         if (getPrestige() > 6){
             sudan.addAid();
-            sudan.shiftAlignment(-1);
+            sudan.shiftTowardsAlly();
         }
         else if (getPrestige() < 4){
             sudan.setBesiegedRegime(true);
-            sudan.shiftAlignment(1);
+            sudan.shiftTowardsAdversary();
         }
     }
 }

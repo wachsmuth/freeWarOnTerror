@@ -60,6 +60,6 @@ public class AlJazeera extends Card {
             }
         }
         System.out.println("Choose a country to shift alignment of");
-        ((MuslimCountry) inputLoop(eligibleCountries)).shiftAlignment(1);
+        ((MuslimCountry) inputLoop(eligibleCountries)).shiftTowardsAdversary();
     }
 }

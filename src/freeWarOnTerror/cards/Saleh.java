@@ -46,7 +46,7 @@ public class Saleh extends Card {
             yemen.addAid();
         }
         else if(getCurrentPlayer() == getJihadist()){
-            yemen.shiftAlignment(1);
+            yemen.shiftTowardsAdversary();
             yemen.setBesiegedRegime(true);
         }
     }

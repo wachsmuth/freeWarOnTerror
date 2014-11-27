@@ -52,9 +52,9 @@ public class ExKGB extends Card{
                 }
             }
             else {      
-                MuslimCountry CENTRALASIA = (MuslimCountry) getCountry(CountryLookup.CENTRALASIA);
-                CENTRALASIA.testCountry();
-                CENTRALASIA.shiftAlignment(1);
+                MuslimCountry centralAsia = (MuslimCountry) getCountry(CountryLookup.CENTRALASIA);
+                centralAsia.testCountry();
+                centralAsia.shiftTowardsAdversary();
             }
         }
     }
