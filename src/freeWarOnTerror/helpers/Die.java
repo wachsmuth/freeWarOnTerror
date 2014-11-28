@@ -6,6 +6,7 @@
 package freeWarOnTerror.helpers;
 
 import freeWarOnTerror.abClasses.Country;
+import static freeWarOnTerror.helpers.Governance.ISLAMISTRULE;
 
 /**
  *
@@ -18,6 +19,9 @@ public class Die {
     }
     
     public static boolean rollLessThanGovernance(Country c){
+        if (c.getGovernance() == ISLAMISTRULE){
+            return true;
+        }
         return (rollDie() < c.getGovernance().getValue());
     }
 
