@@ -135,7 +135,7 @@ public enum CardLookup {
     HIZBUTTAHRIR("Hizb Ut-Tahrir", 1, NEUTRAL, false, false),
     KOSOVO("Kosovo", 1, NEUTRAL, false, false),
     FORMERSOVIETUNION("Former Soviet Union", 2, NEUTRAL, false, false),
-    HIZBALLAH,
+    HIZBALLAH("Hizballah", 2, NEUTRAL, false, false),
     IRAN,
     JAYSHALMAHDI,
     KURDISTAN,
