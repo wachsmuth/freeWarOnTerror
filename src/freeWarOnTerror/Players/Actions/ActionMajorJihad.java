@@ -47,7 +47,6 @@ public class ActionMajorJihad extends Action {
     
     @Override
     public void performAction(Card c) {
-        List<MuslimCountry> targetCountries = new ArrayList<>();
             List<MuslimCountry> eligibles = new ArrayList<>();
             for (MuslimCountry country : getMuslimCountries()) {
                 if (country.canMajorJihad(c.getOps())) {
