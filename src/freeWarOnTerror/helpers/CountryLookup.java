@@ -73,7 +73,7 @@ public enum CountryLookup {
     private Governance governance;
     private int alignment;
     private int recruit;
-    private boolean muslimCountry;
+    private final boolean muslimCountry;
 
     public boolean isMuslimCountry() {
         return muslimCountry;
