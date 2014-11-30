@@ -16,14 +16,14 @@ import freeWarOnTerror.helpers.CountryLookup;
 public abstract class Card {
 
     private final int ops;
-    private CardAlignment alignment; //0 is Automatic Event, 1 is Neutral, 2 is US, 3 is Jihadist
+    private final CardAlignment alignment; //0 is Automatic Event, 1 is Neutral, 2 is US, 3 is Jihadist
     private Boolean removedAfterPlay;
     private final String name;
     private final int id;
     private final boolean mark;
     private final CountryLookup[] countries;
     private int reserves = 0;
-    private CardLookup cardLookup;
+    private final CardLookup cardLookup;
 
     public Card(CardLookup c){
         this.name = c.getName();

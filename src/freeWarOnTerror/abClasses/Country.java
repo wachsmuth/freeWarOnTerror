@@ -174,13 +174,13 @@ public abstract class Country extends Location {
     public void noLongerNeedsTesting() {
         needsTesting = false;
     }
-
+/*
     public void killCell() { //this method not finished
         Boolean activeCells = false;
         Cell anActiveCell = null;
         if (activeCells) {
         }
-    }
+    } */
 
     public void killAllCells() {
         if (hasCells()) {
