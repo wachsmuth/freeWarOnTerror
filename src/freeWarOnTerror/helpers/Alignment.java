@@ -26,7 +26,7 @@ public enum Alignment {
     NEUTRAL(2),
     ADVERSARY(3);
     
-    private int value;
+    private final int value;
     
     private Alignment(int n){
         this.value = n;
