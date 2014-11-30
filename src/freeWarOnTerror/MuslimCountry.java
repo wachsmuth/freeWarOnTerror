@@ -27,7 +27,6 @@ import static freeWarOnTerror.helpers.Governance.POOR;
 import static freeWarOnTerror.helpers.Governance.UNASSIGNED;
 import java.util.Iterator;
 import java.util.List;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  *
