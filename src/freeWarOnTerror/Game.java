@@ -58,7 +58,7 @@ public class Game {
     private static int goodFairCountries = 0;
     private static int poorIslamistCountries = 0;
     private static Turn currentTurn;
-    private static List<Turn> turnList = new ArrayList<>();
+    private static final List<Turn> turnList = new ArrayList<>();
     private static final List<Cell> cells = new ArrayList<>();
     private static final ArrayList<String> persistentEffects = new ArrayList<>();
     private static final ArrayList<Card> markedEvents = new ArrayList<>();
