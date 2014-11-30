@@ -45,7 +45,7 @@ public class Menu {
         } else if (i == 4)  {
             chooseVariants();
         } else {
-            System.exit(0);
+            mainMenu();
         }
     }
 
