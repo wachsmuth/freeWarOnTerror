@@ -55,7 +55,7 @@ public class ActionPlot extends Action {
     public void performAction(Card c){
         for (int i = 0; i < c.getOps(); i++){
             List<Country> eligibleCountries = getEligibles();
-            if (eligibleCountries.size() == 0){
+            if (eligibleCountries.isEmpty()){
                 System.out.println("No more places to plot");
                 return;
             }
