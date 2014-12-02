@@ -51,7 +51,7 @@ public enum CardLookup {
     COVERTACTION("Covert Action", 2, USA, false, false),
     ETHIOPIASTRIKES("Ethiopia Strikes", 2, USA, true, false),
     EUROISLAM("Euro-Islam", 2, USA, true, false),
-    FSB,
+    FSB("FSB", 2, USA, false, false),
     INTELCOMMUNITY,
     KEMALISTREPUBLIC("Kemalist Republic", 2, USA, false, false),
     KINGABDULLAH("King Abdullah", 2, USA, true, false),
